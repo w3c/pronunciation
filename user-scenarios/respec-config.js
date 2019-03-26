@@ -63,6 +63,20 @@ var respecConfig = {
         company: "W3C",
         companyURI: "http://www.w3.org",
         w3cid: 100586
+      },
+        {
+        name: "Sam Kanta",
+        url: 'https://www.w3.org',
+        mailto: "sam.kanta@thesustainablechange.com"
+        
+      },
+        {
+        name: "Christine Loew",
+        url: 'https://www.w3.org',
+        mailto: "cloew@collegeboard.org",
+        company: "College Board",
+        companyURI: "http://www.collegeboard.org"
+        
       }
     ],
 
