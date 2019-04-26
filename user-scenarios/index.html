@@ -22,7 +22,7 @@
 
 			<h1>Introduction</h1>
      
-                        <p>As part of the Accessible Platform Architectures (APA) Working Group, the Pronunciation Task Force is a collaboration of subject matter experts working to identify and specify the optimal approach which can deliver reliably accurate pronunciation across browser and operating environments. With the introduction of the Kurzweil reading aid in 1976, to the more sophisticated synthetic speech currently used to assist communication as reading aides for the visually impaired and those with reading disabilities, the technology has multiple applications in education, communication, entertainment, etc. From helping to teach spelling and pronunciation in different languages, Text-to-Speech (TTS) has become a vital technology for providing access to digital content on the web and through mobile devices. 
+            <p>As part of the Accessible Platform Architectures (APA) Working Group, the Pronunciation Task Force is a collaboration of subject matter experts working to identify and specify the optimal approach which can deliver reliably accurate pronunciation across browser and operating environments. With the introduction of the Kurzweil reading aid in 1976, to the more sophisticated synthetic speech currently used to assist communication as reading aides for the visually impaired and those with reading disabilities, the technology has multiple applications in education, communication, entertainment, etc. From helping to teach spelling and pronunciation in different languages, Text-to-Speech (TTS) has become a vital technology for providing access to digital content on the web and through mobile devices. 
 			</p>
 			<p>The challenges that TTS introduces is the inability to accommodate regional variations and presentation of every phoneme present throughout the world. A number of markup languages have been established to address these language and pronunciation variations and make the content legible and meaningful.  The W3c recommendation, of the Speech Synthesis Markup Language (SSML), provides a promising approach that will be addressed through the Pronunciation Task Force. This document explores requirements based on examples of use cases and scenarios. </p>
 			
@@ -31,42 +31,53 @@
 		</section>
 		<section>
 			<h1>User Scenarios</h1>
-			<h2>Educational Assessment</h2>
-			<p>
-			As a test administrator, I want to ensure that students with the read aloud accommodation who are using assistive technology or speech synthesis as an alternative to a human reader, have the same speech quality (e.g., intonation, expression, pronunciation, and pace, etc.) as spoken language. 
-			</p>
-			<p>
-			As a test administrator, speech accuracy with mathematical expressions, including numbers, fractions, and operations can be difficult to pronounce. Some mathematical expressions required special pronunciations to prevent any violations to the test construct. 
-			</p>
-			<p>
-			As a test administrator/educator, pronunciations must be consistent across instruction and assessment, in order to avoid test bias or impact effects for students. 
-			</p>
-			<p>
-			As a test taker (tester) with a visual impairment who may use assistive technology to access the test content with speech software, screen reader or refreshable braille device, I want the content to be presented as intended, with accurate pronunciation and articulation, so that my assessment accurately reflects my knowledge of the content. 
-			</p>
+			<section>
+				<h2>Educational Assessment</h2>
+				<p>
+				As a test administrator, I want to ensure that students with the read aloud accommodation who are using assistive technology or speech synthesis as an alternative to a human reader, have the same speech quality (e.g., intonation, expression, pronunciation, and pace, etc.) as spoken language. 
+				</p>
+				<p>
+				As a test administrator, speech accuracy with mathematical expressions, including numbers, fractions, and operations can be difficult to pronounce. Some mathematical expressions required special pronunciations to prevent any violations to the test construct. 
+				</p>
+				<p>
+				As a test administrator/educator, pronunciations must be consistent across instruction and assessment, in order to avoid test bias or impact effects for students. 
+				</p>
+				<p>
+				As a test taker (tester) with a visual impairment who may use assistive technology to access the test content with speech software, screen reader or refreshable braille device, I want the content to be presented as intended, with accurate pronunciation and articulation, so that my assessment accurately reflects my knowledge of the content. 
+				</p>
+			</section>
+			<section>
 		
 			<h2>Education Publishing</h2>
 		        
 			<p>
 			As a content developer, I want to create content that can readily be delivered both assistive technology and can convey the correct meaning and ensure that screen readers render the right pronunciation based on the surrounding context.
-			</p> 
+			</p>
+			</section>
+			<section> 
 		
-			<h2>Educator/Paraprofessional</h2>
-			<p>As a special education teacher working with students with reading disabilities, I want the text rendered through a speech synthesizer to be grammatically and phonetically accurate for students whose acquisition of reading skills is closely related to memory and attention components.  The development of grammatical and phonological skills, or lack of, are also associated with the acquisition of written language skills.</p>
+				<h2>Educator/Paraprofessional</h2>
+				<p>As a special education teacher working with students with reading disabilities, I want the text rendered through a speech synthesizer to be grammatically and phonetically accurate for students whose acquisition of reading skills is closely related to memory and attention components.  The development of grammatical and phonological skills, or lack of, are also associated with the acquisition of written language skills.</p>
+
+			</section>
+			<section>
 			
-			<h2>Web/Digital Content Developer</h2>
-			<p>As a web content developer, I want a universal set of standards or best practices for proper pronunciation in HTML content when using text to speech (TTS) synthesis, so that I can reduce or eliminate the challenges that people with disabilities face when using ICT products and services, to access and ingest the content on the website. </p>
-			<p>As a web developer, I want to meet the needs of as many different audiences, those using assistive technology such as screen readers, refreshable braille, etc., without having to make significant trade-offs or “hacks” to the content, knowing that newer versions of the technology will require revisiting the work around. </p>
-			<p>As a web developer, I want a reliable method to guarantee that specific punctuation symbols or capitalization will be announced. The current practice of using an explicit label or description via aria-label/aria-labelledby/aria-describedby, is not dependable because it relies on the assistive technology's punctuation and pronunciation settings. </p>
-			<p>Thus, neither Live Regions nor ARIA labelling mechanisms should ever be relied upon to convey case sensitive or punctuation dependent information to Assistive Technology users.</p>
+				<h2>Web/Digital Content Developer</h2>
+				<p>As a web content developer, I want a universal set of standards or best practices for proper pronunciation in HTML content when using text to speech (TTS) synthesis, so that I can reduce or eliminate the challenges that people with disabilities face when using ICT products and services, to access and ingest the content on the website. </p>
+				<p>As a web developer, I want to meet the needs of as many different audiences, those using assistive technology such as screen readers, refreshable braille, etc., without having to make significant trade-offs or “hacks” to the content, knowing that newer versions of the technology will require revisiting the work around. </p>
+				<p>As a web developer, I want a reliable method to guarantee that specific punctuation symbols or capitalization will be announced. The current practice of using an explicit label or description via aria-label/aria-labelledby/aria-describedby, is not dependable because it relies on the assistive technology's punctuation and pronunciation settings. </p>
+				<p>Thus, neither Live Regions nor ARIA labelling mechanisms should ever be relied upon to convey case sensitive or punctuation dependent information to Assistive Technology users.</p>
+			</section>
+			<section>
 			
-			<h2>Linguists/Translators</h2>
-			<p>As a linguist, I want to map phonemes to synthesized voices. By having pronunciation standards, it can help bring older languages and texts back to life and more intelligible to a larger audience. Additionally, blind and low vision scholars, unable to read the texts, could assist with additional translations.</p>
-			<p>As a translator working with text that includes multiple languages, I want the identification of individual pieces of multi-lingual content to produce an accurate representation of the content for assistive technologies when they are parsed. In other words, it should be able to present the phonetically accurate synthesized speech. Assistive technologies can read the correct phonetic pronunciation when designed and coded properly. </p>
-			
-			<h2>Software Developer</h2>
-			<p>As a software developer, I want specifications and standards for dealing with pronunciation idiosyncrasies, across platforms, so that I can provide clean and accurate code which, in turn, helps assistive technologies and browser APIs communicate successfully with one another.</p>
-			
+				<h2>Linguists/Translators</h2>
+				<p>As a linguist, I want to map phonemes to synthesized voices. By having pronunciation standards, it can help bring older languages and texts back to life and more intelligible to a larger audience. Additionally, blind and low vision scholars, unable to read the texts, could assist with additional translations.</p>
+				<p>As a translator working with text that includes multiple languages, I want the identification of individual pieces of multi-lingual content to produce an accurate representation of the content for assistive technologies when they are parsed. In other words, it should be able to present the phonetically accurate synthesized speech. Assistive technologies can read the correct phonetic pronunciation when designed and coded properly. </p>
+			</section>
+			<section>
+				<h2>Software Developer</h2>
+				<p>As a software developer, I want specifications and standards for dealing with pronunciation idiosyncrasies, across platforms, so that I can provide clean and accurate code which, in turn, helps assistive technologies and browser APIs communicate successfully with one another.</p>
+			</section>
 		</section>
 
 		
