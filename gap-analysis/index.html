@@ -12,7 +12,7 @@
 </head>
 <body>
   <section id="abstract">
-    <p>This document is the Gap Analysis Review which presents requireed features of Spoken Text Pronunciation and Presentation and existing standards or specifications that support (or enable support) of those features. Gaps are defined when a
+    <p>This document is the Gap Analysis Review which presents required features of Spoken Text Pronunciation and Presentation and existing standards or specifications that may support (or enable support) of those features. Gaps are defined when a
     required feature does not have a corresponding method by which it can be authored in HTML.</p>
   </section>
   <section id="sotd"></section>
@@ -25,10 +25,217 @@
     "https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon Specification</a> (PLS). Both standards are directly consumed by a speech synthesis engine supporting those standards. While a PLS file reference may be authored in HTML
     <code>link rel</code>, there is no known update of method by assistive technologies. While there are technically methods to allow authors to inline SSML within HTML (using namespaces), such an approach has not been adopted, and anecdotal
     comments from browser and assistive technology vendors have suggested this is not a viable approach.</p>
-    <p>Cascading Style Sheets (CSS) Speech</p>
+    <p><a href="https://www.w3.org/TR/css3-speech/">CSS Speech Module</a> is a retired W3C Working Group Note that describes mechanism by which content authors may apply a variety of speech styling and presentation properties to HTML. This approach
+    has a variety of advantages but does not implement the full set of features required for pronunciation. <a href="https://www.w3.org/TR/css3-speech/#pronunciation">Section 16</a> of the Note specifically references the issue of pronunciation:</p>
+    <blockquote>
+      CSS does not specify how to define the pronunciation (expressed using a well-defined phonetic alphabet) of a particular piece of text within the markup document. A "phonemes" property was described in earlier drafts of this specification, but
+      objections were raised due to breaking the principle of separation between content and presentation (the "phonemes" authored within aural CSS stylesheets would have needed to be updated each time text changed within the markup document). The
+      "phonemes" functionality is therefore considered out-of-scope in CSS (the presentation layer) and should be addressed in the markup / content layer.
+    </blockquote>
+    <p>While a portion of CSS Speech was demonstrated by <a href="https://developer.apple.com/videos/play/wwdc2011/519/">Apple in 2011 on iOS with Safari and VoiceOver</a>, it is not presently supported on any platform with any Assistive Technology,
+    and work on the standard has itself been stopped by the CSS working group.</p>
+    <p>Efforts to address this need have been taken by both assessment technology vendors and the publishing community. Citing the need for pronunciation and presentation controls, the IMS Global Learning Consortium added the ability to author SSML
+    markup, specify PLS files, and reference CSS Speech properties to the Question Test Interoperability (QTI) <a href="https://www.imsglobal.org/apip/apipv1p0/APIP_QTI_v1p0.html">Accessible Portable Item Protocol</a> (APIP). In practice, QTI/APIP
+    authored content is transformed into HTML for rendering in web browsers. This leads to the dilemma that there is no standardized (and supported) method for inlining SSML in HTML, nor is there support for CSS Speech. This has led to the situation
+    where SSML is the primary authoring model, with assessment vendors implementing a custom method for adding the SSML (or SSML-like) features to HTML using non-standard or data attributes, with customized Read Aloud software consuming those
+    attributes for text to speech synthesis. Given the need to deliver accurate spoken presentation, often time non-standard approaches include mis-use of WAI-ARIA, and novel or contextually non-valid attributes (e.g., <code>label</code>). A
+    particular problem occurs when custom pronunciation is applied via a misuse of the <code>aria-label</code> attribute, which introduces a problem for screen reader users who also rely upon refreshable braille, and in which a hinted pronunciation
+    intended only for text to speech synthesizer also appears on the braille display.</p>
+    <p>The attribute model for adding pronunciation and presentation guidance for assistive technologies and text to speech synthesis has demonstrated traction by vendors trying to solve this need. It should be noted that many of the required
+    features are not well supported by a single attribute, as most follow the form of a presentation property / value pairing. Using multiple attributes to provide guidance to assistive technologies is not novel, as seen with WAI-ARIA where multiple
+    attributes may be applied to a single element, for example, <code>role</code> and <code>aria-checked</code>. The EPUB standard for digital publishing introduced a namespaced version of the SSML <code>phoneme</code> and <code>alphabet</code>
+    attributes enabling content authors to provide pronunciation guidance. Uptake by the publishing community has been limited, reportedly due to the lack of support in reading systems and Assistive technologies.</p>
+  </section>
+  <section>
+    <h1>Core Features for Pronunciation and Spoken Presentation</h1>
+    <p>The common pronunciation and presentation requirements from the educational domain can be broken down into the following main functions.</p>
+    <h2>Language</h2>
+    <h2>Voice Family / Gender</h2>
+    <h2>Phonetic Pronunciation of String Values</h2>
+    <p>In some cases words may need to have their phonetic pronunciation prescribed by the content author. This may occur when uncommon words (not supported by text to speech synthesizers), or in cases where word pronunciation will vary based on
+    context, and that context may not be correctly</p>
+    <h2>String Substitution</h2>
+    <p>There are cases where content that is visually presented may require replacement (substitution) with an alternate textual form to ensure correct pronunciation by text to speech synthesizers. In some cases phonetic pronunciation may be a
+    solution to this need.</p>
+    <h2>Rate / Pitch / Volume</h2>
+    <h2>Emphasis</h2>
+    <h2>Say As</h2>
+    <h3>Presentation of Numeric Values</h3>
+    <p>Precise control as to how numeric values should be spoken, which may not always be correctly determined by text to speech engines from context.&nbsp; Examples include speaking a number as individual digits, correct reading of year values, and
+    the correct speaking of ordinal and cardinal numbers.</p>
+    <h3>Presentation of String Values</h3>
+    <p>Precise control as to how string values should be spoken, which may not be determined correctly by text to speech synthesizers.</p>
+    <h2>Pausing</h2>
   </section>
   <section>
     <h1>Gap Analysis</h1>
+    <p>Based on the features defined in the prior section, the following table presents existing speech presentation standards, HTML features, and WAI-ARIA attributes that may offer a method to achieve the requirement for HTML authors.</p>
+    <table border="1"
+           cellpadding="2"
+           cellspacing="2"
+           width="100%">
+      <tbody>
+        <tr>
+          <th align="left"
+              valign="top">Requirement<br /></th>
+          <th valign="top">HTML<br /></th>
+          <th valign="top">WAI-ARIA<br /></th>
+          <th valign="top">PLS<br /></th>
+          <th valign="top">CSS Speech<br /></th>
+          <th valign="top">SSML<br /></th>
+        </tr>
+        <tr>
+          <th align="left"
+              valign="top">Language<br /></th>
+          <td align="center"
+              valign="top">Yes<br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top">Yes<br /></td>
+        </tr>
+        <tr>
+          <th align="left"
+              valign="top">Voice Family/Gender<br /></th>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top">Yes<br /></td>
+          <td align="center"
+              valign="top">Yes<br /></td>
+        </tr>
+        <tr>
+          <th align="left"
+              valign="top">Phonetic Pronunciation<br /></th>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top">Yes<br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top">Yes<br /></td>
+        </tr>
+        <tr>
+          <th align="left"
+              valign="top">Substitution<br /></th>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top">Partial<br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top">Yes<br /></td>
+        </tr>
+        <tr>
+          <th align="left"
+              valign="top">Rate/Pitch/Volume<br /></th>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top">Yes<br /></td>
+          <td align="center"
+              valign="top">Yes<br /></td>
+        </tr>
+        <tr>
+          <th align="left"
+              valign="top">Emphasis<br /></th>
+          <td align="center"
+              valign="top">Yes<br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top">Yes<br /></td>
+          <td align="center"
+              valign="top">Yes<br /></td>
+        </tr>
+        <tr>
+          <th align="left"
+              valign="top">Say As<br /></th>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top">Yes<br /></td>
+        </tr>
+        <tr>
+          <th align="left"
+              valign="top">Pausing<br /></th>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top"><br /></td>
+          <td align="center"
+              valign="top">Yes<br /></td>
+          <td align="center"
+              valign="top">Yes<br /></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>The following sections present the how they required features may or may not be met by existing standards.</p>
+    <h3>Language</h3>
+    <p>Allow content authors to specify the language of text contained within an element so that the TTS used for rendering will select the appropriate language for synthesis.<br /></p>
+    <h4>HTML</h4>
+    <p><code>lang</code> attribute can be applied to the document itself or to elements. (WCAG) (AT Supported: some)<br /></p>
+    <h4>SSML</h4><code>&lt;speak&gt;</code> In Paris, they pronounce it &lt;lang xml:lang="fr-FR"&gt;Paris&lt;/lang&gt; &lt;/speak&gt;
+    <h3>Voice Family/Gender</h3>
+    <p>Allow content authors to specify a specific TTS voice to be used to render text. For example, content which presents a dialog between two people, a woman and a man, the author may specify that a female voice be used for the woman's text and a
+    male voice be used for the man. Some platform TTS services may support a variety of voices, identified by a name, gender, or even age.</p>
+    <h4>CSS</h4>
+    <p><code>lang</code> attribute can be applied to the document itself or to elements. (WCAG) (AT Supported: some)<br /></p>
+    <h4>SSML</h4>
+    <h3>Phonetic Pronunciation</h3>
+    <p>Allow content authors to precisely specify the phonetic pronunciation of a word or phrase.</p>
+    <h4>PLS</h4>
+    <h4>SSML</h4>
+    <h3>Substitution</h3>
+    <p>Allow content authors to substitute a text string to be rendered by TTS instead of the actual text contained in an element.</p>
+    <h4>WAI-ARIA</h4>
+    <p>The <a href="https://www.w3.org/TR/wai-aria/#aria-label"><code>aria-label</code></a> and <a href="https://www.w3.org/TR/wai-aria/#aria-labelledby"><code>aria-labelledby</code></a> attribute can be used by an author to supply a text string
+    that will become the accessible name for the element upon which it is applied.&nbsp; This usage effectively provides a mechanism for performing text substition that is supported by screen reader, however is problematic for one significant
+    reason:&nbsp; for users who utilize screen readers to<br /></p>
+    <h4>SSML</h4>
+    <h3>Rate/Pitch/Volume</h3>
+    <p>Allow content authors to specify characteristics, such as rate, pitch, and/or volume of the TTS rendering of the text.</p>
+    <h4>CSS</h4>
+    <h4>SSML</h4>
+    <h3>Emphasis</h3>
+    <p>Allow content authors to specify that text content be spoken with emphasis, for example, louder and more slowly. This can be viewed as a simplification of the Rate/Pitch/Volume controls to reduce authoring complexity.</p>
+    <h4>HTML</h4>
+    <h4>CSS</h4>
+    <h4>SSML</h4>
+    <h3>Say As</h3>
+    <h4>CSS</h4>
+    <h4>SSML</h4>
+    <h3>Pausing</h3>
+    <h4>CSS</h4>
+    <h4>SSML</h4>
   </section>
   <div data-include="../common/acknowledgements.html"
        data-include-replace="true"
