@@ -1,44 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<title>Pronunciation Gap Analysis</title>
-		<meta charset="utf-8"/>
-		<script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove"></script>
-		
-		<script src="respec-config.js" class="remove"></script>
-
-	</head>
-	<body>
-
-		<section id="abstract">
-            
-            
-			<p>This document provides use cases </p>
-		</section>
-
-		<section id="sotd"></section>
-
-		<section class="informative" id="introduction">
-
-			<h1>Introduction</h1>
-     
-            <p>This document provides </p>
-			
-			
-
-		</section>
-		<section>
-			<h1>Use Cases and Requirements</h1>
-			<p></p>
-		</section>
-
-		
-
-
-
-		<div data-include="../common/acknowledgements.html" data-oninclude="fixIncludes" data-include-replace="true">Acknowledgements placeholder</div>
-
-
-
-	</body>
+<html lang="en"
+      xml:lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Pronunciation Gap Analysis</title>
+  <meta charset="utf-8" />
+  <script class="remove"
+        src="https://www.w3.org/Tools/respec/respec-w3c-common"></script>
+  <script class="remove"
+        src="respec-config.js"></script>
+</head>
+<body>
+  <section id="abstract">
+    <p>This document is the Gap Analysis Review which presents requireed features of Spoken Text Pronunciation and Presentation and existing standards or specifications that support (or enable support) of those features. Gaps are defined when a
+    required feature does not have a corresponding method by which it can be authored in HTML.</p>
+  </section>
+  <section id="sotd"></section>
+  <section class="informative"
+           id="introduction">
+    <h1>Introduction</h1>
+    <p>Accurate, consistent pronunciation and presentation of content spoken by text to speech synthesis (TTS) is an essential requirement in education and other domains. Organizations such as educational publishers and assessment vendors are
+    looking for a standards-based solution to enable authoring of spoken presentation guidance in HTML which can then be consumed by assistive technologies and other applications which utilize text to speech synthesis for rendering of content.</p>
+    <p>W3C has developed two standards pertaining to the presentation of speech synthesis that have reached recommendation status, <a href="https://www.w3.org/TR/speech-synthesis11/">Speech Synthesis Markup Language</a> (SSML) and the <a href=
+    "https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon Specification</a> (PLS). Both standards are directly consumed by a speech synthesis engine supporting those standards. While a PLS file reference may be authored in HTML
+    <code>link rel</code>, there is no known update of method by assistive technologies. While there are technically methods to allow authors to inline SSML within HTML (using namespaces), such an approach has not been adopted, and anecdotal
+    comments from browser and assistive technology vendors have suggested this is not a viable approach.</p>
+    <p>Cascading Style Sheets (CSS) Speech</p>
+  </section>
+  <section>
+    <h1>Gap Analysis</h1>
+  </section>
+  <div data-include="../common/acknowledgements.html"
+       data-include-replace="true"
+       data-oninclude="fixIncludes">
+    Acknowledgements placeholder
+  </div>
+</body>
 </html>
