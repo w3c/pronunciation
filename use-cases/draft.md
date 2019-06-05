@@ -1,87 +1,132 @@
 # Use Cases
 
-- [aria-details](#Use-Case-Aria-Details)
+- [data-ssml](#Use-Case-Data-SSML)
 
-## Use Case Aria-Details
+## Use Case `data-ssml`
 
 ### Name
-Aria-Details
+`data-ssml`
 
 ### Owner
 Paul Grenier
 
 ### Background and Current Practice
-As an existing attribute, [`aria-details`](https://www.w3.org/TR/wai-aria-1.1/#aria-details) could be used, with some conventions, to include pronunciation content.
+As an existing attribute, [`data-*`](https://html.spec.whatwg.org/multipage/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes) could be used, with some conventions, to include pronunciation content.
 
 ### Goal
 
 - Support repeated use within the page context
+- Support external file references
 - Reuse existing techniques without expanding specifications
 
 ### Target Audience
 
-- AT users
+- Hearing users
 
 ### Use Case Scenario
 
-#### SSML in Aria-Details
+#### SSML in `data-ssml`
 
-When an element with [`aria-details`](https://www.w3.org/TR/wai-aria-1.1/#aria-details) is encountered by an [SSML](https://www.w3.org/TR/speech-synthesis11/)-aware AT, the AT should replace the text content of the referenced SSML with the text content of the referencing element and parse the SSML for speech synthesis passing instructions to the [Web Speech API](https://w3c.github.io/speech-api/).
+When an element with [`data-ssml`](https://www.w3.org/TR/wai-aria-1.1/#aria-details) is encountered by an [SSML](https://www.w3.org/TR/speech-synthesis11/)-aware AT, the AT should enhance the user interface by processing the referenced SSML content and passing it to the [Web Speech API](https://w3c.github.io/speech-api/) or an external API (e.g., [Google's Text to Speech API](https://cloud.google.com/text-to-speech/)).
+
+
+#### Implementation Options
+
+- `data-ssml` as embedded JSON
 
 ```html
-<p>
-  You say, <span aria-details="pecan1">pecan</span>.
-  I say, <span aria-details="pecan2">pecan</span>.
-</p>
-<div>
-  <speak>
-    <phoneme id="pecan1" alphabet="ipa" ph="pɪˈkɑːn"></phoneme>
-    <phoneme id="pecan2" alphabet="ipa" ph="ˈpi.kæn"></phoneme>
-  </speak>
-</div>
+I say <span data-ssml='{"phoneme":{"ph":"pɪˈkɑːn","alphabet":"ipa"}}'>pecan</span>.
+You say <span data-ssml='{"phoneme":{"ph":"ˈpi.kæn","alphabet":"ipa"}}'>pecan</span>.
 ```
 
-#### JSON-LD in Aria-Details
+Client will convert JSON to SSML and pass the XML string a speech API.
 
-When an element with `aria-details` is encountered by a pronunciation-aware AT, the AT should parse the content of the referenced script for speech synthesis passing instructions to the [Web Speech API](https://w3c.github.io/speech-api/). Search engines use JSON-LD data to enhance search. This could increase the accuracy of voice-enabled search technology (e.g., speech to text) as well as the pronunciation of digital assistant technology.
+```js
+var msg = new SpeechSynthesisUtterance();
+msg.text = convertJSONtoSSML(element.dataset.ssml);
+speechSynthesis.speak(msg);
+```
+
+- `data-ssml` referencing XML by template ID
 
 ```html
-<p>
-  You say, <span aria-details="pecan1">pecan</span>.
-  I say, <span aria-details="pecan2">pecan</span>.
-</p>
-<script id="pecan1" type="application/ld+json">
-  {
-    "@context": "http://schema.org/",
-    "type": "Pronunciation",
-    "alphabet": "ipa",
-    "phoneme ": "pecan",
-    "ph": "pɪˈkɑːn"
-  }
+<!-- ssml must appear inside a template to be valid -->
+<template id="pecan">
+<?xml version="1.0"?>
+<speak version="1.1"
+       xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.w3.org/2001/10/synthesis
+                   http://www.w3.org/TR/speech-synthesis11/synthesis.xsd"
+       xml:lang="en-US">
+    You say, <phoneme alphabet="ipa" ph="pɪˈkɑːn">pecan</phoneme>.
+    I say, <phoneme alphabet="ipa" ph="ˈpi.kæn">pecan</phoneme>.
+</speak>
+</template>
+
+<p data-ssml="#pecan">You say, pecan. I say, pecan.</p>
+```
+
+Client will parse XML and serialize it before passing to a speech API:
+
+```js
+var msg = new SpeechSynthesisUtterance();
+var xml = document.getElementById('pecan').content.firstElementChild;
+msg.text = serialize(xml);
+speechSynthesis.speak(msg);
+```
+
+- `data-ssml` referencing an XML string as script tag
+
+```html
+<script id="pecan" type="application/ssml+xml">
+<speak version="1.1"
+       xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.w3.org/2001/10/synthesis
+                   http://www.w3.org/TR/speech-synthesis11/synthesis.xsd"
+       xml:lang="en-US">
+    You say, <phoneme alphabet="ipa" ph="pɪˈkɑːn">pecan</phoneme>.
+    I say, <phoneme alphabet="ipa" ph="ˈpi.kæn">pecan</phoneme>.
+</speak>
 </script>
-<script id="pecan2" type="application/ld+json">
-  {
-    "@context": "http://schema.org/",
-    "type": "Pronunciation",
-    "alphabet": "ipa",
-    "phoneme ": "pecan",
-    "ph": "ˈpi.kæn"
-  }
-</script>
+
+<p data-ssml="#pecan">You say, pecan. I say, pecan.</p>
+```
+
+Client will pass the XML string raw to a speech API.
+
+```js
+var msg = new SpeechSynthesisUtterance();
+msg.text = document.getElementById('pecan').textContent;
+speechSynthesis.speak(msg);
+```
+
+- `data-ssml` referencing an external XML document by URL
+
+```html
+<p data-ssml="http://example.com/pronounce.ssml#pecan">You say, pecan. I say, pecan.</p>
+```
+
+Client will pass the string payload to a speech API.
+
+```js
+var msg = new SpeechSynthesisUtterance();
+var response = await fetch(el.dataset.ssml)
+msg.txt = await response.text();
+speechSynthesis.speak(msg);
 ```
 
 ### Existing Work
 
-- [`aria-details`](https://www.w3.org/TR/wai-aria-1.1/#aria-details)
+- [`aria-ssml` proposal](https://github.com/alia11y/SSMLinHTMLproposal)
 - [SSML](https://www.w3.org/TR/speech-synthesis11/)
 - [Web Speech API](https://w3c.github.io/speech-api/)
-- [Schema.org Community Group](https://www.w3.org/community/schemaorg/)
 
 ### Problems and Limitations
 
-- Does not assume or suggest pronunciation assistance for deaf or hard of hearing
-- Use of `aria-*` requires input from AT vendors
+- Does not assume or suggest visual pronunciation assistance for deaf or hard of hearing
+- Use of `data-*` requires input from AT vendors
 - XML data is not currently indexed by search engines
-- New schemas require vetting through Schema.org
 
 ### Related Use Cases
