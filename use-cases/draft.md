@@ -130,3 +130,56 @@ speechSynthesis.speak(msg);
 - XML data is not currently indexed by search engines
 
 ### Related Use Cases
+
+## Use Case `data-ssml`
+
+### Name
+HTML5
+
+### Owner
+Paul Grenier
+
+### Background and Current Practice
+Currently, HTML5 includes the XML [namespaces](https://www.w3.org/TR/html5/infrastructure.html#namespaces) for MathML and SVG. So, using either's elements in an HTML5 document is valid. Because SSML's implementation is non-visual in nature, browser implementation could be slow or non-existent without affecting how authors use SSML in HTML. Expansion of HTML5 to include SSML namespace would allow valid use of SSML in the HTML5 document. Browsers would treat the element like any other unknown element, as [`HTMLUnknownElement`](https://www.w3.org/TR/html50/dom.html#htmlunknownelement).
+
+### Goal
+
+- Support valid use of SSML in HTML5 documents
+- Allow visual pronunciation support
+
+### Target Audience
+
+- SSML-aware technologies and browser extensions
+- Search indexers
+
+### Use Case Scenario
+
+#### SSML
+
+When an element with [`data-ssml`](https://www.w3.org/TR/wai-aria-1.1/#aria-details) is encountered by an [SSML](https://www.w3.org/TR/speech-synthesis11/)-aware AT, the AT should enhance the user interface by processing the referenced SSML content and passing it to the [Web Speech API](https://w3c.github.io/speech-api/) or an external API (e.g., [Google's Text to Speech API](https://cloud.google.com/text-to-speech/)).
+
+
+#### Implementation Options
+
+- SSML
+
+```html
+<speak>
+  You say, <phoneme alphabet="ipa" ph="pɪˈkɑːn">pecan</phoneme>.
+  I say, <phoneme alphabet="ipa" ph="ˈpi.kæn">pecan</phoneme>.
+</speak>
+```
+
+In this implementation, assistive technology, browser extensions, and CSS authors could more easily expose pronunciation information visually. While this is very similar to the definition of a `ruby` element, it's farther from its practice.
+
+### Existing Work
+
+- [VoiceXML 2.1](https://www.w3.org/TR/voicexml21/)
+- [SMIL - Synchronized Multimedia Integration Language](https://www.w3.org/TR/REC-smil/smil-extended-linking.html#SMILLinking-Relationship-to-XLink)
+- [PLS - Pronunciation Lexicon](https://www.w3.org/TR/pronunciation-lexicon/#AppB)
+
+### Problems and Limitations
+
+- SSML is not valid HTML5
+
+### Related Use Cases
