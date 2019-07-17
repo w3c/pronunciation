@@ -49,12 +49,12 @@ var respecConfig = {
       },
 
       {
-        name: "Michael Cooper",
-        url: 'https://www.w3.org',
-        mailto: "cooper@w3.org",
-        company: "W3C",
-        companyURI: "http://www.w3.org",
-        w3cid: 34017
+        name: "Paul Grenier",
+        url: '',
+        mailto: " ",
+        company: " ",
+        companyURI: "",
+        w3cid: 
       },
       {
         name: "Roy Ran",
