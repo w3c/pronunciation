@@ -28,8 +28,142 @@
 
 		</section>
 		<section>
-			<h1>@@</h1>
-			<p></p>
+			<h1>Use Cases</h1>
+			<section>
+				<h2>Use Case data-ssml</h2>
+				<section>
+					<h3>Details</h3>
+					<p><strong>Name</strong>: <code>data-ssml</code></p>
+					<p><strong>Background and Current Practice</strong>:</p>
+					<p>As an existing attribute, <code>data-*</code> could be used, with some conventions, to include pronunciation content.</p>
+					<p><strong>Goal</strong>:</p>
+					<ul>
+						<li>Support repeated use within the page context</li>
+						<li>Support external file references</li>
+						<li>Reuse existing techniques without expanding specifications</li>
+					</ul>
+					<p><strong>Target Audience</strong>: Hearing users</p>
+				</section>
+				<section>
+					<h3>Use Case Scenario</h3>
+					<section>
+						<h4>SSML in data-ssml</h4>
+						<p>When an element with <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-details">data-ssml</a> is encountered by an <a href="https://www.w3.org/TR/speech-synthesis11/">SSML</a>-aware AT, the AT should enhance the user interface by processing the referenced SSML content and passing it to the <a href="https://w3c.github.io/speech-api/">Web Speech API</a> or an external API (e.g., <a href="https://cloud.google.com/text-to-speech/">Google's Text to Speech API</a>).</p>
+					</section>
+					<section>
+						<h4>Implementation Options</h4>
+						<p>data-ssml as embedded JSON</p>
+						<pre class="example">
+I say &lt;span data-ssml='{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;pɪˈkɑːn&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}'&gt;pecan&lt;/span&gt;.
+You say &lt;span data-ssml='{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;ˈpi.k&aelig;n&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}'&gt;pecan&lt;/span&gt;.</pre>
+						<p>Client will convert JSON to SSML and pass the XML string a speech API.</p>
+						<pre class="example">
+var msg = new SpeechSynthesisUtterance();
+msg.text = convertJSONtoSSML(element.dataset.ssml);
+speechSynthesis.speak(msg);</pre>
+						<p>data-ssml referencing XML by template ID</p>
+						<pre class="example">&lt;!-- ssml must appear inside a template to be valid --&gt;
+&lt;template id=&quot;pecan&quot;&gt;
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;speak version=&quot;1.1&quot;
+       xmlns=&quot;http://www.w3.org/2001/10/synthesis&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.w3.org/2001/10/synthesis
+                   http://www.w3.org/TR/speech-synthesis11/synthesis.xsd&quot;
+       xml:lang=&quot;en-US&quot;&gt;
+    You say, &lt;phoneme alphabet=&quot;ipa&quot; ph=&quot;pɪˈkɑːn&quot;&gt;pecan&lt;/phoneme&gt;.
+    I say, &lt;phoneme alphabet=&quot;ipa&quot; ph=&quot;ˈpi.k&aelig;n&quot;&gt;pecan&lt;/phoneme&gt;.
+&lt;/speak&gt;
+&lt;/template&gt;
+
+&lt;p data-ssml=&quot;#pecan&quot;&gt;You say, pecan. I say, pecan.&lt;/p&gt;</pre>
+						<p>Client will parse XML and serialize it before passing to a speech API:</p>
+						<pre class="example">
+var msg = new SpeechSynthesisUtterance();
+var xml = document.getElementById('pecan').content.firstElementChild;
+msg.text = serialize(xml);
+speechSynthesis.speak(msg);</pre>
+						<p>Client will pass the XML string raw to a speech API.</p>
+						<pre class="example">
+var msg = new SpeechSynthesisUtterance();
+msg.text = document.getElementById('pecan').textContent;
+speechSynthesis.speak(msg);</pre>
+						<p>data-ssml referencing an external XML document by URL</p>
+						<pre class="example">&lt;p data-ssml=&quot;http://example.com/pronounce.ssml#pecan&quot;&gt;You say, pecan. I say, pecan.&lt;/p&gt;</pre>
+						<p>Client will pass the string payload to a speech API.</p>
+						<pre class="example">var msg = new SpeechSynthesisUtterance();
+var response = await fetch(el.dataset.ssml)
+msg.txt = await response.text();
+speechSynthesis.speak(msg);</pre>
+
+					</section>
+
+				</section>
+				<section>
+						<h3>Existing Work</h3>
+						<ul>
+							<li><a href="https://github.com/alia11y/SSMLinHTMLproposal">aria-ssml proposal</a></li>
+							<li><a href="https://www.w3.org/TR/speech-synthesis11/">SSML</a></li>
+							<li><a href="https://w3c.github.io/speech-api/">Web Speech API</a></li>
+						</ul>
+					</section>
+					<section>
+						<h3>Problems and Limitations</h3>
+						<p>Does not assume or suggest visual pronunciation assistance for deaf or hard of hearing</p>
+						<p>Use of data-* requires input from AT vendors</p>
+						<p>XML data is not currently indexed by search engines</p>
+					</section>
+			</section>
+
+			<section>
+				<h2>Use Case data-ssml(HTML5)</h2>
+				<section>
+					<h3>Details</h3>
+					<p><strong>Name</strong>: HTML5</p>
+					<p><strong>Background and Current Practice</strong>:</p>
+					<p>Currently, HTML5 includes the XML <a href="https://html.spec.whatwg.org/multipage/infrastructure.html#namespaces">namespaces</a> for MathML and SVG. So, using either's elements in an HTML5 document is valid. Because SSML's implementation is non-visual in nature, browser implementation could be slow or non-existent without affecting how authors use SSML in HTML. Expansion of HTML5 to include SSML namespace would allow valid use of SSML in the HTML5 document. Browsers would treat the element like any other unknown element, as <a href="https://www.w3.org/TR/html50/dom.html#htmlunknownelement">HTMLUnknownElement</a>.</p>
+					<p><strong>Goal</strong>:</p>
+					<ul>
+						<li>Support valid use of SSML in HTML5 documents</li>
+						<li>Allow visual pronunciation support</li>
+					</ul>
+					<p><strong>Target Audience</strong>:</p>
+					<ul>
+						<li>SSML-aware technologies and browser extensions</li>
+						<li>Search indexers</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Use Case Scenario</h3>
+					<section>
+						<h4>SSML</h4>
+						<p>When an element with data-ssml is encountered by an SSML-aware AT, the AT should enhance the user interface by processing the referenced SSML content and passing it to the Web Speech API or an external API (e.g., Google's Text to Speech API).</p>
+					</section>
+					<section>
+						<h4>Implementation Options</h4>
+						<p>SSML</p>
+						<pre class="example">&lt;speak&gt;
+  You say, &lt;phoneme alphabet=&quot;ipa&quot; ph=&quot;pɪˈkɑːn&quot;&gt;pecan&lt;/phoneme&gt;.
+  I say, &lt;phoneme alphabet=&quot;ipa&quot; ph=&quot;ˈpi.k&aelig;n&quot;&gt;pecan&lt;/phoneme&gt;.
+&lt;/speak&gt;</pre>
+						<p>In this implementation, assistive technology, browser extensions, and CSS authors could more easily expose pronunciation information visually. While this is very similar to the definition of a ruby element, it's farther from its practice.</p>
+					</section>
+
+				</section>
+				<section>
+					<h3>Existing Work</h3>
+					<ul>
+						<li><a href="https://www.w3.org/TR/voicexml21/"></a>VoiceXML 2.1</li>
+						<li><a href="https://www.w3.org/TR/REC-smil/smil-extended-linking.html#SMILLinking-Relationship-to-XLink"></a>SMIL - Synchronized Multimedia Integration Language</li>
+						<li><a href="https://www.w3.org/TR/pronunciation-lexicon/#AppB"></a>PLS - Pronunciation Lexicon</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Problems and Limitations</h3>
+					<p>SSML is not valid HTML5</p>
+				</section>
+			</section>
+			
 		</section>
 
 		
