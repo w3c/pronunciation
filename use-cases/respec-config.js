@@ -47,14 +47,8 @@ var respecConfig = {
         companyURI: "https://www.ets.org/",
         w3cid: 98332
       },
-
       {
         name: "Paul Grenier",
-        url: '',
-        mailto: " ",
-        company: " ",
-        companyURI: "",
-        w3cid: 
       },
       {
         name: "Roy Ran",

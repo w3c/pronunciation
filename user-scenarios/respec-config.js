@@ -50,19 +50,9 @@ var respecConfig = {
 
       {
         name: "Sam",
-        url: '',
-        mailto: "",
-        company: "",
-        companyURI: "",
-        w3cid: 
       },
       {
         name: "Pual",
-        url: '',
-        mailto: "",
-        company: "",
-        companyURI: "",
-        w3cid: 
       },
       {
         name: "Roy Ran",
