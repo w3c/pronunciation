@@ -49,6 +49,8 @@ var respecConfig = {
       },
       {
         name: "Paul Grenier",
+         mailto: "paul.grenier@deque.com",
+         company: "Deque System"
       },
       {
         name: "Roy Ran",
