@@ -49,10 +49,19 @@ var respecConfig = {
       },
 
       {
-        name: "Sam",
+       name: "Sam Kanta",
+       mailto: "sam.kanta@thesustainablechange.com"
+      },
+         {
+       name: "Christine Loew",
+       company: "College Board",
+       mailto: "cloew@collegeboard.org"
       },
       {
-        name: "Pual",
+       name: "Paul Grenier",
+       company: "Deque System",
+       mailto: "paul.grenier@deque.com"
+          
       },
       {
         name: "Roy Ran",
