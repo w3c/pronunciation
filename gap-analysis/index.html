@@ -51,40 +51,60 @@
     <h1>Core Features for Pronunciation and Spoken Presentation</h1>
     <p>The common spoken pronunciation requirements from the education domain serve as a primary source for these features. These requirements can be broken down into the following main functions that would support authoring and spoken presentation
     needs.</p>
-    <h2>Language</h2>
-    <p>When content is authored in mixed language, a mechanism is needed to allow authors to indicate both the base language of the content as well as the language of individual words and phrases. The expectation is that assistive technologies and
+    <section>
+      <h2>Language</h2>
+      <p>When content is authored in mixed language, a mechanism is needed to allow authors to indicate both the base language of the content as well as the language of individual words and phrases. The expectation is that assistive technologies and
     other tools that utilize text to speech synthesis would detect and apply the language requested when presenting the text.</p>
-    <h2>Voice Family / Gender</h2>
-    <p>Content authors may elect to make adjustments of those paramters to control the spoken presentation for purposes such as providing a gender specific voice to reflect that of the author, or for a character (or characters) in theatrical
-    presentation of a story. Many assistive technologies already provide user selection of voice family and gender independent of any authored intent.</p>
-    <h2>Phonetic Pronunciation of String Values</h2>
-    <p>In some cases words may need to have their phonetic pronunciation prescribed by the content author. This may occur when uncommon words (not supported by text to speech synthesizers), or in cases where word pronunciation will vary based on
-    context, and that context may not be correctly</p>
-    <h2>String Substitution</h2>
-    <p>There are cases where content that is visually presented may require replacement (substitution) with an alternate textual form to ensure correct pronunciation by text to speech synthesizers. In some cases phonetic pronunciation may be a
-    solution to this need.</p>
-    <h2>Rate / Pitch / Volume</h2>
-    <p>While end users should have full control over spoken presentation parameters such as speaking rate, pitch, and volume (e.g., WCAG 1.4.2 ), content authors may elect to make adjustments of those paramters to control the spoken presentation for
-    purposes such as a theatrical presentation of a story. Many assistive technologies already provide user control speaking rate, pitch, and volume independent of any authored intent.</p>
+    </section>
+    <seciton>
+      <h2>Voice Family / Gender</h2>
+      <p>Content authors may elect to make adjustments of those paramters to control the spoken presentation for purposes such as providing a gender specific voice to reflect that of the author, or for a character (or characters) in theatrical
+      presentation of a story. Many assistive technologies already provide user selection of voice family and gender independent of any authored intent.</p>
+    </seciton>
+    <section>
+      <h2>Phonetic Pronunciation of String Values</h2>
+      <p>In some cases words may need to have their phonetic pronunciation prescribed by the content author. This may occur when uncommon words (not supported by text to speech synthesizers), or in cases where word pronunciation will vary based on
+      context, and that context may not be correctly</p>
+    </section>
+    <section>
+      <h2>String Substitution</h2>
+      <p>There are cases where content that is visually presented may require replacement (substitution) with an alternate textual form to ensure correct pronunciation by text to speech synthesizers. In some cases phonetic pronunciation may be a
+      solution to this need.</p>
+    </section>
+    <section>
+      <h2>Rate / Pitch / Volume</h2>
+      <p>While end users should have full control over spoken presentation parameters such as speaking rate, pitch, and volume (e.g., WCAG 1.4.2 ), content authors may elect to make adjustments of those paramters to control the spoken presentation for
+      purposes such as a theatrical presentation of a story. Many assistive technologies already provide user control speaking rate, pitch, and volume independent of any authored intent.</p>
+    </section>
+    <section>
     <h2>Emphasis</h2>
     <p>In written text, an author may find it necessary to add emphasis to an important word or phrase. HTML supports both semantic elements (e.g., <code>em</code>) and CSS properties which, through a variety of style options, make programmatic
     detection of authored emphasis difficult (e.g., <code>font-weight: heavy</code>). While the emphasis element has existed since HTML 2.0, there is currently no uptake by assistive technology or read aloud tools to present text semnatically tagged
     for emphasis to be spoken with emphasis..</p>
+    </section>
+    <section>
     <h2>Say As</h2>
-    <p>While text to speech engines continue to improve in their ability to process text and provide accurate spoken rendering of acronyms and numeric values, there can be instances where uncommon terms or alphanumeric constructs pose challenges.
-    Further, some educators may have specific requirements as to how a numeric value be spoken which may differ from a TTS engine's default rendering. For example, the Smarter Balanced Assessment Consortium has developed <a href=
-    "https://portal.smarterbalanced.org/library/en/read-aloud-guidelines.pdf">Read Aloud Guidelines</a> to be followed by human readers used by students who may require a spoken presentation of an educational test, which includes specific examples
-    of how numeric values should be read aloud.</p>
-    <h3>Presentation of Numeric Values</h3>
-    <p>Precise control as to how numeric values should be spoken, which may not always be correctly determined by text to speech engines from context.&nbsp; Examples include speaking a number as individual digits, correct reading of year values, and
-    the correct speaking of ordinal and cardinal numbers.</p>
-    <h3>Presentation of String Values</h3>
-    <p>Precise control as to how string values should be spoken, which may not be determined correctly by text to speech synthesizers.</p>
-    <h2>Pausing</h2>
-    <p>Specific spoken presentation requirements exist in the <a href="">Accessibility Guidelines from PARCC</a>, and include requuirements such as inserting pauses in the spoken presentation, before and after emphasized words and mathematical
-    terms. In practice, content authors may find it necessary to insert pauses between numeric values to limit the chance of hearing multiple numbers as a single value. One common technique to achieve pausing to date has involved inserting
-    non-visible commas before or after a text string requiring a pause. While this may work in practice for a read aloud TTS tool, it is problematic for screen reader users who may, based on verbosity settings, hear the multiple commas announced,
-    and for refreshable braille users who will have the commas visible in braille.</p>
+      <p>While text to speech engines continue to improve in their ability to process text and provide accurate spoken rendering of acronyms and numeric values, there can be instances where uncommon terms or alphanumeric constructs pose challenges.
+      Further, some educators may have specific requirements as to how a numeric value be spoken which may differ from a TTS engine's default rendering. For example, the Smarter Balanced Assessment Consortium has developed <a href=
+      "https://portal.smarterbalanced.org/library/en/read-aloud-guidelines.pdf">Read Aloud Guidelines</a> to be followed by human readers used by students who may require a spoken presentation of an educational test, which includes specific examples
+      of how numeric values should be read aloud.</p>
+      <section>
+        <h3>Presentation of Numeric Values</h3>
+        <p>Precise control as to how numeric values should be spoken, which may not always be correctly determined by text to speech engines from context.&nbsp; Examples include speaking a number as individual digits, correct reading of year values, and
+        the correct speaking of ordinal and cardinal numbers.</p>
+      </section>
+      <section>
+        <h3>Presentation of String Values</h3>
+        <p>Precise control as to how string values should be spoken, which may not be determined correctly by text to speech synthesizers.</p>
+      </section>
+    </section>
+    <section>
+      <h2>Pausing</h2>
+      <p>Specific spoken presentation requirements exist in the <a href="">Accessibility Guidelines from PARCC</a>, and include requuirements such as inserting pauses in the spoken presentation, before and after emphasized words and mathematical
+      terms. In practice, content authors may find it necessary to insert pauses between numeric values to limit the chance of hearing multiple numbers as a single value. One common technique to achieve pausing to date has involved inserting
+      non-visible commas before or after a text string requiring a pause. While this may work in practice for a read aloud TTS tool, it is problematic for screen reader users who may, based on verbosity settings, hear the multiple commas announced,
+      and for refreshable braille users who will have the commas visible in braille.</p>
+    </section>
   </section>
   <section>
     <h1>Gap Analysis</h1>
@@ -219,43 +239,61 @@
     </table>
     <p>The following sections present how each of the required features may or may not be met by use of existing standards. A key considerationa in the analysis is whether a means exists to directly author (or annote) HTML content to incporate the
     spoken presentationa and pronunciation feature.</p>
-    <h3>Language</h3>
-    <p>Allow content authors to specify the language of text contained within an element so that the TTS used for rendering will select the appropriate language for synthesis.<br /></p>
-    <h4>HTML</h4>
-    <p><code>lang</code> attribute can be applied at the document level or to individual elements. (WCAG) (AT Supported: some)<br /></p>
-    <h4>SSML</h4><code>&lt;speak&gt;</code> In Paris, they pronounce it &lt;lang xml:lang="fr-FR"&gt;Paris&lt;/lang&gt; &lt;/speak&gt;
-    <h3>Voice Family/Gender</h3>
-    <p>Allow content authors to specify a specific TTS voice to be used to render text. For example, content which presents a dialog between two people, a woman and a man, the author may specify that a female voice be used for the woman's text and a
-    male voice be used for the man. Some platform TTS services may support a variety of voices, identified by a name, gender, or even age.</p>
-    <h4>CSS</h4>
-    <p><code>lang</code> attribute can be applied to the document itself or to elements. (WCAG) (AT Supported: some)<br /></p>
-    <h4>SSML</h4>
-    <h3>Phonetic Pronunciation</h3>
-    <p>Allow content authors to precisely specify the phonetic pronunciation of a word or phrase.</p>
-    <h4>PLS</h4>
-    <h4>SSML</h4>
-    <h3>Substitution</h3>
-    <p>Allow content authors to substitute a text string to be rendered by TTS instead of the actual text contained in an element.</p>
-    <h4>WAI-ARIA</h4>
-    <p>The <a href="https://www.w3.org/TR/wai-aria/#aria-label"><code>aria-label</code></a> and <a href="https://www.w3.org/TR/wai-aria/#aria-labelledby"><code>aria-labelledby</code></a> attribute can be used by an author to supply a text string
-    that will become the accessible name for the element upon which it is applied.&nbsp; This usage effectively provides a mechanism for performing text substition that is supported by screen reader, however is problematic for one significant
-    reason:&nbsp; for users who utilize screen readers to<br /></p>
-    <h4>SSML</h4>
-    <h3>Rate/Pitch/Volume</h3>
-    <p>Allow content authors to specify characteristics, such as rate, pitch, and/or volume of the TTS rendering of the text.</p>
-    <h4>CSS</h4>
-    <h4>SSML</h4>
-    <h3>Emphasis</h3>
-    <p>Allow content authors to specify that text content be spoken with emphasis, for example, louder and more slowly. This can be viewed as a simplification of the Rate/Pitch/Volume controls to reduce authoring complexity.</p>
-    <h4>HTML</h4>
-    <h4>CSS</h4>
-    <h4>SSML</h4>
-    <h3>Say As</h3>
-    <h4>CSS</h4>
-    <h4>SSML</h4>
-    <h3>Pausing</h3>
-    <h4>CSS</h4>
-    <h4>SSML</h4>
+    <section>
+      <h3>Language</h3>
+      <p>Allow content authors to specify the language of text contained within an element so that the TTS used for rendering will select the appropriate language for synthesis.<br /></p>
+    
+      <h4>HTML</h4>
+      <p><code>lang</code> attribute can be applied at the document level or to individual elements. (WCAG) (AT Supported: some)<br /></p>
+      <h4>SSML</h4>
+      <p><code>&lt;speak&gt;</code> In Paris, they pronounce it &lt;lang xml:lang="fr-FR"&gt;Paris&lt;/lang&gt; &lt;/speak&gt;</p>
+    </section>
+    <section>
+      <h3>Voice Family/Gender</h3>
+      <p>Allow content authors to specify a specific TTS voice to be used to render text. For example, content which presents a dialog between two people, a woman and a man, the author may specify that a female voice be used for the woman's text and a
+      male voice be used for the man. Some platform TTS services may support a variety of voices, identified by a name, gender, or even age.</p>
+      <h4>CSS</h4>
+      <p><code>lang</code> attribute can be applied to the document itself or to elements. (WCAG) (AT Supported: some)<br /></p>
+      <h4>SSML</h4>
+    </section>
+    <section>
+      <h3>Phonetic Pronunciation</h3>
+      <p>Allow content authors to precisely specify the phonetic pronunciation of a word or phrase.</p>
+      <h4>PLS</h4>
+      <h4>SSML</h4>
+    </section>
+    <section>
+      <h3>Substitution</h3>
+      <p>Allow content authors to substitute a text string to be rendered by TTS instead of the actual text contained in an element.</p>
+      <h4>WAI-ARIA</h4>
+      <p>The <a href="https://www.w3.org/TR/wai-aria/#aria-label"><code>aria-label</code></a> and <a href="https://www.w3.org/TR/wai-aria/#aria-labelledby"><code>aria-labelledby</code></a> attribute can be used by an author to supply a text string
+      that will become the accessible name for the element upon which it is applied.&nbsp; This usage effectively provides a mechanism for performing text substition that is supported by screen reader, however is problematic for one significant
+      reason:&nbsp; for users who utilize screen readers to<br /></p>
+      <h4>SSML</h4>
+    </section>
+    <section>
+      <h3>Rate/Pitch/Volume</h3>
+      <p>Allow content authors to specify characteristics, such as rate, pitch, and/or volume of the TTS rendering of the text.</p>
+      <h4>CSS</h4>
+      <h4>SSML</h4>
+    </section>
+    <section>
+      <h3>Emphasis</h3>
+      <p>Allow content authors to specify that text content be spoken with emphasis, for example, louder and more slowly. This can be viewed as a simplification of the Rate/Pitch/Volume controls to reduce authoring complexity.</p>
+      <h4>HTML</h4>
+      <h4>CSS</h4>
+      <h4>SSML</h4>
+    </section>
+    <section>
+      <h3>Say As</h3>
+      <h4>CSS</h4>
+      <h4>SSML</h4>
+    </section>
+    <section>
+      <h3>Pausing</h3>
+      <h4>CSS</h4>
+      <h4>SSML</h4>
+    </section>
   </section>
   <div data-include="../common/acknowledgements.html"
        data-include-replace="true"
