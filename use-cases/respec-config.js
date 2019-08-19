@@ -53,6 +53,14 @@ var respecConfig = {
          company: "Deque System"
       },
       {
+        name: "Markku Hakkinen",
+        url: 'https://www.w3.org/users/35712',
+        mailto: "mhakkinen@ets.org",
+        company: "Educational Testing Service",
+        companyURI: "https://www.ets.org/",
+        w3cid: 35712
+      },
+      {
         name: "Roy Ran",
         url: 'https://www.w3.org',
         mailto: "ran@w3.org",
