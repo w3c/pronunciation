@@ -41,7 +41,7 @@ A.	As a test administrator, I want to ensure that students with the read-aloud a
 B.	As a math educator, I want to ensure that speech accuracy with mathematical expressions, including numbers, fractions, and operations have accurate pronunciation for those who rely on TTS. Some mathematical expressions require special pronunciations to ensure accurate interpretation while maintaining test validity and construct. Specific examples include:
 
 + Mathematical formulas written in simple text with special formatting should convey the correct meaning of the expression to identify changes from normal text to super- or to sub-script text. For example, without the proper formatting, the equation:
-<code>&nbsp;&nbsp;&nbsp; a<sup>3</sup>-b<sup>3</sup>=(a-b)(a<sup>2</sup>+ab+b<sup>2</sup>)</code> may incorrectly render through some technologies and applications as a3-b3=(a-b)(a2+ab+b2).
+<code>a<sup>3</sup>-b<sup>3</sup>=(a-b)(a<sup>2</sup>+ab+b<sup>2</sup>)</code> may incorrectly render through some technologies and applications as a3-b3=(a-b)(a2+ab+b2).
 + Distinctions made in writing are often not made explicit in speech; For example, “fx” may be interpreted as fx, f(x), fx, F X, F X. The distinction depends on the context; requiring the author to provide consistent and accurate semantic markup.
 + For math equations with Greek letters, it is important that the speech synthesizer be able to distinguish the phonetic differences between them, whether in the natural language or phonetic equivalents. For example, ε (epsilon) υ (upsilon) φ (phi) χ (chi) ξ(xi)
  
