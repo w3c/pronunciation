@@ -1,10 +1,15 @@
 # Use Cases
 
-- [aria-ssml](#Use-Case-Aria-SSML)
-- [data-ssml](#Use-Case-Data-SSML)
-- [HTML5](#Use-Case-HTML5)
-- [Custom Element](#Use-Case-Custom-Element)
-- [JSON-LD](#Use-Case-JSON-LD)
+- [aria-ssml](#use-case-aria-ssml)
+- [data-ssml](#use-case-data-ssml)
+- [HTML5](#use-case-html5)
+- [Custom Element](#use-case-custom-element)
+- [JSON-LD](#use-case-json-ld)
+- [Ruby](#use-case-ruby)
+
+## Abstract
+
+The objective of the Pronunciation Task Force is to develop normative specifications and best practices guidance collaborating with other W3C groups as appropriate, to provide for proper pronunciation in HTML content when using text to speech (TTS) synthesis. This document provides various use cases highlighting the need for standardization of pronunciation markup, to ensure that consistent and accurate representation of the content. The requirements from the user scenarios provide the basis for these technical requirements/specifications.
 
 ## Use Case `aria-ssml`
 
