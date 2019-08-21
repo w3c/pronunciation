@@ -61,7 +61,7 @@
 You say &lt;span aria-ssml='{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;ˈpi.k&aelig;n&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}'&gt;pecan&lt;/span&gt;.</pre>
 				<p>Client will convert JSON to SSML and pass the XML string a speech API.</p>
 				<pre class="example">var msg = new SpeechSynthesisUtterance();
-msg.text = convertJSONtoSSML(element.dataset.ssml);
+msg.text = convertJSONtoSSML(element.getAttribute('aria-ssml'));
 speechSynthesis.speak(msg);</pre>
 				<p><strong>aria-ssml referencing XML by template ID</strong></p>
 				<pre class="example">&lt;!-- ssml must appear inside a template to be valid --&gt;
