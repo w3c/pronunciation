@@ -63,7 +63,10 @@ A key disdvantage is that inline SSML appears to be more difficult for Assistive
 A simple example of in-line SSML in an HTML fragment is shown below:
 
 ``` HTML
-<p>According the 2010 US Census, the population of <speak><say-as interpret-as="digits">90274</say-as></speak> increased to 25209 from 24976 over the past 10 years.</p>
+<p>According the 2010 US Census, the population 
+   of <speak><say-as interpret-as="digits">90274</say-as></speak>
+   increased to 25209 from 24976 over the past 10 years.
+</p>
 ```
 
 ### Attribute-based Model of SSML
@@ -75,7 +78,10 @@ Disadvantages may include adding a level complexity to authoring trhough the int
 A simple example of the attribute based model of SSML is shown below:
 
 ``` HTML
-<p>According the 2010 US Census, the population of <span data-ssml='{"say-as" : {"interpret-as":"digits"}}'>90274</span> increased to 25209 from 24976 over the past 10 years.</p>
+<p>According the 2010 US Census, the population
+   of <span data-ssml='{"say-as" : {"interpret-as":"digits"}}'>90274</span>
+   increased to 25209 from 24976 over the past 10 years.
+</p>
 ```
 
 ## Open Questions
