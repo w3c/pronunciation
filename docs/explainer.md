@@ -31,14 +31,14 @@ The current situation:
 * Is an implementation challenge for developers creating assistive technologies and read aloud capabilities
 * Presents an inconsistent, potentially confusing user experience for listeners of TTS 
 
-With the growing consumer adoption of voice assistants, user expectations for high quality spokebn presentation is growing.  Google and Amazon both encourage application developers to utilzie SSML to enhance the user experience on their platforms, yet Web content authors do not have the same opportunity to enhance the spoken presentation of their content.
+With the growing consumer adoption of voice assistants, user expectations for high quality spoken presentation is growing.  Google and Amazon both encourage application developers to utilzie SSML to enhance the user experience on their platforms, yet Web content authors do not have the same opportunity to enhance the spoken presentation of their content.
 
 Finding a solution to this need can have broader benefit in allowing authors to create web content that presents a better user experience if the content is presented by voice assistants. 
 
 ## Goals
 
 * Define a standard mechanism that enables spoken presentation guidance to be authored in HTML
-* Leverage SSML, if possible, as it is an existing standard that meets all identified requirements, and is supported my many speech synthesis platforms
+* Leverage SSML, if possible, as it is an existing standard that meets all identified requirements, and is supported by many speech synthesis platforms
 * The mechanism must be consumable by assistive technologies such as screen readers
 
 ## Non-Goals
@@ -74,7 +74,7 @@ A simple example of in-line SSML in an HTML fragment is shown below:
 
 Advantages are that variants of the attribute model are currently used by educational assessment vendors, these variants are supported by custom read aloud tools, and it appears that the attribute model may be more easily implementable by screen reader vendors. The EPUB3 standard includes the SSML phoneme element implemented as a pair of namespaced attributes, and is used by publishers in Japan.
 
-Disadvantages may include adding a level complexity to authoring trhough the introduction of JSON, which could be mitigated by authoring tools. This approach requires transforming the attribute content represented in JSON into SSML by the consumer (screen reader, read aloud tool, voice assistant, etc.). Possible security concerns exist with the JSON approach.  The EPUB approach would lead to a large number of attributes if all the SSML elements were to be implemented in that manner.
+Disadvantages may include adding a level complexity to authoring through the introduction of JSON, which could be mitigated by authoring tools. This approach requires transforming the attribute content represented in JSON into SSML by the consumer (screen reader, read aloud tool, voice assistant, etc.). Possible security concerns exist with the JSON approach.  The EPUB approach would lead to a large number of attributes if all the SSML elements were to be implemented in that manner.
 
 A simple example of the attribute based model of SSML is shown below:
 
