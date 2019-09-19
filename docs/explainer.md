@@ -74,7 +74,7 @@ A simple example of in-line SSML in an HTML fragment is shown below:
 
 Advantages are that variants of the attribute model are currently used by educational assessment vendors, these variants are supported by custom read aloud tools, and it appears that the attribute model may be more easily implementable by screen reader vendors. The EPUB3 standard includes the SSML phoneme element implemented as a pair of namespaced attributes, and is used by publishers in Japan.
 
-Disadvantages may include adding a level complexity to authoring through the introduction of JSON, which could be mitigated by authoring tools. This approach requires transforming the attribute content represented in JSON into SSML by the consumer (screen reader, read aloud tool, voice assistant, etc.). Possible security concerns exist with the JSON approach.  The EPUB approach would lead to a large number of attributes if all the SSML elements were to be implemented in that manner.
+Disadvantages may include adding a level of complexity to authoring through the introduction of JSON, which could be mitigated by authoring tools. This approach requires transforming the attribute content represented in JSON into SSML by the consumer (screen reader, read aloud tool, voice assistant, etc.). Possible security concerns exist with the JSON approach.  The EPUB approach would lead to a large number of attributes if all the SSML elements were to be implemented in that manner.
 
 A simple example of the attribute based model of SSML is shown below:
 
