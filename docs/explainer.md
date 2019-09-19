@@ -18,17 +18,18 @@ Several classes of assistive technology users depend upon spoken rendering of we
 text to speech synthesis (TTS).  In contexts such as education, there are specific expectations for
 accuracy of spoken presentation in terms of pronunciation, emphasis, prosody, pausing, etc. 
 
-Correct pronunciation is also important in the context of language learning. 
+Correct pronunciation is also important in the context of language learning, where incorrect pronunciation can confuse learners.
 
-In practice, the ecosystem of devices used in classrooms is broad, and each vendor generally provides their own text to speech engines for their platform.  Ensuring consistent spoken presenation across devices is a very real problem, and challenge. For many educational assessment vendors, the problem necessitates non-interoperable hacks to tune pronunciation and other presetnations features, such as pausing, which itself can introduce new problems, such as inconsistent represnetation of text across speech and braille.
+In practice, the ecosystem of devices used in classrooms is broad, and each vendor generally provides their own text to speech engines for their platforms.  Ensuring consistent spoken presenation across devices is a very real problem, and challenge. For many educational assessment vendors, the problem necessitates non-interoperable hacks to tune pronunciation and other presetnation features, such as pausing, which itself can introduce new problems through inconsistent representation of text across speech and braille.
 
-It could be argued that continual advances in machine learning will improve the quality of synthesized speech, reducing the need for the proposal. Waiting for a robust solution that will likely still not fully address our concerns is risky, especially when an authorable, declarative approach may be within reach (and wouldn't preclude or conflict with continual improvement in TTS technology). 
+It could be argued that continual advances in machine learning will improve the quality of synthesized speech, reducing the need for this proposal. Waiting for a robust solution that will likely still not fully address our needs is risky, especially when an authorable, declarative approach may be within reach (and wouldn't preclude or conflict with continual improvement in TTS technology). 
 
-The current situation is:  
+The current situation:  
 
-* An authoring challenge for content developers that wish to support spoken presentation
-* An implementation challenge for developers creating assistive technologies and read aloud capabilities
-* And presents and inconsistent, potentially confusing user experience for listeners of TTS 
+* Is an authoring challenge for content developers that wish to support spoken presentation
+* Limits interoperability and exchange of content between vendors and platforms
+* Is an implementation challenge for developers creating assistive technologies and read aloud capabilities
+* Presents an inconsistent, potentially confusing user experience for listeners of TTS 
 
 With the growing consumer adoption of voice assistants, user expectations for high quality spokebn presentation is growing.  Google and Amazon both encourage application developers to utilzie SSML to enhance the user experience on their platforms, yet Web content authors do not have the same opportunity to enhance the spoken presentation of their content.
 
@@ -58,7 +59,7 @@ Both approaches have advantages and disadvantages and these are  brielfy summari
 
 Advantages are that SSML is an extistent standard directly consumable by many speech synthesizers, and there is precedent for in-lining non-HTML markup such as SVG and MathML. This approach may be more easily consumed by Voice Assistants.
 
-A key disdvantage is that inline SSML appears to be more difficult for Assistive Technologies, specifically screen readers, to consume.
+A key disdvantage is that inline SSML appears to be more difficult for Assistive Technologies to implement, specifically for screen readers.
 
 A simple example of in-line SSML in an HTML fragment is shown below:
 
