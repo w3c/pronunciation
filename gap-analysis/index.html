@@ -246,15 +246,19 @@
       <h4>HTML</h4>
       <p><code>lang</code> attribute can be applied at the document level or to individual elements. (WCAG) (AT Supported: some)<br /></p>
       <h4>SSML</h4>
-      <p><code>&lt;speak&gt;</code> In Paris, they pronounce it &lt;lang xml:lang="fr-FR"&gt;Paris&lt;/lang&gt; &lt;/speak&gt;</p>
+      <p>Example: <code>&lt;speak&gt; In Paris, they pronounce it &lt;lang xml:lang="fr-FR"&gt;Paris&lt;/lang&gt; &lt;/speak&gt;</code>code></p>
     </section>
     <section>
       <h3>Voice Family/Gender</h3>
       <p>Allow content authors to specify a specific TTS voice to be used to render text. For example, content which presents a dialog between two people, a woman and a man, the author may specify that a female voice be used for the woman's text and a
       male voice be used for the man. Some platform TTS services may support a variety of voices, identified by a name, gender, or even age.</p>
       <h4>CSS</h4>
-      <p><code>lang</code> attribute can be applied to the document itself or to elements. (WCAG) (AT Supported: some)<br /></p>
+      <p><code>voice-family</code> property can be used to specify the gender of the voice.<br /></p>
+      <p>Example: <code>{ voice-family: male; }</code></p>
       <h4>SSML</h4>
+      <p>Using the <code>&lt;voice&gt;</code> element, the gender of the speaker, if supported by the TTS engine, can be specified.</p>
+      <p>Example: <code>&lt;voice gender="female" &gt;Mary had a little lamb,&lt;/voice&gt;</code></p>
+
     </section>
     <section>
       <h3>Phonetic Pronunciation</h3>
