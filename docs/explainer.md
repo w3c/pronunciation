@@ -16,24 +16,24 @@ Task Force and represents a decision point arising from two differing approaches
 
 Several classes of assistive technology users depend upon spoken rendering of web content by
 text to speech synthesis (TTS).  In contexts such as education, there are specific expectations for
-accuracy of spoken presentation in terms of pronunciation, emphasis, prosody, pausing, etc. 
+accuracy of spoken presentation in terms of pronunciation, emphasis, prosody, pausing, etc.
 
 Correct pronunciation is also important in the context of language learning, where incorrect pronunciation can confuse learners.
 
 In practice, the ecosystem of devices used in classrooms is broad, and each vendor generally provides their own text to speech engines for their platforms.  Ensuring consistent spoken presentation across devices is a very real problem, and challenge. For many educational assessment vendors, the problem necessitates non-interoperable hacks to tune pronunciation and other presentation features, such as pausing, which itself can introduce new problems through inconsistent representation of text across speech and braille.
 
-It could be argued that continual advances in machine learning will improve the quality of synthesized speech, reducing the need for this proposal. Waiting for a robust solution that will likely still not fully address our needs is risky, especially when an authorable, declarative approach may be within reach (and wouldn't preclude or conflict with continual improvement in TTS technology). 
+It could be argued that continual advances in machine learning will improve the quality of synthesized speech, reducing the need for this proposal. Waiting for a robust solution that will likely still not fully address our needs is risky, especially when an authorable, declarative approach may be within reach (and wouldn't preclude or conflict with continual improvement in TTS technology).
 
-The current situation:  
+The current situation:
 
 * Is an authoring challenge for content developers that wish to support spoken presentation
 * Limits interoperability and exchange of content between vendors and platforms
 * Is an implementation challenge for developers creating assistive technologies and read aloud capabilities
-* Presents an inconsistent, potentially confusing user experience for listeners of TTS 
+* Presents an inconsistent, potentially confusing user experience for listeners of TTS
 
 With the growing consumer adoption of voice assistants, user expectations for high quality spoken presentation is growing.  Google and Amazon both encourage application developers to utilize SSML to enhance the user experience on their platforms, yet Web content authors do not have the same opportunity to enhance the spoken presentation of their content.
 
-Finding a solution to this need can have broader benefit in allowing authors to create web content that presents a better user experience if the content is presented by voice assistants. 
+Finding a solution to this need can have broader benefit in allowing authors to create web content that presents a better user experience if the content is presented by voice assistants.
 
 ## Goals
 
@@ -64,7 +64,7 @@ A key disadvantage is that inline SSML appears to be more difficult for Assistiv
 A simple example of in-line SSML in an HTML fragment is shown below:
 
 ``` HTML
-<p>According the 2010 US Census, the population 
+<p>According the 2010 US Census, the population
    of <speak><say-as interpret-as="digits">90274</say-as></speak>
    increased to 25209 from 24976 over the past 10 years.
 </p>
@@ -75,6 +75,16 @@ A simple example of in-line SSML in an HTML fragment is shown below:
 Advantages are that variants of the attribute model are currently used by educational assessment vendors, these variants are supported by custom read aloud tools, and it appears that the attribute model may be more easily implementable by screen reader vendors. The EPUB3 standard includes the SSML phoneme element implemented as a pair of namespaced attributes and is used by publishers in Japan.
 
 Disadvantages may include adding a level of complexity to authoring through the introduction of JSON, which could be mitigated by authoring tools. This approach requires transforming the attribute content represented in JSON into SSML by the consumer (screen reader, read aloud tool, voice assistant, etc.). Possible security concerns exist with the JSON approach.  The EPUB approach would lead to a large number of attributes if all the SSML elements were to be implemented in that manner.
+
+No other standard uses string JSON values for attributes in HTML. This may cause problems for implementers
+who must parse the JSON values before processing. The browser, which normally attempts to address malformed
+HTML, can make no guarantees about the JSON strings. Implementers must decide how to handle malformed
+JSON.
+
+The schema for `data-ssml` values has not been set. Competing standards for this format, like
+[SpeakableSpecification](http://webschemas.org/SpeakableSpecification), as well as any issues converting
+SSML to a proper JSON schema could cause confusion for implementors and authors. Often such conversions
+are "...not exactly 1:1 transformation, but very very close".
 
 A simple example of the attribute based model of SSML is shown below:
 
