@@ -330,7 +330,7 @@ speechSynthesis.speak(msg);</pre>
       <section>
         <h2>Implementation Options</h2>
         <p><strong>SSML</strong></p>
-        <p>When an element with data-ssml is encountered by an <a href="https://www.w3.org/TR/speech-synthesis11/">SSML</a>-aware AT, the AT should enhance the user interface by processing the referenced SSML content and passing it to the <a href="https://w3c.github.io/speech-api/">Web Speech API</a> or an external API (e.g., <a href="https://cloud.google.com/text-to-speech/">Google's Text to Speech API</a>).</p>
+        <p>When an SSML element is encountered by an <a href="https://www.w3.org/TR/speech-synthesis11/">SSML</a>-aware AT, the AT should enhance the user interface by processing the referenced SSML content and passing it to the <a href="https://w3c.github.io/speech-api/">Web Speech API</a> or an external API (e.g., <a href="https://cloud.google.com/text-to-speech/">Google's Text to Speech API</a>).</p>
         <pre class="example">&lt;h2&gt;The Pronunciation of Pecan&lt;/h2&gt;
   &lt;p&gt;&lt;speak&gt;
   You say, &lt;phoneme alphabet=&quot;ipa&quot; ph=&quot;pɪˈkɑːn&quot;&gt;pecan&lt;/phoneme&gt;.
