@@ -39,6 +39,23 @@ var respecConfig = {
     // editors, add as many as you like
     // only "name" is required
     editors: [
+        {
+        name: "Markku Hakkinen",
+        url: 'https://www.w3.org/users/35712',
+        mailto: "mhakkinen@ets.org",
+        company: "Educational Testing Service",
+        companyURI: "https://www.ets.org/",
+        w3cid: 35712
+      },
+      
+      {
+        name: "Irfan Ali",
+        url: 'https://www.w3.org/users/98332',
+        mailto: "iali@ets.org",
+        company: "Educational Testing Service",
+        companyURI: "https://www.ets.org/",
+        w3cid: 98332
+      }
      
     ],
 
