@@ -395,25 +395,31 @@ customElements.define('ssml-speak', SSMLSpeak);</pre>
 				<pre class="example">&lt;script type=&quot;application/ld+json&quot;&gt;
 {
   &quot;@context&quot;: &quot;http://schema.org/&quot;,
-  &quot;@id&quot;: &quot;/Pronunciation#WKRP&quot;,
-  &quot;@type&quot;: &quot;TextPronunciation&quot;,
-  &quot;@language&quot;: &quot;en&quot;,
-  &quot;text&quot;: &quot;WKRP&quot;,
-  &quot;speechToTextMarkup&quot;: &quot;SSML&quot;,
-  &quot;phoneticText&quot;: &quot;&lt;say-as interpret-as=\&quot;characters\&quot;&gt;WKRP&lt;/say-as&gt;&quot;
+  &quot;@id&quot;: &quot;/pronunciation#WKRP&quot;,
+  &quot;@type&quot;: &quot;RadioStation&quot;,
+  &quot;name&quot;: [&quot;WKRP&quot;,
+    &quot;@type&quot;: &quot;PronounceableText&quot;,
+    &quot;textValue&quot;: &quot;WKRP&quot;,
+    &quot;speechToTextMarkup&quot;: &quot;SSML&quot;,
+    &quot;phoneticText&quot;: &quot;&lt;speak&gt;&lt;say-as interpret-as=\&quot;characters\&quot;&gt;WKRP&lt;/say-as>&quot;
+  ]
 }
 &lt;/script&gt;
 &lt;p&gt;
   Do you listen to &lt;span itemscope
-    itemtype=&quot;http://schema.org/TextPronunciation&quot;
-    itemid=&quot;/Pronunciation#WKRP&quot;&gt;WKRP&lt;/span&gt;?
+    itemtype=&quot;http://schema.org/PronounceableText&quot;
+    itemid=&quot;/pronunciation#WKRP&quot;&gt;WKRP&lt;/span&gt;?
 &lt;/p&gt;</pre>
 			</section>
 			<section>
 				<h2>Existing Work</h2>
 				<ul>
-					<li><a href="https://www.w3.org/WoT/WG/">Web of Things Working Group</a></li>
-					<li><a href="https://schema.org/">Schema.org</a></li>
+					<li>
+						<a href="https://www.w3.org/WoT/WG/">Web of Things Working Group</a>
+					</li>
+					<li>
+						<a href="https://webschemas.org/PronounceableText">Schema.org PronounceableText</a>
+					</li>
 				</ul>
 			</section>
 			<section>
