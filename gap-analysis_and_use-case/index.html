@@ -12,19 +12,17 @@
 </head>
 <body>
   <section id="abstract">
-    <p>This document is the Gap Analysis Review which presents required features of Spoken Text Pronunciation and Presentation and existing standards or specifications that may support (or enable support) of those features. Gaps are defined when a
-    required feature does not have a corresponding method by which it can be authored in HTML.</p>
+    <p>The objective of the Pronunciation Task Force is to develop normative specifications and best practices guidance collaborating with other W3C groups as appropriate, to provide for proper pronunciation in HTML content when using text to speech (TTS) synthesis. This document presents the results of the Pronunciation Task Force work on an HTML standard. It includes an introduction with a historical perspective, an enumeration of the core requirements, a listing of approach use cases, and finally a gap analysis. Gaps are defined when a requirement does not have a corresponding use case approach by which it can be authored in HTML.</p>
   </section>
   <section id="sotd"></section>
   <section class="informative" id="introduction">
     <h1>Introduction</h1>
-    <p>Accurate, consistent pronunciation and presentation of content spoken by text to speech synthesis (TTS) is an essential requirement in education and other domains. Organizations such as educational publishers and assessment vendors are
-    looking for a standards-based solution to enable authoring of spoken presentation guidance in HTML which can then be consumed by assistive technologies and other applications which utilize text to speech synthesis for rendering of content.</p>
-    <p>W3C has developed two standards pertaining to the presentation of speech synthesis which have reached recommendation status, <a href="https://www.w3.org/TR/speech-synthesis11/">Speech Synthesis Markup Language</a> (SSML) and the <a href=
+    <p>Accurate, consistent pronunciation and presentation of content spoken by text to speech synthesis (TTS) is an essential requirement in education, communication, entertainment, and other domains. From helping to teach spelling and pronunciation in different languages, TTS has become a vital technology for providing access to digital content on the web and through mobile devices. Organizations such as educational publishers and assessment vendors are looking for a standards-based solution to enable authoring of spoken presentation guidance in HTML which can then be consumed by assistive technologies and other applications that utilize text to speech synthesisTTS for rendering of content. Historically, efforts have not led to an adoption of a standard, but rather a number ofseveral approaches that meet some needs for some applications.</p>
+    <p> The W3C has developed two standards pertaining to the presentation of speech synthesis which have reached recommendation status, <a href="https://www.w3.org/TR/speech-synthesis11/">Speech Synthesis Markup Language</a> (SSML) and the <a href=
     "https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon Specification</a> (PLS). Both standards are directly consumed by a speech synthesis engine supporting those standards. While a PLS file reference may be referenced in a HTML
     page using <code>link rel</code>, there is no known uptake of PLS using this method by assistive technologies. While there are technically methods to allow authors to inline SSML within HTML (using namespaces), such an approach has not been
     adopted, and anecdotal comments from browser and assistive technology vendors have suggested this is not a viable approach.</p>
-    <p><a href="https://www.w3.org/TR/css3-speech/">CSS Speech Module</a> is a retired W3C Working Group Note that describes mechanism by which content authors may apply a variety of speech styling and presentation properties to HTML. This approach
+    <p>The <a href="https://www.w3.org/TR/css3-speech/">CSS Speech Module</a> is a retired W3C Working Group Note that describes a mechanism by which content authors may apply a variety of speech styling and presentation properties to HTML. This approach
     has a variety of advantages but does not implement the full set of features required for pronunciation. <a href="https://www.w3.org/TR/css3-speech/#pronunciation">Section 16</a> of the Note specifically references the issue of pronunciation:</p>
     <blockquote>
       CSS does not specify how to define the pronunciation (expressed using a well-defined phonetic alphabet) of a particular piece of text within the markup document. A "phonemes" property was described in earlier drafts of this specification, but
@@ -33,7 +31,7 @@
     </blockquote>
     <p>While a portion of CSS Speech was demonstrated by <a href="https://developer.apple.com/videos/play/wwdc2011/519/">Apple in 2011 on iOS with Safari and VoiceOver</a>, it is not presently supported on any platform with any Assistive Technology,
     and work on the standard has itself been stopped by the CSS working group.</p>
-    <p>Efforts to address this need have been considered by both assessment technology vendors and the publishing community. Citing the need for pronunciation and presentation controls, the IMS Global Learning Consortium added the ability to author SSML
+    <p>Efforts to address the need for pronunciation standards have also been considered by both assessment technology vendors and the publishing community. Citing the need for pronunciation and presentation controls, the IMS Global Learning Consortium added the ability to author SSML
     markup, specify PLS files, and reference CSS Speech properties to the Question Test Interoperability (QTI) <a href="https://www.imsglobal.org/apip/apipv1p0/APIP_QTI_v1p0.html">Accessible Portable Item Protocol</a> (APIP). In practice, QTI/APIP
     authored content is transformed into HTML for rendering in web browsers. This led to the dilemma that there is no standardized (and supported) method for inlining SSML in HTML, nor is there support for CSS Speech. This has led to the situation
     where SSML is the primary authoring model, with assessment vendors implementing a custom method for adding the SSML (or SSML-like) features to HTML using non-standard or data attributes, with customized Read Aloud software consuming those
@@ -45,10 +43,14 @@
     attributes may be applied to a single element, for example, <code>role</code> and <code>aria-checked</code>. The <a href="https://w3c.github.io/publ-epub-revision/epub32/spec/epub-contentdocs.html#sec-xhtml-ssml-attrib">EPUB standard</a> for
     digital publishing introduced a namespaced version of the SSML <code>phoneme</code> and <code>alphabet</code> attributes enabling content authors to provide pronunciation guidance. Uptake by the publishing community has been limited, reportedly
     due to the lack of support in reading systems and assistive technologies.</p>
+    <p>In order to further the discussion about the essential need for consistent pronunciation and presentation of content spoken by text to speech synthesis (TTS), the Pronunciation Task Force has compiled the following sections of information in this document:</p>
+        <p>Core Features for Pronunciation and Spoken Presentation, which describes and give examples of needed pronunciation supports.</p>
+        <p>Use Cases, which provides technical examples of pronunciation supports for 6 approaches and lists the goal of the approach, the target audience, implementation options, existing work, and problems and limitations.</p>
+        <p>Gap Analysis, which identifies gaps in support based on the requirements and use cases. Gaps are defined when a requirement does not have a corresponding use case approach by which it can be authored in HTML.</p>
   </section>
   <section>
     <h1>Core Features for Pronunciation and Spoken Presentation</h1>
-    <p>The common spoken pronunciation requirements from the education domain serve as a primary source for these features. These requirements can be broken down into the following main functions that would support authoring and spoken presentation
+    <p>The common spoken pronunciation requirements from the education domain serve as a primary source for the core features and are applicable to many other domains that require accurate pronunciation and presentation. These requirements can be broken down into the following main functions that would support authoring and spoken presentation
     needs.</p>
     <section>
       <h2>Language</h2>
@@ -57,23 +59,23 @@
     </section>
     <seciton>
       <h2>Voice Family / Gender</h2>
-      <p>Content authors may elect to make adjustments of those paramters to control the spoken presentation for purposes such as providing a gender specific voice to reflect that of the author, or for a character (or characters) in theatrical
+      <p>Content authors may elect to adjust the spoken presentation to provide a gender specific voice to reflect that of the author, or for a character (or characters) in theatrical a
       presentation of a story. Many assistive technologies already provide user selection of voice family and gender independent of any authored intent.</p>
     </seciton>
     <section>
       <h2>Phonetic Pronunciation of String Values</h2>
-      <p>In some cases words may need to have their phonetic pronunciation prescribed by the content author. This may occur when uncommon words (not supported by text to speech synthesizers), or in cases where word pronunciation will vary based on
-      context, and that context may not be correctly described.</p>
+      <p>In some cases, words may need to have their phonetic pronunciation prescribed by the content author. This may occur when uncommon words (not supported by text to speech synthesizers)are present, or in cases where word pronunciation will vary based on
+      context, and that context may not be correctly interpreted.</p>
     </section>
     <section>
       <h2>String Substitution</h2>
-      <p>There are cases where content that is visually presented may require replacement (substitution) with an alternate textual form to ensure correct pronunciation by text to speech synthesizers. In some cases phonetic pronunciation may be a
+      <p>There are cases where content that is visually presented may require replacement (substitution) with an alternate textual form to ensure correct pronunciation by text to speech synthesizers. In these cases, phonetic pronunciation may be a
       solution to this need.</p>
     </section>
     <section>
       <h2>Rate / Pitch / Volume</h2>
-      <p>While end users should have full control over spoken presentation parameters such as speaking rate, pitch, and volume (e.g., WCAG 1.4.2 ), content authors may elect to make adjustments of those parameters to control the spoken presentation for
-      purposes such as a theatrical presentation of a story. Many assistive technologies already provide user control speaking rate, pitch, and volume independent of any authored intent.</p>
+      <p>While end users should have full control over spoken presentation parameters such as speaking rate, pitch, and volume (e.g., WCAG 1.4.2 ), content authors may elect to adjust those parameters to control the spoken presentation for
+      purposes such as a theatrical presentation of a story. Many assistive technologies already provide user controlled speaking rate, pitch, and volume independent of any authored intent.</p>
     </section>
     <section>
     <h2>Emphasis</h2>
@@ -83,35 +85,28 @@
     </section>
     <section>
     <h2>Say As</h2>
-      <p>While text to speech engines continue to improve in their ability to process text and provide accurate spoken rendering of acronyms and numeric values, there can be instances where uncommon terms or alphanumeric constructs pose challenges.
-      Further, some educators may have specific requirements as to how a numeric value be spoken which may differ from a TTS engine's default rendering. For example, the Smarter Balanced Assessment Consortium has developed <a href=
-      "https://portal.smarterbalanced.org/library/en/read-aloud-guidelines.pdf">Read Aloud Guidelines</a> to be followed by human readers used by students who may require a spoken presentation of an educational test, which includes specific examples
-      of how numeric values should be read aloud.</p>
+      <p>While text to speech engines continue to improve in their ability to process text and provide accurate spoken rendering of acronyms and numeric values, there can be instances where uncommon terms or alphanumeric constructs pose challenges.</p>
       <section>
         <h3>Presentation of Numeric Values</h3>
-        <p>Precise control as to how numeric values should be spoken may not always be correctly determined by text to speech engines from context.&nbsp; Examples include speaking a number as individual digits, correct reading of year values, and
-        the correct speaking of ordinal and cardinal numbers.</p>
+        <p>Precise spoken presentation of numeric values may not always be correctly determined by text to speech engines from context.&nbsp; Examples include speaking a multidigit number as individual digits (100 spoken as &quot;one, zer, zero&quot; instead of &quot;one hundred&quot;), correct reading of year values, and
+        the correct speaking of ordinal and cardinal numbers. Furthermore, some educators may have specific requirements for the spoken presentation of a numeric value which may differ from a TTS engine's default rendering. For example, the Smarter Balanced Assessment Consortium has developed <a href=
+      "https://portal.smarterbalanced.org/library/en/read-aloud-guidelines.pdf">Read Aloud Guidelines</a> to be followed by human readers used by students who may require a spoken presentation of an educational test, which includes specific examples
+      of how numeric values should be read aloud.</p>
       </section>
       <section>
         <h3>Presentation of String Values</h3>
-        <p>Precise control as to how string values should be spoken, which may not be determined correctly by text to speech synthesizers.</p>
+        <p>Precise presentation of string values may not be determined correctly by text to speech synthesizers. Examples include speaking acroyms as individual letters rather than words and providing a substitute pronunciation for a word based on context (the word &quot;read&quot; may be pronounced as either &quot;reed&quot; or &quot;red&quot;), and providing a phonetic pronunciation of a word to ensure the correct spoken presentation.</p>
       </section>
     </section>
     <section>
       <h2>Pausing</h2>
-      <p>Specific spoken presentation requirements exist in the <a href="">Accessibility Guidelines from PARCC</a>, and include requirements such as inserting pauses in the spoken presentation, before and after emphasized words and mathematical
-      terms. In practice, content authors may find it necessary to insert pauses between numeric values to limit the chance of hearing multiple numbers as a single value. One common technique to achieve pausing to date has involved inserting
-      non-visible commas before or after a text string requiring a pause. While this may work in practice for a read aloud TTS tool, it is problematic for screen reader users who may, based on verbosity settings, hear the multiple commas announced,
-      and for refreshable braille users who will have the commas visible in braille.</p>
+      <p>Content authors may elect or find it necessary to insert pauses in content. Pauses can be inserted for dramatic effect or may be necessary to render the spoken presentation understandable. For example, pauses inserted between numeric values may be needed to limit the chance of hearing multiple numbers as a single value. One common technique to achieve pausing to date has involved inserting non-visible commas before or after a text string requiring a pause. While this may work in practice for a read aloud TTS tool, it is problematic for screen reader users who may, based on verbosity settings, hear the multiple commas announced, and for refreshable braille users who will have the commas visible in braille. In addition, some tests, such as PARCC, specify spoken presentation requirements in their accessibility guidelines which include inserting pauses before and after emphasized word and mathematical terms.</p>
     </section>
   </section>
   <section>
     <h1>Use Cases</h1>
-    <p>This document provides use cases which describe specific implmentation approaches for introducing pronunciation
-        and spoken presentation authoring markup into HTML5. These approaches are based on the two primary approaches 
-        that have evolved from the Pronunciation Task Force members.  Other approaches may appear in subsequent working drafts.
-    </p>
-    <p>Successful use cases will be those that provide ease of authoring and consumption by assistive technologies and user 
+    <p>This section presents 6 use cases which describe specific implmentationimplementation approaches for introducing pronunciation and spoken presentation authoring markup into HTML5 and are based on an inline or attribute model. These two differing approach models emerged from the work of the Accessible Platform Architecture Pronunciation Task Force and represent a decision point for integrating SSML (or SSML-like characteristics) into HTML. Each of the approaches differs in authoring and consumption models (specifically for assistive technologies. Other approaches may appear in subsequent working drafts.</p>
+    <p>Successful use cases provide ease of authoring and consumption by assistive technologies and user 
         agents that utilize synthetic speech for spoken presentation of web content. The most challenging aspect of consumption may
         be alignment of the markup approach with the standard mechanisms by which assistive technologies, specifically screen
         readers, obtain content via platform accessibility APIs.
@@ -311,7 +306,7 @@ speechSynthesis.speak(msg);</pre>
       <h1>Use Case HTML5</h1>
       <section>
         <h2>Background and Current Practice</h2>
-        <p>HTML5 includes the XML namespaces for MathML and SVG. So, using either's elements in an HTML5 document is valid. Because SSML's implementation is non-visual in nature, browser implementation could be slow or non-existent without affecting how authors use SSML in HTML. Expansion of HTML5 to include SSML namespace would allow valid use of SSML in the HTML5 document. Browsers would treat the element like any other unknown element, as HTMLUnknownElement.</p>
+        <p>HTML5 includes the XML namespaces for MathML and SVG. Therefore, using either's elements in an HTML5 document is valid. Likewise, including an SSML namespace would allow the valid use of SSML in HTML5. Because SSML's implementation is non-visual in nature, browser implementation could be slow or non-existent without affecting how authors use SSML in HTML. Browsers would treat the element like any other unknown element, as HTMLUnknownElement.</p>
       </section>
       <section>
         <h2>Goal</h2>
@@ -568,7 +563,7 @@ customElements.define('ssml-speak', SSMLSpeak);</pre>
   </section>
   <section>
     <h1>Gap Analysis</h1>
-    <p>Based on the features defined in the prior section, the following table presents existing speech presentation standards, HTML features, and WAI-ARIA attributes that may offer a method to achieve the requirement for HTML authors.</p>
+    <p>Based on the features and use cases described in the prior sections, the following table presents existing speech presentation standards, HTML features, and WAI-ARIA attributes that may offer a method to achieve the requirement for HTML authors. A blank cell for any approach represents a gap in support.</p>
     <table border="1"
            cellpadding="2"
            cellspacing="2"
@@ -697,8 +692,8 @@ customElements.define('ssml-speak', SSMLSpeak);</pre>
         </tr>
       </tbody>
     </table>
-    <p>The following sections present how each of the required features may or may not be met by use of existing standards. A key considerationa in the analysis is whether a means exists to directly author (or annote) HTML content to incporate the
-    spoken presentationa and pronunciation feature.</p>
+    <p>The following sections describe how each of the required features may be met by the use of existing approaches. A key consideration in the analysis is whether a means exists to directly author (or annotate) HTML content to incorporate the
+    spoken presentation and pronunciation feature.</p>
     <section>
       <h3>Language</h3>
       <p>Allow content authors to specify the language of text contained within an element so that the TTS used for rendering will select the appropriate language for synthesis.<br /></p>
@@ -710,8 +705,8 @@ customElements.define('ssml-speak', SSMLSpeak);</pre>
     </section>
     <section>
       <h3>Voice Family/Gender</h3>
-      <p>Allow content authors to specify a specific TTS voice to be used to render text. For example, content which presents a dialog between two people, a woman and a man, the author may specify that a female voice be used for the woman's text and a
-      male voice be used for the man. Some platform TTS services may support a variety of voices, identified by a name, gender, or even age.</p>
+      <p>Allow content authors to specify a specific TTS voice to be used to render text. For example, for content that presents a dialog between two people, a woman and a man, the author may specify that a female voice be used for the woman's text and a
+      male voice be used for the man's text. Some platform TTS services may support a variety of voices, identified by a name, gender, or even age.</p>
       <h4>CSS</h4>
       <p><code>voice-family</code> property can be used to specify the gender of the voice.<br /></p>
       <p>Example: <code>{ voice-family: male; }</code></p>
