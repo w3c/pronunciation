@@ -17,7 +17,14 @@
   <section id="sotd"></section>
   <section class="informative" id="introduction">
     <h1>Introduction</h1>
-    <p>Accurate, consistent pronunciation and presentation of content spoken by text to speech synthesis (TTS) is an essential requirement in education, communication, entertainment, and other domains. From helping to teach spelling and pronunciation in different languages, TTS has become a vital technology for providing access to digital content on the web and through mobile devices. Organizations such as educational publishers and assessment vendors are looking for a standards-based solution to enable authoring of spoken presentation guidance in HTML which can then be consumed by assistive technologies and other applications that utilize text to speech synthesisTTS for rendering of content. Historically, efforts have not led to an adoption of a standard, but rather a number ofseveral approaches that meet some needs for some applications.</p>
+    <p>Accurate, consistent pronunciation and presentation of content spoken by text to speech synthesis (TTS) is an essential requirement in education, communication, entertainment, and other domains. 
+          From helping to teach spelling and pronunciation in different languages, 
+          TTS has become a vital technology for providing access to digital content on the web and through mobile devices. 
+          Organizations such as educational publishers and assessment vendors are looking for a standards-based solution to 
+          enable authoring of spoken presentation guidance in HTML which can then be consumed by assistive technologies and other 
+          applications that utilize text to speech synthesisTTS for rendering of content. 
+          Historically, efforts have not led to an adoption of a standard, 
+          but rather a number ofseveral approaches that meet some needs for some applications.</p>
     <p> The W3C has developed two standards pertaining to the presentation of speech synthesis which have reached recommendation status, <a href="https://www.w3.org/TR/speech-synthesis11/">Speech Synthesis Markup Language</a> (SSML) and the <a href=
     "https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon Specification</a> (PLS). Both standards are directly consumed by a speech synthesis engine supporting those standards. While a PLS file reference may be referenced in a HTML
     page using <code>link rel</code>, there is no known uptake of PLS using this method by assistive technologies. While there are technically methods to allow authors to inline SSML within HTML (using namespaces), such an approach has not been
@@ -43,10 +50,14 @@
     attributes may be applied to a single element, for example, <code>role</code> and <code>aria-checked</code>. The <a href="https://w3c.github.io/publ-epub-revision/epub32/spec/epub-contentdocs.html#sec-xhtml-ssml-attrib">EPUB standard</a> for
     digital publishing introduced a namespaced version of the SSML <code>phoneme</code> and <code>alphabet</code> attributes enabling content authors to provide pronunciation guidance. Uptake by the publishing community has been limited, reportedly
     due to the lack of support in reading systems and assistive technologies.</p>
-    <p>In order to further the discussion about the essential need for consistent pronunciation and presentation of content spoken by text to speech synthesis (TTS), the Pronunciation Task Force has compiled the following sections of information in this document:</p>
-        <p>Core Features for Pronunciation and Spoken Presentation, which describes and give examples of needed pronunciation supports.</p>
-        <p>Use Cases, which provides technical examples of pronunciation supports for 6 approaches and lists the goal of the approach, the target audience, implementation options, existing work, and problems and limitations.</p>
-        <p>Gap Analysis, which identifies gaps in support based on the requirements and use cases. Gaps are defined when a requirement does not have a corresponding use case approach by which it can be authored in HTML.</p>
+    <p>In order to further the discussion about the essential need for consistent pronunciation and presentation of content spoken by text 
+          to speech synthesis (TTS), the Pronunciation Task Force has compiled the following sections of information in this document:
+        <ul>
+       <li>Core Features for Pronunciation and Spoken Presentation, which describes and give examples of needed pronunciation supports.</li>
+        <li>Use Cases, which provides technical examples of pronunciation supports for 6 approaches and lists the goal of the approach, the 
+              , implementation options, existing work, and problems and limitations.</li>
+        <li>Gap Analysis, which identifies gaps in support based on the requirements and use cases. Gaps are defined when a requirement does not have a corresponding use case approach by which it can be authored in HTML.</li></ul>
+        </p>
   </section>
   <section>
     <h1>Core Features for Pronunciation and Spoken Presentation</h1>
@@ -57,11 +68,11 @@
       <p>When content is authored in mixed language, a mechanism is needed to allow authors to indicate both the base language of the content as well as the language of individual words and phrases. The expectation is that assistive technologies and
     other tools that utilize text to speech synthesis would detect and apply the language requested when presenting the text.</p>
     </section>
-    <seciton>
+    <section>
       <h2>Voice Family / Gender</h2>
       <p>Content authors may elect to adjust the spoken presentation to provide a gender specific voice to reflect that of the author, or for a character (or characters) in theatrical a
       presentation of a story. Many assistive technologies already provide user selection of voice family and gender independent of any authored intent.</p>
-    </seciton>
+    </section>
     <section>
       <h2>Phonetic Pronunciation of String Values</h2>
       <p>In some cases, words may need to have their phonetic pronunciation prescribed by the content author. This may occur when uncommon words (not supported by text to speech synthesizers)are present, or in cases where word pronunciation will vary based on
