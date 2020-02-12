@@ -55,6 +55,14 @@ var respecConfig = {
         companyURI: "https://www.pearson.com/",
         w3cid: 98332
       },
+        {
+        name: "Dee Dyer",
+        mailto: "ddyer@ets.org",
+        company: "Educational Testing Service",
+        companyURI: "https://www.ets.org/",
+        w3cid: 00000
+        
+      },
       {
         name: "Irfan Ali",
         url: 'https://www.w3.org/users/98332',
