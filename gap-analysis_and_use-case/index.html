@@ -847,12 +847,57 @@ customElements.define('ssml-speak', SSMLSpeak);</pre>
     <section>
       <h3>Say As</h3>
       <h4>CSS</h4>
+          <p>The <code>‘speak-as’</code> property determines in what manner text gets rendered aurally, based upon a predefined list of possibilities.</p>
+          <p>
+          <pre>
+          Speech synthesizers are knowledgeable about what a number is. The <code>‘speak-as’</code> property enables some level of control on how user agents render numbers, and may be implemented as a preprocessing step before passing the text to the actual speech synthesizer.
+          </pre>
+          </p>
       <h4>SSML</h4>
-    </section>
+      <p>
+            Describes how the text should be interpreted. This lets you provide additional context to the text and eliminate any ambiguity on how Alexa should render the text. Indicate how Alexa should interpret the text with the <code>interpret-as</code> attribute.
+      </p>
+<p>
+<pre class="example">
+<code>
+&lt;speak&gt;
+    Here is a number spoken as a cardinal number: 
+    &lt;say-as interpret-as="cardinal"&gt;12345&lt;/say-as&gt;.
+    Here is the same number with each digit spoken separately:
+    &lt;say-as interpret-as="digits"&gt;12345&lt;/say-as&gt;.
+    Here is a word spelled out: &lt;say-as interpret-as="spell-out"&gt;hello&lt;/say-as&gt;
+&lt;/speak&gt;
+</code>
+</pre>
+</p>
+    
+</section>
     <section>
       <h3>Pausing</h3>
       <h4>CSS</h4>
+          <p>
+                The <code>‘pause-before’</code> and <code>‘pause-after’</code> properties specify a prosodic boundary (silence with a specific duration) that occurs before (or after) the speech synthesis rendition of the selected element, or if any <code>‘cue-before’</code> (or <code>‘cue-after’</code>) is specified, before (or after) the cue within the aural box model.
+          </p>
+          <p>
+          <pre>
+          Note that although the functionality provided by this property is similar to the <code>break element</code> from the SSML markup language [SSML], the application of ‘pause’ prosodic boundaries within the aural box model of CSS Speech requires special considerations (e.g. "collapsed" pauses).
+          </pre>
+          </p>
       <h4>SSML</h4>
+          <p>
+                <code>break</code> represents a pause in the speech. Set the length of the pause with the <code>strength</code> or <code>time</code> attributes.
+          </p>
+<p>
+<pre class="example">
+<code>
+&lt;speak&gt;
+    There is a three second pause here &lt;break time="3s"/&gt; 
+    then the speech continues.
+&lt;/speak&gt; 
+</code>
+</pre>
+</p>
+         
     </section>
   </section>
   <div data-include="../common/acknowledgements.html"
