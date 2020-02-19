@@ -759,6 +759,16 @@ customElements.define('ssml-speak', SSMLSpeak);</pre>
       <p>The <a href="https://www.w3.org/TR/wai-aria/#aria-label"><code>aria-label</code></a> and <a href="https://www.w3.org/TR/wai-aria/#aria-labelledby"><code>aria-labelledby</code></a> attribute can be used by an author to supply a text string
       that will become the accessible name for the element upon which it is applied.&nbsp; This usage effectively provides a mechanism for performing text substation that is supported by a screen reader. However, it is problematic for one significant reason; for users who utilize screen readers and refreshable Braille, the content that is voiced will not match the content that is sent to the refreshable Braille device. This mismatch would not be acceptable for some content, particularly for assessment content.<br /></p>
       <h4>SSML</h4>
+          <p>Pronounce the specified word or phrase as a different word or phrase. Specify the pronunciation to substitute with the <code>alias</code> attribute.</p>
+          <pre class="example">
+           <code>
+              &lt;speak&gt;
+                  My favorite chemical element is &lt;sub alias="aluminum"&gt;Al&lt;/sub&gt;,
+                  but Al prefers &lt;sub alias="magnesium">Mg&lt;/sub&gt;. 
+            &lt;/speak&gt;
+            </code>
+          </pre>
+          </p>   
     </section>
     <section>
       <h3>Rate/Pitch/Volume</h3>
