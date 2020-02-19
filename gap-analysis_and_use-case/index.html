@@ -787,6 +787,12 @@ customElements.define('ssml-speak', SSMLSpeak);</pre>
                  <dd>The <code>‘voice-pitch’</code> property specifies the "baseline" pitch of the generated speech output, which depends on the used <code>‘voice-family’</code> instance, and varies across speech synthesis processors (it approximately corresponds to the average pitch of the output). For example, the common pitch for a male voice is around 120Hz, whereas it is around 210Hz for a female voice.</dd>
             </dl>          
           </p>
+        <p>
+           <dl>
+                 <dt><strong>voice-range</strong></dt>
+                 <dd>The <code>‘voice-range’</code> property specifies the variability in the "baseline" pitch, i.e. how much the fundamental frequency may deviate from the average pitch of the speech output. The dynamic pitch range of the generated speech generally increases for a highly animated voice, for example when variations in inflection are used to convey meaning and emphasis in speech. Typically, a low range produces a flat, monotonic voice, whereas a high range produces an animated voice.</dd>
+            </dl>          
+          </p>
       <h4>SSML</h4>
           <p><code>prosody</code> modifies the volume, pitch, and rate of the tagged speech.</p>
           <p>
@@ -808,8 +814,35 @@ customElements.define('ssml-speak', SSMLSpeak);</pre>
       <h3>Emphasis</h3>
       <p>Allow content authors to specify that text content be spoken with emphasis, for example, louder and more slowly. This can be viewed as a simplification of the Rate/Pitch/Volume controls to reduce authoring complexity.</p>
       <h4>HTML</h4>
-      <h4>CSS</h4>
+          <p>
+                The HTML <code><em></code> element marks text that has stress emphasis. The <code><em></code> element can be nested, with each level of nesting indicating a greater degree of emphasis.
+          </p>
+           <p>
+                 The <code><em></code> element is for words that have a stressed emphasis compared to surrounding text, which is often limited to a word or words of a sentence and affects the meaning of the sentence itself.
+
+ Typically this element is displayed in italic type. However, it should not be used simply to apply italic styling; use the CSS <code>font-style</code> property for that purpose. Use the <code><cite></code> element to mark the title of a work (book, play, song, etc.). Use the <code><i></code> element to mark text that is in an alternate tone or mood, which covers many common situations for italics such as scientific names or words in other languages. Use the <code><strong></code> element to mark text that has greater importance than surrounding text. 
+                </p>      
+          
+          <h4>CSS</h4>
+          <p>
+           <dl>
+                 <dt><strong>voice-stress</strong></dt>
+                 <dd>The <code>‘voice-stress’</code> property manipulates the strength of emphasis, which is normally applied using a combination of pitch change, timing changes, loudness and other acoustic differences. The precise meaning of the values therefore depend on the language being spoken.</dd>
+            </dl>          
+          </p>
+          
       <h4>SSML</h4>
+      <p>Emphasize the tagged words or phrases. Emphasis changes rate and volume of the speech. More emphasis is spoken louder and slower. Less emphasis is quieter and faster.</p>         
+       <p>
+                 <pre class="example">
+                 <code>
+                         &lt;speak&gt;
+                         I already told you I 
+                        &lt;emphasis level="strong"&gt;really like&lt;/emphasis&gt; that person.
+                        &lt;/speak&gt; 
+                 </code>
+                 </pre>          
+       </p>           
     </section>
     <section>
       <h3>Say As</h3>
