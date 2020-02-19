@@ -774,7 +774,35 @@ customElements.define('ssml-speak', SSMLSpeak);</pre>
       <h3>Rate/Pitch/Volume</h3>
       <p>Allow content authors to specify characteristics, such as rate, pitch, and/or volume of the TTS rendering of the text.</p>
       <h4>CSS</h4>
+          <p>
+           <dl>
+                 <dt><strong>voice-rate</strong></dt>
+                 <dd>The <code>‘voice-rate’</code> property manipulates the rate of generated synthetic speech in terms of words per minute.</dd>
+            </dl>          
+          </p>
+
+         <p>
+           <dl>
+                 <dt><strong>voice-pitch</strong></dt>
+                 <dd>The <code>‘voice-pitch’</code> property specifies the "baseline" pitch of the generated speech output, which depends on the used <code>‘voice-family’</code> instance, and varies across speech synthesis processors (it approximately corresponds to the average pitch of the output). For example, the common pitch for a male voice is around 120Hz, whereas it is around 210Hz for a female voice.</dd>
+            </dl>          
+          </p>
       <h4>SSML</h4>
+          <p><code>prosody</code> modifies the volume, pitch, and rate of the tagged speech.</p>
+          <p>
+          <pre class="example">
+            <code>
+              &lt;speak&gt;
+                  Normal volume for the first sentence.
+                  &lt;prosody volume="x-loud"&gt;Louder volume for the second sentence&lt;/prosody&gt;.
+                  When I wake up, &lt;prosody rate="x-slow"&gt;I speak quite slowly&lt;/prosody&gt;.
+                  I can speak with my normal pitch, 
+                  &lt;prosody pitch="x-high"&gt; but also with a much higher pitch &lt;/prosody&gt;, 
+                  and also &lt;prosody pitch="low"&gt;with a lower pitch&lt;/prosody&gt;.
+            &lt;/speak&gt;
+            </code>
+          </pre>
+          </p>
     </section>
     <section>
       <h3>Emphasis</h3>
