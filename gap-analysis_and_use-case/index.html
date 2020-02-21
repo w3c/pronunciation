@@ -19,7 +19,7 @@
     <h1>Introduction</h1>
     <p>Accurate, consistent pronunciation and presentation of content spoken by text to speech synthesis (TTS) is an essential requirement in education, communication, entertainment, and other domains. 
           From helping to teach spelling and pronunciation in different languages, 
-          TTS has become a vital technology for providing access to digital content on the web and through mobile devices. 
+          TTS has become a vital technology for providing access to digital content on the web, through mobile devices, and now via voice-based assistants. 
           Organizations such as educational publishers and assessment vendors are looking for a standards-based solution to 
           enable authoring of spoken presentation guidance in HTML which can then be consumed by assistive technologies and other 
           applications that utilize text to speech synthesis (TTS) for rendering of content. 
@@ -27,12 +27,12 @@
           what has arisen are a variety of non-interoperable approaches that meet specific needs for some applications.</p>
     <p> The W3C has developed two standards pertaining to the presentation of speech synthesis which have reached recommendation status, <a href="https://www.w3.org/TR/speech-synthesis11/">Speech Synthesis Markup Language</a> (SSML) and the <a href=
     "https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon Specification</a> (PLS). Both standards are directly consumed by a speech synthesis engine supporting those standards. While a PLS file reference may be referenced in a HTML
-    page using <code>link rel</code>, there is no known uptake of PLS using this method by assistive technologies. While there are technically methods to allow authors to inline SSML within HTML (using namespaces), such an approach has not been
+    page using <code>link rel</code>, there is no known uptake of PLS using this method by assistive technologies. There are technical methods to allow authors to inline SSML within HTML (using namespaces), but such an approach has not been
     adopted, and anecdotal comments from browser and assistive technology vendors have suggested this is not a viable approach.</p>
     <p>The <a href="https://www.w3.org/TR/css3-speech/">CSS Speech Module</a> is a retired W3C Working Group Note that describes a mechanism by which content authors may apply a variety of speech styling and presentation properties to HTML. This approach
-    has a variety of advantages but does not implement the full set of features required for pronunciation. <a href="https://www.w3.org/TR/css3-speech/#pronunciation">Section 16</a> of the Note specifically references the issue of pronunciation:</p>
+    has a number of advantages but does not implement the full set of features required for pronunciation. <a href="https://www.w3.org/TR/css3-speech/#pronunciation">Section 16</a> of the Note specifically references the issue of pronunciation:</p>
     <blockquote>
-      CSS does not specify how to define the pronunciation (expressed using a well-defined phonetic alphabet) of a particular piece of text within the markup document. A "phonemes" property was described in earlier drafts of this specification, but
+      CSS does not specify how to define the pronunciation (expressed using a well-defined phonetic alphabet) of a piece of text within the markup document. A "phonemes" property was described in earlier drafts of this specification, but
       objections were raised due to breaking the principle of separation between content and presentation (the "phonemes" authored within aural CSS stylesheets would have needed to be updated each time text changed within the markup document). The
       "phonemes" functionality is therefore considered out-of-scope in CSS (the presentation layer) and should be addressed in the markup / content layer.
     </blockquote>
@@ -40,11 +40,11 @@
     and work on the standard has itself been stopped by the CSS working group.</p>
     <p>Efforts to address the need for pronunciation standards have also been considered by both assessment technology vendors and the publishing community. Citing the need for pronunciation and presentation controls, the IMS Global Learning Consortium added the ability to author SSML
     markup, specify PLS files, and reference CSS Speech properties to the Question Test Interoperability (QTI) <a href="https://www.imsglobal.org/apip/apipv1p0/APIP_QTI_v1p0.html">Accessible Portable Item Protocol</a> (APIP). In practice, QTI/APIP
-    authored content is transformed into HTML for rendering in web browsers. This led to the dilemma that there is no standardized (and supported) method for inlining SSML in HTML, nor is there support for CSS Speech. This has led to the situation
-    where SSML is the primary authoring model, with assessment vendors implementing a custom method for adding the SSML (or SSML-like) features to HTML using non-standard or data attributes, with customized Read Aloud software consuming those
+    authored content is transformed into HTML for rendering in web browsers. This led to the dilemma that there is no standardized (and supported) method for inlining SSML in HTML, nor is there support for CSS Speech. This resulted in situation
+    where SSML is the primary authoring model, with assessment vendors implementing a custom method for adding the SSML (or SSML-like) features to HTML using non-standard or data attributes and customized Read Aloud software consuming those
     attributes for text to speech synthesis. Given the need to deliver accurate spoken presentation, non-standard approaches often include mis-use of WAI-ARIA, and novel or contextually non-valid attributes (e.g., <code>label</code>). A
-    particular problem occurs when custom pronunciation is applied via a misuse of the <code>aria-label</code> attribute, which results in an issue for screen reader users who also rely upon refreshable braille, and in which a hinted pronunciation
-    intended only for a text to speech synthesizer also appears on the braille display.</p>
+    problem for screen reader users occurs when custom pronunciation is applied via a misuse of the <code>aria-label</code> attribute, which results in an issue for screen reader users who also rely upon refreshable braille, and in which a hinted pronunciation
+    intended only for a text to speech synthesizer to also appears on the braille display.</p>
     <p>The attribute model for adding pronunciation and presentation guidance for assistive technologies and text to speech synthesis has demonstrated traction by vendors trying to solve this need. It should be noted that many of the required
     features are not well supported by a single attribute, as most follow the form of a presentation property / value pairing. Using multiple attributes to provide guidance to assistive technologies is not novel, as seen with WAI-ARIA where multiple
     attributes may be applied to a single element, for example, <code>role</code> and <code>aria-checked</code>. The <a href="https://w3c.github.io/publ-epub-revision/epub32/spec/epub-contentdocs.html#sec-xhtml-ssml-attrib">EPUB standard</a> for
@@ -505,7 +505,7 @@ customElements.define('ssml-speak', SSMLSpeak);</pre>
       </section>
       <section>
         <h2>Problems and Limitations</h2>
-        <p>not an established "type"/published schema</p>
+        <p>JSON-LD is not an established "type"/published schema</p>
       </section>
     </section>
     <section>
@@ -846,6 +846,7 @@ customElements.define('ssml-speak', SSMLSpeak);</pre>
     </section>
     <section>
       <h3>Say As</h3>
+          <p>Allow content authors to specify how text is spoken. For example, content authors would be able to indicate that a series of four numbers should be spoken as a year rather than a cardinal number.</p>
       <h4>CSS</h4>
           <p>The <code>‘speak-as’</code> property determines in what manner text gets rendered aurally, based upon a predefined list of possibilities.</p>
           <p class="note">
@@ -872,6 +873,7 @@ customElements.define('ssml-speak', SSMLSpeak);</pre>
 </section>
     <section>
       <h3>Pausing</h3>
+          <p>Allow content authors to specify pauses before or after content to ensure the desired prosody of the presentation, which can affect the pronunciation of the pronunciation of content the precedes or follows the pause.</p>
       <h4>CSS</h4>
           <p>
                 The <code>‘pause-before’</code> and <code>‘pause-after’</code> properties specify a prosodic boundary (silence with a specific duration) that occurs before (or after) the speech synthesis rendition of the selected element, or if any <code>‘cue-before’</code> (or <code>‘cue-after’</code>) is specified, before (or after) the cue within the aural box model.
