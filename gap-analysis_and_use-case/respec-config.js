@@ -20,8 +20,8 @@ var respecConfig = {
 
     // if you wish the publication date to be other than today, set this
     //publishDate:  "2017-05-09",
-    copyrightStart:  "2018",
-    license: "w3c-software",
+    copyrightStart:  "2020",
+
 
     // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
     // and its maturity status
@@ -71,8 +71,12 @@ var respecConfig = {
         companyURI: "https://www.ets.org/",
         w3cid: 98332
       },
+      {
+        name: "Paul Grenier",
+         mailto: "pgrenier@gmail.com"
+         
+      },
 
-     
       {
         name: "Roy Ran",
         url: 'https://www.w3.org',
