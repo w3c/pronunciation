@@ -147,12 +147,17 @@
         <h2>Implementation Options</h2>
         <p><strong>aria-ssml as embedded JSON</strong></p>
         <p>When AT encounters an element with aria-ssml, the AT should enhance the UI by processing the pronunciation content and passing it to the <a href="https://w3c.github.io/speech-api/">Web Speech API</a> or an external API (e.g., <a href="https://cloud.google.com/text-to-speech/">Google's Text to Speech API</a>).</p>
-        <pre class="example">I say &lt;span aria-ssml='{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;pɪˈkɑːn&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}'&gt;pecan&lt;/span&gt;.
-You say &lt;span aria-ssml='{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;ˈpi.k&aelig;n&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}'&gt;pecan&lt;/span&gt;.</pre>
-        <p>Client will convert JSON to SSML and pass the XML string a speech API.</p>
-        <pre class="example">var msg = new SpeechSynthesisUtterance();
-msg.text = convertJSONtoSSML(element.getAttribute('aria-ssml'));
-speechSynthesis.speak(msg);</pre>
+        <pre class="example">&lt;p&gt;
+  I say &lt;span aria-ssml='{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;pɪˈkɑːn&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}'&gt;pecan&lt;/span&gt;.
+  You say &lt;span aria-ssml='{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;ˈpi.k&aelig;n&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}'&gt;pecan&lt;/span&gt;.
+&lt;/p&gt;
+&lt;script&gt;
+  // Client will convert JSON to SSML and pass the XML string a speech API.
+  var msg = new SpeechSynthesisUtterance();
+  msg.text = convertJSONtoSSML(element.getAttribute('aria-ssml'));
+  speechSynthesis.speak(msg);
+&lt;/script&gt;
+        </pre>
         <p><strong>aria-ssml referencing XML by template ID</strong></p>
         <pre class="example">&lt;!-- ssml must appear inside a template to be valid --&gt;
 &lt;template id=&quot;pecan&quot;&gt;
@@ -168,12 +173,16 @@ speechSynthesis.speak(msg);</pre>
 &lt;/speak&gt;
 &lt;/template&gt;
 
-&lt;p aria-ssml=&quot;#pecan&quot;&gt;You say, pecan. I say, pecan.&lt;/p&gt;</pre>
-        <p>Client will parse XML and serialize it before passing to a speech API:</p>
-        <pre class="example">var msg = new SpeechSynthesisUtterance();
-var xml = document.getElementById('pecan').content.firstElementChild;
-msg.text = serialize(xml);
-speechSynthesis.speak(msg);</pre>
+&lt;p aria-ssml=&quot;#pecan&quot;&gt;You say, pecan. I say, pecan.&lt;/p&gt;
+
+&lt;script&gt;
+  // Client will parse XML and serialize it before passing to a speech API:
+  var msg = new SpeechSynthesisUtterance();
+  var xml = document.getElementById('pecan').content.firstElementChild;
+  msg.text = serialize(xml);
+  speechSynthesis.speak(msg);
+&lt;/script&gt;
+        </pre>
 
         <p><strong>aria-ssml referencing an XML string as script tag</strong></p>
         <pre class="example">&lt;script id=&quot;pecan&quot; type=&quot;application/ssml+xml&quot;&gt;
@@ -188,18 +197,26 @@ speechSynthesis.speak(msg);</pre>
 &lt;/speak&gt;
 &lt;/script&gt;
 
-&lt;p aria-ssml=&quot;#pecan&quot;&gt;You say, pecan. I say, pecan.&lt;/p&gt;</pre>
-        <p>Client will pass the XML string raw to a speech API.</p>
-        <pre class="example">var msg = new SpeechSynthesisUtterance();
-msg.text = document.getElementById('pecan').textContent;
-speechSynthesis.speak(msg);</pre>
+&lt;p aria-ssml=&quot;#pecan&quot;&gt;You say, pecan. I say, pecan.&lt;/p&gt;
+
+&lt;script&gt;
+  // Client will pass the XML string raw to a speech API.
+  var msg = new SpeechSynthesisUtterance();
+  msg.text = document.getElementById('pecan').textContent;
+  speechSynthesis.speak(msg);
+&lt;/script&gt;
+        </pre>
         <p><strong>aria-ssml referencing an external XML document by URL</strong></p>
-        <pre class="example">&lt;p aria-ssml=&quot;http://example.com/pronounce.ssml#pecan&quot;&gt;You say, pecan. I say, pecan.&lt;/p&gt;</pre>
-        <p>Client will pass the string payload to a speech API.</p>
-        <pre class="example">var msg = new SpeechSynthesisUtterance();
-var response = await fetch(el.dataset.ssml)
-msg.txt = await response.text();
-speechSynthesis.speak(msg);</pre>
+        <pre class="example">&lt;p aria-ssml=&quot;http://example.com/pronounce.ssml#pecan&quot;&gt;You say, pecan. I say, pecan.&lt;/p&gt;
+
+&lt;script&gt;
+  // Client will pass the string payload to a speech API.
+  var msg = new SpeechSynthesisUtterance();
+  var response = await fetch(element.getAttribute('aria-ssml'));
+  msg.txt = await response.text();
+  speechSynthesis.speak(msg);
+&lt;/script&gt;
+        </pre>
       </section>
       <section>
         <h2>Existing Work</h2>
@@ -244,12 +261,16 @@ speechSynthesis.speak(msg);</pre>
         <pre class="example">&lt;h2&gt;The Pronunciation of Pecan&lt;/h2&gt;
 &lt;p&gt;&lt;speak&gt;
 I say &lt;span data-ssml='{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;pɪˈkɑːn&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}'&gt;pecan&lt;/span&gt;.
-You say &lt;span data-ssml='{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;ˈpi.k&aelig;n&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}'&gt;pecan&lt;/span&gt;.</pre>
-        <p>Client will convert JSON to SSML and pass the XML string a speech API.</p>
-        <pre class="example">var msg = new SpeechSynthesisUtterance();
-msg.text = convertJSONtoSSML(element.dataset.ssml);
-speechSynthesis.speak(msg);</pre>
+You say &lt;span data-ssml='{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;ˈpi.k&aelig;n&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}'&gt;pecan&lt;/span&gt;.
+&lt;/p&gt;
 
+&lt;script&gt;
+  // Client will convert JSON to SSML and pass the XML string a speech API.
+  var msg = new SpeechSynthesisUtterance();
+  msg.text = convertJSONtoSSML(element.dataset.ssml);
+  speechSynthesis.speak(msg);
+&lt;/script&gt;
+        </pre>
         <p><strong>data-ssml referencing XML by template ID</strong></p>
         <pre class="example">&lt;!-- ssml must appear inside a template to be valid --&gt;
 &lt;template id=&quot;pecan&quot;&gt;
@@ -265,13 +286,16 @@ speechSynthesis.speak(msg);</pre>
 &lt;/speak&gt;
 &lt;/template&gt;
 
-&lt;p data-ssml=&quot;#pecan&quot;&gt;You say, pecan. I say, pecan.&lt;/p&gt;</pre>
-        <p>Client will parse XML and serialize it before passing to a speech API:</p>
-        <pre class="example">var msg = new SpeechSynthesisUtterance();
-var xml = document.getElementById('pecan').content.firstElementChild;
-msg.text = serialize(xml);
-speechSynthesis.speak(msg);</pre>
+&lt;p data-ssml=&quot;#pecan&quot;&gt;You say, pecan. I say, pecan.&lt;/p&gt;
 
+&lt;script&gt;
+  // Client will parse XML and serialize it before passing to a speech API:
+  var msg = new SpeechSynthesisUtterance();
+  var xml = document.getElementById('pecan').content.firstElementChild;
+  msg.text = serialize(xml);
+  speechSynthesis.speak(msg);
+&lt;/script&gt;
+        </pre>
         <p><strong>data-ssml referencing an XML string as script tag</strong></p>
         <pre class="example">&lt;script id=&quot;pecan&quot; type=&quot;application/ssml+xml&quot;&gt;
 &lt;speak version=&quot;1.1&quot;
@@ -285,18 +309,24 @@ speechSynthesis.speak(msg);</pre>
 &lt;/speak&gt;
 &lt;/script&gt;
 
+&lt;script&gt;
+  // Client will pass the XML string raw to a speech API.
+  var msg = new SpeechSynthesisUtterance();
+  msg.text = document.getElementById('pecan').textContent;
+  speechSynthesis.speak(msg);
+&lt;/script&gt;
 &lt;p data-ssml=&quot;#pecan&quot;&gt;You say, pecan. I say, pecan.&lt;/p&gt;</pre>
-        <p>Client will pass the XML string raw to a speech API.</p>
-        <pre class="example">var msg = new SpeechSynthesisUtterance();
-msg.text = document.getElementById('pecan').textContent;
-speechSynthesis.speak(msg);</pre>
         <p><strong>data-ssml referencing an external XML document by URL</strong></p>
-        <pre class="example">&lt;p data-ssml=&quot;http://example.com/pronounce.ssml#pecan&quot;&gt;You say, pecan. I say, pecan.&lt;/p&gt;</pre>
-        <p>Client will pass the string payload to a speech API.</p>
-        <pre class="example">var msg = new SpeechSynthesisUtterance();
-var response = await fetch(el.dataset.ssml)
-msg.txt = await response.text();
-speechSynthesis.speak(msg);</pre>
+        <pre class="example">&lt;p data-ssml=&quot;http://example.com/pronounce.ssml#pecan&quot;&gt;You say, pecan. I say, pecan.&lt;/p&gt;
+
+&lt;script&gt;
+  // Client will pass the string payload to a speech API.
+  var msg = new SpeechSynthesisUtterance();
+  var response = await fetch(el.dataset.ssml)
+  msg.txt = await response.text();
+  speechSynthesis.speak(msg);
+&lt;/script&gt;          
+        </pre>
       </section>
       <section>
         <h2>Existing Work</h2>
@@ -413,8 +443,10 @@ speechSynthesis.speak(msg);</pre>
       &lt;span&gt;off&lt;/span&gt;
     &lt;/button&gt;
   &lt;/p&gt;
-&lt;/template&gt;</pre>
-        <pre class="example">class SSMLSpeak extends HTMLElement {
+&lt;/template&gt;
+
+&lt;script&gt;
+class SSMLSpeak extends HTMLElement {
   constructor() {
     super();
     const template = document.getElementById('ssml-controls');
@@ -442,7 +474,10 @@ speechSynthesis.speak(msg);</pre>
   }
 }
 
-customElements.define('ssml-speak', SSMLSpeak);</pre>
+customElements.define('ssml-speak', SSMLSpeak);
+&lt;/script&gt;
+
+</pre>
       </section>
       <section>
         <h2>Existing Work</h2>
