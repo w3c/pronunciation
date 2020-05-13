@@ -1,18 +1,27 @@
-# pronunciation
-Pronunciation Task Force deliverables
 
-HTML snapshots are available on:
-* https://w3c.github.io/pronunciation/gap-analysis/
+# Pronunciation Task Force current work
 
-* https://w3c.github.io/pronunciation/user-scenarios/
+Editors' drafts are available on:
 
-* https://w3c.github.io/pronunciation/use-cases/
+* Explainer: Improving Spoken Presentation on the Web - https://w3c.github.io/pronunciation/explainer
 
-* https://w3c.github.io/pronunciation/technical-approach/
+* Pronunciation User Scenarios - https://w3c.github.io/pronunciation/user-scenarios/
+
+* Pronunciation Gap Analysis and Use Cases - https://w3c.github.io/pronunciation/gap-analysis_and_use-case
+
+* Pronunciation Technical Approach - https://w3c.github.io/pronunciation/technical-approach/
 
 Markdown URL for Use-cases
 
 * https://github.com/w3c/pronunciation/blob/master/use-cases/draft.md
+
+## Timeline
+
+
+Pronunciation TF want to make a publication every three months if possible.
+
+    Next step: Publish Technical Approach Document as FPWD: June 30, 2020
+
 
 # For Authors
 
