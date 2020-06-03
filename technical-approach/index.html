@@ -2,59 +2,150 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>Pronunciation Technical Approach</title>
-		<meta charset="utf-8"/>
-		<script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove"></script>
-		
-		<script src="respec-config.js" class="remove"></script>
+		<meta charset="utf-8" />
+		<script
+			src="https://www.w3.org/Tools/respec/respec-w3c-common"
+			class="remove"
+		></script>
 
+		<script src="respec-config.js" class="remove"></script>
 	</head>
 	<body>
-
 		<section id="abstract">
-            
-            
-			<p>To be added.</p>
+			<p>
+				The objective of the Pronunciation Task Force is to develop normative
+				specifications and best practices guidance collaborating with other W3C
+				groups as appropriate, to provide for proper pronunciation in HTML
+				content when using text to speech (TTS) synthesis. This document defines
+				a standard mechanism to allow content authors to include spoken
+				presentation guidance in HTML content. Also, it contains two identified
+				approaches and enumerates their advantages and disadvantages.
+			</p>
 		</section>
 
 		<section id="sotd"></section>
 
 		<section class="informative" id="introduction">
-
 			<h1>Introduction</h1>
-     
-            <p>This is a proposal for a mechanism to allow content authors to include spoken presentation guidance in HTML content. Such guidance can be used by assistive technologies (including screen readers and read aloud tools) and voice assistants to control text to speech synthesis. A key requirement is to ensure the spoken presentation content matches the author's intent and user expectations.<br><br>
 
-Currently, the W3C SSML standard is seen as an important piece of a solution. The challenge is how to integrate SSML into HTML that is both easy to author, does not "break" content, and is straightforward for consumption by assistive technologies, voice assistants, and other tools that produce spoken presentation of content.<br><br>
+			<p>
+				This is a proposal for a mechanism to allow content authors to include
+				spoken presentation guidance in HTML content. Such guidance can be used
+				by assistive technologies (including screen readers and read aloud
+				tools) and voice assistants to control text to speech synthesis. A key
+				requirement is to ensure the spoken presentation content matches the
+				author's intent and user expectations.<br /><br />
 
-This proposal has emerged from the work of the Accessible Platform Architecture Pronunciation Task Force and represents a decision point arising from two differing approaches for integrating SSML (or SSML-like characteristics) into HTML. Each of the approaches differs in authoring and consumption models (specifically for assistive technologies).</p>
-			
-			
+				Currently, the
+				<a href="https://www.w3.org/TR/speech-synthesis/">W3C SSML standard</a>
+				is seen as an important piece of a solution. The challenge is how to
+				integrate SSML into HTML that is both easy to author, does not "break"
+				content, and is straightforward for consumption by assistive
+				technologies, voice assistants, and other tools that produce spoken
+				presentation of content.<br /><br />
 
+				This proposal has emerged from the work of the Accessible Platform
+				Architecture Pronunciation Task Force and represents a decision point
+				arising from two differing approaches for integrating SSML (or SSML-like
+				characteristics) into HTML. Each of the approaches differs in authoring
+				and consumption models (specifically for assistive technologies).
+			</p>
 		</section>
 
 		<section>
-			<h1>1</h1>
-			<section>
-				<h2>1.1</h2>
-				<p></p>
-			</section>			
+			<h2 class="heading settled" data-level="1" id="inline-ssml">
+				<span class="secno">1. </span><span class="content">In-line SSML</span
+				><a class="self-link" href="#inline-ssml"></a>
+			</h2>
+
+			<p>
+				Advantages including the existence of SSML standard that is directly
+				consumable by many speech synthesizers, and the precedent for in-lining
+				non-HTML markup such as
+				<a href="https://www.w3.org/TR/SVG2/">SVG</a> and
+				<a href="https://w3c.github.io/mathml/">MathML</a>. Also, this approach
+				may be more easily consumed by voice-command devices like the
+				<a href="https://en.wikipedia.org/wiki/Smart_speaker">smart speaker</a>.
+			</p>
+			<p>
+				A key disadvantage is that inline SSML appears to be more difficult for
+				assistive technologies to implement, specifically for screen readers.
+			</p>
+			<p>
+				A simple example of in-line SSML in an HTML fragment is shown below:
+			</p>
+			<div class="example">
+				<p>
+					According the 2010 US Census, the population of
+					&lt;speak&gt;&lt;say-as
+					interpret-as=&quot;digits&quot;&gt;90274&lt;/say-as&gt;&lt;/speak&gt;
+					increased to 25209 from 24976 over the past 10 years.
+				</p>
+			</div>
 		</section>
 
 		<section>
-			<h1>2</h1>
-			<section>
-				<h2>2.1</h2>
-				<p></p>
-			</section>			
+			<h2 class="heading settled" data-level="2" id="attribute-ssml">
+				<span class="secno">2. </span
+				><span class="content">Attribute-based Model of SSML</span
+				><a class="self-link" href="#attribute-ssml"></a>
+			</h2>
+
+			<p>
+				Advantages include the current uses of variants of the attribute model
+				are currently used by educational assessment vendors, these variants are
+				supported by custom read aloud tools, and it appears that the attribute
+				model may be more easily implementable by screen reader vendors. For
+				example, the
+				<a href="https://www.w3.org/publishing/epub3/epub-spec.html">EPUB3</a>
+				standard includes the SSML phoneme element implemented as a pair of
+				namespaced attributes and is used by publishers in Japan.
+			</p>
+			<p>
+				Disadvantages may include challenges resulting from the use of JSON. The
+				introduction of JSON may add a level of complexity to authoring.
+				However, this could be mitigated by authoring tools. This approach
+				requires transforming the attribute content represented in JSON into
+				SSML by the consumer (screen reader, read aloud tool, voice assistant,
+				etc.). Possible security concerns exist with the JSON approach. The EPUB
+				approach would lead to a large number of attributes if all the SSML
+				elements were to be implemented in that manner.
+			</p>
+			<p>
+				Furthermore, no other standard uses string JSON values for attributes in
+				HTML. This may cause problems for implementers who must parse the JSON
+				values before processing. The browser, which normally attempts to
+				address malformed HTML, can make no guarantees about the JSON strings.
+				Implementers must decide how to handle malformed JSON.
+			</p>
+			<p>
+				Finally, the schema for `data-ssml` values has not been set. Competing
+				standards for this format, like
+				<a href="https://schema.org/SpeakableSpecification"
+					>SpeakableSpecification</a
+				>, as well as any issues converting SSML to a proper JSON schema could
+				cause confusion for implementors and authors. Often such conversions are
+				"...not exactly 1:1 transformation, but very very close".
+			</p>
+			<p>
+				A simple example of the attribute based model of SSML is shown below:
+			</p>
+			<div class="example">
+				<p>
+					According the 2010 US Census, the population of &lt;span
+					data-ssml='{&quot;say-as&quot; :
+					{&quot;interpret-as&quot;:&quot;digits&quot;}}'&gt;90274&lt;/span&gt;
+					increased to 25209 from 24976 over the past 10 years.
+				</p>
+			</div>
 		</section>
 
-		
-
-
-
-		<div data-include="../common/acknowledgements.html" data-oninclude="fixIncludes" data-include-replace="true">Acknowledgements placeholder</div>
-
-
-
+		<div
+			data-include="../common/acknowledgements.html"
+			data-oninclude="fixIncludes"
+			data-include-replace="true"
+		>
+			Acknowledgements placeholder
+		</div>
 	</body>
 </html>
