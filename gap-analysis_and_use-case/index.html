@@ -21,7 +21,7 @@
           From helping to teach spelling and pronunciation in different languages, 
           TTS has become a vital technology for providing access to digital content on the web, through mobile devices, and now via voice-based assistants. 
           Organizations such as educational publishers and assessment vendors are looking for a standards-based solution to 
-          enable authoring of spoken presentation guidance in HTML which can then be consumed by assistive technologies and other 
+          enable authoring of spoken presentation guidance in HTML which can then be consumed by assistive technologies (AT) and other 
           applications that utilize text to speech synthesis (TTS) for rendering of content. 
           Historically, efforts at standardization (e.g. SSML or CSS Speech) have not led to broad adoption of any standard by user agents, authors or assistive technologies; 
           what has arisen are a variety of non-interoperable approaches that meet specific needs for some applications.</p>
@@ -45,9 +45,11 @@
     markup, specify PLS files, and reference CSS Speech properties to the Question Test Interoperability (QTI) <a href="https://www.imsglobal.org/apip/apipv1p0/APIP_QTI_v1p0.html">Accessible Portable Item Protocol</a> (APIP). In practice, QTI/APIP
     authored content is transformed into HTML for rendering in web browsers. This led to the dilemma that there is no standardized (and supported) method for inlining SSML in HTML, nor is there support for CSS Speech. This resulted in situation
     where SSML is the primary authoring model, with assessment vendors implementing a custom method for adding the SSML (or SSML-like) features to HTML using non-standard or data attributes and customized Read Aloud software consuming those
-    attributes for text to speech synthesis. Given the need to deliver accurate spoken presentation, non-standard approaches often include mis-use of WAI-ARIA, and novel or contextually non-valid attributes (e.g., <code>label</code>). A
-    problem for screen reader users occurs when custom pronunciation is applied via a misuse of the <code>aria-label</code> attribute, which results in an issue for screen reader users who also rely upon refreshable braille, and in which a hinted pronunciation
-    intended only for a text to speech synthesizer to also appears on the braille display.</p>
+    attributes for text to speech synthesis. Given the need to deliver accurate spoken presentation, non-standard approaches often include mis-use of WAI-ARIA, and novel or contextually non-valid attributes (e.g., <code>label</code>).</p>
+    <p>A problem for screen reader users occurs when custom pronunciation is applied via a misuse of the <code>aria-label</code> attribute, which results in an issue for screen reader users who also rely upon refreshable braille, and in which a hinted pronunciation
+    intended only for a text to speech synthesizer also appears on the Braille display. A W3C recommendation for pronunciation standards must be supported by browser and AT vendors. 
+    Browsers must add pronunciation information to the accessibility tree.
+    Then, AT such as screen readers can use correct pronunciation for static and dynamic (ARIA live region) content without changing the experience for non-aural technologies.</p>
     <p>The attribute model for adding pronunciation and presentation guidance for assistive technologies and text to speech synthesis has demonstrated traction by vendors trying to solve this need. It should be noted that many of the required
     features are not well supported by a single attribute, as most follow the form of a presentation property / value pairing. Using multiple attributes to provide guidance to assistive technologies is not novel, as seen with WAI-ARIA where multiple
     attributes may be applied to a single element, for example, <code>role</code> and <code>aria-checked</code>. The <a href="https://w3c.github.io/publ-epub-revision/epub32/spec/epub-contentdocs.html#sec-xhtml-ssml-attrib">EPUB standard</a> for
@@ -129,7 +131,7 @@
       <h1>Use Case aria-ssml</h1>
       <section>
         <h2>Background and Current Practice</h2>
-        <p>A new <code>aria</code> attribute could be used to include pronunciation content.</p>
+        <p>A new <code>aria</code> attribute could be used to include pronunciation content. This option may have the best chance of being added to the accessibility tree by browsers.</p>
       </section>
       <section>
         <h2>Goal</h2>
