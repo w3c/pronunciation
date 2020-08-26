@@ -18,9 +18,9 @@ Markdown URL for Use-cases
 ## Timeline
 
 
-Pronunciation TF want to make a publication every three months if possible.
+Pronunciation TF want to make a publication every three months if possible. 
+Timeline: https://github.com/w3c/pronunciation/wiki/Timeline
 
-    Next step: Publish Technical Approach Document as FPWD: June 30, 2020
 
 
 # For Authors
