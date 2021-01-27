@@ -59,7 +59,8 @@ var respecConfig = {
         name: "Paul Grenier",
         url: 'https://www.w3.org/users/',
         mailto: "pgrenier@gmail.com",
-        company: "Invited Expert"
+        company: "Invited Expert",
+        w3cid: 111500
        
       },
       {
