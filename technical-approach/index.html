@@ -48,7 +48,7 @@
 				Architecture Pronunciation Task Force and represents a decision point
 				arising from two differing approaches for integrating SSML (or SSML-like
 				characteristics) into HTML. The core approach is the proposed addition of one or more attributes
-				to HTML elements in a concise manner to enable consumption by user agents, extensions, or external tools
+				which can be applied to HTML elements in a concise manner to enable consumption by user agents, extensions, or external tools
 				which transform content into a spoken form using text to speech synthesis. Two models of attribute
 				usage have emerged:</p>
 				<ul><li>a multi-attribute approach, comprising one or more attributes which can be
@@ -66,10 +66,9 @@
 				<span class="secno">1. </span><span class="content">Multi-attribute Approach for Including SSML in HTML</span
 				><a class="self-link" href="#inline-ssml"></a>
 			</h2>
-<p> For
-	example, the
-	<a href="https://www.w3.org/publishing/epub3/epub-spec.html">EPUB3</a>
-	standard includes the SSML phoneme element implemented as a pair of
+<p>The multi-attribute approach uses, by definition, one or more attributes to convey speech presentation or pronunciation guidance which are applied to an HTML element.  This approach has precedence, in a limited fashion,
+	in the 	<a href="https://www.w3.org/publishing/epub3/epub-spec.html">EPUB3</a>, which
+	 includes the SSML phoneme element implemented as a pair of
 	namespaced attributes and is used by publishers in Japan.</p>
 			<p>TBD</p>
 		</section>
@@ -82,50 +81,72 @@
 			</h2>
 
 			<p>
-				The single attribute approach utilizes a JSON structure to allow defition of SSML compatible
-				properties to be applied to textual content in HTML. Advantages include the current uses of variants of the attribute model
-				are currently used by educational assessment vendors, these variants are
-				supported by custom read aloud tools, and it appears that the attribute
-				model may be more easily implementable by screen reader vendors.
+				The single attribute approach utilizes a JSON structure to allow SSML compatible
+				properties to be applied to textual content in HTML. This approach has has been preliminarily implemented
+				as a means to transform content authored in the IMS QTI standard, which supports inclusion of SSML, into HTML, specifically
+				for consumption by a read aloud tool used in educational assessment.
 			</p>
 			<p>
 			 This approach
 				requires transforming the attribute content represented in JSON into
-				SSML by the consumer (screen reader, read aloud tool, voice assistant,
-				etc.). Possible security concerns exist with the JSON approach. 
-			</p>
-			<p>
-				No other standard uses string JSON values for attributes in
-				HTML. This may cause problems for implementers who must parse the JSON
-				values before processing. The browser, which normally attempts to
+				SSML by the consumer (a screen reader, read aloud tool, voice assistant,
+				etc.). 
+				No existing W3C recommendation uses  JSON strings as attribute values in
+				HTML, but there is evidence of its use for custom applications using the data attribute. JSON has potential security concerns, and the impact of 
+				malformed JSON string resulting from errors in authoring, are among issues that need wider review. The browser, which normally attempts to
 				address malformed HTML, can make no guarantees about the JSON strings.
 				Implementers must decide how to handle malformed JSON.
 			</p>
 			<p>
-				Finally, the schema for `data-ssml` values has not been set. Competing
-				standards for this format, like
+				Finally, the schema for `data-ssml` values has not been set. Potentially related standards, such as
 				<a href="https://schema.org/SpeakableSpecification"
 					>SpeakableSpecification</a
 				>, as well as any issues converting SSML to a proper JSON schema could
 				cause confusion for implementors and authors. Often such conversions are
-				"...not exactly 1:1 transformation, but very very close".
+				"...not exactly 1:1 transformation, but very very close".  Authoring tools are hypothesized to address these concerns, by
+				eliminating the need for authors to directly write JSON. Techniques to facilitate authoring of speech attributes (whether multi or single attribute approaches) are 
+				already demonstrated [ref].
 			</p>
 			<p>
-				A simple example of the single attribute based model of SSML is shown below:
+				Below is an example of content, Edgar Allen Poe's The Raven, authored using the single attribute approach;
 			</p>
 			<div class="example">
-				<p>
-					According the 2010 US Census, the population of &lt;span
-					data-ssml='{&quot;say-as&quot; :
-					{&quot;interpret-as&quot;:&quot;digits&quot;}}'&gt;90274&lt;/span&gt;
-					increased to 25209 from 24976 over the past 10 years.
-				</p>
+				<code>
+					&lt;p data-ssml='{"prosody":{"rate":"slow";"pitch":"low"}}'&gt;
+						Once upon a midnight &lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"ˈdrɪəri"}}'&gt;dreary&lt;/span&gt;
+						&lt;span data-ssml="{"break":{"time":"500ms"}'&gt;&lt;/span&gt;,
+						while I pondered, weak
+						&lt;span data-ssml='{"break":{"time":"150ms"}'&gt;&lt;/span&gt; and weary,&lt;br data-ssml='{"break":{"time":"500ms"}' /&gt;
+						Over many a quaint and curious volume of forgotton 
+					   &lt;span data-ssml='{"prosody":{"rate":"x-slow";"pitch":"low"}}'&gt;lore&mdash;&lt;/span&gt;&lt;br /&gt;
+						While I nodded, nearly napping, suddenly there came a tapping,
+						&lt;br data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'/&gt;
+						As of some one gently rapping,
+						&lt;br data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'/&gt;&lt;/span&gt;
+						rapping at my chamber door.
+						&lt;span data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'&gt;&lt;/span&gt;
+						&lt;br data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}' /&gt;
+						&lt;span data-ssml='{"prosody":{"volume":"x-soft";"rate":"medium"}}'&gt;"'Tis some visitor,"&lt;/span&gt;
+						I muttered, &lt;span data-ssml='{"prosody":{"volume":"x-soft";"rate":"x-slow"}}'&gt;
+						&lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"tæpɪŋ"}}'&gt;"tapping&lt;/span&gt;
+						 at my chamber door&mdash;&lt;/span&gt;&lt;br  data-ssml='{"break":{"time":"750ms"}'/&gt;
+						Only this&lt;span data-ssml='{"break":{"strength":"weak"}'&gt; &lt;/span&gt;
+					   and nothing&lt;span data-ssml='{"break":{"strength":"none"}'&gt;
+						&lt;/span&gt;&lt;span data-ssml='{"prosody":{"volume":"soft";"rate":"75%"}}'&gt;more."&lt;/span&gt;
+					&lt;/p&gt;
+					</code>
 			</div>
 			<section>
-				<h3>SSML properties and values</h3>
+				<h3>SSML Attribute, Properties and Values</h3>
 				<p>
 					The following properties are defined and provide functional equivalence to the their SSML counterpart.
 				</p>
+				<section>
+					<h4>The <code>data-ssml</code> attribute</h4>
+					<p>The data-ssml attribute is valid on HTML elements that contain textual content, which includes a subset of flow elements, and specifically, that classed as heading and phrasing content (TBD see HTML 5 specification 3.2.5.1.5) </p>
+					<p>The value of the data-ssml attribute is a JSON string, containing one or more JSON property/value pairs. The valid properties and associated values are defined in the following sections.</p>
+
+				</section>
 				<section>
 					<h4><code>say-as</code></h4>
 					<p>
