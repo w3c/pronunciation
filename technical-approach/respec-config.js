@@ -47,6 +47,21 @@ var respecConfig = {
         companyURI: "https://www.ets.org/",
         w3cid: 98332
       },
+        {
+         name: "Markku Hakkinen",
+        url: 'https://www.w3.org/users/35712',
+        mailto: "mhakkinen@ets.org",
+        company: "Educational Testing Service",
+        companyURI: "https://www.ets.org/",
+        w3cid: 35712
+      },
+        {
+        name: "Paul Grenier",
+        url: 'https://www.w3.org/users/',
+        mailto: "pgrenier@gmail.com",
+        company: "Invited Expert"
+       
+      },
       {
         name: "Roy Ran",
         url: 'https://www.w3.org',
