@@ -1,86 +1,88 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<title>Pronunciation Technical Approach</title>
-		<meta charset="utf-8" />
-		<script
-			src="https://www.w3.org/Tools/respec/respec-w3c-common"
-			class="remove"
-		></script>
 
-		<script src="respec-config.js" class="remove"></script>
-	</head>
-	<body>
-		<section id="abstract">
-			<p>
-				The objective of the Pronunciation Task Force is to develop normative
-				specifications and best practices guidance collaborating with other W3C
-				groups as appropriate, to provide for proper pronunciation in HTML
-				content when using text to speech (TTS) synthesis. This document defines
-				a standard mechanism to allow content authors to include spoken
-				presentation guidance in HTML content. Also, it contains two identified
-				approaches and enumerates their advantages and disadvantages.
-			</p>
-		</section>
+<head>
+	<title>Pronunciation Technical Approach</title>
+	<meta charset="utf-8" />
+	<script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove"></script>
 
-		<section id="sotd"></section>
+	<script src="respec-config.js" class="remove"></script>
+</head>
 
-		<section class="informative" id="introduction">
-			<h1>Introduction</h1>
+<body>
+	<section id="abstract">
+		<p>
+			The objective of the Pronunciation Task Force is to develop normative
+			specifications and best practices guidance collaborating with other W3C
+			groups as appropriate, to provide for proper pronunciation in HTML
+			content when using text to speech (TTS) synthesis. This document defines
+			a standard mechanism to allow content authors to include spoken
+			presentation guidance in HTML content. Also, it contains two identified
+			approaches and enumerates their advantages and disadvantages.
+		</p>
+	</section>
 
-			<p>
-				This is a proposal for a mechanism to allow content authors to include
-				spoken presentation guidance in HTML content. Such guidance can be used
-				by assistive technologies (including screen readers and read aloud
-				tools) and voice assistants to enhance and control text to speech synthesis. A key
-				requirement is to ensure the spoken presentation content matches the
-				author's intent and user expectations.</p>
+	<section id="sotd"></section>
 
-				<p>Currently, the
-				<a href="https://www.w3.org/TR/speech-synthesis/">W3C SSML standard</a>
-				is seen as an important piece of a solution. The challenge is how to
-				integrate SSML into HTML that is both easy to author, does not "break"
-				content, and is straightforward for consumption by assistive
-				technologies, voice assistants, and other tools that produce spoken
-				presentation of content.</p>
-                <p>
-				This proposal has emerged from the work of the Accessible Platform
-				Architecture Pronunciation Task Force and represents a decision point
-				arising from two differing approaches for integrating SSML (or SSML-like
-				characteristics) into HTML. The core approach is the proposed addition of one or more attributes
-				which can be applied to HTML elements in a concise manner to enable consumption by user agents, extensions, or external tools
-				which transform content into a spoken form using text to speech synthesis. Two models of attribute
-				usage have emerged:</p>
-				<ul><li>a multi-attribute approach, comprising one or more attributes which can be
+	<section class="informative" id="introduction">
+		<h1>Introduction</h1>
+
+		<p>
+			This is a proposal for a mechanism to allow content authors to include
+			spoken presentation guidance in HTML content. Such guidance can be used
+			by assistive technologies (including screen readers and read aloud
+			tools) and voice assistants to enhance and control text to speech synthesis. A key
+			requirement is to ensure the spoken presentation content matches the
+			author's intent and user expectations.</p>
+
+		<p>Currently, the
+			<a href="https://www.w3.org/TR/speech-synthesis/">W3C SSML standard</a>
+			is seen as an important piece of a solution. The challenge is how to
+			integrate SSML into HTML that is both easy to author, does not "break"
+			content, and is straightforward for consumption by assistive
+			technologies, voice assistants, and other tools that produce spoken
+			presentation of content.
+		</p>
+		<p>
+			This proposal has emerged from the work of the Accessible Platform
+			Architecture Pronunciation Task Force and represents a decision point
+			arising from two differing approaches for integrating SSML (or SSML-like
+			characteristics) into HTML. The core approach is the proposed addition of one or more attributes
+			which can be applied to HTML elements in a concise manner to support consumption by user agents, extensions,
+			or external tools
+			which transform content into a spoken form using text to speech synthesis. Two models of attribute
+			usage have emerged:</p>
+		<ul>
+			<li>a multi-attribute approach, comprising one or more attributes which can be
 				added to an element to convey SSML functions and properties.</li>
-			<li>a single attribute approach, in which the attribute value is a JSON string containing 
-				one more property value pairs conveying SSML functions and properties.
+			<li>a single attribute approach, in which the attribute value is a JSON string containing
+				one more property/value pairs conveying SSML functions and properties.
 			</li>
 		</ul>
-			<p>Each of the approaches is specified in the following sections, and includes example code.
-			</p>
-		</section>
+		<p>Each of the approaches is specified in the following sections, and includes example code.
+		</p>
+	</section>
 
-		<section>
-			<h2 class="heading settled" data-level="1" id="multi-attribute-ssml">
-				<span class="secno">1. </span><span class="content">Multi-attribute Approach for Including SSML in HTML</span
-				><a class="self-link" href="#inline-ssml"></a>
-			</h2>
-<p>The multi-attribute approach uses, by definition, one or more attributes to convey speech presentation or pronunciation guidance which are applied to an HTML element.  This approach has precedence, in a limited fashion,
-	in the 	<a href="https://www.w3.org/publishing/epub3/epub-spec.html">EPUB3</a>, which
-	 includes the SSML phoneme element implemented as a pair of
-	namespaced attributes and is used by publishers in Japan.</p>
-			
-<p> For
-	example, the
-	<a href="https://www.w3.org/publishing/epub3/epub-spec.html">EPUB3</a>
-	standard includes the SSML phoneme element implemented as a pair of
-	namespaced attributes and is used by publishers in Japan.</p>
-	<p>
-		Below is an example of content, Edgar Allen Poe's The Raven, authored using the multiple attribute  model of SSML:
-			</p>
-			<div class="example">
-			<code>	
+	<section>
+		<h2 class="heading settled" data-level="1" id="multi-attribute-ssml">
+			<span class="secno">1. </span><span class="content">Multi-attribute Approach for Including SSML in
+				HTML</span><a class="self-link" href="#inline-ssml"></a>
+		</h2>
+		<p>The multi-attribute approach uses, by definition, one or more attributes to convey speech presentation or
+			pronunciation guidance which are applied to an HTML element. This approach has precedence, in a limited
+			fashion,
+			via  <a href="https://www.w3.org/publishing/epub3/epub-spec.html">EPUB3</a>, which
+			includes the SSML phoneme element implemented as a pair of
+			namespaced attributes, and is reported to be in active use by publishers in Japan.</p>
+
+		
+		<p>
+			Below is an example of content, Edgar Allen Poe's The Raven, authored using the multiple attribute model of
+			SSML:
+		</p>
+		<div class="example">
+			<code>
+				<pre>
 				&lt;p data-ssml-prosody-rate="slow" data-ssml-prosody-pitch="low"&gt;
     Once upon a midnight &lt;span data-ssml-phoneme-alphabet="ipa" data-ssml-phoneme-ph="ˈdrɪəri"&gt;dreary&lt;/span&gt; &lt;br /&gt;
     &lt;span data-ssml-break-time="500ms"&gt; &lt;/span&gt;,
@@ -102,245 +104,270 @@
     Only this &lt;span data-ssml-break-strength="weak"&gt; &lt;/span &gt; and nothing &lt;span data-ssml-break-strength="none"&gt;
     &lt;/span&gt; &lt;br /&gt; &lt;span data-ssml-prosody-volume="soft" data-ssml-prosody-rate="75%"&gt; more."&lt;/span&gt;
 &lt;/p&gt;
-
+			</pre>
 				</code>
-				<p>
-		</section>
-		<section>
-			<h3>SSML-based Attributes and Values</h3>
 			<p>
-				The following attributes are dervived from and intended to provide functional equivalence to the their SSML counterpart. The attributes are presented as a primary attribute, followed by
-				optional secondary attributes. The data-ssml-* attributes are valid on HTML elements that contain textual content, which includes a subset of flow elements, and specifically, that classed as heading and phrasing content (TBD see HTML 5 specification 3.2.5.1.5)
-			</p>
-			<section>
-				<h4><code>data-ssml-say-as</code>(primary)</h4>
-				<p>The data-ssml-say-as (editor note: <code>interpret-as</code> seem superfluous, and should be implied) attribute allows the author to indicate information on the type of text construct contained within the element and to help specify the level of detail for rendering the contained text.	There are 
-					three secondary attributes .</p>
+	</section>
+	<section>
+		<h3>SSML-based Attributes and Values</h3>
+		<p>
+			The following attributes are dervived from and intended to provide functional equivalence to the their SSML
+			counterpart. The attributes are presented as a primary attribute, followed by
+			optional secondary attributes. The <code>data-ssml-*</code> attributes are valid on HTML elements that contain textual
+			content, which includes a subset of flow elements, and specifically, that classed as heading and phrasing
+			content (TBD see HTML 5 specification 3.2.5.1.5)
+		</p>
+		<section>
+			<h4><code>data-ssml-say-as</code></h4>
+			<p>The data-ssml-say-as (editor note: <code>interpret-as</code> seem superfluous, and should be implied)
+				attribute allows the author to indicate information on the type of text construct contained within the
+				element and to help specify the level of detail for rendering the contained text. There are
+				three secondary attributes .</p>
 
-				<h5><code>data-say-as-format</code>(optional)</h5>
-				<p>value list</p>
-				<h5><code>data-say-as-detail</code>(optional)</h5>
-				<p>value list</p>
-				<p>
-					A simple example of the data-ssml-say-as is shown below
-				</p>
-				<div class="example"><code>
+			<h5><code>data-say-as-format</code>(optional)</h5>
+			<p>value list</p>
+			<h5><code>data-say-as-detail</code>(optional)</h5>
+			<p>value list</p>
+			<p>
+				A simple example of the data-ssml-say-as is shown below
+			</p>
+			<div class="example"><code>
 						According the 2010 US Census, the population of &lt;span
 						data-ssml-say-as='digits'&gt;90274&lt;/span&gt;
 						increased to 25209 from 24976 over the past 10 years.
 					</code>
-				</div>
+			</div>
 
 
-			</section>
-			<section>
-				<h4><code>data-say-as-phoneme-*</code></h4>
-				<p>
-					The phoneme property provides a phonemic/phonetic pronunciation for the contained text. 	There are 
-					there are two attributes required.  The element on which the phoneme property is applied itself can only contain text (no elements).
-				</p>
-				<h5>data-ssml-phoneme-ph</h5>
-				<p>The phoneme string</p>
-				<h5>data-ssml-phoneme-alphabet</h5>
-				<p>The phonetic alphabet in use: ipa | x-sampa</p>
-				<p>
-					A simple example of the phoneme is shown below
-				</p>
-				<div class="example">
-					<code>
+		</section>
+		<section>
+			<h4><code>data-ssml-phoneme-*</code></h4>
+			<p>
+				The data-ssml-phoneme-* defines two attributes which provides authors a mechanism to specify phonemic/phonetic pronunciation for the contained text. There are
+				two attributes required. The element on which the phoneme attributes are applied itself can only
+				contain text (no elements).
+			</p>
+			<h5><code>data-ssml-phoneme-ph</code></h5>
+			<p>Value: The phoneme string</p>
+			<h5><code>data-ssml-phoneme-alphabet</code></h5>
+			<p>Value: The phonetic alphabet in use: ipa | x-sampa</p>
+			<p>
+				A simple example of data-ssml-phoneme is shown below
+			</p>
+			<div class="example">
+				<code>
 						Once upon a midnight &lt;span data-ssml-alphabet="ipa" data-ssml-phoneme-ph="ˈdrɪəri"&gt;dreary&lt;/span&gt;
 					</code>
-				</div>
+			</div>
 
-			
-			</section>
-			<section>
-				<h4><code>data-ssml-sub-alias</code></h4>
-				<p>
-					The data-ssml-sub-alias attribute is employed to indicate that the text in the  attribute value replaces the contained text for pronunciation. This allows a document to contain both a spoken and written form. The required alias attribute specifies the string to be spoken instead of the enclosed string. The processor should apply text normalization to the alias value.
-					There is one child property attribute pair.
-				</p>
-				
-				<p>
-					A simple example of data-ssml-sub-alias is shown below
-				</p>
-				<div class="example">
-					<code>
+
+		</section>
+		<section>
+			<h4><code>data-ssml-sub-alias</code></h4>
+			<p>
+				The <code>data-ssml-sub-alias</code> attribute is employed to indicate that the text in the attribute value replaces
+				the contained text for pronunciation. This allows a document to contain both a spoken and written form.
+				The required alias attribute specifies the string to be spoken instead of the enclosed string. The
+				processor should apply text normalization to the alias value.
+				There is one child property attribute pair.
+			</p>
+			<p>Value: text string to be substituted and delivered to the TTS for presentation.</p>
+
+			<p>
+				A simple example of data-ssml-sub-alias is shown below
+			</p>
+			<div class="example">
+				<code>
 						&lt;span data-ssml-sub-alias="Sodium Chloride"'&gt;NaCL&lt;/span&gt;
 					</code>
-				</div>
+			</div>
 
-			
-			</section>
-			<section>
-				<h4><code>data-sssml-voice-*</code></h4>
-				<p>
-					The data-ssml-voice-* is a set of production values that requests a change in speaking voice. There are two kinds of attributes for the voice element: those that indicate desired features of a voice and those that control behavior. 
-					The data-ssml-voice-* attributes are:
-				</p>
-				<h5>data-ssml-voice-gender (optional)</h5>
-				<p>Values are: female | male | neutral</p>
-				<h5>data-ssml-voice-age (optional)</h5>
-				<p>Values: numeric corresponding to age in years</p>
-				<h5>data-ssml-voice-variant (optional)</h5>
-				<p>value list</p>
-				<h5>data-ssml-voice-name (optional)</h5>
-				<p>Value: specific voice name, e.g., David</p>
-				<h5>data-ssml-voice-languages (optional)</h5>
-				<p>Value: list of languages to be spoken by this voice</p>
-				<p>
-					A simple example of the voice is shown below
-				</p>
-				<div class="example">
-					<code>
+
+		</section>
+		<section>
+			<h4><code>data-sssml-voice-*</code></h4>
+			<p>
+				The <code>data-ssml-voice-*</code> is a set of attributes defining production values that requests a change in speaking voice. There are
+				two kinds of attributes for the voice element: those that indicate desired features of a voice and those
+				that control behavior.
+				The <code>data-ssml-voice-*</code> attributes are:
+			</p>
+			<h5><code>data-ssml-voice-gender</code> (optional)</h5>
+			<p>Values are: female | male | neutral</p>
+			<h5><code>data-ssml-voice-age</code> (optional)</h5>
+			<p>Value: numeric corresponding to age in years</p>
+			<h5><code>data-ssml-voice-variant</code> (optional)</h5>
+			<p>value list</p>
+			<h5><code>data-ssml-voice-name</code> (optional)</h5>
+			<p>Value: specific voice name, e.g., David</p>
+			<h5><code>data-ssml-voice-languages</code> (optional)</h5>
+			<p>Value: list of languages to be spoken by this voice</p>
+			<p>
+				A simple example of the voice is shown below
+			</p>
+			<div class="example">
+				<code>
 						She said, "&lt;span data-ssml-voice-gender="female"'&gt;My name is Marie&lt;/span&gt;".
 					</code>
-				</div>
+			</div>
 
-			
-			</section>
-			<section>
-				<h4><code>data-ssml-emphasis-level</code></h4>
-				<p>
-					The data-ssml-emphasis-level attribute requests that the contained text be spoken with emphasis (also referred to as prominence or stress).  This is a single attribute.
 
-				</p>
-				
-				<p>The possible values are:	strong | moderate | none | reduced</p>
+		</section>
+		<section>
+			<h4><code>data-ssml-emphasis-level</code></h4>
+			<p>
+				The <code>data-ssml-emphasis-level</code> attribute requests that the contained text be spoken with emphasis (also
+				referred to as prominence or stress). This is a single attribute.
 
-				<p>
-					A simple example of the emphasis is shown below
-				</p>
-				<div class="example">
-					<code>
+			</p>
+
+			<p>The possible values are: strong | moderate | none | reduced</p>
+
+			<p>
+				A simple example of the emphasis is shown below
+			</p>
+			<div class="example">
+				<code>
 						Please use &lt;span data-ssml-emphasis-level="strong"'&gt;extreme caution.&lt;/span&gt;
 					</code>
-				</div>
+			</div>
 
-			
-			</section>
-			<section>
-				<h4><code>data-ssml-break-*</code></h4>
-				<p>
-					The data-ssml-break-* break attributes describe the timing associated with empty element and that controls the pausing or other prosodic boundaries between tokens. The use of the break attribute between any pair of tokens is optional. If the element is not present between tokens, the synthesis processor is expected to automatically determine a break based on the linguistic context.
 
-				</p>
-				<h5>data-ssml-emphasis-strength</h5>
-				<p>value list</p>
-				<h5>data-ssml-emphasis-time</h5>
-				<p>time duration expressed in numeric form as "250ms", "1s", etc.</p>
-				<p>
-					A simple example of the break is shown below
-				</p>
-				<div class="example">
-					<code>
+		</section>
+		<section>
+			<h4><code>data-ssml-break-*</code></h4>
+			<p>
+				The <code>data-ssml-break-*</code> attributes describe the timing associated with empty element and that
+				controls the pausing or other prosodic boundaries between tokens. The use of the break attribute between
+				any pair of tokens is optional. If the element is not present between tokens, the synthesis processor is
+				expected to automatically determine a break based on the linguistic context.
+
+			</p>
+			<h5><code>data-ssml-emphasis-strength</code></h5>
+			<p>Values: none | x-weak | weak | medium (default) | strong | x-strong</p>
+			<h5><code>data-ssml-emphasis-time</code></h5>
+			<p>Value: time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			<p>
+				A simple example of the break is shown below
+			</p>
+			<div class="example">
+				<code>
 						Take a deep breath,&lt;span data-ssml-break-time="1s"&gt;&lt;/span&gt; and exhale.
 					</code>
-				</div>
+			</div>
 
-			
-			</section>
-			<section>
-				<h4><code>data-ssml-prosody-*</code></h4>
-				<p>
-					The data-ssml-prosody-* attributes permit control of the pitch, speaking rate and volume of the speech output. The attributes, all optional, are:
-				</p>
-				<h5>data-ssml-prosody-pitch</h5>
-				<p>value list</p>
-				<h5>data-ssml-prosody-contour</h5>
-				<p>value list</p>
-				<h5>data-ssml-prosody-range</h5>
-				<p>value list</p>
-				<h5>data-ssml-prosody-rate</h5>
-				<p>value list</p>
-				<h5>data-ssml-prosody-duration</h5>
-				<p>value list</p>
-				<h5>data-ssml-prosody-volume</h5>
-				<p>value list</p>
-				<p>
-					A simple example of the prosody is shown below
-				</p>
-				<div class="example">
-					<code>
+
+		</section>
+		<section>
+			<h4><code>data-ssml-prosody-*</code></h4>
+			<p>
+				The <code>data-ssml-prosody-*</code> attributes permit control of the pitch, speaking rate and volume of the speech
+				output. The attributes, all optional, are:
+			</p>
+			<h5>data-ssml-prosody-pitch</h5>
+			<p>Values: a number followed by "Hz" | relative change | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</p>
+			<h5>data-ssml-prosody-contour</h5>
+			<p>value list</p>
+			<h5>data-ssml-prosody-range</h5>
+			<p>value list</p>
+			<h5>data-ssml-prosody-rate</h5>
+			<p>Values:  non-negative percentage | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default".</p>
+			<h5>data-ssml-prosody-duration</h5>
+			<p>Value: a numeric value in milliseconds (ms) or seconds (s)</p>
+			<h5>data-ssml-prosody-volume</h5>
+			<p>Values: a number preceded by "+" or "-" and immediately followed by "dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</p>
+			<p>
+				A simple example of the prosody is shown below
+			</p>
+			<div class="example">
+				<code>
 						The tortoise, said (slowly) "&lt;span data-ssml-prosody-rate="x-slow"&gt;I am almost at the finish line&lt;/span&gt;.""
 					</code>
-				</div>
+			</div>
 
-			
-			</section>
-			<section>
-				<h4><code>data-ssml-audio-*</code></h4>
-				<p>
-					The data-ssml-audio-* aatributes support the insertion of recorded audio files and the insertion of other audio formats in conjunction with synthesized speech output.
-					 The element to which the audio property is applied may be empty. If the  element is not empty then the contents should be the marked-up text to be spoken if the audio document is not available. 
-					 In addition to the optional child property values attributes described  below, audio has the following child property value pairs:
 
-				</p>
-				<h5>data-ssml-audio-src</h5>
-				<p>value list</p>
-				<h5>data-ssml-audio-fetchtimeout</h5>
-				<p>value list</p>
-				<h5>data-ssml-audio-fetchint</h5>
-				<p>value list</p>
-				<h5>data-ssml-audio-maxage</h5>
-				<p>value list</p>
-				<h5>data-ssml-audio-maxstale</h5>
-				<p>value list</p>
-				<h5>data-ssml-audio-clipBegin</h5>
-				<p>value list</p>
-				<h5>data-ssml-audio-clipEnd</h5>
-				<p>value list</p>
-				<h5>data-ssml-audio-repeatCount</h5>
-				<p>value list</p>
-				<h5>data-ssml-audio-repeatDur</h5>
-				<p>value list</p>
-				<p>
-					A simple example of the audio is shown below
-				</p>
-				<div class="example">
-					<code>
+		</section>
+		<section>
+			<h4><code>data-ssml-audio-*</code></h4>
+			<p>
+				The <code>data-ssml-audio-*</code> attributes support the insertion of recorded audio files and the insertion of
+				other audio formats in conjunction with synthesized speech output.
+				The element to which the audio property is applied may be empty. If the element is not empty then the
+				contents should be the marked-up text to be spoken if the audio document is not available.
+				In addition to the optional child property values attributes described below, audio has the following
+				child property value pairs:
+
+			</p>
+			<h5><code>data-ssml-audio-src</code></h5>
+			<p>Value: None	The URI of a document with an appropriate media type.</p>
+			<h5><code>data-ssml-audio-fetchtimeout</code></h5>
+			<p>value list</p>
+			<h5><code>data-ssml-audio-fetchint</code></h5>
+			<p>value list</p>
+			<h5><code>data-ssml-audio-maxage</code>/h5>
+			<p>value list</p>
+			<h5><code>data-ssml-audio-maxstale</code></h5>
+			<p>value list</p>
+			<h5><code>data-ssml-audio-clipBegin</code></h5>
+			<p>value list</p>
+			<h5><code>data-ssml-audio-clipEnd</code></h5>
+			<p>value list</p>
+			<h5><code>data-ssml-audio-repeatCount</code></h5>
+			<p>value list</p>
+			<h5><code>data-ssml-audio-repeatDur</code></h5>
+			<p>value list</p>
+			<p>
+				A simple example of the audio is shown below:
+			</p>
+			<div class="example">
+				<code>
 						You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&lt;/span&gt; when your time is up.
 					</code>
-				</div>
-			
-			</section>
+			</div>
+
+		</section>
 
 		<section>
 			<h2 class="heading settled" data-level="2" id="single-attribute-ssml">
-				<span class="secno">2. </span
-				><span class="content">Single-attribute Approach for Including SSML in HTML</span
-				><a class="self-link" href="#attribute-ssml"></a>
+				<span class="secno">2. </span><span class="content">Single-attribute Approach for Including SSML in
+					HTML</span><a class="self-link" href="#attribute-ssml"></a>
 			</h2>
 
 			<p>
 				The single attribute approach utilizes a JSON structure to allow SSML compatible
-				properties to be applied to textual content in HTML. This approach has has been preliminarily implemented
-				as a means to transform content authored in the IMS QTI standard, which supports inclusion of SSML, into HTML, specifically
+				properties and values to be applied to textual content in HTML. This approach has has been preliminarily
+				implemented
+				as a means to transform content authored in the IMS QTI standard, which supports inclusion of SSML, into
+				HTML, specifically
 				for consumption by a read aloud tool used in educational assessment.
 			</p>
 			<p>
-			 This approach
+				This approach
 				requires transforming the attribute content represented in JSON into
 				SSML by the consumer (a screen reader, read aloud tool, voice assistant,
-				etc.). 
-				No existing W3C recommendation uses  JSON strings as attribute values in
-				HTML, but there is evidence of its use for custom applications using the data attribute. JSON has potential security concerns, and the impact of 
-				malformed JSON string resulting from errors in authoring, are among issues that need wider review. The browser, which normally attempts to
+				etc.).
+				No existing W3C recommendation uses JSON strings as attribute values in
+				HTML, but there is evidence of its use for custom applications using the data attribute. JSON has
+				potential security concerns, and the impact of
+				malformed JSON string resulting from errors in authoring, are among issues that need wider review. The
+				browser, which normally attempts to
 				address malformed HTML, can make no guarantees about the JSON strings.
 				Implementers must decide how to handle malformed JSON.
 			</p>
 			<p>
 				Finally, the schema for `data-ssml` values has not been set. Potentially related standards, such as
-				<a href="https://schema.org/SpeakableSpecification"
-					>SpeakableSpecification</a
-				>, as well as any issues converting SSML to a proper JSON schema could
+				<a href="https://schema.org/SpeakableSpecification">SpeakableSpecification</a>, as well as any issues
+				converting SSML to a proper JSON schema could
 				cause confusion for implementors and authors. Often such conversions are
-				"...not exactly 1:1 transformation, but very very close".  Authoring tools are hypothesized to address these concerns, by
-				eliminating the need for authors to directly write JSON. Techniques to facilitate authoring of speech attributes (whether multi or single attribute approaches) are 
+				"...not exactly 1:1 transformation, but very very close". Authoring tools are hypothesized to address
+				these concerns, by
+				eliminating the need for authors to directly write JSON. Techniques to facilitate authoring of speech
+				attributes (whether multi or single attribute approaches) are
 				already demonstrated [ref].
 			</p>
 			<p>
-				Below is an example of content, Edgar Allen Poe's The Raven, authored using the single attribute approach;
+				Below is an example of content, Edgar Allen Poe's The Raven, authored using the single attribute
+				approach;
 			</p>
 			<div class="example">
 				<code>
@@ -371,18 +398,24 @@
 			<section>
 				<h3>SSML Attribute, Properties and Values</h3>
 				<p>
-					The following properties are defined and provide functional equivalence to the their SSML counterpart.
+					The following properties are defined and provide functional equivalence to the their SSML
+					counterpart.
 				</p>
 				<section>
 					<h4>The <code>data-ssml</code> attribute</h4>
-					<p>The data-ssml attribute is valid on HTML elements that contain textual content, which includes a subset of flow elements, and specifically, that classed as heading and phrasing content (TBD see HTML 5 specification 3.2.5.1.5) </p>
-					<p>The value of the data-ssml attribute is a JSON string, containing one or more JSON property/value pairs. The valid properties and associated values are defined in the following sections.</p>
+					<p>The data-ssml attribute is valid on HTML elements that contain textual content, which includes a
+						subset of flow elements, and specifically, that classed as heading and phrasing content (TBD see
+						HTML 5 specification 3.2.5.1.5) </p>
+					<p>The value of the data-ssml attribute is a JSON string, containing one or more JSON property/value
+						pairs. The valid properties and associated values are defined in the following sections.</p>
 
 				</section>
 				<section>
 					<h4><code>say-as</code></h4>
 					<p>
-						The say-as property allows the author to indicate information on the type of text construct contained within the element and to help specify the level of detail for rendering the contained text.	There are 
+						The say-as property allows the author to indicate information on the type of text construct
+						contained within the element and to help specify the level of detail for rendering the contained
+						text. There are
 						three child property value pairs.
 					</p>
 					<h5>interpret-as</h5>
@@ -407,8 +440,10 @@
 				<section>
 					<h4><code>phoneme</code></h4>
 					<p>
-						The phoneme property provides a phonemic/phonetic pronunciation for the contained text. 	There are 
-						there are two child property value pairs.  The element on which the phoneme property is applied itself can only contain text (no elements).
+						The phoneme property provides a phonemic/phonetic pronunciation for the contained text. There
+						are
+						there are two child property value pairs. The element on which the phoneme property is applied
+						itself can only contain text (no elements).
 					</p>
 					<h5>ph</h5>
 					<p>value list</p>
@@ -423,12 +458,15 @@
 						</code>
 					</div>
 
-				
+
 				</section>
 				<section>
 					<h4><code>sub</code></h4>
 					<p>
-						The sub property is employed to indicate that the text in the alias attribute value replaces the contained text for pronunciation. This allows a document to contain both a spoken and written form. The required alias attribute specifies the string to be spoken instead of the enclosed string. The processor should apply text normalization to the alias value.
+						The sub property is employed to indicate that the text in the alias attribute value replaces the
+						contained text for pronunciation. This allows a document to contain both a spoken and written
+						form. The required alias attribute specifies the string to be spoken instead of the enclosed
+						string. The processor should apply text normalization to the alias value.
 						There is one child property attribute pair.
 					</p>
 					<h5>alias</h5>
@@ -442,12 +480,14 @@
 						</code>
 					</div>
 
-				
+
 				</section>
 				<section>
 					<h4><code>voice</code></h4>
 					<p>
-						The voice property is a production element that requests a change in speaking voice. There are two kinds of attributes for the voice element: those that indicate desired features of a voice and those that control behavior. 
+						The voice property is a production element that requests a change in speaking voice. There are
+						two kinds of attributes for the voice element: those that indicate desired features of a voice
+						and those that control behavior.
 						The voice property child properties are:
 					</p>
 					<h5>gender (optional)</h5>
@@ -469,17 +509,24 @@
 						</code>
 					</div>
 
-				
+
 				</section>
 				<section>
 					<h4><code>emphasis</code></h4>
 					<p>
-						The emphasis property requests that the contained text be spoken with emphasis (also referred to as prominence or stress).  There is a single child property value pair.
+						The emphasis property requests that the contained text be spoken with emphasis (also referred to
+						as prominence or stress). There is a single child property value pair.
 
 					</p>
 					<h5>level</h5>
 					<p>The possible values are:</p>
-					<ul><li>strong</li><li>moderate</li></ul><li>none</li><li>reduced</li></ul>
+					<ul>
+						<li>strong</li>
+						<li>moderate</li>
+					</ul>
+					<li>none</li>
+					<li>reduced</li>
+					</ul>
 
 					<p>
 						A simple example of the emphasis is shown below
@@ -490,12 +537,15 @@
 						</code>
 					</div>
 
-				
+
 				</section>
 				<section>
 					<h4><code>break</code></h4>
 					<p>
-						The break element is an empty element that controls the pausing or other prosodic boundaries between tokens. The use of the break element between any pair of tokens is optional. If the element is not present between tokens, the synthesis processor is expected to automatically determine a break based on the linguistic context.
+						The break element is an empty element that controls the pausing or other prosodic boundaries
+						between tokens. The use of the break element between any pair of tokens is optional. If the
+						element is not present between tokens, the synthesis processor is expected to automatically
+						determine a break based on the linguistic context.
 
 					</p>
 					<h5>strength</h5>
@@ -511,12 +561,13 @@
 						</code>
 					</div>
 
-				
+
 				</section>
 				<section>
 					<h4><code>prosody</code></h4>
 					<p>
-						The prosody property permits control of the pitch, speaking rate and volume of the speech output. The child property value pairs, all optional, are:
+						The prosody property permits control of the pitch, speaking rate and volume of the speech
+						output. The child property value pairs, all optional, are:
 					</p>
 					<h5>pitch</h5>
 					<p>value list</p>
@@ -539,14 +590,18 @@
 						</code>
 					</div>
 
-				
+
 				</section>
 				<section>
 					<h4><code>audio</code></h4>
 					<p>
-						The audio property supports the insertion of recorded audio files and the insertion of other audio formats in conjunction with synthesized speech output.
-						 The element to which the audio property is applied may be empty. If the  element is not empty then the contents should be the marked-up text to be spoken if the audio document is not available. 
-						 In addition to the optional child property values attributes described  below, audio has the following child property value pairs:
+						The audio property supports the insertion of recorded audio files and the insertion of other
+						audio formats in conjunction with synthesized speech output.
+						The element to which the audio property is applied may be empty. If the element is not empty
+						then the contents should be the marked-up text to be spoken if the audio document is not
+						available.
+						In addition to the optional child property values attributes described below, audio has the
+						following child property value pairs:
 
 					</p>
 					<h5>src</h5>
@@ -575,18 +630,17 @@
 							You will hear a brief chime &lt;span data-ssml='{"audio":{"src":"/audio/chime.ogg"}}'&gt;&lt;/span&gt; when your time is up.
 						</code>
 					</div>
-				
+
 				</section>
 			</section>
 		</section>
 
 
-		
-		<div data-include="../common/acknowledgements.html"
-			data-oninclude="fixIncludes"
-			data-include-replace="true">
+
+		<div data-include="../common/acknowledgements.html" data-oninclude="fixIncludes" data-include-replace="true">
 			Acknowledgements placeholder
-			
-		</div>	
-	</body>
+
+		</div>
+</body>
+
 </html>
