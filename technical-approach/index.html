@@ -83,7 +83,7 @@
 		<div class="example">
 			<code>
 				<pre>
-				&lt;p data-ssml-prosody-rate="slow" data-ssml-prosody-pitch="low"&gt;
+&lt;p data-ssml-prosody-rate="slow" data-ssml-prosody-pitch="low"&gt;
     Once upon a midnight &lt;span data-ssml-phoneme-alphabet="ipa" data-ssml-phoneme-ph="ˈdrɪəri"&gt;dreary&lt;/span&gt; &lt;br /&gt;
     &lt;span data-ssml-break-time="500ms"&gt; &lt;/span&gt;,
     while I pondered, weak
@@ -104,7 +104,7 @@
     Only this &lt;span data-ssml-break-strength="weak"&gt; &lt;/span &gt; and nothing &lt;span data-ssml-break-strength="none"&gt;
     &lt;/span&gt; &lt;br /&gt; &lt;span data-ssml-prosody-volume="soft" data-ssml-prosody-rate="75%"&gt; more."&lt;/span&gt;
 &lt;/p&gt;
-			</pre>
+</pre>
 				</code>
 			<p>
 	</section>
@@ -326,6 +326,7 @@
 			</div>
 
 		</section>
+	</section>
 
 		<section>
 			<h2 class="heading settled" data-level="2" id="single-attribute-ssml">
@@ -371,28 +372,30 @@
 			</p>
 			<div class="example">
 				<code>
-					&lt;p data-ssml='{"prosody":{"rate":"slow";"pitch":"low"}}'&gt;
-						Once upon a midnight &lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"ˈdrɪəri"}}'&gt;dreary&lt;/span&gt;
-						&lt;span data-ssml="{"break":{"time":"500ms"}'&gt;&lt;/span&gt;,
-						while I pondered, weak
-						&lt;span data-ssml='{"break":{"time":"150ms"}'&gt;&lt;/span&gt; and weary,&lt;br data-ssml='{"break":{"time":"500ms"}' /&gt;
-						Over many a quaint and curious volume of forgotton 
-					   &lt;span data-ssml='{"prosody":{"rate":"x-slow";"pitch":"low"}}'&gt;lore&mdash;&lt;/span&gt;&lt;br /&gt;
-						While I nodded, nearly napping, suddenly there came a tapping,
-						&lt;br data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'/&gt;
-						As of some one gently rapping,
-						&lt;br data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'/&gt;&lt;/span&gt;
-						rapping at my chamber door.
-						&lt;span data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'&gt;&lt;/span&gt;
-						&lt;br data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}' /&gt;
-						&lt;span data-ssml='{"prosody":{"volume":"x-soft";"rate":"medium"}}'&gt;"'Tis some visitor,"&lt;/span&gt;
-						I muttered, &lt;span data-ssml='{"prosody":{"volume":"x-soft";"rate":"x-slow"}}'&gt;
-						&lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"tæpɪŋ"}}'&gt;"tapping&lt;/span&gt;
-						 at my chamber door&mdash;&lt;/span&gt;&lt;br  data-ssml='{"break":{"time":"750ms"}'/&gt;
-						Only this&lt;span data-ssml='{"break":{"strength":"weak"}'&gt; &lt;/span&gt;
-					   and nothing&lt;span data-ssml='{"break":{"strength":"none"}'&gt;
-						&lt;/span&gt;&lt;span data-ssml='{"prosody":{"volume":"soft";"rate":"75%"}}'&gt;more."&lt;/span&gt;
-					&lt;/p&gt;
+					<pre>
+&lt;p data-ssml='{"prosody":{"rate":"slow";"pitch":"low"}}'&gt;
+	Once upon a midnight &lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"ˈdrɪəri"}}'&gt;dreary&lt;/span&gt;
+	&lt;span data-ssml="{"break":{"time":"500ms"}'&gt;&lt;/span&gt;,
+	while I pondered, weak
+	&lt;span data-ssml='{"break":{"time":"150ms"}'&gt;&lt;/span&gt; and weary,&lt;br data-ssml='{"break":{"time":"500ms"}' /&gt;
+	Over many a quaint and curious volume of forgotton 
+	&lt;span data-ssml='{"prosody":{"rate":"x-slow";"pitch":"low"}}'&gt;lore&mdash;&lt;/span&gt;&lt;br /&gt;
+	While I nodded, nearly napping, suddenly there came a tapping,
+	&lt;br data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'/&gt;
+	As of some one gently rapping,
+	&lt;br data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'/&gt;&lt;/span&gt;
+	rapping at my chamber door.
+	&lt;span data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'&gt;&lt;/span&gt;
+	&lt;br data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}' /&gt;
+	&lt;span data-ssml='{"prosody":{"volume":"x-soft";"rate":"medium"}}'&gt;"'Tis some visitor,"&lt;/span&gt;
+	I muttered, &lt;span data-ssml='{"prosody":{"volume":"x-soft";"rate":"x-slow"}}'&gt;
+	&lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"tæpɪŋ"}}'&gt;"tapping&lt;/span&gt;
+	at my chamber door&mdash;&lt;/span&gt;&lt;br  data-ssml='{"break":{"time":"750ms"}'/&gt;
+	Only this&lt;span data-ssml='{"break":{"strength":"weak"}'&gt; &lt;/span&gt;
+	and nothing&lt;span data-ssml='{"break":{"strength":"none"}'&gt;
+	&lt;/span&gt;&lt;span data-ssml='{"prosody":{"volume":"soft";"rate":"75%"}}'&gt;more."&lt;/span&gt;
+&lt;/p&gt;
+</pre>
 					</code>
 			</div>
 			<section>
