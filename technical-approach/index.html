@@ -61,11 +61,16 @@
 		</ul>
 		<p>Each of the approaches is specified in the following sections, and includes example code.
 		</p>
+		<div class="note">
+			<div class="note-title" aria-level="3" role="heading">Note</div>
+			<div>The use of <code>data-</code> prefix for the attributes described in this document should not be seen as the editor's recommended or preferred final solution for attribute naming.  We have 
+			adopted this naming mechanism primarily because it has enabled experimental implementations to occur that are further informing the development of this specification.  </div>
+		</div>
 	</section>
 
 	<section>
 		<h2 class="heading settled" data-level="1" id="multi-attribute-ssml">
-			<span class="secno">1. </span><span class="content">Multi-attribute Approach for Including SSML in
+			<span class="secno"> </span><span class="content">Multi-attribute Approach for Including SSML in
 				HTML</span><a class="self-link" href="#inline-ssml"></a>
 		</h2>
 		<p>The multi-attribute approach uses, by definition, one or more attributes to convey speech presentation or
@@ -81,6 +86,7 @@
 			SSML:
 		</p>
 		<div class="example">
+		
 			<code>
 				<pre>
 &lt;p data-ssml-prosody-rate="slow" data-ssml-prosody-pitch="low"&gt;
@@ -109,7 +115,7 @@
 			<p>
 	</section>
 	<section>
-		<h3>SSML-based Attributes and Values</h3>
+		<h3>The <code>data-ssml-*</code> Multi-Attribute Approach</h3>
 		<p>
 			The following attributes are dervived from and intended to provide functional equivalence to the their SSML
 			counterpart. The attributes are presented as a primary attribute, followed by
@@ -118,11 +124,14 @@
 			content (TBD see HTML 5 specification 3.2.5.1.5)
 		</p>
 		<section>
-			<h4><code>data-ssml-say-as</code></h4>
+			<h4><code>data-ssml-say-as-*</code></h4>
 			<p>The data-ssml-say-as (editor note: <code>interpret-as</code> seem superfluous, and should be implied)
 				attribute allows the author to indicate information on the type of text construct contained within the
 				element and to help specify the level of detail for rendering the contained text. There are
 				three secondary attributes .</p>
+
+				<h5><code>data-ssml-say-as</code></h5>
+				<p>Values: date	| time | telephone | characters | cardinal | ordinal</p>
 
 			<h5><code>data-say-as-format</code>(optional)</h5>
 			<p>value list</p>
@@ -330,22 +339,22 @@
 
 		<section>
 			<h2 class="heading settled" data-level="2" id="single-attribute-ssml">
-				<span class="secno">2. </span><span class="content">Single-attribute Approach for Including SSML in
+				<span class="secno"> </span><span class="content">Single-attribute Approach for Including SSML in
 					HTML</span><a class="self-link" href="#attribute-ssml"></a>
 			</h2>
 
 			<p>
 				The single attribute approach utilizes a JSON structure to allow SSML compatible
-				properties and values to be applied to textual content in HTML. This approach has has been preliminarily
-				implemented
+				properties and values to be applied to textual content in HTML. This approach emerged 
 				as a means to transform content authored in the IMS QTI standard, which supports inclusion of SSML, into
 				HTML, specifically
-				for consumption by a read aloud tool used in educational assessment.
+				for consumption by a read aloud tool used in educational assessment. This approach has seen preliminary implementation
+				by TextHelp.
 			</p>
 			<p>
-				This approach
+				This approach requires encoding SSML functions, properties and values into JSON, for inclusion in HTML, and then
 				requires transforming the attribute content represented in JSON into
-				SSML by the consumer (a screen reader, read aloud tool, voice assistant,
+				SSML by the content consumer (a screen reader, read aloud tool, voice assistant,
 				etc.).
 				No existing W3C recommendation uses JSON strings as attribute values in
 				HTML, but there is evidence of its use for custom applications using the data attribute. JSON has
@@ -399,7 +408,7 @@
 					</code>
 			</div>
 			<section>
-				<h3>SSML Attribute, Properties and Values</h3>
+				<h3><code>data-ssml</code> Attribute, Properties and Values</h3>
 				<p>
 					The following properties are defined and provide functional equivalence to the their SSML
 					counterpart.
@@ -409,7 +418,7 @@
 					<p>The data-ssml attribute is valid on HTML elements that contain textual content, which includes a
 						subset of flow elements, and specifically, that classed as heading and phrasing content (TBD see
 						HTML 5 specification 3.2.5.1.5) </p>
-					<p>The value of the data-ssml attribute is a JSON string, containing one or more JSON property/value
+					<p>The value of the data-ssml attribute is a JSON string, containing one or more JSON objects, with each object representing a specific SSML function with one or more contained JSON property/value
 						pairs. The valid properties and associated values are defined in the following sections.</p>
 
 				</section>
@@ -421,9 +430,9 @@
 						text. There are
 						three child property value pairs.
 					</p>
-					<h5>interpret-as</h5>
-					<p>value list</p>
-					<h5>format</h5>
+					<h5><code>interpret-as</code></h5>
+					<p>Values: date	| time | telephone | characters | cardinal | ordinal</p>
+					<h5>format (optional)</h5>
 					<p>value list</p>
 					<h5>detail (optional)</h5>
 					<p>value list</p>
@@ -433,7 +442,7 @@
 					<div class="example"><code>
 							According the 2010 US Census, the population of &lt;span
 							data-ssml='{&quot;say-as&quot; :
-							{&quot;interpret-as&quot;:&quot;digits&quot;}}'&gt;90274&lt;/span&gt;
+							{&quot;interpret-as&quot;:&quot;characters&quot;}}'&gt;90274&lt;/span&gt;
 							increased to 25209 from 24976 over the past 10 years.
 						</code>
 					</div>
