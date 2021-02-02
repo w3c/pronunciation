@@ -134,11 +134,11 @@
 				<p>Values: date	| time | telephone | characters | cardinal | ordinal</p>
 
 			<h5><code>data-say-as-format</code>(optional)</h5>
-			<p>value list</p>
+			<p>Value: time/date format as defined in W3C Note SSML say-as attribute values</p>
 			<h5><code>data-say-as-detail</code>(optional)</h5>
-			<p>value list</p>
+			<p>Value: deatil as defined in W3C Note SSML say-as attribute values.</p>
 			<p>
-				A simple example of the data-ssml-say-as is shown below
+				A simple example of <code>data-ssml-say-as</code> is shown below.
 			</p>
 			<div class="example"><code>
 						According the 2010 US Census, the population of &lt;span
@@ -161,7 +161,7 @@
 			<h5><code>data-ssml-phoneme-alphabet</code></h5>
 			<p>Value: The phonetic alphabet in use: ipa | x-sampa</p>
 			<p>
-				A simple example of data-ssml-phoneme is shown below
+				A simple example of <code>data-ssml-phoneme</code> is shown below.
 			</p>
 			<div class="example">
 				<code>
@@ -183,7 +183,7 @@
 			<p>Value: text string to be substituted and delivered to the TTS for presentation.</p>
 
 			<p>
-				A simple example of data-ssml-sub-alias is shown below
+				A simple example of <code>data-ssml-sub-alias</code> is shown below.
 			</p>
 			<div class="example">
 				<code>
@@ -202,17 +202,17 @@
 				The <code>data-ssml-voice-*</code> attributes are:
 			</p>
 			<h5><code>data-ssml-voice-gender</code> (optional)</h5>
-			<p>Values are: female | male | neutral</p>
+			<p>Values: <code>female | male | neutral</code></p>
 			<h5><code>data-ssml-voice-age</code> (optional)</h5>
-			<p>Value: numeric corresponding to age in years</p>
+			<p>Value: <i>integer</i> corresponding to age in years</p>
 			<h5><code>data-ssml-voice-variant</code> (optional)</h5>
-			<p>value list</p>
+			<p>Value: <i>integer</i> indicating a numeric voice variant</p>
 			<h5><code>data-ssml-voice-name</code> (optional)</h5>
-			<p>Value: specific voice name, e.g., David</p>
+			<p>Value: <i>string</i> defining a specific voice name requested from the current TTS engine, e.g., <code>"David"</code></p>
 			<h5><code>data-ssml-voice-languages</code> (optional)</h5>
-			<p>Value: list of languages to be spoken by this voice</p>
+			<p>Value: <i>string</i> a space delimited list of one or more languages to be spoken by this voice.</p>
 			<p>
-				A simple example of the voice is shown below
+				A simple example of  <code>data-ssml-voice</code> is shown below.
 			</p>
 			<div class="example">
 				<code>
@@ -230,10 +230,10 @@
 
 			</p>
 
-			<p>The possible values are: strong | moderate | none | reduced</p>
+			<p>Value: <code>strong | moderate | none | reduced</code></p>
 
 			<p>
-				A simple example of the emphasis is shown below
+				A simple example of <code>data-ssml-emphasis</code> is shown below.
 			</p>
 			<div class="example">
 				<code>
@@ -252,12 +252,12 @@
 				expected to automatically determine a break based on the linguistic context.
 
 			</p>
-			<h5><code>data-ssml-emphasis-strength</code></h5>
-			<p>Values: none | x-weak | weak | medium (default) | strong | x-strong</p>
-			<h5><code>data-ssml-emphasis-time</code></h5>
-			<p>Value: time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			<h5><code>data-ssml-break-strength</code></h5>
+			<p>Value: <code>none | x-weak | weak | medium (default) | strong | x-strong</code></p>
+			<h5><code>data-ssml-break-time</code></h5>
+			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
 			<p>
-				A simple example of the break is shown below
+				A simple example of <code>data-ssml-break</code> is shown below.
 			</p>
 			<div class="example">
 				<code>
@@ -273,20 +273,20 @@
 				The <code>data-ssml-prosody-*</code> attributes permit control of the pitch, speaking rate and volume of the speech
 				output. The attributes, all optional, are:
 			</p>
-			<h5>data-ssml-prosody-pitch</h5>
-			<p>Values: a number followed by "Hz" | relative change | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</p>
-			<h5>data-ssml-prosody-contour</h5>
-			<p>value list</p>
-			<h5>data-ssml-prosody-range</h5>
-			<p>value list</p>
-			<h5>data-ssml-prosody-rate</h5>
-			<p>Values:  non-negative percentage | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default".</p>
-			<h5>data-ssml-prosody-duration</h5>
-			<p>Value: a numeric value in milliseconds (ms) or seconds (s)</p>
-			<h5>data-ssml-prosody-volume</h5>
-			<p>Values: a number preceded by "+" or "-" and immediately followed by "dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</p>
+			<h5><code>data-ssml-prosody-pitch</code></h5>
+			<p>Value: <code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code></p>
+			<h5><code>data-ssml-prosody-contour</code></h5>
+			<p>Value: <i>string</i> of contour change parameters as defined in the SSML 1.1 recommendation</p>
+			<h5><code>data-ssml-prosody-range</code></h5>
+			<p>Value: <i>string</i> range value as defined in the SSML 1.1 recommendation</p>
+			<h5><code>data-ssml-prosody-rate</code></h5>
+			<p>Values:  <code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code></p>
+			<h5><code>data-ssml-prosody-duration</code></h5>
+			<p>Value:  <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			<h5><code>data-ssml-prosody-volume</code></h5>
+			<p>Values: <code><i>+/- soundlevel</i>>"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code></p>
 			<p>
-				A simple example of the prosody is shown below
+				A simple example of  <code>data-ssml-prosody</code> is shown below.
 			</p>
 			<div class="example">
 				<code>
@@ -303,30 +303,29 @@
 				other audio formats in conjunction with synthesized speech output.
 				The element to which the audio property is applied may be empty. If the element is not empty then the
 				contents should be the marked-up text to be spoken if the audio document is not available.
-				In addition to the optional child property values attributes described below, audio has the following
-				child property value pairs:
+				The full set of <code>data-ssml-*</code> attributes are described below:</p>
 
-			</p>
+			
 			<h5><code>data-ssml-audio-src</code></h5>
-			<p>Value: None	The URI of a document with an appropriate media type.</p>
+			<p>Value: <i>The URI of a document with an appropriate media file.</i></p>
 			<h5><code>data-ssml-audio-fetchtimeout</code></h5>
-			<p>value list</p>
+			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
 			<h5><code>data-ssml-audio-fetchint</code></h5>
-			<p>value list</p>
+			<p><code>safe | prefetch</code></p>
 			<h5><code>data-ssml-audio-maxage</code>/h5>
-			<p>value list</p>
+			<p>Value: <i>string</i> </p>
 			<h5><code>data-ssml-audio-maxstale</code></h5>
-			<p>value list</p>
+			<p>Value: <i>string</i></p>
 			<h5><code>data-ssml-audio-clipBegin</code></h5>
-			<p>value list</p>
+			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
 			<h5><code>data-ssml-audio-clipEnd</code></h5>
-			<p>value list</p>
+			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
 			<h5><code>data-ssml-audio-repeatCount</code></h5>
-			<p>value list</p>
+			<p>Value: <i>integer</i> indicating the number of times to repeat the audio clip.</p>
 			<h5><code>data-ssml-audio-repeatDur</code></h5>
-			<p>value list</p>
+			<p> <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
 			<p>
-				A simple example of the audio is shown below:
+				A simple example of <code>data-ssml-audio</code> is shown below:
 			</p>
 			<div class="example">
 				<code>
@@ -365,7 +364,7 @@
 				Implementers must decide how to handle malformed JSON.
 			</p>
 			<p>
-				Finally, the schema for `data-ssml` values has not been set. Potentially related standards, such as
+				Finally, the schema for 'data-ssml' values has not been set. Potentially related standards, such as
 				<a href="https://schema.org/SpeakableSpecification">SpeakableSpecification</a>, as well as any issues
 				converting SSML to a proper JSON schema could
 				cause confusion for implementors and authors. Often such conversions are
@@ -377,7 +376,7 @@
 			</p>
 			<p>
 				Below is an example of content, Edgar Allen Poe's The Raven, authored using the single attribute
-				approach;
+				approach:
 			</p>
 			<div class="example">
 				<code>
@@ -418,8 +417,8 @@
 					<p>The data-ssml attribute is valid on HTML elements that contain textual content, which includes a
 						subset of flow elements, and specifically, that classed as heading and phrasing content (TBD see
 						HTML 5 specification 3.2.5.1.5) </p>
-					<p>The value of the data-ssml attribute is a JSON string, containing one or more JSON objects, with each object representing a specific SSML function with one or more contained JSON property/value
-						pairs. The valid properties and associated values are defined in the following sections.</p>
+					<p>The value of the data-ssml attribute is a JSON string, enclosed with single quotes (<code>&squote;</code>), containing one or more JSON objects, with each object representing a specific SSML function with one or more contained JSON property/value
+						pairs. The valid objects, properties and associated values are defined in the following sections. The JSON schema is presented in in Appendix TBD.</p>
 
 				</section>
 				<section>
@@ -431,20 +430,23 @@
 						three child property value pairs.
 					</p>
 					<h5><code>interpret-as</code></h5>
-					<p>Values: date	| time | telephone | characters | cardinal | ordinal</p>
-					<h5>format (optional)</h5>
-					<p>value list</p>
-					<h5>detail (optional)</h5>
-					<p>value list</p>
+					<p>Value: <code>date | time | telephone | characters | cardinal | ordinal</code></p>
+					<h5><code>format</code> (optional)</h5>
+					<p>Value: time/date format as defined in W3C Note SSML say-as attribute values.</p>
+					<h5><code>detail</code> (optional)</h5>
+					<p>Value: deatil as defined in W3C Note SSML say-as attribute values.</p>
 					<p>
-						A simple example of the say-as is shown below
+						A simple example of <code>say-as</code> is shown below:
 					</p>
 					<div class="example"><code>
+						<pre>
 							According the 2010 US Census, the population of &lt;span
 							data-ssml='{&quot;say-as&quot; :
 							{&quot;interpret-as&quot;:&quot;characters&quot;}}'&gt;90274&lt;/span&gt;
 							increased to 25209 from 24976 over the past 10 years.
 						</code>
+					</pre>
+						</div>
 					</div>
 
 
@@ -452,22 +454,24 @@
 				<section>
 					<h4><code>phoneme</code></h4>
 					<p>
-						The phoneme property provides a phonemic/phonetic pronunciation for the contained text. There
+						The phoneme object provides a phonemic/phonetic pronunciation for the contained text. There
 						are
-						there are two child property value pairs. The element on which the phoneme property is applied
+						there are two child properties. The element on which the phoneme object is applied
 						itself can only contain text (no elements).
 					</p>
-					<h5>ph</h5>
-					<p>value list</p>
-					<h5>alphabet</h5>
-					<p>value list</p>
+					<h5><code>ph</code></h5>
+			<p>Value: <i>string</i> containing the phonectic characters corresponding to the content to be spoken</p>
+			<h5><code>data-ssml-phoneme-alphabet</code></h5>
+			<p>Value:  <code>ipa | x-sampa</code> defining the phonetic alphabet used for the <code>ph</code> string</p>
 					<p>
-						A simple example of the phoneme is shown below
+						A simple example of <code>phoneme</code> is shown below
 					</p>
 					<div class="example">
+					<pre>
 						<code>
 							Once upon a midnight &lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"ˈdrɪəri"}}'&gt;dreary&lt;/span&gt;
 						</code>
+						</pre>
 					</div>
 
 
@@ -475,16 +479,16 @@
 				<section>
 					<h4><code>sub</code></h4>
 					<p>
-						The sub property is employed to indicate that the text in the alias attribute value replaces the
-						contained text for pronunciation. This allows a document to contain both a spoken and written
-						form. The required alias attribute specifies the string to be spoken instead of the enclosed
+						The <code>sub</code> object is employed to indicate that the text in the alias attribute value replaces (or substitutes for) the
+						contained text for pronunciation  purposes. This allows a document to contain both a spoken and written
+						form. The required alias property specifies the string to be spoken instead of the enclosed
 						string. The processor should apply text normalization to the alias value.
 						There is one child property attribute pair.
 					</p>
-					<h5>alias</h5>
-					<p>Specifies the string to be spoken instead of the enclosed stringt</p>
+					<h5><code>alias</code></h5>
+					<p>Value: <i>string</i> containing the text to be spoken as a substitution for the text contained by the element to which <code>sub</code> is appleid.</p>
 					<p>
-						A simple example of the sub is shown below
+						A simple example of <code>sub</code> is shown below.
 					</p>
 					<div class="example">
 						<code>
@@ -497,28 +501,29 @@
 				<section>
 					<h4><code>voice</code></h4>
 					<p>
-						The voice property is a production element that requests a change in speaking voice. There are
+						The <code>voice</code> object requests a change in speaking voice. There are
 						two kinds of attributes for the voice element: those that indicate desired features of a voice
 						and those that control behavior.
-						The voice property child properties are:
+						The <code>voice</code> object child properties are:
 					</p>
-					<h5>gender (optional)</h5>
-					<p>value list</p>
-					<h5>age (optional)</h5>
-					<p>value list</p>
-					<h5>variant (optional)</h5>
-					<p>value list</p>
-					<h5>name (optional)</h5>
-					<p>value list</p>
-					<h5>langauge (optional)</h5>
-					<p>value list</p>
+					<h5><code>gender</code> (optional)</h5>
+			<p>Values: <code>female | male | neutral</code></p>
+			<h5><code>age</code> (optional)</h5>
+			<p>Value: <i>integer</i> corresponding to age in years</p>
+			<h5><code>variant</code> (optional)</h5>
+			<p>Value: <i>integer</i> indicating a numeric voice variant</p>
+			<h5><code>name</code> (optional)</h5>
+			<p>Value: <i>string</i> defining a specific voice name requested from the current TTS engine, e.g., <code>"David"</code></p>
+			<h5><code>languages</code> (optional)</h5>
+			<p>Value: <i>string</i> a space delimited list of one or more languages to be spoken by this voice.</p>
 					<p>
-						A simple example of the voice is shown below
+						A simple example of <code>voice</code> is shown below.
 					</p>
 					<div class="example">
-						<code>
+						<pre><code>
 							She said, "&lt;span data-ssml='{"voice":{"gender":"female"}}'&gt;My name is Marie&lt;/span&gt;".
 						</code>
+					</pre>
 					</div>
 
 
@@ -526,27 +531,23 @@
 				<section>
 					<h4><code>emphasis</code></h4>
 					<p>
-						The emphasis property requests that the contained text be spoken with emphasis (also referred to
-						as prominence or stress). There is a single child property value pair.
+						The <code>emphasis</code> object requests that the text contained by the element to which empahsisbe spoken with emphasis (also referred to
+						as prominence or stress). There is a single child property.
 
 					</p>
-					<h5>level</h5>
-					<p>The possible values are:</p>
-					<ul>
-						<li>strong</li>
-						<li>moderate</li>
-					</ul>
-					<li>none</li>
-					<li>reduced</li>
-					</ul>
+					<h5><code>level</code></h5>
+					<p>Value: <code>strong | moderate | none | reduced</code></p>
+
 
 					<p>
-						A simple example of the emphasis is shown below
+						A simple example of <code>emphasis</code> is shown below.
 					</p>
 					<div class="example">
+						<pre>
 						<code>
 							Please use &lt;span data-ssml='{"emphasis":{"level":"strong"}}'&gt;extreme caution.&lt;/span&gt;
 						</code>
+						</pre>
 					</div>
 
 
@@ -554,18 +555,18 @@
 				<section>
 					<h4><code>break</code></h4>
 					<p>
-						The break element is an empty element that controls the pausing or other prosodic boundaries
-						between tokens. The use of the break element between any pair of tokens is optional. If the
+						The <code>break</code>object is is used to control the pausing or other prosodic boundaries
+						between tokens and is typically applied to an empty element. The use of the <code>break</code> between any pair of tokens is optional. If the
 						element is not present between tokens, the synthesis processor is expected to automatically
 						determine a break based on the linguistic context.
 
 					</p>
-					<h5>strength</h5>
-					<p>value list</p>
-					<h5>time</h5>
-					<p>time duration expressed in numeric form as "250ms", "1s", etc.</p>
-					<p>
-						A simple example of the break is shown below
+					<h5><code>strength</code></h5>
+			<p>Value: <code>none | x-weak | weak | medium (default) | strong | x-strong</code></p>
+			<h5><code>time</code></h5>
+			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			<p>
+						A simple example of  <code>break</code> is shown below.
 					</p>
 					<div class="example">
 						<code>
@@ -578,23 +579,23 @@
 				<section>
 					<h4><code>prosody</code></h4>
 					<p>
-						The prosody property permits control of the pitch, speaking rate and volume of the speech
-						output. The child property value pairs, all optional, are:
+						The prosody object permits control of the pitch, speaking rate and volume of the speech
+						output. The object has six properties.
 					</p>
-					<h5>pitch</h5>
-					<p>value list</p>
-					<h5>contour</h5>
-					<p>value list</p>
-					<h5>range</h5>
-					<p>value list</p>
-					<h5>rate</h5>
-					<p>value list</p>
-					<h5>duration</h5>
-					<p>value list</p>
-					<h5>volume</h5>
-					<p>value list</p>
+					<h5><code>pitch</code></h5>
+			<p>Value: <code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code></p>
+			<h5><code>contour</code></h5>
+			<p>Value: <i>string</i> of contour change parameters as defined in the SSML 1.1 recommendation</p>
+			<h5><code>range</code></h5>
+			<p>Value: <i>string</i> range value as defined in the SSML 1.1 recommendation</p>
+			<h5><code>rate</code></h5>
+			<p>Values:  <code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code></p>
+			<h5><code>duration</code></h5>
+			<p>Value:  <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			<h5><code>volume</code></h5>
+			<p>Values: <code><i>+/- soundlevel</i>>"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code></p>
 					<p>
-						A simple example of the prosody is shown below
+						A simple example of <code>prosody</code> is shown below.
 					</p>
 					<div class="example">
 						<code>
@@ -616,26 +617,27 @@
 						following child property value pairs:
 
 					</p>
-					<h5>src</h5>
-					<p>value list</p>
-					<h5>fetchtimeout</h5>
-					<p>value list</p>
-					<h5>fetchint</h5>
-					<p>value list</p>
-					<h5>maxage</h5>
-					<p>value list</p>
-					<h5>maxstale</h5>
-					<p>value list</p>
-					<h5>clipBegin</h5>
-					<p>value list</p>
-					<h5>clipEnd</h5>
-					<p>value list</p>
-					<h5>repeatCount</h5>
-					<p>value list</p>
-					<h5>repeatDur</h5>
-					<p>value list</p>
+					<h5><code>src</code></h5>
+			<p>Value: <i>The URI of a document with an appropriate media file.</i></p>
+			<h5><code>fetchtimeout</code></h5>
+			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			<h5><code>fetchint</code></h5>
+			<p>Value: <code>safe | prefetch</code></p>
+			<h5><code>maxage</code>/h5>
+			<p>Value: <i>string</i></p>
+			<h5><code>maxstale</code></h5>
+			<p>Value: <i>string</i></p>
+			<h5><code>clipBegin</code></h5>
+			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			<h5><code>clipEnd</code></h5>
+			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			<h5><code>repeatCount</code></h5>
+			<p>Value: <i>integer</i> indicating the number of times to repeat the audio clip.</p>
+			<h5><code>repeatDur</code></h5>
+			<p> <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			<p>
 					<p>
-						A simple example of the audio is shown below
+						A simple example of  <code>audio</code> is shown below.
 					</p>
 					<div class="example">
 						<code>
@@ -645,6 +647,137 @@
 
 				</section>
 			</section>
+		</section>
+		<section>
+			<h1>Appendix A. SSML JSON Schema </h1>
+			<p>The JSON schema defines the specific SSML functions, properties, and values recommended for implementation in this proposal.</p>
+		<pre>
+			<code>
+				{
+					"$schema": "http://json-schema.org/draft-07/schema#",
+					"$id": "http://ets-research.org/ia11ylab/ia/json/ssml-json-schema-w3cptf.json",
+					"title": "SSML as a single attribute for inclusion in HTML",
+					"description": "JSON structure representing each SSML element as a JSON object. The SSML properties are dervived from https://www.w3.org/TR/speech-synthesis11/.  Several elements are excluded: mark, speak, p, w and the desc attribute. Author: M. Hakkinen - ETS",
+					"type": "object",
+					"properties": {
+					  "say-as": {
+						"description": "The unique identifier for a product",
+						"type": "object",
+						"properties": {
+							  "interpret-as": { "type": "string",
+									   "enum": ["date","time","telephone","characters","cardinal","ordinal"]},
+							  "format": { "type": "string" },
+							  "detail": {"type": "string"}
+						   }
+					  },
+					  "phoneme": {
+						  "description": "The Phoneme Function",
+						  "type": "object",
+						  "properties": {
+							  "ph": { "type": "string"},
+							  "alphabet": {"type": "string",
+							  "enum": ["ipa", "x-sampa"]}}
+						  },
+					  "sub": {
+						  "description": "sub function",
+						  "type": "object",
+						  "properties": {
+							  "alias": {"type":"string"}
+						  }
+					  },
+					  "voice":{
+						  "description": "voice function",
+						  "type":"object",
+						  "properties": {
+							  "gender": {"type":"string",
+							  "enum": ["female","male","neutral"]},
+							  "age": {"type":"integer"},
+							  "variant":{"type":"string"},
+							  "name": {"type":"string"},
+							  "languages": {"type":"string"}
+						  }
+					  },
+					  "emphasis":{
+						  "description": "speech emphasis level",
+						  "type":"object",
+						  "properties": {
+							  "level": {"type":"string",
+							  "enum": ["none","x-weak","weak","medium","strong","x-strong"]},
+							  "time": {"type":"string",
+									 "pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"}
+									 }
+						  },
+						"prosody": {
+						  "description": "speech prosody",
+						  "type":"object",
+						  "properties": {
+						  "pitch": {"type":"string",
+									"pattern":"^x-low|low|medium|high|x-high|default|(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)Hz)$"
+								  },    
+						  "contour": {"type":"string"},
+						  "range": {"type":"string",
+									"pattern":"^x-low|low|medium|high|x-high|default|(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)Hz)$"
+								  },
+						  "rate": {"type":"string",
+									"pattern":"^x-slow|slow|medium|fast|x-xfast|default|(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)%)$"},
+						  "duration": {"type": "string",
+									  "pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"},
+						  "volume": {"type":"string",
+									 "pattern":"^silent|x-soft|soft|medium|loud|x-loud|default|(+|-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)dB)$"}
+						  }
+						},
+						"break": {
+							"description": "break - insert a timed pause",
+							"type":"object",
+							"properties": {
+							 "strength": {"type":"string",
+										  "enum": ["none","x-weak","weak","medium","strong","x-strong"]},
+							"time": {"type":"string",
+									 "pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"}
+									 }
+							 },
+						"audio": {
+							"description":"audio element used to insert audio file into speech stream",
+							"type":"object",
+							"properties":{
+								"src": {"type":"uri"},
+								"fetchtimeout":{"type":"string",
+												"pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"},
+								"fetchint":{"type":"string",
+											"enum": ["safe","prefetch"]},
+								"maxage":{"type":"string"},
+								"maxstale":{"type":"string"},
+								"clipBegin":{"type": "string",
+									  "pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"
+				  
+								},
+								"clipEnd":{"type": "string",
+									  "pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"
+				  
+								},
+								"repeatCount":{"type":"integer"
+											 },
+								"repeatDur":{"type": "string",
+									  "pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"
+				  
+								},
+								"soundLevel":{"type":"string",
+									 "pattern":"^(+|-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)dB)$"},
+				  
+								"speed":{
+								  "type":"string",
+									"pattern":"^((0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)%)$"
+								}
+				  
+					  }
+					}
+					}
+				  }
+						
+					  
+			</code>
+		</pre>
+
 		</section>
 
 
