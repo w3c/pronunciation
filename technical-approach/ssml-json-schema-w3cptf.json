@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "http://ets-research.org/ssml-schema-w3cptf.json",
+  "$id": "http://ets-research.org/ia11ylab/ia/json/ssml-json-schema-w3cptf.json",
   "title": "SSML as a single attribute for inclusion in HTML",
   "description": "JSON structure representing each SSML element as a JSON object. The SSML properties are dervived from https://www.w3.org/TR/speech-synthesis11/.  Several elements are excluded: mark, speak, p, w and the desc attribute. Author: M. Hakkinen - ETS",
   "type": "object",
@@ -27,7 +27,7 @@
         "description": "sub function",
         "type": "object",
         "properties": {
-            "alias": {"type":"sting"}
+            "alias": {"type":"string"}
         }
     },
     "voice":{
