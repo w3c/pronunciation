@@ -62,7 +62,7 @@
 		<p>Each of the approaches is specified in the following sections, and includes example code.
 		</p>
 		<div class="note">
-			<div class="note-title" aria-level="3" role="heading">Note</div>
+			<div class="note-title" aria-level="3" role="heading">Use of <code>data-*</code> in this document.</div>
 			<div>The use of <code>data-</code> prefix for the attributes described in this document should not be seen as the editor's recommended or preferred final solution for attribute naming.  We have 
 			adopted this naming mechanism primarily because it has enabled experimental implementations to occur that are further informing the development of this specification.  </div>
 		</div>
@@ -103,10 +103,11 @@
     rapping at my chamber door.
     &lt;span data-ssml-audio-src="/soundlibrary/wood/hits/hits_11">&lt;/span&gt; &lt;br /&gt;
     &lt;br data-ssml-audio-src="/soundlibrary/wood/hits/hits_11" /&gt;
-    &lt;span data-ssml-prosody-volume="x-soft" data-ssml-prosody-rate="medium" &gt; "'Tis some visitor,"&lt;/span&gt; &lt;br /&gt;
+	&lt;span data-ssml-prosody-volume="x-soft" data-ssml-prosody-rate="medium" &gt; 
+	"'Tis some visitor,"&lt;/span&gt; &lt;br /&gt;
     I muttered, &lt;span data-ssml-prosody-volume="x-soft" data-ssml-prosody-rate="x-slow"&gt; &lt;br /&gt; &lt;span
-            data-ssml-phoneme-alphabet="ipa" data-ssem-phoneme-ph="tæpɪŋ">"tapping&lt;/span&gt; at my chamber door&mdash;&lt;/span&gt; &lt;br /&gt; &lt;br
-        data-ssml-break-time="750ms" /&gt;
+    data-ssml-phoneme-alphabet="ipa" data-ssem-phoneme-ph="tæpɪŋ">"tapping&lt;/span&gt; at my chamber door&mdash;&lt;/span&gt; &lt;br /&gt; &lt;br
+    data-ssml-break-time="750ms" /&gt;
     Only this &lt;span data-ssml-break-strength="weak"&gt; &lt;/span &gt; and nothing &lt;span data-ssml-break-strength="none"&gt;
     &lt;/span&gt; &lt;br /&gt; &lt;span data-ssml-prosody-volume="soft" data-ssml-prosody-rate="75%"&gt; more."&lt;/span&gt;
 &lt;/p&gt;
@@ -140,11 +141,12 @@
 			<p>
 				A simple example of <code>data-ssml-say-as</code> is shown below.
 			</p>
-			<div class="example"><code>
-						According the 2010 US Census, the population of &lt;span
-						data-ssml-say-as='digits'&gt;90274&lt;/span&gt;
-						increased to 25209 from 24976 over the past 10 years.
-					</code>
+			<div class="example">
+<pre><code>
+According the 2010 US Census, the population of &lt;span
+data-ssml-say-as='digits'&gt;90274&lt;/span&gt;
+increased to 25209 from 24976 over the past 10 years.
+</code></pre>
 			</div>
 
 
@@ -164,9 +166,9 @@
 				A simple example of <code>data-ssml-phoneme</code> is shown below.
 			</p>
 			<div class="example">
-				<code>
-						Once upon a midnight &lt;span data-ssml-alphabet="ipa" data-ssml-phoneme-ph="ˈdrɪəri"&gt;dreary&lt;/span&gt;
-					</code>
+				<pre><code>
+Once upon a midnight &lt;span data-ssml-alphabet="ipa" data-ssml-phoneme-ph="ˈdrɪəri"&gt;dreary&lt;/span&gt;
+					</code></pre>
 			</div>
 
 
@@ -187,7 +189,7 @@
 			</p>
 			<div class="example">
 				<code>
-						&lt;span data-ssml-sub-alias="Sodium Chloride"'&gt;NaCL&lt;/span&gt;
+&lt;span data-ssml-sub-alias="Sodium Chloride"'&gt;NaCL&lt;/span&gt;
 					</code>
 			</div>
 
@@ -215,9 +217,9 @@
 				A simple example of  <code>data-ssml-voice</code> is shown below.
 			</p>
 			<div class="example">
-				<code>
-						She said, "&lt;span data-ssml-voice-gender="female"'&gt;My name is Marie&lt;/span&gt;".
-					</code>
+<pre><code>
+She said, "&lt;span data-ssml-voice-gender="female"'&gt;My name is Marie&lt;/span&gt;".
+</code></pre>
 			</div>
 
 
@@ -236,9 +238,9 @@
 				A simple example of <code>data-ssml-emphasis</code> is shown below.
 			</p>
 			<div class="example">
-				<code>
-						Please use &lt;span data-ssml-emphasis-level="strong"'&gt;extreme caution.&lt;/span&gt;
-					</code>
+<pre><code>
+Please use &lt;span data-ssml-emphasis-level="strong"'&gt;extreme caution.&lt;/span&gt;
+</code></pre>
 			</div>
 
 
@@ -260,10 +262,10 @@
 				A simple example of <code>data-ssml-break</code> is shown below.
 			</p>
 			<div class="example">
-				<code>
-						Take a deep breath,&lt;span data-ssml-break-time="1s"&gt;&lt;/span&gt; and exhale.
-					</code>
-			</div>
+<pre><code>
+Take a deep breath,&lt;span data-ssml-break-time="1s"&gt;&lt;/span&gt; and exhale.
+</code>
+</pre>			</div>
 
 
 		</section>
@@ -289,9 +291,10 @@
 				A simple example of  <code>data-ssml-prosody</code> is shown below.
 			</p>
 			<div class="example">
-				<code>
-						The tortoise, said (slowly) "&lt;span data-ssml-prosody-rate="x-slow"&gt;I am almost at the finish line&lt;/span&gt;.""
-					</code>
+<pre>><code>
+The tortoise, said (slowly) "&lt;span data-ssml-prosody-rate="x-slow"&gt;
+I am almost at the finish line&lt;/span&gt;.""
+</code></pre>
 			</div>
 
 
@@ -328,10 +331,10 @@
 				A simple example of <code>data-ssml-audio</code> is shown below:
 			</p>
 			<div class="example">
-				<code>
-						You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&lt;/span&gt; when your time is up.
-					</code>
-			</div>
+<pre><code>
+You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&lt;/span&gt; when your time is up.
+</code>
+</pre>			</div>
 
 		</section>
 	</section>
@@ -364,9 +367,9 @@
 				Implementers must decide how to handle malformed JSON.
 			</p>
 			<p>
-				Finally, the schema for 'data-ssml' values has not been set. Potentially related standards, such as
-				<a href="https://schema.org/SpeakableSpecification">SpeakableSpecification</a>, as well as any issues
-				converting SSML to a proper JSON schema could
+				While a JSON schema is proposed, there are potentially related standards, such as
+				<a href="https://schema.org/SpeakableSpecification">SpeakableSpecification</a>, in development.
+				Converting SSML to a proper JSON schema could
 				cause confusion for implementors and authors. Often such conversions are
 				"...not exactly 1:1 transformation, but very very close". Authoring tools are hypothesized to address
 				these concerns, by
@@ -440,10 +443,10 @@
 					</p>
 					<div class="example"><code>
 						<pre>
-							According the 2010 US Census, the population of &lt;span
-							data-ssml='{&quot;say-as&quot; :
-							{&quot;interpret-as&quot;:&quot;characters&quot;}}'&gt;90274&lt;/span&gt;
-							increased to 25209 from 24976 over the past 10 years.
+According the 2010 US Census, the population of &lt;span
+data-ssml='{&quot;say-as&quot; :
+{&quot;interpret-as&quot;:&quot;characters&quot;}}'&gt;90274&lt;/span&gt;
+increased to 25209 from 24976 over the past 10 years.
 						</code>
 					</pre>
 						</div>
@@ -468,10 +471,10 @@
 					</p>
 					<div class="example">
 					<pre>
-						<code>
-							Once upon a midnight &lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"ˈdrɪəri"}}'&gt;dreary&lt;/span&gt;
-						</code>
-						</pre>
+<code>
+Once upon a midnight &lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"ˈdrɪəri"}}'&gt;dreary&lt;/span&gt;
+</code>
+</pre>
 					</div>
 
 
@@ -491,9 +494,11 @@
 						A simple example of <code>sub</code> is shown below.
 					</p>
 					<div class="example">
-						<code>
-							&lt;span data-ssml='{"sub":{"alias":"Sodium Chloride"}}'&gt;NaCL&lt;/span&gt;
-						</code>
+
+<pre><code>
+&lt;span data-ssml='{"sub":{"alias":"Sodium Chloride"}}'&gt;NaCL&lt;/span&gt;
+</code>
+</pre>
 					</div>
 
 
@@ -520,10 +525,10 @@
 						A simple example of <code>voice</code> is shown below.
 					</p>
 					<div class="example">
-						<pre><code>
-							She said, "&lt;span data-ssml='{"voice":{"gender":"female"}}'&gt;My name is Marie&lt;/span&gt;".
-						</code>
-					</pre>
+<pre><code>
+She said, "&lt;span data-ssml='{"voice":{"gender":"female"}}'&gt;My name is Marie&lt;/span&gt;".
+</code>
+</pre>
 					</div>
 
 
@@ -543,11 +548,11 @@
 						A simple example of <code>emphasis</code> is shown below.
 					</p>
 					<div class="example">
-						<pre>
-						<code>
-							Please use &lt;span data-ssml='{"emphasis":{"level":"strong"}}'&gt;extreme caution.&lt;/span&gt;
-						</code>
-						</pre>
+<pre>
+<code>
+Please use &lt;span data-ssml='{"emphasis":{"level":"strong"}}'&gt;extreme caution.&lt;/span&gt;
+</code>
+</pre>
 					</div>
 
 
@@ -569,9 +574,11 @@
 						A simple example of  <code>break</code> is shown below.
 					</p>
 					<div class="example">
-						<code>
-							Take a deep breath,&lt;span data-ssml='{"break":{"time":"1s"}}'&gt;&lt;/span&gt; and exhale.
-						</code>
+<pre>
+<code>
+Take a deep breath,&lt;span data-ssml='{"break":{"time":"1s"}}'&gt;&lt;/span&gt; and exhale.
+</code>
+</pre>
 					</div>
 
 
@@ -598,9 +605,11 @@
 						A simple example of <code>prosody</code> is shown below.
 					</p>
 					<div class="example">
-						<code>
-							The tortoise, said (slowly) "&lt;span data-ssml='{"prosody":{"rate":"x-slow"}}'&gt;I am almost at the finish line&lt;/span&gt;.""
-						</code>
+<pre>
+<code>
+The tortoise, said (slowly) "&lt;span data-ssml='{"prosody":{"rate":"x-slow"}}'&gt;I am almost at the finish line&lt;/span&gt;.""
+</code>
+</pre>
 					</div>
 
 
@@ -640,10 +649,11 @@
 						A simple example of  <code>audio</code> is shown below.
 					</p>
 					<div class="example">
-						<code>
-							You will hear a brief chime &lt;span data-ssml='{"audio":{"src":"/audio/chime.ogg"}}'&gt;&lt;/span&gt; when your time is up.
-						</code>
-					</div>
+<pre>
+<code>
+You will hear a brief chime &lt;span data-ssml='{"audio":{"src":"/audio/chime.ogg"}}'&gt;&lt;/span&gt; when your time is up.
+</code>
+</pre></div>
 
 				</section>
 			</section>
@@ -653,19 +663,21 @@
 			<p>The JSON schema defines the specific SSML functions, properties, and values recommended for implementation in this proposal.</p>
 		<pre>
 			<code>
-				{
-					"$schema": "http://json-schema.org/draft-07/schema#",
-					"$id": "http://ets-research.org/ia11ylab/ia/json/ssml-json-schema-w3cptf.json",
-					"title": "SSML as a single attribute for inclusion in HTML",
-					"description": "JSON structure representing each SSML element as a JSON object. The SSML properties are dervived from https://www.w3.org/TR/speech-synthesis11/.  Several elements are excluded: mark, speak, p, w and the desc attribute. Author: M. Hakkinen - ETS",
-					"type": "object",
+{
+"$schema": "http://json-schema.org/draft-07/schema#",
+"$id": "http://ets-research.org/ia11ylab/ia/json/ssml-json-schema-w3cptf.json",
+"title": "SSML as a single attribute for inclusion in HTML",
+"description": "JSON structure representing each SSML element as a JSON object. The SSML properties are dervived <br>
+from https://www.w3.org/TR/speech-synthesis11/.  Several elements are excluded: mark, speak, p, w and the desc attribute. <br>
+Author: M. Hakkinen - ETS",
+"type": "object",
+	"properties": {
+		 "say-as": {
+			"description": "The unique identifier for a product",
+			"type": "object",
 					"properties": {
-					  "say-as": {
-						"description": "The unique identifier for a product",
-						"type": "object",
-						"properties": {
-							  "interpret-as": { "type": "string",
-									   "enum": ["date","time","telephone","characters","cardinal","ordinal"]},
+				    "interpret-as": { "type": "string",
+							   "enum": ["date","time","telephone","characters","cardinal","ordinal"]},
 							  "format": { "type": "string" },
 							  "detail": {"type": "string"}
 						   }
@@ -770,9 +782,9 @@
 								}
 				  
 					  }
-					}
-					}
-				  }
+			}
+		}
+}
 						
 					  
 			</code>
