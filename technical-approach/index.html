@@ -116,7 +116,7 @@
 			<p>
 	</section>
 	<section>
-		<h3>The <code>data-ssml-*</code> Multi-Attribute Approach</h3>
+		<h3>The <code>data-ssml-*</code> Multi-Attribute</h3>
 		<p>
 			The following attributes are dervived from and intended to provide functional equivalence to the their SSML
 			counterpart. The attributes are presented as a primary attribute, followed by
@@ -314,7 +314,7 @@ I am almost at the finish line&lt;/span&gt;.""
 			<h5><code>data-ssml-audio-fetchtimeout</code></h5>
 			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
 			<h5><code>data-ssml-audio-fetchint</code></h5>
-			<p><code>safe | prefetch</code></p>
+			<p>Value: <code>safe | prefetch</code></p>
 			<h5><code>data-ssml-audio-maxage</code>/h5>
 			<p>Value: <i>string</i> </p>
 			<h5><code>data-ssml-audio-maxstale</code></h5>
@@ -415,15 +415,15 @@ You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&
 					The following properties are defined and provide functional equivalence to the their SSML
 					counterpart.
 				</p>
-				<section>
-					<h4>The <code>data-ssml</code> attribute</h4>
+				
+					<h3>The <code>data-ssml</code> attribute</h3>
 					<p>The data-ssml attribute is valid on HTML elements that contain textual content, which includes a
 						subset of flow elements, and specifically, that classed as heading and phrasing content (TBD see
 						HTML 5 specification 3.2.5.1.5) </p>
-					<p>The value of the data-ssml attribute is a JSON string, enclosed with single quotes (<code>&squote;</code>), containing one or more JSON objects, with each object representing a specific SSML function with one or more contained JSON property/value
+					<p>The value of the data-ssml attribute is a JSON string, enclosed with single quotes (<code>&apos;</code>), containing one or more JSON objects, with each object representing a specific SSML function with one or more contained JSON property/value
 						pairs. The valid objects, properties and associated values are defined in the following sections. The JSON schema is presented in in Appendix TBD.</p>
 
-				</section>
+				
 				<section>
 					<h4><code>say-as</code></h4>
 					<p>
@@ -658,8 +658,7 @@ You will hear a brief chime &lt;span data-ssml='{"audio":{"src":"/audio/chime.og
 				</section>
 			</section>
 		</section>
-		<section>
-			<h1>Appendix A. SSML JSON Schema </h1>
+<h1>Appendix A. SSML JSON Schema </h1>
 			<p>The JSON schema defines the specific SSML functions, properties, and values recommended for implementation in this proposal.</p>
 		<pre>
 			<code>
@@ -790,7 +789,6 @@ Author: M. Hakkinen - ETS",
 			</code>
 		</pre>
 
-		</section>
 
 
 
