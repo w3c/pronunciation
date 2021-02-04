@@ -1,0 +1,66 @@
+<html lang="en-us">
+<head>
+<title>W3C Pronunciation Task Force Multi-Attribute Sample Page
+</title>
+</head>
+<body>
+<h1>W3C Pronunciation Task Force Multi-Attribute SSML in HTML Test Cases</h1>
+
+<p>Developers of read aloud tools, screen readers, and voice assistants should use these test cases to evaluate and test their implementation. Questions and test results
+should be filed as issues in the <a href="https://github.com/w3c/pronunciation">Pronunciation github repo</a>.</p>
+<h2>Case 1: Say-as</h2>
+<p>According the 2010 US Census, the population of <span
+    data-ssml-say-as='digits'>90274</span>
+    increased to 25209 from 24976 over the past 10 years.</p>
+<p>Case 1: Audio rendering <audio  controls src="\audio\case-say-as.mp3" />
+<h2>Case 2: Phoneme</h2>
+<p>Once upon a midnight <span data-ssml-alphabet="ipa" data-ssml-phoneme-ph="ˈdrɪəri">dreary</span></p>
+<p>Case 2: Audio rendering <audio  controls src="\audio\case-phoneme.mp3" />
+<h2>Case 3: sub</h2>
+<p><span data-ssml-sub-alias="Sodium Chloride"'>NaCL</span></p>
+<p>Case 3: Audio rendering <audio  controls src="\audio\case-sub.mp3" />
+<h2>Case 4: Voice</h2>
+<p>She said, "<span data-ssml-voice-gender="female">My name is Marie</span>", to which, he replied, <span data-ssml-voice-gender="male">I am Tom.</span>"</p>
+<p>Case 4: Audio rendering (no sample) </p>
+<h2>Case 5: Emphasis</h2>
+<p>Please use <span data-ssml-emphasis-level="strong"'>extreme caution.</span>.</p>
+<p>Case 5: Audio rendering <audio  controls src="\audio\case-emphasis.mp3" />
+<h2>Case 6: Break</h2>
+<p>ake a deep breath,<span data-ssml-break-time="1s"></span> and exhale.</span></p>
+<p>Case 6: Audio rendering <audio  controls src="\audio\case-break.mp3" />
+<h2>Case 7: Prosody</h2>
+<p>The tortoise, said (slowly) "<span data-ssml-prosody-rate="x-slow">
+    I am almost at the finish line.</span>"</p>
+<p>Case 7: Audio rendering <audio  controls src="\audio\case-prosody.mp3" />
+<h2>Case 8: Audio</h2>
+<p>You will hear a brief chime <span data-ssml-audio-src="https://www.talkinginterfaces.org/audio/chime.mp3"></span> when your time is up.</p>
+<p>Case 8: Audio rendering <audio  controls src="\audio\case-audio.mp3" />
+<h2>Case 9: Extended Text - The Raven</h2>
+<p data-ssml-prosody-rate="slow" data-ssml-prosody-pitch="low">
+    Once upon a midnight <span data-ssml-phoneme-alphabet="ipa" data-ssml-phoneme-ph="ˈdrɪəri">dreary</span> <br />
+    <span data-ssml-break-time="500ms"> </span>,
+    while I pondered, weak
+    <span data-ssml-break-time="150ms"> </span> and weary,<br data-ssml-break-time="500ms" />
+    Over many a quaint and curious volume of forgotton <span data-ssml-prosody-rate="x-slow"
+        data-ssml-prosody-pitch="low"> lore—</span> <br />
+    While I nodded, nearly napping, suddenly there came a tapping, <br />
+    <br data-ssml-audio-src="https://www.tallkinginterfaces.org/audio/knocking.mp3" />
+    As of some one gently rapping,
+    <span data-ssml-audio-src="https://www.tallkinginterfaces.org/audio/knocking.mp3"></span >
+    rapping at my chamber door.
+    <span data-ssml-audio-src="https://www.tallkinginterfaces.org/audio/knocking.mp3"></span> <br />
+    <br data-ssml-audio-src="https://www.tallkinginterfaces.org/audio/knocking.mp3" />
+	<span  data-ssml-prosody-rate="medium" > 
+	"'Tis some visitor,"</span> <br />
+    I muttered, <span  data-ssml-prosody-rate="x-slow"> <br /> <span
+    data-ssml-phoneme-alphabet="ipa" data-ssml-phoneme-ph="tæpɪŋ">"tapping</span> at my chamber door—</span> <br /> <br
+    data-ssml-break-time="750ms" />
+    Only this <span data-ssml-break-strength="weak"> </span > and nothing <span data-ssml-break-strength="none">
+    </span> <br /> <span data-ssml-prosody-rate="75%"> more."</span>
+</p>
+
+<p>Case 9: Audio rendering <audio controls src="\audio\case-raven.mp3" />
+
+</body>
+</html>
+
