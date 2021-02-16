@@ -4,7 +4,7 @@
 <head>
 	<title>Pronunciation Technical Approach</title>
 	<meta charset="utf-8" />
-	<script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove"></script>
+	<script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
 
 	<script src="respec-config.js" class="remove"></script>
 </head>
@@ -651,137 +651,8 @@ You will hear a brief chime &lt;span data-ssml='{"audio":{"src":"/audio/chime.og
 		</section>
 	</section>
 	<h1>Appendix A. SSML JSON Schema </h1>
-	<p>The JSON schema defines the specific SSML functions, properties, and values recommended for implementation in
-		this proposal.</p>
-	<pre>
-			<code>
-{
-"$schema": "http://json-schema.org/draft-07/schema#",
-"$id": "http://ets-research.org/ia11ylab/ia/json/ssml-json-schema-w3cptf.json",
-"title": "SSML as a single attribute for inclusion in HTML",
-"description": "JSON structure representing each SSML element as a JSON object. The SSML properties are dervived <br>
-from https://www.w3.org/TR/speech-synthesis11/.  Several elements are excluded: mark, speak, p, w and the desc attribute. <br>
-Author: M. Hakkinen - ETS",
-"type": "object",
-	"properties": {
-		 "say-as": {
-			"description": "The unique identifier for a product",
-			"type": "object",
-					"properties": {
-				    "interpret-as": { "type": "string",
-							   "enum": ["date","time","telephone","characters","cardinal","ordinal"]},
-							  "format": { "type": "string" },
-							  "detail": {"type": "string"}
-						   }
-					  },
-					  "phoneme": {
-						  "description": "The Phoneme Function",
-						  "type": "object",
-						  "properties": {
-							  "ph": { "type": "string"},
-							  "alphabet": {"type": "string",
-							  "enum": ["ipa", "x-sampa"]}}
-						  },
-					  "sub": {
-						  "description": "sub function",
-						  "type": "object",
-						  "properties": {
-							  "alias": {"type":"string"}
-						  }
-					  },
-					  "voice":{
-						  "description": "voice function",
-						  "type":"object",
-						  "properties": {
-							  "gender": {"type":"string",
-							  "enum": ["female","male","neutral"]},
-							  "age": {"type":"integer"},
-							  "variant":{"type":"string"},
-							  "name": {"type":"string"},
-							  "languages": {"type":"string"}
-						  }
-					  },
-					  "emphasis":{
-						  "description": "speech emphasis level",
-						  "type":"object",
-						  "properties": {
-							  "level": {"type":"string",
-							  "enum": ["none","x-weak","weak","medium","strong","x-strong"]},
-							  "time": {"type":"string",
-									 "pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"}
-									 }
-						  },
-						"prosody": {
-						  "description": "speech prosody",
-						  "type":"object",
-						  "properties": {
-						  "pitch": {"type":"string",
-									"pattern":"^x-low|low|medium|high|x-high|default|(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)Hz)$"
-								  },    
-						  "contour": {"type":"string"},
-						  "range": {"type":"string",
-									"pattern":"^x-low|low|medium|high|x-high|default|(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)Hz)$"
-								  },
-						  "rate": {"type":"string",
-									"pattern":"^x-slow|slow|medium|fast|x-xfast|default|(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)%)$"},
-						  "duration": {"type": "string",
-									  "pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"},
-						  "volume": {"type":"string",
-									 "pattern":"^silent|x-soft|soft|medium|loud|x-loud|default|(+|-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)dB)$"}
-						  }
-						},
-						"break": {
-							"description": "break - insert a timed pause",
-							"type":"object",
-							"properties": {
-							 "strength": {"type":"string",
-										  "enum": ["none","x-weak","weak","medium","strong","x-strong"]},
-							"time": {"type":"string",
-									 "pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"}
-									 }
-							 },
-						"audio": {
-							"description":"audio element used to insert audio file into speech stream",
-							"type":"object",
-							"properties":{
-								"src": {"type":"uri"},
-								"fetchtimeout":{"type":"string",
-												"pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"},
-								"fetchint":{"type":"string",
-											"enum": ["safe","prefetch"]},
-								"maxage":{"type":"string"},
-								"maxstale":{"type":"string"},
-								"clipBegin":{"type": "string",
-									  "pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"
-				  
-								},
-								"clipEnd":{"type": "string",
-									  "pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"
-				  
-								},
-								"repeatCount":{"type":"integer"
-											 },
-								"repeatDur":{"type": "string",
-									  "pattern":"^(-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)ms|s)$"
-				  
-								},
-								"soundLevel":{"type":"string",
-									 "pattern":"^(+|-?(0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)dB)$"},
-				  
-								"speed":{
-								  "type":"string",
-									"pattern":"^((0|[1-9]\\d*)?(\\.\\d+)?(?<=\\d)%)$"
-								}
-				  
-					  }
-			}
-		}
-}
-						
-					  
-			</code>
-		</pre>
-
+	<p>Please see the <a href="appendixJSON.html">JSON schema example here.</a> </p>
+	
 
 
 
