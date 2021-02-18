@@ -92,24 +92,10 @@ var respecConfig = {
 
     // errata: 'http://www.w3.org/2010/02/rdfa/errata.html',
 
-    // name of the WG
-    wg:           "Accessible Platform Architectures Working Group",
-
-    // URI of the public WG page
-    wgURI:        "https://www.w3.org/WAI/APA/",
-
-    // name (with the @w3c.org) of the public mailing to which comments are due
-    wgPublicList: "public-pronunciation",
-
-    // URI of the patent status for this WG, for Rec-track documents
-    // !!!! IMPORTANT !!!!
-    // This is important for Rec-track documents, do not copy a patent URI from a random
-    // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-    // Team Contact.
-    wgPatentURI:  "https://www.w3.org/2004/01/pp-impl/83907/status",
     //maxTocLevel: 2,
 
-   
+   // WG info
+   group: 83907
 
     // Spec URLs
 
