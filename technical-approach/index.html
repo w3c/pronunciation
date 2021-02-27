@@ -21,7 +21,7 @@
 	<section id="sotd"></section>
 
 	<section class="informative" id="introduction">
-		<h1>Introduction</h1>
+		<h2>Introduction</h2>
 
 		<p>
 			This proposal allows authors to embed synthetic speech presentation information in HTML content. This will
@@ -43,16 +43,30 @@
 				notation</a> (JSON) string to convey all SSML functions and properties.
 		</p>
 		<p>
-			Each of the approaches is specified in the following sections, and includes example code.
+			Each approach, in the following sections, includes example code.
+			See the <a href="https://w3c.github.io/pronunciation/samples/">sample content</a> examples,
+			complete with audio files, for comparison with existing TTS technology.
 		</p>
 		<div class="note">
-			
+
 			<div>
 				Using the <code>data-</code> prefix to name attributes is not the editor's recommendation or preference.
 				This choice enables experimental implementations which will inform the development of this
 				specification.
 			</div>
 		</div>
+	</section>
+
+	<section class="informative" id="background">
+		<h2>Background on Pronunciation</h2>
+
+		<p>
+			The Pronunciation Task Force studied <a herf="https://w3c.github.io/pronunciation/user-scenarios/">user
+				scenarios</a>
+			for TTS technology. Then, surveyed <a href="https://w3c.github.io/pronunciation/use-cases/">use cases</a>.
+			Finally, it conducted a <a href="https://w3c.github.io/pronunciation/gap-analysis/">gap analysis</a>
+			which informed this document.
+		</p>
 	</section>
 
 	<section>
@@ -74,27 +88,30 @@
 			EXAMPLE 1
 			<code>
 				<pre>
-&lt;p data-ssml-prosody-rate="slow" data-ssml-prosody-pitch="low"&gt;
-    Once upon a midnight &lt;span data-ssml-phoneme-alphabet="ipa" data-ssml-phoneme-ph="ˈdrɪəri"&gt;dreary&lt;/span&gt; &lt;br /&gt;
-    &lt;span data-ssml-break-time="500ms"&gt; &lt;/span&gt;,
+&lt;p data-ssml-prosody-rate=&quot;slow&quot; data-ssml-prosody-pitch=&quot;low&quot;&gt;
+    Once upon a midnight 
+    &lt;span data-ssml-phoneme-alphabet=&quot;ipa&quot; data-ssml-phoneme-ph=&quot;&#x2C8;dr&#x26A;&#x259;ri&quot;&gt;dreary&lt;/span&gt;
+    &lt;span data-ssml-break-time=&quot;500ms&quot;&gt;&lt;/span&gt;,
     while I pondered, weak
-    &lt;span data-ssml-break-time="150ms"&gt; &lt;/span&gt; and weary,&lt;br data-ssml-break-time="500ms" /&gt;
-    Over many a quaint and curious volume of forgotten &lt;span data-ssml-prosody-rate="x-slow"
-        data-ssml-prosody-pitch="low"&gt; lore&mdash;&lt;/span&gt; &lt;br /&gt;
-    While I nodded, nearly napping, suddenly there came a tapping, &lt;br /&gt;
-    &lt;br data-ssml-audio-src="/soundlibrary/wood/hits/hits_11" /&gt;
+    &lt;span data-ssml-break-time=&quot;150ms&quot;&gt;&lt;/span&gt; and weary,&lt;br data-ssml-break-time=&quot;500ms&quot; /&gt;
+    Over many a quaint and curious volume of forgotten
+    &lt;span data-ssml-prosody-rate=&quot;x-slow&quot; data-ssml-prosody-pitch=&quot;low&quot;&gt; lore&mdash;&lt;/span&gt;&lt;br /&gt;
+    While I nodded, nearly napping, suddenly there came a tapping,
+    &lt;br data-ssml-audio-src=&quot;/soundlibrary/wood/hits/hits_11&quot; /&gt;
     As of some one gently rapping,
-    &lt;span data-ssml-audio-src="/soundlibrary/wood/hits/hits_11">&lt;/span &gt;
+    &lt;span data-ssml-audio-src=&quot;/soundlibrary/wood/hits/hits_11&quot;&gt;&lt;/span&gt;
     rapping at my chamber door.
-    &lt;span data-ssml-audio-src="/soundlibrary/wood/hits/hits_11">&lt;/span&gt; &lt;br /&gt;
-    &lt;br data-ssml-audio-src="/soundlibrary/wood/hits/hits_11" /&gt;
-	&lt;span data-ssml-prosody-volume="x-soft" data-ssml-prosody-rate="medium" &gt; 
-	"'Tis some visitor,"&lt;/span&gt; &lt;br /&gt;
-    I muttered, &lt;span data-ssml-prosody-volume="x-soft" data-ssml-prosody-rate="x-slow"&gt; &lt;br /&gt; &lt;span
-    data-ssml-phoneme-alphabet="ipa" data-ssem-phoneme-ph="tæpɪŋ">"tapping&lt;/span&gt; at my chamber door&mdash;&lt;/span&gt; &lt;br /&gt; &lt;br
-    data-ssml-break-time="750ms" /&gt;
-    Only this &lt;span data-ssml-break-strength="weak"&gt; &lt;/span &gt; and nothing &lt;span data-ssml-break-strength="none"&gt;
-    &lt;/span&gt; &lt;br /&gt; &lt;span data-ssml-prosody-volume="soft" data-ssml-prosody-rate="75%"&gt; more."&lt;/span&gt;
+    &lt;span data-ssml-audio-src=&quot;/soundlibrary/wood/hits/hits_11&quot;&gt;&lt;/span&gt;
+    &lt;br data-ssml-audio-src=&quot;/soundlibrary/wood/hits/hits_11&quot; /&gt;
+    &lt;span data-ssml-prosody-volume=&quot;x-soft&quot; data-ssml-prosody-rate=&quot;medium&quot;&gt;
+      &quot;&apos;Tis some visitor,&quot;
+    &lt;/span&gt;
+    I muttered, &lt;span data-ssml-prosody-volume=&quot;x-soft&quot; data-ssml-prosody-rate=&quot;x-slow&quot;&gt;
+    &lt;span data-ssml-phoneme-alphabet=&quot;ipa&quot; data-ssem-phoneme-ph=&quot;t&aelig;p&#x26A;&eng;&quot;&gt;&quot;tapping&lt;/span&gt;
+    at my chamber door&mdash;&lt;/span&gt;&lt;br data-ssml-break-time=&quot;750ms&quot; /&gt;
+    Only this &lt;span data-ssml-break-strength=&quot;weak&quot;&gt;&lt;/span&gt; and nothing
+    &lt;span data-ssml-break-strength=&quot;none&quot;&gt;&lt;/span&gt;
+    &lt;span data-ssml-prosody-volume=&quot;soft&quot; data-ssml-prosody-rate=&quot;75%&quot;&gt; more.&quot;&lt;/span&gt;
 &lt;/p&gt;
 </pre>
 				</code>
@@ -172,9 +189,9 @@ Once upon a midnight &lt;span data-ssml-alphabet="ipa" data-ssml-phoneme-ph="ˈd
 
 			<div class="example">
 				EXAMPLE 4
-				<code>
+				<pre><code>
 &lt;span data-ssml-sub-alias="Sodium Chloride"'&gt;NaCL&lt;/span&gt;
-					</code>
+				</code></pre>
 			</div>
 
 
@@ -372,27 +389,31 @@ You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&
 			EXAMPLE 1
 			<code>
 					<pre>
-&lt;p data-ssml='{"prosody":{"rate":"slow";"pitch":"low"}}'&gt;
-	Once upon a midnight &lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"ˈdrɪəri"}}'&gt;dreary&lt;/span&gt;
-	&lt;span data-ssml="{"break":{"time":"500ms"}'&gt;&lt;/span&gt;,
-	while I pondered, weak
-	&lt;span data-ssml='{"break":{"time":"150ms"}'&gt;&lt;/span&gt; and weary,&lt;br data-ssml='{"break":{"time":"500ms"}' /&gt;
-	Over many a quaint and curious volume of forgotten 
-	&lt;span data-ssml='{"prosody":{"rate":"x-slow";"pitch":"low"}}'&gt;lore&mdash;&lt;/span&gt;&lt;br /&gt;
-	While I nodded, nearly napping, suddenly there came a tapping,
-	&lt;br data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'/&gt;
-	As of some one gently rapping,
-	&lt;br data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'/&gt;&lt;/span&gt;
-	rapping at my chamber door.
-	&lt;span data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'&gt;&lt;/span&gt;
-	&lt;br data-ssml='{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}' /&gt;
-	&lt;span data-ssml='{"prosody":{"volume":"x-soft";"rate":"medium"}}'&gt;"'Tis some visitor,"&lt;/span&gt;
-	I muttered, &lt;span data-ssml='{"prosody":{"volume":"x-soft";"rate":"x-slow"}}'&gt;
-	&lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"tæpɪŋ"}}'&gt;"tapping&lt;/span&gt;
-	at my chamber door&mdash;&lt;/span&gt;&lt;br  data-ssml='{"break":{"time":"750ms"}'/&gt;
-	Only this&lt;span data-ssml='{"break":{"strength":"weak"}'&gt; &lt;/span&gt;
-	and nothing&lt;span data-ssml='{"break":{"strength":"none"}'&gt;
-	&lt;/span&gt;&lt;span data-ssml='{"prosody":{"volume":"soft";"rate":"75%"}}'&gt;more."&lt;/span&gt;
+&lt;p data-ssml=&apos;{&quot;prosody&quot;:{&quot;rate&quot;:&quot;slow&quot;;&quot;pitch&quot;:&quot;low&quot;}}&apos;&gt;
+&#x9;Once upon a midnight
+        &lt;span data-ssml=&apos;{&quot;phoneme&quot;:{&quot;alphabet&quot;:&quot;ipa&quot;;ph:&quot;&#x2C8;dr&#x26A;&#x259;ri&quot;}}&apos;&gt;dreary&lt;/span&gt;
+&#x9;&lt;span data-ssml=&quot;{&quot;break&quot;:{&quot;time&quot;:&quot;500ms&quot;}&apos;&gt;&lt;/span&gt;,
+&#x9;while I pondered, weak
+&#x9;&lt;span data-ssml=&apos;{&quot;break&quot;:{&quot;time&quot;:&quot;150ms&quot;}&apos;&gt;&lt;/span&gt; and weary,
+        &lt;br data-ssml=&apos;{&quot;break&quot;:{&quot;time&quot;:&quot;500ms&quot;}&apos; /&gt;
+&#x9;Over many a quaint and curious volume of forgotten 
+&#x9;&lt;span data-ssml=&apos;{&quot;prosody&quot;:{&quot;rate&quot;:&quot;x-slow&quot;;&quot;pitch&quot;:&quot;low&quot;}}&apos;&gt;lore&mdash;&lt;/span&gt;&lt;br /&gt;
+&#x9;While I nodded, nearly napping, suddenly there came a tapping,
+&#x9;&lt;br data-ssml=&apos;{&quot;audio&quot;:{&quot;src&quot;:&quot;/soundlibrary/wood/hits/hits_11&quot;}}&apos;/&gt;
+&#x9;As of some one gently rapping,
+&#x9;&lt;span data-ssml=&apos;{&quot;audio&quot;:{&quot;src&quot;:&quot;/soundlibrary/wood/hits/hits_11&quot;}}&apos;&gt;&lt;/span&gt;
+&#x9;rapping at my chamber door.
+&#x9;&lt;span data-ssml=&apos;{&quot;audio&quot;:{&quot;src&quot;:&quot;/soundlibrary/wood/hits/hits_11&quot;}}&apos;&gt;&lt;/span&gt;
+&#x9;&lt;br data-ssml=&apos;{&quot;audio&quot;:{&quot;src&quot;:&quot;/soundlibrary/wood/hits/hits_11&quot;}}&apos; /&gt;
+&#x9;&lt;span data-ssml=&apos;{&quot;prosody&quot;:{&quot;volume&quot;:&quot;x-soft&quot;;&quot;rate&quot;:&quot;medium&quot;}}&apos;&gt;
+          &quot;&apos;Tis some visitor,&quot;
+        &lt;/span&gt;
+&#x9;I muttered, &lt;span data-ssml=&apos;{&quot;prosody&quot;:{&quot;volume&quot;:&quot;x-soft&quot;;&quot;rate&quot;:&quot;x-slow&quot;}}&apos;&gt;
+&#x9;&lt;span data-ssml=&apos;{&quot;phoneme&quot;:{&quot;alphabet&quot;:&quot;ipa&quot;;ph:&quot;t&aelig;p&#x26A;&eng;&quot;}}&apos;&gt;&quot;tapping&lt;/span&gt;
+&#x9;at my chamber door&mdash;&lt;/span&gt;&lt;br data-ssml=&apos;{&quot;break&quot;:{&quot;time&quot;:&quot;750ms&quot;}&apos;/&gt;
+&#x9;Only this&lt;span data-ssml=&apos;{&quot;break&quot;:{&quot;strength&quot;:&quot;weak&quot;}&apos;&gt;&lt;/span&gt;
+&#x9;and nothing&lt;span data-ssml=&apos;{&quot;break&quot;:{&quot;strength&quot;:&quot;none&quot;}&apos;&gt; &lt;/span&gt;
+&#x9;&lt;span data-ssml=&apos;{&quot;prosody&quot;:{&quot;volume&quot;:&quot;soft&quot;;&quot;rate&quot;:&quot;75%&quot;}}&apos;&gt;more.&quot;&lt;/span&gt;
 &lt;/p&gt;
 </pre>
 					</code>
@@ -652,7 +673,7 @@ You will hear a brief chime &lt;span data-ssml='{"audio":{"src":"/audio/chime.og
 	</section>
 	<h1>Appendix A. SSML JSON Schema </h1>
 	<p>Please see the <a href="appendixJSON.html">JSON schema example here.</a> </p>
-	
+
 
 
 
