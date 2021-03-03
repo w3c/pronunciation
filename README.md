@@ -21,7 +21,19 @@ Markdown URL for Use-cases
 Pronunciation TF want to make a publication every three months if possible. 
 Timeline: https://github.com/w3c/pronunciation/wiki/Timeline
 
+# Implementations
 
+## Multi-attribute Approach
+
+none
+
+## Single-attribute Approach
+
+Note: need specific URL to confirm from each vendor
+
+Texthelp SpeechStream : https://www.texthelp.com/en-us/products/speechstream/
+
+Pearson TestNav : https://home.testnav.com/
 
 # For Authors
 
