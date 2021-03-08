@@ -86,7 +86,7 @@
 		</p>
 		<div class="example">
 			EXAMPLE 1
-			<code>
+			
 				<pre>
 &lt;p data-ssml-prosody-rate=&quot;slow&quot; data-ssml-prosody-pitch=&quot;low&quot;&gt;
     Once upon a midnight 
@@ -114,20 +114,20 @@
     &lt;span data-ssml-prosody-volume=&quot;soft&quot; data-ssml-prosody-rate=&quot;75%&quot;&gt; more.&quot;&lt;/span&gt;
 &lt;/p&gt;
 </pre>
-				</code>
+				
 		</div>
-		<p>
+	<section>
 
 		<h3>The <code>data-ssml-*</code> Multi-Attribute Set</h3>
 		<p>
 			These attributes provide functional equivalence to the SSML counterparts. These attributes are valid
-			on the following HTML elements:
+			on the following HTML elements:</p>
 		<ul>
 			<li><a href="https://html.spec.whatwg.org/multipage/dom.html#flow-content">flow content</a></li>
 			<li><a href="https://html.spec.whatwg.org/multipage/dom.html#phrasing-content">phrasing content</a></li>
 			<li><a href="https://www.w3.org/TR/wai-aria/#namefromcontent">roles supporting name from content</a></li>
 		</ul>
-		</p>
+		
 		<section>
 			<h4><code>data-ssml-say-as-*</code></h4>
 			<p>
@@ -135,24 +135,31 @@
 
 				(editor note: <code>interpret-as</code> seem superfluous, and should be implied)
 			</p>
-			<h5><code>data-ssml-say-as</code></h5>
-			<p>Values: date | time | telephone | characters | cardinal | ordinal</p>
+			<section class="role notoc">
+				<h5><code>data-ssml-say-as</code></h5>
+				<p>Values: date | time | telephone | characters | cardinal | ordinal</p>
+			</section>
 
-			<h5><code>data-ssml-say-as-format</code>(optional)</h5>
-			<p>Value: time/date format as defined in W3C Note SSML <code>say-as</code> attribute values</p>
-			<h5><code>data-ssml-say-as-detail</code>(optional)</h5>
-			<p>Value: deatil as defined in W3C Note SSML <code>say-as</code> attribute values.</p>
+			<section class="role notoc">
+
+				<h5><code>data-ssml-say-as-format</code>(optional)</h5>
+				<p>Value: time/date format as defined in W3C Note SSML <code>say-as</code> attribute values</p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-say-as-detail</code>(optional)</h5>
+				<p>Value: deatil as defined in W3C Note SSML <code>say-as</code> attribute values.</p>
 
 			<div class=" example">
 				EXAMPLE 2
 				<pre>
-					<code>
+					
 According the 2010 US Census, the population of &lt;span
 data-ssml-say-as='digits'&gt;90274&lt;/span&gt;
 increased to 25209 from 24976 over the past 10 years.
-					</code>
+					
 				</pre>
 			</div>
+			</section>
 		</section>
 
 		<section>
@@ -161,19 +168,23 @@ increased to 25209 from 24976 over the past 10 years.
 				Defines two required attributes for phonemic/phonetic pronunciation. The element
 				with the phoneme attributes can only contain text (no elements).
 			</p>
-			<h5><code>data-ssml-phoneme-ph</code></h5>
-			<p>Value: The phoneme string</p>
-			<h5><code>data-ssml-phoneme-alphabet</code></h5>
-			<p>Value: The phonetic alphabet in use: ipa | x-sampa</p>
+			<section class="role notoc">
+				<h5><code>data-ssml-phoneme-ph</code></h5>
+				<p>Value: The phoneme string</p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-phoneme-alphabet</code></h5>
+				<p>Value: The phonetic alphabet in use: ipa | x-sampa</p>
 
 			<div class="example">
 				EXAMPLE 3
 				<pre>
-					<code>
+					
 Once upon a midnight &lt;span data-ssml-alphabet="ipa" data-ssml-phoneme-ph="ˈdrɪəri"&gt;dreary&lt;/span&gt;
-					</code>
+					
 				</pre>
 			</div>
+			</section>
 
 
 		</section>
@@ -189,9 +200,9 @@ Once upon a midnight &lt;span data-ssml-alphabet="ipa" data-ssml-phoneme-ph="ˈd
 
 			<div class="example">
 				EXAMPLE 4
-				<pre><code>
+				<pre>
 &lt;span data-ssml-sub-alias="Sodium Chloride"'&gt;NaCL&lt;/span&gt;
-				</code></pre>
+				</pre>
 			</div>
 
 
@@ -204,25 +215,36 @@ Once upon a midnight &lt;span data-ssml-alphabet="ipa" data-ssml-phoneme-ph="ˈd
 				two kinds of attributes for the voice element: those that indicate desired features of a voice and those
 				that control behavior.
 			</p>
-			<h5><code>data-ssml-voice-gender</code> (optional)</h5>
-			<p>Values: <code>female | male | neutral</code></p>
-			<h5><code>data-ssml-voice-age</code> (optional)</h5>
-			<p>Value: <i>integer</i> corresponding to age in years</p>
-			<h5><code>data-ssml-voice-variant</code> (optional)</h5>
-			<p>Value: <i>integer</i> indicating a numeric voice variant</p>
-			<h5><code>data-ssml-voice-name</code> (optional)</h5>
-			<p>Value: <i>string</i> defining a specific voice name requested from the current TTS engine, e.g.,
-				<code>"David"</code>
-			</p>
-			<h5><code>data-ssml-voice-languages</code> (optional)</h5>
-			<p>Value: <i>string</i> a space delimited list of one or more languages to be spoken by this voice.</p>
+			<section class="role notoc">
+				<h5><code>data-ssml-voice-gender</code> (optional)</h5>
+				<p>Values: <code>female | male | neutral</code></p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-voice-age</code> (optional)</h5>
+				<p>Value: <i>integer</i> corresponding to age in years</p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-voice-variant</code> (optional)</h5>
+				<p>Value: <i>integer</i> indicating a numeric voice variant</p>
+			</section>
+			<section class="role notoc">
+
+				<h5><code>data-ssml-voice-name</code> (optional)</h5>
+				<p>Value: <i>string</i> defining a specific voice name requested from the current TTS engine, e.g.,
+					<code>"David"</code>
+				</p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-voice-languages</code> (optional)</h5>
+				<p>Value: <i>string</i> a space delimited list of one or more languages to be spoken by this voice.</p>
 
 			<div class="example">
 				EXAMPLE 5
-				<pre><code>
+				<pre>
 She said, "&lt;span data-ssml-voice-gender="female"'&gt;My name is Marie&lt;/span&gt;".
-</code></pre>
+</pre>
 			</div>
+			</section>
 
 
 		</section>
@@ -239,9 +261,9 @@ She said, "&lt;span data-ssml-voice-gender="female"'&gt;My name is Marie&lt;/spa
 
 			<div class="example">
 				EXAMPLE 6
-				<pre><code>
+				<pre>
 Please use &lt;span data-ssml-emphasis-level="strong"'&gt;extreme caution.&lt;/span&gt;
-</code></pre>
+				</pre>
 			</div>
 
 
@@ -254,18 +276,23 @@ Please use &lt;span data-ssml-emphasis-level="strong"'&gt;extreme caution.&lt;/s
 				any pair of tokens is optional. If the element is not present between tokens, the synthesis processor is
 				expected to automatically determine a break based on the linguistic context.
 			</p>
-			<h5><code>data-ssml-break-strength</code></h5>
-			<p>Value: <code>none | x-weak | weak | medium (default) | strong | x-strong</code></p>
-			<h5><code>data-ssml-break-time</code></h5>
-			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			<section class="role notoc">
+				<h5><code>data-ssml-break-strength</code></h5>
+				<p>Value: <code>none | x-weak | weak | medium (default) | strong | x-strong</code></p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-break-time</code></h5>
+				<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+
 
 			<div class="example">
 				EXAMPLE 7
-				<pre><code>
+				<pre>
 Take a deep breath,&lt;span data-ssml-break-time="1s"&gt;&lt;/span&gt; and exhale.
-</code>
-</pre>
+	
+				</pre>
 			</div>
+			</section>
 
 
 		</section>
@@ -275,32 +302,44 @@ Take a deep breath,&lt;span data-ssml-break-time="1s"&gt;&lt;/span&gt; and exhal
 				Permits control of the pitch, speaking rate and volume of
 				the speech output.
 			</p>
-			<h5><code>data-ssml-prosody-pitch</code> (optional)</h5>
-			<p>Value:
-				<code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code>
-			</p>
-			<h5><code>data-ssml-prosody-contour</code> (optional)</h5>
-			<p>Value: <i>string</i> of contour change parameters as defined in the SSML 1.1 recommendation</p>
-			<h5><code>data-ssml-prosody-range</code> (optional)</h5>
-			<p>Value: <i>string</i> range value as defined in the SSML 1.1 recommendation</p>
-			<h5><code>data-ssml-prosody-rate</code> (optional)</h5>
-			<p>Values:
-				<code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code>
-			</p>
-			<h5><code>data-ssml-prosody-duration</code> (optional)</h5>
-			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
-			<h5><code>data-ssml-prosody-volume</code> (optional)</h5>
-			<p>Values:
-				<code><i>+/- soundlevel</i>>"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code>
-			</p>
+			<section class="role notoc">
+				<h5><code>data-ssml-prosody-pitch</code> (optional)</h5>
+				<p>Value:
+					<code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code>
+				</p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-prosody-contour</code> (optional)</h5>
+				<p>Value: <i>string</i> of contour change parameters as defined in the SSML 1.1 recommendation</p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-prosody-range</code> (optional)</h5>
+				<p>Value: <i>string</i> range value as defined in the SSML 1.1 recommendation</p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-prosody-rate</code> (optional)</h5>
+				<p>Values:
+					<code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code>
+				</p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-prosody-duration</code> (optional)</h5>
+				<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-prosody-volume</code> (optional)</h5>
+				<p>Values:
+					<code><i>+/- soundlevel</i>>"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code>
+				</p>
 
 			<div class="example">
 				EXAMPLE 8
-				<pre><code>
+				<pre>
 The tortoise, said (slowly) "&lt;span data-ssml-prosody-rate="x-slow"&gt;
 I am almost at the finish line&lt;/span&gt;.""
-</code></pre>
+				</pre>
 			</div>
+			</section>
 
 
 		</section>
@@ -313,33 +352,52 @@ I am almost at the finish line&lt;/span&gt;.""
 			</p>
 
 
-			<h5><code>data-ssml-audio-src</code></h5>
-			<p>Value: <i>The URI of a document with an appropriate media file.</i></p>
-			<h5><code>data-ssml-audio-fetchtimeout</code> (optional)</h5>
-			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
-			<h5><code>data-ssml-audio-fetchint</code> (optional)</h5>
-			<p>Value: <code>safe | prefetch</code></p>
-			<h5><code>data-ssml-audio-maxage</code> (optional)</h5>
-			<p>Value: <i>string</i> </p>
-			<h5><code>data-ssml-audio-maxstale</code> (optional)</h5>
-			<p>Value: <i>string</i></p>
-			<h5><code>data-ssml-audio-clipBegin</code> (optional)</h5>
-			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
-			<h5><code>data-ssml-audio-clipEnd</code> (optional)</h5>
-			<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
-			<h5><code>data-ssml-audio-repeatCount</code> (optional)</h5>
-			<p>Value: <i>integer</i> indicating the number of times to repeat the audio clip.</p>
-			<h5><code>data-ssml-audio-repeatDur</code> (optional)</h5>
-			<p> <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			<section class="role notoc">
+				<h5><code>data-ssml-audio-src</code></h5>
+				<p>Value: <i>The URI of a document with an appropriate media file.</i></p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-audio-fetchtimeout</code> (optional)</h5>
+				<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-audio-fetchint</code> (optional)</h5>
+				<p>Value: <code>safe | prefetch</code></p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-audio-maxage</code> (optional)</h5>
+				<p>Value: <i>string</i> </p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-audio-maxstale</code> (optional)</h5>
+				<p>Value: <i>string</i></p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-audio-clipBegin</code> (optional)</h5>
+				<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-audio-clipEnd</code> (optional)</h5>
+				<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-audio-repeatCount</code> (optional)</h5>
+				<p>Value: <i>integer</i> indicating the number of times to repeat the audio clip.</p>
+			</section>
+			<section class="role notoc">
+				<h5><code>data-ssml-audio-repeatDur</code> (optional)</h5>
+				<p> <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
 
 			<div class="example">
 				EXAMPLE 9
-				<pre><code>
+				<pre>
 You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&lt;/span&gt; when your time is up.
-</code>
-</pre>
+	
+				</pre>
 			</div>
+			</section>
 
+		</section>
 		</section>
 	</section>
 
@@ -387,7 +445,7 @@ You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&
 		</p>
 		<div class="example">
 			EXAMPLE 1
-			<code>
+			
 					<pre>
 &lt;p data-ssml=&apos;{&quot;prosody&quot;:{&quot;rate&quot;:&quot;slow&quot;;&quot;pitch&quot;:&quot;low&quot;}}&apos;&gt;
 &#x9;Once upon a midnight
@@ -416,7 +474,7 @@ You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&
 &#x9;&lt;span data-ssml=&apos;{&quot;prosody&quot;:{&quot;volume&quot;:&quot;soft&quot;;&quot;rate&quot;:&quot;75%&quot;}}&apos;&gt;more.&quot;&lt;/span&gt;
 &lt;/p&gt;
 </pre>
-					</code>
+				
 		</div>
 		<section>
 			<h3><code>data-ssml</code> Attribute, Properties and Values</h3>
@@ -424,11 +482,9 @@ You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&
 				The following properties are defined and provide functional equivalence to the their SSML
 				counterpart.
 			</p>
-
-			<h3>The <code>data-ssml</code> attribute</h3>
 			<p>
-				The attribute provides functional equivalence to SSML. The attribute is valid
-				on the following HTML elements:
+				The <code>data-ssml</code> provides functional equivalence to SSML. The attribute is valid
+				on the following HTML elements:</p>
 			<ul>
 				<li><a href="https://html.spec.whatwg.org/multipage/dom.html#flow-content">flow content</a></li>
 				<li><a href="https://html.spec.whatwg.org/multipage/dom.html#phrasing-content">phrasing content</a></li>
@@ -447,25 +503,30 @@ You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&
 				<p>
 					Allows the author to classify the element's text content.
 				</p>
-				<h5><code>interpret-as</code></h5>
-				<p>Value: <code>date | time | telephone | characters | cardinal | ordinal</code></p>
-				<h5><code>format</code> (optional)</h5>
-				<p>Value: time/date format as defined in W3C Note SSML <code>say-as</code> attribute values.</p>
-				<h5><code>detail</code> (optional)</h5>
-				<p>Value: detail as defined in W3C Note SSML <code>say-as</code> attribute values.</p>
+				<section class="role notoc">
+					<h5><code>interpret-as</code></h5>
+					<p>Value: <code>date | time | telephone | characters | cardinal | ordinal</code></p>
+				</section>
+				<section class="role notoc">
+					<h5><code>format</code> (optional)</h5>
+					<p>Value: time/date format as defined in W3C Note SSML <code>say-as</code> attribute values.</p>
+				</section>
+				<section class="role notoc">
+					<h5><code>detail</code> (optional)</h5>
+					<p>Value: detail as defined in W3C Note SSML <code>say-as</code> attribute values.</p>
 
 				<div class="example">
 					EXAMPLE 2
-					<code>
+					
 						<pre>
 According the 2010 US Census, the population of &lt;span
 data-ssml='{&quot;say-as&quot; :
 {&quot;interpret-as&quot;:&quot;characters&quot;}}'&gt;90274&lt;/span&gt;
 increased to 25209 from 24976 over the past 10 years.
-						</code>
+						
 					</pre>
 				</div>
-				</div>
+				</section>
 
 
 			</section>
@@ -475,21 +536,25 @@ increased to 25209 from 24976 over the past 10 years.
 					Defines two required attributes for phonemic/phonetic pronunciation. The element
 					with the phoneme attributes can only contain text (no elements).
 				</p>
-				<h5><code>ph</code></h5>
-				<p>Value: <i>string</i> containing the phonectic characters corresponding to the content to be spoken
-				</p>
-				<h5><code>data-ssml-phoneme-alphabet</code></h5>
-				<p>Value: <code>ipa | x-sampa</code> defining the phonetic alphabet used for the <code>ph</code> string
-				</p>
+				<section class="role notoc">
+					<h5><code>ph</code></h5>
+					<p>Value: <i>string</i> containing the phonectic characters corresponding to the content to be spoken
+					</p>
+				</section>
+				<section class="role notoc">
+					<h5><code>data-ssml-phoneme-alphabet</code></h5>
+					<p>Value: <code>ipa | x-sampa</code> defining the phonetic alphabet used for the <code>ph</code> string
+					</p>
 
 				<div class="example">
 					EXAMPLE 3
 					<pre>
-<code>
+
 Once upon a midnight &lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"ˈdrɪəri"}}'&gt;dreary&lt;/span&gt;
-</code>
+
 </pre>
 				</div>
+				</section>
 
 
 			</section>
@@ -501,17 +566,18 @@ Once upon a midnight &lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"ˈdrɪ
 					spoken instead of the text content. The
 					processor should apply text normalization to the alias value.
 				</p>
-				<h5><code>alias</code></h5>
-				<p>Value: <i>string</i> containing the text to be spoken as a substitution for the text content of the
-					element to which <code>sub</code> is applied.</p>
+				<section class="role notoc">
+					<h5><code>alias</code></h5>
+					<p>Value: <i>string</i> containing the text to be spoken as a substitution for the text content of the element to which <code>sub</code> is applied.</p>
 
 				<div class="example">
 					EXAMPLE 4
-					<pre><code>
+					<pre>
 &lt;span data-ssml='{"sub":{"alias":"Sodium Chloride"}}'&gt;NaCL&lt;/span&gt;
-</code>
+
 </pre>
 				</div>
+				</section>
 
 
 			</section>
@@ -522,26 +588,36 @@ Once upon a midnight &lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"ˈdrɪ
 					two kinds of attributes for <code>voice</code>: those that indicate desired features of a voice
 					and those that control behavior.
 				</p>
-				<h5><code>gender</code> (optional)</h5>
-				<p>Values: <code>female | male | neutral</code></p>
-				<h5><code>age</code> (optional)</h5>
-				<p>Value: <i>integer</i> corresponding to age in years</p>
-				<h5><code>variant</code> (optional)</h5>
-				<p>Value: <i>integer</i> indicating a numeric voice variant</p>
-				<h5><code>name</code> (optional)</h5>
-				<p>Value: <i>string</i> defining a specific voice name requested from the current TTS engine, e.g.,
-					<code>"David"</code>
-				</p>
-				<h5><code>languages</code> (optional)</h5>
-				<p>Value: <i>string</i> a space delimited list of one or more languages to be spoken by this voice.</p>
+				<section class="role notoc">
+					<h5><code>gender</code> (optional)</h5>
+					<p>Values: <code>female | male | neutral</code></p>
+				</section>
+				<section class="role notoc">
+					<h5><code>age</code> (optional)</h5>
+					<p>Value: <i>integer</i> corresponding to age in years</p>
+				</section>
+				<section class="role notoc">
+					<h5><code>variant</code> (optional)</h5>
+					<p>Value: <i>integer</i> indicating a numeric voice variant</p>
+				</section>
+				<section class="role notoc">
+					<h5><code>name</code> (optional)</h5>
+					<p>Value: <i>string</i> defining a specific voice name requested from the current TTS engine, e.g.,
+						<code>"David"</code>
+					</p>
+				</section>
+				<section class="role notoc">
+					<h5><code>languages</code> (optional)</h5>
+					<p>Value: <i>string</i> a space delimited list of one or more languages to be spoken by this voice.</p>
 
 				<div class="example">
 					EXAMPLE 5
-					<pre><code>
+					<pre>
 She said, "&lt;span data-ssml='{"voice":{"gender":"female"}}'&gt;My name is Marie&lt;/span&gt;".
-</code>
+
 </pre>
 				</div>
+				</section>
 
 
 			</section>
@@ -553,6 +629,9 @@ She said, "&lt;span data-ssml='{"voice":{"gender":"female"}}'&gt;My name is Mari
 					as prominence or stress).
 
 				</p>
+				
+				
+			<section class="role notoc">
 				<h5><code>level</code></h5>
 				<p>Value: <code>strong | moderate | none | reduced</code></p>
 
@@ -560,11 +639,12 @@ She said, "&lt;span data-ssml='{"voice":{"gender":"female"}}'&gt;My name is Mari
 				<div class="example">
 					EXAMPLE 6
 					<pre>
-<code>
+
 Please use &lt;span data-ssml='{"emphasis":{"level":"strong"}}'&gt;extreme caution.&lt;/span&gt;
-</code>
+
 </pre>
 				</div>
+				</section>
 
 
 			</section>
@@ -578,19 +658,24 @@ Please use &lt;span data-ssml='{"emphasis":{"level":"strong"}}'&gt;extreme cauti
 					determine a break based on the linguistic context.
 
 				</p>
-				<h5><code>strength</code></h5>
-				<p>Value: <code>none | x-weak | weak | medium (default) | strong | x-strong</code></p>
-				<h5><code>time</code></h5>
-				<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+				<section class="role notoc">
+					<h5><code>strength</code></h5>
+					<p>Value: <code>none | x-weak | weak | medium (default) | strong | x-strong</code></p>
+				</section>
+				<section class="role notoc">
+					<h5><code>time</code></h5>
+					<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+
 
 				<div class="example">
 					EXAMPLE 7
 					<pre>
-<code>
+
 Take a deep breath,&lt;span data-ssml='{"break":{"time":"1s"}}'&gt;&lt;/span&gt; and exhale.
-</code>
+
 </pre>
 				</div>
+				</section>
 
 
 			</section>
@@ -600,33 +685,46 @@ Take a deep breath,&lt;span data-ssml='{"break":{"time":"1s"}}'&gt;&lt;/span&gt;
 					Permits control of the pitch, speaking rate and volume of the speech
 					output. The object has six properties.
 				</p>
-				<h5><code>pitch</code></h5>
-				<p>Value:
-					<code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code>
-				</p>
-				<h5><code>contour</code></h5>
-				<p>Value: <i>string</i> of contour change parameters as defined in the SSML 1.1 recommendation</p>
-				<h5><code>range</code></h5>
-				<p>Value: <i>string</i> range value as defined in the SSML 1.1 recommendation</p>
-				<h5><code>rate</code></h5>
-				<p>Values:
-					<code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code>
-				</p>
-				<h5><code>duration</code></h5>
-				<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
-				<h5><code>volume</code></h5>
-				<p>Values:
-					<code><i>+/- soundlevel</i>>"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code>
-				</p>
+				<section class="role notoc">
+					<h5><code>pitch</code></h5>
+					<p>Value:
+						<code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code>
+					</p>
+				</section>
+				<section class="role notoc">
+					<h5><code>contour</code></h5>
+					<p>Value: <i>string</i> of contour change parameters as defined in the SSML 1.1 recommendation</p>
+				</section>
+				<section class="role notoc">
+					<h5><code>range</code></h5>
+					<p>Value: <i>string</i> range value as defined in the SSML 1.1 recommendation</p>
+				</section>
+				<section class="role notoc">
+					<h5><code>rate</code></h5>
+					<p>Values:
+						<code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code>
+					</p>
+				</section>
+				<section class="role notoc">
+					<h5><code>duration</code></h5>
+					<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+				</section>
+				<section class="role notoc">
+					<h5><code>volume</code></h5>
+					<p>Values:
+						<code><i>+/- soundlevel</i>>"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code>
+					</p>
+				
 
 				<div class="example">
 					EXAMPLE 8
 					<pre>
-<code>
+
 The tortoise, said (slowly) "&lt;span data-ssml='{"prosody":{"rate":"x-slow"}}'&gt;I am almost at the finish line&lt;/span&gt;.""
-</code>
+
 </pre>
 				</div>
+				</section>
 
 
 			</section>
@@ -637,36 +735,54 @@ The tortoise, said (slowly) "&lt;span data-ssml='{"prosody":{"rate":"x-slow"}}'&
 					The element may be empty. If the element is not empty then the
 					contents should be the text to be spoken if the audio document is not available.
 				</p>
-				<h5><code>src</code></h5>
-				<p>Value: <i>The URI of a document with an appropriate media file.</i></p>
-				<h5><code>fetchtimeout</code></h5>
-				<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
-				<h5><code>fetchint</code></h5>
-				<p>Value: <code>safe | prefetch</code></p>
-				<h5><code>maxage</code>/h5>
+				<section class="role notoc">
+					<h5><code>src</code></h5>
+					<p>Value: <i>The URI of a document with an appropriate media file.</i></p>
+				</section>
+				<section class="role notoc">
+					<h5><code>fetchtimeout</code></h5>
+					<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
+				</section>
+				<section class="role notoc">
+					<h5><code>fetchint</code></h5>
+					<p>Value: <code>safe | prefetch</code></p>
+				</section>
+				<section class="role notoc">
+					<h5><code>maxage</code></h5>
 					<p>Value: <i>string</i></p>
+				</section>
+				<section class="role notoc">
 					<h5><code>maxstale</code></h5>
 					<p>Value: <i>string</i></p>
+				</section>
+				<section class="role notoc">
 					<h5><code>clipBegin</code></h5>
 					<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.
 					</p>
+				</section>
+				<section class="role notoc">
 					<h5><code>clipEnd</code></h5>
 					<p>Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.
 					</p>
+				</section>
+				<section class="role notoc">
 					<h5><code>repeatCount</code></h5>
 					<p>Value: <i>integer</i> indicating the number of times to repeat the audio clip.</p>
+				</section>
+				<section class="role notoc">
 					<h5><code>repeatDur</code></h5>
 					<p> <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.</p>
-					<p>
+				
 
 					<div class="example">
 						EXAMPLE 9
 						<pre>
-<code>
+
 You will hear a brief chime &lt;span data-ssml='{"audio":{"src":"/audio/chime.ogg"}}'&gt;&lt;/span&gt; when your time is up.
-</code>
+
 </pre>
 					</div>
+					</section>
 
 			</section>
 		</section>
