@@ -92,7 +92,7 @@ var respecConfig = {
 
     // errata: 'http://www.w3.org/2010/02/rdfa/errata.html',
 
-    //maxTocLevel: 2,
+    maxTocLevel: 3,
 
    // WG info
    group: 83907
