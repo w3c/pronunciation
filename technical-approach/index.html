@@ -93,7 +93,7 @@
 		
 		</p>
 	<p>
-	The Pronunciation Task Force has been exploring technical options for content authors to provide pronunciation information. A challenge is developing a solution that will be used by screen readers. One aspect of that work is analyzing how required features for accurate pronunciation are covered in existing technical specifications, including HTML5.<br/>
+	The Pronunciation Task Force has been exploring technical options for content authors to provide pronunciation information. A challenge is developing a solution that will be used by screen readers. One aspect of that work is analyzing how required features for accurate pronunciation are covered in existing technical specifications, including HTML5.
 	Based upon various surveys and analyzing the gaps, Pronunciation Task force informed the <a href="https://www.w3.org/TR/pronunciation-gap-analysis-and-use-cases/">Pronunciation Gap Analysis and Use Cases document</a>, which provides details on the analysis. It:	
 	<ul>
 		<li>Provides more detailed context</li>
@@ -169,7 +169,7 @@
 			<section>
 				<h4><code>data-ssml-say-as-*</code></h4>
 				<p>
-					Allows the author to classify the element's text content.
+					Allows the author to classify the element's text content. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.9">SSML <code>say-as</code> element</a> and associated properties.
 
 					(editor note: <code>interpret-as</code> seem superfluous, and should be implied)
 				</p>
@@ -204,7 +204,7 @@ increased to 25209 from 24976 over the past 10 years.
 				<h4><code>data-ssml-phoneme-*</code></h4>
 				<p>
 					Defines two required attributes for phonemic/phonetic pronunciation. The element
-					with the phoneme attributes can only contain text (no elements).
+					with the phoneme attributes can only contain text (no elements). The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.10">SSML <code>phoneme</code> element</a> and associated properties.
 				</p>
 				<section class="role notoc">
 					<h5><code>data-ssml-phoneme-ph</code></h5>
@@ -229,11 +229,11 @@ Once upon a midnight &lt;span data-ssml-alphabet="ipa" data-ssml-phoneme-ph="ˈd
 			<section>
 				<h4><code>data-ssml-sub-alias</code></h4>
 				<p>
-					A string value that replaces the text content for pronunciation.
+					A string value that replaces the text content for pronunciation. 
 					While similar to <code>aria-label</code>, alias does not alter spelling (i.e., a Braille display).
 					Additionally, the alias attribute can be used by TTS technologies that do not access the
 					accessibility
-					tree. The processor should apply text normalization to the alias value.
+					tree. The processor should apply text normalization to the alias value. The attribute is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.11">SSML <code>sub</code> element</a> and associated properties.
 				</p>
 				<p>Value: text string to be substituted and delivered to the TTS for presentation.</p>
 
@@ -253,7 +253,7 @@ Once upon a midnight &lt;span data-ssml-alphabet="ipa" data-ssml-phoneme-ph="ˈd
 					change in speaking voice. There are
 					two kinds of attributes for the voice element: those that indicate desired features of a voice and
 					those
-					that control behavior.
+					that control behavior. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.1">SSML <code>voice</code> element</a> and associated properties.
 				</p>
 				<section class="role notoc">
 					<h5><code>data-ssml-voice-gender</code> (optional)</h5>
@@ -294,7 +294,7 @@ She said, "&lt;span data-ssml-voice-gender="female"'&gt;My name is Marie&lt;/spa
 				<p>
 					Requests that the text content be spoken with
 					emphasis (also
-					referred to as prominence or stress). This is a single attribute.
+					referred to as prominence or stress). This is a single attribute and is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.2">SSML <code>emphasis</code> element</a> and associated properties.
 
 				</p>
 
@@ -317,7 +317,7 @@ Please use &lt;span data-ssml-emphasis-level="strong"'&gt;extreme caution.&lt;/s
 					between
 					any pair of tokens is optional. If the element is not present between tokens, the synthesis
 					processor is
-					expected to automatically determine a break based on the linguistic context.
+					expected to automatically determine a break based on the linguistic context. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.3">SSML <code>break</code> element</a> and associated properties.
 				</p>
 				<section class="role notoc">
 					<h5><code>data-ssml-break-strength</code></h5>
@@ -344,7 +344,7 @@ Take a deep breath,&lt;span data-ssml-break-time="1s"&gt;&lt;/span&gt; and exhal
 				<h4><code>data-ssml-prosody-*</code></h4>
 				<p>
 					Permits control of the pitch, speaking rate and volume of
-					the speech output.
+					the speech output. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML <code>prosody</code> element</a> and associated properties.
 				</p>
 				<section class="role notoc">
 					<h5><code>data-ssml-prosody-pitch</code> (optional)</h5>
@@ -393,7 +393,7 @@ I am almost at the finish line&lt;/span&gt;.""
 				<p>
 					Supports the insertion of recorded audio files in conjunction with synthesized speech output.
 					The element may be empty. If the element is not empty then the
-					contents should be the text to be spoken if the audio document is not available.
+					contents should be the text to be spoken if the audio document is not available. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.3.1">SSML <code>audio</code> element</a> and associated properties.
 				</p>
 
 
@@ -549,7 +549,7 @@ You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&
 			<section>
 				<h4><code>say-as</code></h4>
 				<p>
-					Allows the author to classify the element's text content.
+					Allows the author to classify the element's text content. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.9">SSML <code>say-as</code> element</a> and associated properties.
 				</p>
 				<section class="role notoc">
 					<h5><code>interpret-as</code></h5>
@@ -582,7 +582,7 @@ increased to 25209 from 24976 over the past 10 years.
 				<h4><code>phoneme</code></h4>
 				<p>
 					Defines two required attributes for phonemic/phonetic pronunciation. The element
-					with the phoneme attributes can only contain text (no elements).
+					with the phoneme attributes can only contain text (no elements). The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.10">SSML <code>phoneme</code> element</a> and associated properties.
 				</p>
 				<section class="role notoc">
 					<h5><code>ph</code></h5>
@@ -614,7 +614,7 @@ Once upon a midnight &lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"ˈdrɪ
 					Indicates that the text in the alias attribute value
 					replaces the text content for pronunciation. The required alias property specifies the string to be
 					spoken instead of the text content. The
-					processor should apply text normalization to the alias value.
+					processor should apply text normalization to the alias value. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.11">SSML <code>sub</code> element</a> and associated properties.
 				</p>
 				<section class="role notoc">
 					<h5><code>alias</code></h5>
@@ -637,7 +637,7 @@ Once upon a midnight &lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"ˈdrɪ
 				<p>
 					Requests a change in speaking voice. There are
 					two kinds of attributes for <code>voice</code>: those that indicate desired features of a voice
-					and those that control behavior.
+					and those that control behavior. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.1">SSML <code>voice</code> element</a> and associated properties.
 				</p>
 				<section class="role notoc">
 					<h5><code>gender</code> (optional)</h5>
@@ -678,7 +678,7 @@ She said, "&lt;span data-ssml='{"voice":{"gender":"female"}}'&gt;My name is Mari
 				<p>
 					Requests that the text content of the element to which empahsis
 					spoken with emphasis (also referred to
-					as prominence or stress).
+					as prominence or stress). The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.2">SSML <code>emphasis</code> element</a> and associated properties.
 
 				</p>
 
@@ -707,7 +707,7 @@ Please use &lt;span data-ssml='{"emphasis":{"level":"strong"}}'&gt;extreme cauti
 					control the pausing or other prosodic boundaries between tokens. The use of the <code>break</code>
 					between any pair of tokens is optional. If the
 					element is not present between tokens, the synthesis processor is expected to automatically
-					determine a break based on the linguistic context.
+					determine a break based on the linguistic context. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.3">SSML <code>break</code> element</a> and associated properties.
 
 				</p>
 				<section class="role notoc">
@@ -736,7 +736,7 @@ Take a deep breath,&lt;span data-ssml='{"break":{"time":"1s"}}'&gt;&lt;/span&gt;
 				<h4><code>prosody</code></h4>
 				<p>
 					Permits control of the pitch, speaking rate and volume of the speech
-					output. The object has six properties.
+					output. The object has six properties. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML <code>prosody</code> element</a> and associated properties.
 				</p>
 				<section class="role notoc">
 					<h5><code>pitch</code></h5>
@@ -787,7 +787,7 @@ The tortoise, said (slowly) "&lt;span data-ssml='{"prosody":{"rate":"x-slow"}}'&
 				<p>
 					Supports the insertion of recorded audio files in conjunction with synthesized speech output.
 					The element may be empty. If the element is not empty then the
-					contents should be the text to be spoken if the audio document is not available.
+					contents should be the text to be spoken if the audio document is not available. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.3.1">SSML <code>audio</code> element</a> and associated properties.
 				</p>
 				<section class="role notoc">
 					<h5><code>src</code></h5>
