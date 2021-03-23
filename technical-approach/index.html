@@ -74,36 +74,50 @@
 		<h2>Background on Pronunciation</h2>
 
 		<p>
-		Text-to-speech is essential for people with disabilities and useful for all. Accurate pronunciation is essential in many situations, such as education and assessment (testing students). Many computers and mobile devices today have built in text-to-speech functionality that is used by people without disabilities in different situations, such as when they lose their glasses, or their eyes are tired.
+			Text-to-speech is essential for people with disabilities and useful for all. Accurate pronunciation is
+			essential in many situations, such as education and assessment (testing students). Many computers and mobile
+			devices today have built in text-to-speech functionality that is used by people without disabilities in
+			different situations, such as when they lose their glasses, or their eyes are tired.
 		</p>
 		<p>
-		Currently text-to-speech pronunciation is often inaccurate and inconsistent because of technology limitations. For example, incorrect pronunciation based on context, regional variation, or emphasis.
+			Currently text-to-speech pronunciation is often inaccurate and inconsistent because of technology
+			limitations. For example, incorrect pronunciation based on context, regional variation, or emphasis.
 		</p>
 		<p>
-		W3C is working toward developing normative specifications and best practices guidance so that text-to-speech (TTS) synthesis can provide proper pronunciation of HTML content. The documents below provide the foundation for this work.
+			W3C is working toward developing normative specifications and best practices guidance so that text-to-speech
+			(TTS) synthesis can provide proper pronunciation of HTML content. The documents below provide the foundation
+			for this work.
 		</p>
 		<p>
-			Over the last couple of years, The Pronunciation Task Force studied <a href="https://w3c.github.io/pronunciation/user-scenarios/" >user scenarios</a> for TTS technology. This document provides example of:
+			Over the last couple of years, The Pronunciation Task Force studied <a
+				href="https://w3c.github.io/pronunciation/user-scenarios/">user scenarios</a> for TTS technology. This
+			document provides example of:
 		<ul>
 			<li>End-users, including screen reader users</li>
 			<li>Content providers, including educators</li>
 			<li>Software developers including content management systems </li>
-			
-		</ul>
-		
-		</p>
-	<p>
-	The Pronunciation Task Force has been exploring technical options for content authors to provide pronunciation information. A challenge is developing a solution that will be used by screen readers. One aspect of that work is analyzing how required features for accurate pronunciation are covered in existing technical specifications, including HTML5.<br/>
-	Based upon various surveys and analyzing the gaps, Pronunciation Task force informed the <a href="https://www.w3.org/TR/pronunciation-gap-analysis-and-use-cases/">Pronunciation Gap Analysis and Use Cases document</a>, which provides details on the analysis. It:	
-	<ul>
-		<li>Provides more detailed context</li>
-		<li>Describes required features for pronunciation and spoken presentation</li>
-		<li>Describes specific implementation approaches for introducing presentation authoring markup into HTML5 (called “use cases”)</li>
-		<li>Provides a gap analysis</li>
-		<li>Describes how the required features may be met by existing approaches</li>
 
-	</ul>		
-	</p>
+		</ul>
+
+		</p>
+		<p>
+			The Pronunciation Task Force has been exploring technical options for content authors to provide
+			pronunciation information. A challenge is developing a solution that will be used by screen readers. One
+			aspect of that work is analyzing how required features for accurate pronunciation are covered in existing
+			technical specifications, including HTML5.<br />
+			Based upon various surveys and analyzing the gaps, Pronunciation Task force informed the <a
+				href="https://www.w3.org/TR/pronunciation-gap-analysis-and-use-cases/">Pronunciation Gap Analysis and
+				Use Cases document</a>, which provides details on the analysis. It:
+		<ul>
+			<li>Provides more detailed context</li>
+			<li>Describes required features for pronunciation and spoken presentation</li>
+			<li>Describes specific implementation approaches for introducing presentation authoring markup into HTML5
+				(called “use cases”)</li>
+			<li>Provides a gap analysis</li>
+			<li>Describes how the required features may be met by existing approaches</li>
+
+		</ul>
+		</p>
 	</section>
 
 	<section>
@@ -841,6 +855,32 @@ You will hear a brief chime &lt;span data-ssml='{"audio":{"src":"/audio/chime.og
 
 			</section>
 		</section>
+	</section>
+
+	<section>
+		<h2 class="heading settled" data-level="2" id="considerations">
+			<span class="secno"> </span><span class="content">Technical Considerations</span><a class="self-link"
+				href="#considerations"></a>
+		</h2>
+		<p>
+			In each approach, implementors must consume <code>data-ssml-</code> attributes, values,
+			and associated text content to produce a valid format required by the target TTS technology.
+			For instance, if targeting the <a href="https://wicg.github.io/speech-api/">Web Speech API</a>,
+			an implementation must produce valid SSML. How to determine the text content of each pronunciation
+			function will challenge implementors of either approach.
+		</p>
+		<p>
+			Following the multi-attribute approach, implementors must find all related attributes
+			and collect them into the proper SSML representation. Implementors must determine
+			how to handle authoring errors such as missing required attributes, conflicting functions,
+			or invalid values.
+		</p>
+		<p>
+			Following the single-attribute approach, implementors must parse JSON string values.
+			Implementors must determine how to handle malformed JSON as well as incorrect property
+			and value combinations. The use of JSON schemas could help authors and implementors of
+			the single-attribute approach.
+		</p>
 	</section>
 	<h1>Appendix A. SSML JSON Schema </h1>
 	<p>Please see the <a href="appendixJSON.html">JSON schema example here.</a> </p>
