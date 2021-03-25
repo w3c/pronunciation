@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<title>Pronunciation Technical Approach</title>
+	<title>Specification for Spoken Presentation in HTML</title>
 	<meta charset="utf-8" />
 	<script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
 
@@ -13,7 +13,7 @@
 	<section id="abstract">
 		<p>
 			This proposal identifies two possible technical approaches for author-controlled
-			pronunciation of HTML content. Just as authors use CSS to alter
+			pronunciation of HTML content. Just as authors use CSS to style
 			the visual presentation of web content, the Pronunciation Task Force
 			aims to develop normative specifications for aural presentation.
 			The Pronunciation Taks Force seeks
@@ -37,11 +37,11 @@
 		<p>
 			The <a href="https://www.w3.org/TR/speech-synthesis/">W3C Speech Synthesis Markup Language</a> (SSML)
 			standard provides a rich language for synthetic speech. The
-			task force faces the challenge of how to best integrate SSML into HTML. It should be easy to author, not
-			interfere with visual content, and work well with existing technology.
+			task force faces the challenge of specifying the best approach to integrate SSML into HTML. 
+			The SSML should be easy to author, not interfere with visual content, and work well with existing technology..
 		</p>
 		<p>
-			The task force identified two possible approaches to enriching HTML with SSML:
+			The task force identified two possible approaches, multi-attribute and single-attribute, to enrich HTML with SSML:
 		<ul>
 			<li><b>multi-attribute</b> &mdash; uses one or more element attributes
 				with string values to convey each SSML function and property.</li>
@@ -49,21 +49,24 @@
 				with a <a href="https://tools.ietf.org/html/rfc4627">JavaScript object
 					notation</a> (JSON) string to convey all SSML functions and properties.</li>
 		</ul>
+		Both approaches will allow authors to embed synthetic speech presentation information in HTML content. 
+		This will enhance any TTS technology such as screen readers, read aloud tools, and voice assistants. 
+		The solution must allow for a wide range of aural expression.
 		</p>
 		<p>
 			The task force encourages implementors and authors to provide
 			feedback about these approaches. Once analyzed, the feedback will help determine which
 			approach will become the final recommendation.
 		</p>
-		<p>
-			Each approach, in the following sections, includes example code.
-			See the <a href="https://w3c.github.io/pronunciation/samples/">sample content</a> examples,
+		<p>The following sections include example code for each approach. 
+			Refer to the <a href="https://w3c.github.io/pronunciation/samples/">sample content</a> content examples, 
 			complete with audio files, for comparison with existing TTS technology.
+			
 		</p>
 		<div class="note">
 
 			<div>
-				Using the <code>data-</code> prefix to name attributes is not the editor's recommendation or preference.
+				Using the <code>data-</code> prefix to name attributes is not the editors' recommendation or preference.
 				This choice enables experimental implementations which will inform the development of this
 				specification.
 			</div>
@@ -74,24 +77,23 @@
 		<h2>Background on Pronunciation</h2>
 
 		<p>
-			Text-to-speech is essential for people with disabilities and useful for all. Accurate pronunciation is
+			Text-to-speech is necessary for people with disabilities and useful for all. Accurate pronunciation is
 			essential in many situations, such as education and assessment (testing students). Many computers and mobile
 			devices today have built in text-to-speech functionality that is used by people without disabilities in
 			different situations, such as when they lose their glasses, or their eyes are tired.
 		</p>
 		<p>
 			Currently text-to-speech pronunciation is often inaccurate and inconsistent because of technology
-			limitations. For example, incorrect pronunciation based on context, regional variation, or emphasis.
+			limitations. For example, incorrect pronunciation based on context, regional variation, or emphasis is not unusual. 
+			W3C is working toward developing normative specifications and best practice guidance so that text-to-speech (TTS) synthesis can 
+			provide proper pronunciation of HTML content. The following two documents provide the foundation for this work.
 		</p>
-		<p>
-			W3C is working toward developing normative specifications and best practices guidance so that text-to-speech
-			(TTS) synthesis can provide proper pronunciation of HTML content. The documents below provide the foundation
-			for this work.
-		</p>
+		
+		<h3>User Scenarios</h3>
 		<p>
 			Over the last couple of years, The Pronunciation Task Force studied <a
 				href="https://w3c.github.io/pronunciation/user-scenarios/">user scenarios</a> for TTS technology. This
-			document provides example of:
+			document provides examples of:
 		<ul>
 			<li>End-users, including screen reader users</li>
 			<li>Content providers, including educators</li>
@@ -100,14 +102,15 @@
 		</ul>
 
 		</p>
+	<h3>Pronunciation Gap Analysis and Use Cases</h3>
 		<p>
 			The Pronunciation Task Force has been exploring technical options for content authors to provide
-			pronunciation information. A challenge is developing a solution that will be used by screen readers. One
-			aspect of that work is analyzing how required features for accurate pronunciation are covered in existing
+			pronunciation information. Developing a solution that will be used by screen readers is a challenge. One
+			aspect of that work involved analyzing how required features for accurate pronunciation are covered in existing
 			technical specifications, including HTML5.<br />
-			Based upon various surveys and analyzing the gaps, Pronunciation Task force informed the <a
+			Based upon various surveys and analyzing gaps in existing specifications, The Pronunciation Task force created the <a
 				href="https://www.w3.org/TR/pronunciation-gap-analysis-and-use-cases/">Pronunciation Gap Analysis and
-				Use Cases document</a>, which provides details on the analysis. It:
+				Use Cases document</a>, which provides details about the analysis. In summary, the document:
 		<ul>
 			<li>Provides more detailed context</li>
 			<li>Describes required features for pronunciation and spoken presentation</li>
@@ -185,7 +188,7 @@
 				<p>
 					Allows the author to classify the element's text content. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.9">SSML <code>say-as</code> element</a> and associated properties.
 
-					(editor note: <code>interpret-as</code> seem superfluous, and should be implied)
+					(editor's note: <code>interpret-as</code> seems superfluous, and should be implied)
 				</p>
 				<section class="role notoc">
 					<h5><code>data-ssml-say-as</code></h5>
@@ -195,11 +198,11 @@
 				<section class="role notoc">
 
 					<h5><code>data-ssml-say-as-format</code>(optional)</h5>
-					<p>Value: time/date format as defined in W3C Note SSML <code>say-as</code> attribute values</p>
+					<p>Value: time/date format as defined in W3C Note, SSML <code>say-as</code> attribute values. <a href="https://www.w3.org/TR/ssml-sayas/">SSML 1.0 say-as attribute</a></p>
 				</section>
 				<section class="role notoc">
 					<h5><code>data-ssml-say-as-detail</code>(optional)</h5>
-					<p>Value: deatil as defined in W3C Note SSML <code>say-as</code> attribute values.</p>
+					<p>Value: deatil as defined in W3C Note, SSML <code>say-as</code> attribute values. <a href="https://www.w3.org/TR/ssml-sayas/">SSML 1.0 say-as attribute</a></p>
 
 					<div class=" example">
 						EXAMPLE 2
@@ -406,7 +409,7 @@ I am almost at the finish line&lt;/span&gt;.""
 				<h4><code>data-ssml-audio-*</code></h4>
 				<p>
 					Supports the insertion of recorded audio files in conjunction with synthesized speech output.
-					The element may be empty. If the element is not empty then the
+					The element may be empty. If the element is not empty, then the
 					contents should be the text to be spoken if the audio document is not available. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.3.1">SSML <code>audio</code> element</a> and associated properties.
 				</p>
 
@@ -557,7 +560,7 @@ You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&
 				containing a single JSON object representing a specific SSML function with one or
 				more property/value pairs. The valid objects, properties and associated values are defined in the
 				following sections. The
-				JSON schema is presented in Appendix TBD.</p>
+				JSON schema is presented in Appendix A.</p>
 
 
 			<section>
@@ -596,11 +599,12 @@ increased to 25209 from 24976 over the past 10 years.
 				<h4><code>phoneme</code></h4>
 				<p>
 					Defines two required attributes for phonemic/phonetic pronunciation. The element
-					with the phoneme attributes can only contain text (no elements). The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.10">SSML <code>phoneme</code> element</a> and associated properties.
+					with the phoneme attributes can only contain text (no elements). 
+					The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.10">SSML <code>phoneme</code> element</a> and associated properties.
 				</p>
 				<section class="role notoc">
 					<h5><code>ph</code></h5>
-					<p>Value: <i>string</i> containing the phonectic characters corresponding to the content to be
+					<p>Value: <i>string</i> containing the phonetic characters corresponding to the content to be
 						spoken
 					</p>
 				</section>
@@ -690,7 +694,7 @@ She said, "&lt;span data-ssml='{"voice":{"gender":"female"}}'&gt;My name is Mari
 			<section>
 				<h4><code>emphasis</code></h4>
 				<p>
-					Requests that the text content of the element to which empahsis
+					Requests that the text content of the element to which emphasis
 					spoken with emphasis (also referred to
 					as prominence or stress). The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.2">SSML <code>emphasis</code> element</a> and associated properties.
 
@@ -800,7 +804,7 @@ The tortoise, said (slowly) "&lt;span data-ssml='{"prosody":{"rate":"x-slow"}}'&
 				<h4><code>audio</code></h4>
 				<p>
 					Supports the insertion of recorded audio files in conjunction with synthesized speech output.
-					The element may be empty. If the element is not empty then the
+					The element may be empty. If the element is not empty, then the
 					contents should be the text to be spoken if the audio document is not available. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.3.1">SSML <code>audio</code> element</a> and associated properties.
 				</p>
 				<section class="role notoc">
