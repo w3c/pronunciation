@@ -12,6 +12,12 @@
 <body>
 	<section id="abstract">
 		<p>
+			Accurate pronunciation or presentation of spoken content is important in many contexts, and critical in education, publishing,
+			and other domains. A variety of approaches have been used to address this need, ranging from improper use of the WAI-ARIA standard, to
+			creation of custom and data-attributes, But there is no consistent approach and no interoperability to address this issue. It is currently 
+			a major challenge area, and many users are looking for standard-based solution. There is no mechanism in HTML for including SSML and assistive 
+			technologies have nothing to support.</p>
+			<p>
 			This proposal identifies two possible technical approaches for author-controlled
 			pronunciation of HTML content. Just as authors use CSS to style
 			the visual presentation of web content, the Pronunciation Task Force
@@ -30,14 +36,14 @@
 
 		<p>
 			This proposal allows authors to embed synthetic speech presentation information in HTML content. This will
-			enhance any TTS technology such as screen readers, read aloud tools, and voice assistants. The solution must
-			allow for a wide range of aural expression.
+			enhance any text-to-speech (TTS) technology such as screen readers, read aloud tools, and voice assistants. The solution must
+			allow for a wide range of aural expression and this proposal consists several SSML features which are critical for implementaion such as:
+			say-as, phoneme, sub, emphasis, break, and prosody.
 		</p>
 
 		<p>
 			The <a href="https://www.w3.org/TR/speech-synthesis/">W3C Speech Synthesis Markup Language</a> (SSML)
-			standard provides a rich language for synthetic speech. The
-			task force faces the challenge of specifying the best approach to integrate SSML into HTML. 
+			standard provides a rich language for synthetic speech. 
 			The SSML should be easy to author, not interfere with visual content, and work well with existing technology..
 		</p>
 		<p>
