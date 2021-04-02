@@ -15,12 +15,12 @@ var respecConfig = {
     //diffTool:             "http://www.aptest.com/standards/htmldiff/htmldiff.pl",
 
     // the specifications short name, as in http://www.w3.org/TR/short-name/
-    shortName:            "pronunciation-technical-approach",
+    shortName:            "spoken-html",
 
 
     // if you wish the publication date to be other than today, set this
     //publishDate:  "2017-05-09",
-    copyrightStart:  "2019",
+    copyrightStart:  "2021",
     license: "w3c-software",
 
     // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
@@ -64,7 +64,7 @@ var respecConfig = {
        
       },
       {
-        name: "Roy Ran",
+        name: "Ruoxi Ran",
         url: 'https://www.w3.org',
         mailto: "ran@w3.org",
         company: "W3C",
