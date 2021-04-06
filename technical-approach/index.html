@@ -12,11 +12,17 @@
 <body>
 	<section id="abstract">
 		<p>
-			Accurate pronunciation or presentation of spoken content is important in many contexts, and critical in education, publishing,
-			and other domains. A variety of approaches have been used to address this need, ranging from improper use of the WAI-ARIA standard, to
-			creation of custom and data-attributes, But there is no consistent approach and no interoperability to address this issue. It is currently 
-			a major challenge area, and many users are looking for standard-based solution. There is no mechanism in HTML for including SSML and assistive 
-			technologies have nothing to support.</p>
+			Accurate and consistent pronunciation or presentation of spoken content by text to speech synthesis (TTS) is very important in many 
+			contexts, and critical in education, publishing, communication, entertainment,
+			and other domains. TTS has become an important technology for providing access to digital content on the web.   
+			A variety of approaches have been used to address this need, ranging from improper use of the WAI-ARIA standard, to
+			creation of custom and data-attributes, But there is no consistent approach and no interoperability to enable authoring of spoken presentaion guidance
+			in HTML which can then be consumed by assistive technologies and other applications that utilize text to speech sythesis for rendering content. 
+			These efforts have not led to broad adoption of any standard by user agents, authors or assistive technologies. However, there are a variety of non-interoperable
+			approaches that meet specific needs for some applications. It is currently a major challenge area, and many users are looking for standard-based solution. 
+			 
+			</p>
+	
 			<p>
 			This proposal identifies two possible technical approaches for author-controlled
 			pronunciation of HTML content. Just as authors use CSS to style
@@ -27,6 +33,7 @@
 			aural presentation. Feedback from implementors and authors will help
 			the task force decide which approach to submit as the final recommendation.
 		</p>
+		
 	</section>
 
 	<section id="sotd"></section>
@@ -93,6 +100,11 @@
 			limitations. For example, incorrect pronunciation based on context, regional variation, or emphasis is not unusual. 
 			W3C is working toward developing normative specifications and best practice guidance so that text-to-speech (TTS) synthesis can 
 			provide proper pronunciation of HTML content. The following two documents provide the foundation for this work.
+		</p>
+		
+		<p>
+		    In WCAG, a success criteria 3.1.6 Pronunciation (AAA) has been included, which calls for a mechanism to be available for identifying specific pronunciation
+			of words where meaning of the words, in context is ambiguous without knowing the pronunciation 
 		</p>
 		<section>
 		<h3>User Scenarios</h3>
@@ -197,7 +209,7 @@
 				<p>
 					Allows the author to classify the element's text content. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.9">SSML <code>say-as</code> element</a> and associated properties.
 
-					(editor's note: <code>interpret-as</code> seems superfluous, and should be implied)
+					<span class="note">Editor's note: <code>interpret-as</code> seems superfluous, and should be implied</span>
 				</p>
 				<section class="role notoc">
 					<h5><code>data-ssml-say-as</code></h5>
@@ -218,7 +230,7 @@
 						<pre>
 
 According the 2010 US Census, the population of &lt;span
-data-ssml-say-as='digits'&gt;90274&lt;/span&gt;
+data-ssml-say-as='characters'&gt;90274&lt;/span&gt;
 increased to 25209 from 24976 over the past 10 years.
 					
 				</pre>
