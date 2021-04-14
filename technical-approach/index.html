@@ -248,8 +248,7 @@
 						EXAMPLE 2
 						<pre>
 
-According the 2010 US Census, the population of &lt;span
-data-ssml-say-as='characters'&gt;90274&lt;/span&gt;
+According the 2010 US Census, the population of &lt;span data-ssml-say-as='characters'&gt;90274&lt;/span&gt;
 increased to 25209 from 24976 over the past 10 years.
 					
 				</pre>
@@ -297,7 +296,7 @@ Once upon a midnight &lt;span data-ssml-alphabet="ipa" data-ssml-phoneme-ph="ˈd
 				<div class="example">
 					EXAMPLE 4
 					<pre>
-&lt;span data-ssml-sub-alias="Sodium Chloride"'&gt;NaCL&lt;/span&gt;
+&lt;span data-ssml-sub-alias="Sodium Chloride"&gt;NaCL&lt;/span&gt;
 				</pre>
 				</div>
 
@@ -339,7 +338,7 @@ Once upon a midnight &lt;span data-ssml-alphabet="ipa" data-ssml-phoneme-ph="ˈd
 					<div class="example">
 						EXAMPLE 5
 						<pre>
-She said, "&lt;span data-ssml-voice-gender="female"'&gt;My name is Marie&lt;/span&gt;".
+She said, "&lt;span data-ssml-voice-gender="female"&gt;My name is Marie&lt;/span&gt;".
 </pre>
 					</div>
 				</section>
@@ -360,7 +359,7 @@ She said, "&lt;span data-ssml-voice-gender="female"'&gt;My name is Marie&lt;/spa
 				<div class="example">
 					EXAMPLE 6
 					<pre>
-Please use &lt;span data-ssml-emphasis-level="strong"'&gt;extreme caution.&lt;/span&gt;
+Please use &lt;span data-ssml-emphasis-level="strong"&gt;extreme caution.&lt;/span&gt;
 				</pre>
 				</div>
 
@@ -438,7 +437,7 @@ Take a deep breath,&lt;span data-ssml-break-time="1s"&gt;&lt;/span&gt; and exhal
 						EXAMPLE 8
 						<pre>
 The tortoise, said (slowly) "&lt;span data-ssml-prosody-rate="x-slow"&gt;
-I am almost at the finish line&lt;/span&gt;.""
+I am almost at the finish line&lt;/span&gt;."
 				</pre>
 					</div>
 				</section>
@@ -496,7 +495,8 @@ I am almost at the finish line&lt;/span&gt;.""
 					<div class="example">
 						EXAMPLE 9
 						<pre>
-You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&lt;/span&gt; when your time is up.
+You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&lt;/span&gt; 
+when your time is up.
 	
 				</pre>
 					</div>
@@ -550,15 +550,15 @@ You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&
 			EXAMPLE 1
 
 			<pre>
-&lt;p data-ssml=&apos;{&quot;prosody&quot;:{&quot;rate&quot;:&quot;slow&quot;;&quot;pitch&quot;:&quot;low&quot;}}&apos;&gt;
+&lt;p data-ssml=&apos;{&quot;prosody&quot;:{&quot;rate&quot;:&quot;slow&quot;,&quot;pitch&quot;:&quot;low&quot;}}&apos;&gt;
 &#x9;Once upon a midnight
-        &lt;span data-ssml=&apos;{&quot;phoneme&quot;:{&quot;alphabet&quot;:&quot;ipa&quot;;ph:&quot;&#x2C8;dr&#x26A;&#x259;ri&quot;}}&apos;&gt;dreary&lt;/span&gt;
-&#x9;&lt;span data-ssml=&quot;{&quot;break&quot;:{&quot;time&quot;:&quot;500ms&quot;}&apos;&gt;&lt;/span&gt;,
+        &lt;span data-ssml=&apos;{&quot;phoneme&quot;:{&quot;alphabet&quot;:&quot;ipa&quot;,&quot;ph&quot;:&quot;ˈdrɪəri&quot;}}&apos;&gt;dreary&lt;/span&gt;
+&#x9;&lt;span data-ssml=&apos;{&quot;break&quot;:{&quot;time&quot;:&quot;500ms&quot;}&apos;&gt;&lt;/span&gt;,
 &#x9;while I pondered, weak
 &#x9;&lt;span data-ssml=&apos;{&quot;break&quot;:{&quot;time&quot;:&quot;150ms&quot;}&apos;&gt;&lt;/span&gt; and weary,
         &lt;br data-ssml=&apos;{&quot;break&quot;:{&quot;time&quot;:&quot;500ms&quot;}&apos; /&gt;
 &#x9;Over many a quaint and curious volume of forgotten 
-&#x9;&lt;span data-ssml=&apos;{&quot;prosody&quot;:{&quot;rate&quot;:&quot;x-slow&quot;;&quot;pitch&quot;:&quot;low&quot;}}&apos;&gt;lore&mdash;&lt;/span&gt;&lt;br /&gt;
+&#x9;&lt;span data-ssml=&apos;{&quot;prosody&quot;:{&quot;rate&quot;:&quot;x-slow&quot;,&quot;pitch&quot;:&quot;low&quot;}}&apos;&gt;lore&mdash;&lt;/span&gt;&lt;br /&gt;
 &#x9;While I nodded, nearly napping, suddenly there came a tapping,
 &#x9;&lt;br data-ssml=&apos;{&quot;audio&quot;:{&quot;src&quot;:&quot;/soundlibrary/wood/hits/hits_11&quot;}}&apos;/&gt;
 &#x9;As of some one gently rapping,
@@ -566,15 +566,15 @@ You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&
 &#x9;rapping at my chamber door.
 &#x9;&lt;span data-ssml=&apos;{&quot;audio&quot;:{&quot;src&quot;:&quot;/soundlibrary/wood/hits/hits_11&quot;}}&apos;&gt;&lt;/span&gt;
 &#x9;&lt;br data-ssml=&apos;{&quot;audio&quot;:{&quot;src&quot;:&quot;/soundlibrary/wood/hits/hits_11&quot;}}&apos; /&gt;
-&#x9;&lt;span data-ssml=&apos;{&quot;prosody&quot;:{&quot;volume&quot;:&quot;x-soft&quot;;&quot;rate&quot;:&quot;medium&quot;}}&apos;&gt;
+&#x9;&lt;span data-ssml=&apos;{&quot;prosody&quot;:{&quot;volume&quot;:&quot;x-soft&quot;,&quot;rate&quot;:&quot;medium&quot;}}&apos;&gt;
           &quot;&apos;Tis some visitor,&quot;
         &lt;/span&gt;
-&#x9;I muttered, &lt;span data-ssml=&apos;{&quot;prosody&quot;:{&quot;volume&quot;:&quot;x-soft&quot;;&quot;rate&quot;:&quot;x-slow&quot;}}&apos;&gt;
-&#x9;&lt;span data-ssml=&apos;{&quot;phoneme&quot;:{&quot;alphabet&quot;:&quot;ipa&quot;;ph:&quot;t&aelig;p&#x26A;&eng;&quot;}}&apos;&gt;&quot;tapping&lt;/span&gt;
+&#x9;I muttered, &lt;span data-ssml=&apos;{&quot;prosody&quot;:{&quot;volume&quot;:&quot;x-soft&quot;,&quot;rate&quot;:&quot;x-slow&quot;}}&apos;&gt;
+&#x9;&lt;span data-ssml=&apos;{&quot;phoneme&quot;:{&quot;alphabet&quot;:&quot;ipa&quot;,&quot;ph&quot;:&quot;t&aelig;p&#x26A;&eng;&quot;}}&apos;&gt;&quot;tapping&lt;/span&gt;
 &#x9;at my chamber door&mdash;&lt;/span&gt;&lt;br data-ssml=&apos;{&quot;break&quot;:{&quot;time&quot;:&quot;750ms&quot;}&apos;/&gt;
 &#x9;Only this&lt;span data-ssml=&apos;{&quot;break&quot;:{&quot;strength&quot;:&quot;weak&quot;}&apos;&gt;&lt;/span&gt;
 &#x9;and nothing&lt;span data-ssml=&apos;{&quot;break&quot;:{&quot;strength&quot;:&quot;none&quot;}&apos;&gt; &lt;/span&gt;
-&#x9;&lt;span data-ssml=&apos;{&quot;prosody&quot;:{&quot;volume&quot;:&quot;soft&quot;;&quot;rate&quot;:&quot;75%&quot;}}&apos;&gt;more.&quot;&lt;/span&gt;
+&#x9;&lt;span data-ssml=&apos;{&quot;prosody&quot;:{&quot;volume&quot;:&quot;soft&quot;,&quot;rate&quot;:&quot;75%&quot;}}&apos;&gt;more.&quot;&lt;/span&gt;
 &lt;/p&gt;
 </pre>
 
@@ -622,9 +622,8 @@ You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&
 						EXAMPLE 2
 
 						<pre>
-According the 2010 US Census, the population of &lt;span
-data-ssml='{&quot;say-as&quot; :
-{&quot;interpret-as&quot;:&quot;characters&quot;}}'&gt;90274&lt;/span&gt;
+According the 2010 US Census, the population of 
+&lt;span data-ssml='{&quot;say-as&quot;:{&quot;interpret-as&quot;:&quot;characters&quot;}}'&gt;90274&lt;/span&gt;
 increased to 25209 from 24976 over the past 10 years.
 						
 					</pre>
@@ -656,7 +655,8 @@ increased to 25209 from 24976 over the past 10 years.
 						EXAMPLE 3
 						<pre>
 
-Once upon a midnight &lt;span data-ssml='{"phoneme":{"alphabet":"ipa";ph:"ˈdrɪəri"}}'&gt;dreary&lt;/span&gt;
+Once upon a midnight 
+&lt;span data-ssml='{"phoneme":{"alphabet":"ipa","ph":"ˈdrɪəri"}}'&gt;dreary&lt;/span&gt;
 
 </pre>
 					</div>
@@ -830,7 +830,8 @@ Take a deep breath,&lt;span data-ssml='{"break":{"time":"1s"}}'&gt;&lt;/span&gt;
 						EXAMPLE 8
 						<pre>
 
-The tortoise, said (slowly) "&lt;span data-ssml='{"prosody":{"rate":"x-slow"}}'&gt;I am almost at the finish line&lt;/span&gt;.""
+The tortoise, said (slowly) "
+&lt;span data-ssml='{"prosody":{"rate":"x-slow"}}'&gt;I am almost at the finish line&lt;/span&gt;."
 
 </pre>
 					</div>
@@ -889,7 +890,8 @@ The tortoise, said (slowly) "&lt;span data-ssml='{"prosody":{"rate":"x-slow"}}'&
 						EXAMPLE 9
 						<pre>
 
-You will hear a brief chime &lt;span data-ssml='{"audio":{"src":"/audio/chime.ogg"}}'&gt;&lt;/span&gt; when your time is up.
+You will hear a brief chime 
+&lt;span data-ssml='{"audio":{"src":"/audio/chime.ogg"}}'&gt;&lt;/span&gt; when your time is up.
 
 </pre>
 					</div>
