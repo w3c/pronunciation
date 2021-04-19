@@ -44,20 +44,22 @@ pronunciation of HTML content regardless of the operating environment (or assist
 	<section class="informative" id="introduction">
 		<h2>Introduction</h2>
 
+		<p>In this eFirst Public Working Draft (FPWD) publication we define two independent approaches for achieving accurate, consistent, and reliable pronunciation by Text to Speech (TTS) engines across all operating environments, regardless of any assistive technology also utilized. We are publishing two approaches now in order to obtain feedback from the wider community on which of these two approaches is deemed to be preferable&mdash;and why.</p>
+
 		<p>
-			This proposal allows authors to embed synthetic speech presentation information in HTML content. This will
-			enhance any text-to-speech (TTS) technology such as screen readers, read aloud tools, and voice assistants. The solution must
-			allow for a wide range of aural expression and this proposal consists several SSML features which are critical for implementaion such as:
-			say-as, phoneme, sub, emphasis, break, and prosody.
+			This proposed normative specification would allow authors to embed synthetic speech presentation data directly in HTML content. This would
+			enhance any TTS technology such as screen readers and read aloud tools commonly utilized by persons with disabilities, as well as  voice assistants commonly utilized by the general public. To fully meet the challenge the solution must
+			support a wide range of aural expression variables. Therefore this proposal implements multiple SSML features including:
+			<a>say-as</a>, <a>phoneme</a>, <a>sub</a>, <a>emphasis</a>, <a>break</a>, and <a>prosody</a>.
 		</p>
 
 		<p>
 			The <a href="https://www.w3.org/TR/speech-synthesis/">W3C Speech Synthesis Markup Language</a> (SSML)
 			standard provides a rich language for synthetic speech. 
-			The SSML should be easy to author, not interfere with visual content, and work well with existing technology.
+			The SSML we specify should be easy to author, will not interfere with visual content display, and work well with existing technology.
 		</p>
 		<p>
-			The task force identified two possible approaches, multi-attribute and single-attribute, to enrich HTML with SSML:</p>
+			As noted we have identified two candidate approaches.  iThese are a multi-attribute approach and a single-attribute, approach:</p>
 		<ul>
 			<li><b>multi-attribute</b> &mdash; uses one or more element attributes
 				with string values to convey each SSML function and property.</li>
@@ -65,14 +67,11 @@ pronunciation of HTML content regardless of the operating environment (or assist
 				with a <a href="https://tools.ietf.org/html/rfc4627">JavaScript object
 					notation</a> (JSON) string to convey all SSML functions and properties.</li>
 		</ul>
-		Both approaches will allow authors to embed synthetic speech presentation information in HTML content. 
-		This will enhance any TTS technology such as screen readers, read aloud tools, and voice assistants. 
-		The solution must allow for a wide range of aural expression.
 		
 		<p>
 			The task force encourages implementors and authors to provide
 			feedback about these approaches. Once analyzed, the feedback will help determine which
-			approach will become the final recommendation.
+			approach will become the final normative W3C recommendation.
 		</p>
 		<p>The following sections include example code for each approach. 
 			Refer to the <a href="https://w3c.github.io/pronunciation/samples/">sample content</a> content examples, 
@@ -82,12 +81,12 @@ pronunciation of HTML content regardless of the operating environment (or assist
 		<div class="ednote">
 
 			<div>
-				Using the <code>data-</code> prefix to name attributes is not the editors' recommendation or preference.
-				This choice enables experimental implementations which will inform the development of this
+				Using the <code>data-</code> prefix to name attributes is not the editors' recommendation or preference. Rather, it is the canonical approach for developing enhancements to HTML as defined in the HTML 5.x specification.
+				This standards based development approach  enables experimental implementations which, in turn,  will inform the further development of this
 				specification.
 			</div>
 		</div>
-		<p>For an introduction to pronunciation issue and related W3C documents, see: <a href="https://www.w3.org/WAI/pronunciation/">Pronunciation Overview</a>.</p>
+		<p>For an introduction to pronunciation issue and related W3C documents, please see our: <a href="https://www.w3.org/WAI/pronunciation/">Pronunciation Overview</a>.</p>
 	</section>
 
 	<section class="informative" id="background">
@@ -96,13 +95,13 @@ pronunciation of HTML content regardless of the operating environment (or assist
 		<p>
 			Text-to-speech is necessary for people with disabilities and useful for all. Accurate pronunciation is
 			essential in many situations, such as education and assessment (testing students). Many computers and mobile
-			devices today have built in text-to-speech functionality that is used by people without disabilities in
-			different situations, such as when they lose their glasses, or their eyes are tired.
+			devices today have built in text-to-speech functionality that is also commonly used by people without disabilities in
+			different situations, such as when driving or interacting with personal data assistants.
 		</p>
 		<p>
 			Currently text-to-speech pronunciation is often inaccurate and inconsistent because of technology
 			limitations. For example, incorrect pronunciation based on context, regional variation, or emphasis is not unusual. 
-			W3C is working toward developing normative specifications and best practice guidance so that text-to-speech (TTS) synthesis can 
+			In this specificationand related documents W3C is working toward developing normative specifications and best practice guidance so that text-to-speech (TTS) synthesis can 
 			provide proper pronunciation of HTML content. The following two documents provide the foundation for this work.
 		</p>
 		
@@ -111,7 +110,7 @@ pronunciation of HTML content regardless of the operating environment (or assist
 			of words where meaning of the words, in context is ambiguous without knowing the pronunciation. Also, the W3C has recommended two standards pertaining
 			to the presentation of speech sythesis, <a href="https://www.w3.org/TR/speech-synthesis11/">Speech Synthesis Markup Language</a> (SSML), and the <a href="https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon Specification</a> (PLS).
 			There ae technical methods to allow authors to inline SSML with HTML, but such an approach has not been adopted, and comments from various browser and assistive technology vendors have
-			suggested that this is not viable approach. To know more details about use cases and gap analysis on these technolgies, please refer our <a href="https://www.w3.org/TR/pronunciation-gap-analysis-and-use-cases/">gap-analysis and use-cases document</a>.
+			suggested that this is not a viable approach. To learn more details about our use cases and gap analysis on TTS technologies, please refer to our <a href="https://www.w3.org/TR/pronunciation-gap-analysis-and-use-cases/">gap-analysis and use-cases document</a>.
 			
 		</p>
 		<section>
