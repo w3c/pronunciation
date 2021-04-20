@@ -94,24 +94,31 @@ pronunciation of HTML content regardless of the operating environment (or assist
 
 		<p>
 			Text-to-speech is necessary for people with disabilities and useful for all. Accurate pronunciation is
-			essential in many situations, such as education and assessment (testing students). Many computers and mobile
+			essential in many situations such as in education and educational assessment (testing students). Many computers and mobile
 			devices today have built in text-to-speech functionality that is also commonly used by people without disabilities in
 			different situations, such as when driving or interacting with personal data assistants.
 		</p>
 		<p>
 			Currently text-to-speech pronunciation is often inaccurate and inconsistent because of technology
-			limitations. For example, incorrect pronunciation based on context, regional variation, or emphasis is not unusual. 
-			In this specificationand related documents W3C is working toward developing normative specifications and best practice guidance so that text-to-speech (TTS) synthesis can 
-			provide proper pronunciation of HTML content. The following two documents provide the foundation for this work.
-		</p>
+			limitations. It can also often be inaccurate and inconsistent because some languages are more difficult to pronounce. In the Indo-European family of languages German pronunciation is highly consistent and can be easily specified in a single page of pronunciation rules. English, on the other hand, is well known to be a challenge to pronounce correctly. In english context, regional variation, or emphasis may require very different pronunciation which is not readily evident from textual spelling.</p>
+
 		
 		<p>
-		    In WCAG, a <a href="https://www.w3.org/TR/WCAG21/#pronunciation">success criteria 3.1.6 Pronunciation (AAA)</a> has been included, which calls for a mechanism to be available for identifying specific pronunciation
-			of words where meaning of the words, in context is ambiguous without knowing the pronunciation. Also, the W3C has recommended two standards pertaining
-			to the presentation of speech sythesis, <a href="https://www.w3.org/TR/speech-synthesis11/">Speech Synthesis Markup Language</a> (SSML), and the <a href="https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon Specification</a> (PLS).
-			There ae technical methods to allow authors to inline SSML with HTML, but such an approach has not been adopted, and comments from various browser and assistive technology vendors have
-			suggested that this is not a viable approach. To learn more details about our use cases and gap analysis on TTS technologies, please refer to our <a href="https://www.w3.org/TR/pronunciation-gap-analysis-and-use-cases/">gap-analysis and use-cases document</a>.
-			
+		The W3C's Web Content Accessibility Guidelines (WCAG) document <a href="https://www.w3.org/WAI/WCAG21/Understanding/pronunciation.html">Understanding Success Criterion 3.1.6: Pronunciation</a> states: <q>For example, in the English language heteronyms are words that are spelled the same but have different pronunciations and meanings, such as the words desert (abandon) and desert (arid region). &#x2026; Additionally, in some languages certain characters can be
+			      pronounced in different ways. In Japanese, for example, there are characters like Han characters(Kanji) that have multiple pronunciations. &#x2026; When read incorrectly, the content will not make sense to users.</q>
+		While WCAG provides numerous workarounds for indicating correct pronunciation, it is nevertheless forced to categorize Success Criterion 3.1.6 as AAA because it cannot point to a reliable technological solution.</p>
+
+		<p>In this specificationand related documents W3C is working toward developing normative specifications and best practice guidance so that text-to-speech (TTS) synthesis can 
+			be made to normatively indicate proper pronunciation of HTML content regardless of the language, or the mix of multiple languages in a HTML based resource. The following two W3C specifications provide the foundation for this current specification:
+		</p>
+		<ul>		
+			<li><a href="https://www.w3.org/TR/speech-synthesis11/">Speech Synthesis Markup Language</a> (SSML), and the</li>
+			<li><a href="https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon Specification</a> (PLS).</li>
+		</ul>
+
+		<p>
+			These two mature and long-standing W3C specifications have indeed provided  technical methods to allow authors to inline SSML with HTML, but such an approach has not been adopted for several reasons. Additionally, feedback from various browser and assistive technology vendors has
+			indicated that this is not a likely or viable approach. In our specification we do not attempt to reinvent this wheel, but rather to bridge the long-standing technical barriers that have prevented use of SSML in HTML. To learn more details about our use cases and gap analysis on TTS technologies, please refer to our <a href="https://www.w3.org/TR/pronunciation-gap-analysis-and-use-cases/">gap-analysis and use-cases document</a>.
 		</p>
 		<section>
 		<h3>User Scenarios</h3>
