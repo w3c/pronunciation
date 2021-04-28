@@ -26,10 +26,10 @@
 			subset is carefully chosen to bring consistency and predictability to
 			spoken presentation across a full range of assistive technologies and
 			operating environments. Both technical approaches described in this
-			publication carefully avoid the impass that has prevented SSML from
+			publication carefully avoid the impasse that has prevented SSML from
 			becoming a native HTML technology and should, therefore, be generally
 			applicable. Either approach described here satisfies our requirements 
-			for assistive technologies and are hypothesized to be useful to voice 
+			for assistive technologies and will be useful to voice 
 			assistants which consume and present HTML content in spoken form. 
 			We seek feedback on which approach would prove most implementable across 
 			all applications of spoken presentation of web content.
@@ -75,7 +75,7 @@
 
 		<p>
 			These have long provided  technical methods to allow authors to embed pronunciation (and related spoken presentation) markup in their HTML document, but SSML's approach has not been adopted for several technical reasons. Additionally, feedback from various browser and assistive technology vendors has
-			indicated that this is not a likely or viable approach. In our specification therefore,  we do not attempt to reinvent this wheel, but rather to bridge the long-standing technical barriers that have prevented use of SSML in HTML. Our approach relies directly on both of the above specifications, wrapping them as attributes which will be accepted by HTML validation.
+			indicated that this is not a likely or viable approach. In our specification therefore,  we do not attempt to reinvent this wheel, but rather to bridge the long-standing technical barriers that have prevented use of SSML in HTML. Our approaches rely directly on both specifications, wrapping them as attributes which will be accepted by HTML validation.
 		</p> 
 		<p>
 			As noted we have identified two candidate approaches:
@@ -110,7 +110,7 @@
 			</div>
 		</div>
 		<p>
-			For a more indepth introduction to pronunciation issue and related W3C documents, please see <a href="https://www.w3.org/WAI/pronunciation/">Pronunciation Overview</a>.
+			For a more in-depth introduction to pronunciation issues and related W3C documents, please refer to <a href="https://www.w3.org/WAI/pronunciation/">Pronunciation Overview</a>.
 		</p>
 	</section>
 
@@ -892,11 +892,11 @@ You will hear a brief chime
 			Technical Considerations
 		</h2>
 		<p>
-			In each approach, implementors must consume <code>data-ssml-</code> attributes, values,
+			In each approach, implementers must consume <code>data-ssml-</code> attributes, values,
 			and associated text content to produce a valid format required by the target TTS technology.
 			For instance, if targeting the <a href="https://wicg.github.io/speech-api/">Web Speech API</a>,
 			an implementation must produce valid SSML. How to determine the text content of each pronunciation
-			function will challenge implementors of either approach.
+			function will challenge implementers of either approach.
 		</p>
 		<p>
 			Following the multi-attribute approach, implementors must find all related attributes
