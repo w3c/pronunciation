@@ -1,141 +1,203 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-<head>
-	<title>Specification for Spoken Presentation in HTML</title>
-	<meta charset="utf-8" />
-	<script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
+	<head>
+		<title>Specification for Spoken Presentation in HTML</title>
+		<meta charset="utf-8" />
+		<script src="https://www.w3.org/Tools/respec/respec-w3c"
+			class="remove"></script>
 
-	<script src="respec-config.js" class="remove"></script>
-</head>
+		<script src="respec-config.js" class="remove"></script>
+	</head>
 
-<body>
-	<section id="abstract">
-		<p>
-			Accurate pronunciation by text-to-speech (TTS) synthesis is very important in many 
-			contexts, and critical in education, publishing, communication, entertainment,
-			among other domains. TTS has become an important technology for providing access to digital content on the web.  Yet there is no way to markup content today that will correctly present TTS generated output across commonly used TTS engines and operating environments.
-		</p>
-	
-		<p>
-			We identify two markup approaches in this publication to give content authors reliable
-			pronunciation of HTML content regardless of the operating environment (or assistive technology) users might choose to use. Each approach has been demonstrated to yield consistent results. We seek feedback from authors and implementors to help determine which approach should be advanced to normative recommendation status by W3C.
-		</p>				
-		<p>
-			We base each candidate approach on a subset of <a href="https://www.w3.org/TR/speech-synthesis/">Speech Synthesis Markup Language (SSML)</a>. Our selected 
-			subset is carefully chosen to bring consistency and predictability to
-			spoken presentation across a full range of assistive technologies and
-			operating environments. Both technical approaches described in this
-			publication carefully avoid the impasse that has prevented SSML from
-			becoming a native HTML technology and should, therefore, be generally
-			applicable. Either approach described here satisfies our requirements 
-			for assistive technologies and will be useful to voice 
-			assistants which consume and present HTML content in spoken form. 
-			We seek feedback on which approach would prove most implementable across 
-			all applications of spoken presentation of web content.
-		</p>
-	</section>
+	<body>
+		<section id="abstract">
+			<p>
+				Accurate pronunciation by text-to-speech (TTS) synthesis is very
+				important in many
+				contexts, and critical in education, publishing, communication,
+				entertainment,
+				among other domains. TTS has become an important technology for
+				providing access to digital content on the web. Yet there is no way to
+				markup content today that will correctly present TTS generated output
+				across commonly used TTS engines and operating environments.
+			</p>
 
-	<section id="sotd"></section>
+			<p>
+				We identify two markup approaches in this publication to give content
+				authors reliable
+				pronunciation of HTML content regardless of the operating environment
+				(or assistive technology) users might choose to use. Each approach has
+				been demonstrated to yield consistent results. We seek feedback from
+				authors and implementors to help determine which approach should be
+				advanced to normative recommendation status by W3C.
+			</p>
+			<p>
+				We base each candidate approach on a subset of <a
+					href="https://www.w3.org/TR/speech-synthesis/">Speech Synthesis Markup
+					Language (SSML)</a>. Our selected
+				subset is carefully chosen to bring consistency and predictability to
+				spoken presentation across a full range of assistive technologies and
+				operating environments. Both technical approaches described in this
+				publication carefully avoid the impasse that has prevented SSML from
+				becoming a native HTML technology and should, therefore, be generally
+				applicable. Either approach described here satisfies our requirements
+				for assistive technologies and will be useful to voice
+				assistants which consume and present HTML content in spoken form.
+				We seek feedback on which approach would prove most implementable across
+				all applications of spoken presentation of web content.
+			</p>
+		</section>
 
-	<section class="informative" id="introduction">
-		<h2>Introduction</h2>
+		<section id="sotd"></section>
 
-		<p>In this First Public Working Draft (FPWD) publication we define two independent approaches for achieving accurate, consistent, 
-			and reliable pronunciation by Text-to-Speech (TTS) engines across all operating environments, regardless of any assistive technology also utilized. We are publishing two approaches now in order to obtain feedback from the wider community on which of these two approaches is deemed to be preferable&mdash;and why.
-		</p>
+		<section class="informative" id="introduction">
+			<h2>Introduction</h2>
 
-		<p>
-			Text-to-speech is necessary for people with disabilities and useful for all. Accurate pronunciation is
-			essential in many situations such as in education and educational assessment (testing students). Many computers and mobile
-			devices today have built-in TTS functionality that is also commonly used by people without disabilities in
-			different situations, such as when driving or interacting with personal data assistants.
-		</p>
-		
-		<p>
-			The W3C's Web Content Accessibility Guidelines (WCAG) emphasize the importance of correct pronunciation.
+			<p>In this First Public Working Draft (FPWD) publication we define two
+				independent approaches for achieving accurate, consistent,
+				and reliable pronunciation by Text-to-Speech (TTS) engines across all
+				operating environments, regardless of any assistive technology also
+				utilized. We are publishing two approaches now in order to obtain
+				feedback from the wider community on which of these two approaches is
+				deemed to be preferable&mdash;and why.
+			</p>
+
+			<p>
+				Text-to-speech is necessary for people with disabilities and useful for
+				all. Accurate pronunciation is
+				essential in many situations such as in education and educational
+				assessment (testing students). Many computers and mobile
+				devices today have built-in TTS functionality that is also commonly used
+				by people without disabilities in
+				different situations, such as when driving or interacting with personal
+				data assistants.
+			</p>
+
+			<p>
+				The W3C's Web Content Accessibility Guidelines (WCAG) emphasize the
+				importance of correct pronunciation.
 			<blockquote>
-				For example, in the English language heteronyms are words that are spelled the same but have different pronunciations and meanings, such as the words desert (abandon) and desert (arid region). &#x2026; Additionally, in some languages certain characters can be
-				pronounced in different ways. In Japanese, for example, there are characters like Han characters(Kanji) that have multiple pronunciations. &#x2026; When read incorrectly, the content will not make sense to users.
+				For example, in the English language heteronyms are words that are
+				spelled the same but have different pronunciations and meanings, such as
+				the words desert (abandon) and desert (arid region). &#x2026;
+				Additionally, in some languages certain characters can be
+				pronounced in different ways. In Japanese, for example, there are
+				characters like Han characters(Kanji) that have multiple pronunciations.
+				&#x2026; When read incorrectly, the content will not make sense to
+				users.
 				<cite>
-					<a href="https://www.w3.org/WAI/WCAG21/Understanding/pronunciation.html">Understanding Success Criterion 3.1.6: Pronunciation</a>
+					<a
+						href="https://www.w3.org/WAI/WCAG21/Understanding/pronunciation.html">Understanding
+						Success Criterion 3.1.6: Pronunciation</a>
 				</cite>
 			</blockquote>
-			While WCAG provides numerous workarounds for indicating correct pronunciation, it is nevertheless forced to categorize Success Criterion 3.1.6 as AAA because it cannot point to a reliable technological solution.
-		</p>
+			While WCAG provides numerous workarounds for indicating correct
+			pronunciation, it is nevertheless forced to categorize Success Criterion
+			3.1.6 as AAA because it cannot point to a reliable technological solution.
+			</p>
 
-		<p>
-			The W3C has two mature pronunciation related specifications:
-		</p>
+			<p>
+				The W3C has two mature pronunciation related specifications:
+			</p>
 
-		<ul>		
-			<li><a href="https://www.w3.org/TR/speech-synthesis11/">Speech Synthesis Markup Language</a> (SSML)</li>
-			<li><a href="https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon Specification</a> (PLS)</li>
-		</ul>
+			<ul>
+				<li><a href="https://www.w3.org/TR/speech-synthesis11/">Speech Synthesis
+						Markup Language</a> (SSML)</li>
+				<li><a href="https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation
+						Lexicon Specification</a> (PLS)</li>
+			</ul>
 
-		<p>
-			These have long provided  technical methods to allow authors to embed pronunciation (and related spoken presentation) markup in their HTML document, but SSML's approach has not been adopted for several technical reasons. Additionally, feedback from various browser and assistive technology vendors has
-			indicated that this is not a likely or viable approach. In our specification therefore,  we do not attempt to reinvent this wheel, but rather to bridge the long-standing technical barriers that have prevented use of SSML in HTML. Our approaches rely directly on both specifications, wrapping them as attributes which will be accepted by HTML validation.
-		</p> 
-		<p>
-			As noted we have identified two candidate approaches:
-		</p>
-		<ul>
-			<li>
-				<b>multi-attribute</b> &mdash; uses one or more element attributes
-				with string values to convey each SSML function and property.
-			</li>
-			<li>
-				<b>single-attribute</b> &mdash; uses a single element attribute
-				with a <a href="https://tools.ietf.org/html/rfc4627">JavaScript object
-				notation</a> (JSON) string to convey all SSML functions and properties.
-			</li>
-		</ul>
-		
-		<p>
-			The task force encourages implementors and authors to provide
-			feedback about these approaches. Once analyzed, the feedback will help determine which
-			approach will become the final normative W3C recommendation.
-		</p>
-		<p>
-			The following sections include example code for each approach. 
-			Please refer to the <a href="https://w3c.github.io/pronunciation/samples/">sample content</a> examples, 
-			complete with audio files, for comparison with existing TTS technology.
-		</p>
-		<div class="ednote">
-			<div>
-				Using the <code>data-</code> prefix to name attributes is not the editors' recommendation or preference. Rather, it is the canonical approach for developing enhancements to HTML as defined in the <a href="https://html.spec.whatwg.org/#embedding-custom-non-visible-data-with-the-data-*-attributes">HTML 5.x specification</a>.
-				This standards-based development approach  enables experimental implementations which, in turn,  will inform the further development of this
-				specification.
+			<p>
+				These have long provided technical methods to allow authors to embed
+				pronunciation (and related spoken presentation) markup in their HTML
+				document, but SSML's approach has not been adopted for several technical
+				reasons. Additionally, feedback from various browser and assistive
+				technology vendors has
+				indicated that this is not a likely or viable approach. In our
+				specification therefore, we do not attempt to reinvent this wheel, but
+				rather to bridge the long-standing technical barriers that have
+				prevented use of SSML in HTML. Our approaches rely directly on both
+				specifications, wrapping them as attributes which will be accepted by
+				HTML validation.
+			</p>
+			<p>
+				As noted we have identified two candidate approaches:
+			</p>
+			<ul>
+				<li>
+					<b>multi-attribute</b> &mdash; uses one or more element attributes
+					with string values to convey each SSML function and property.
+				</li>
+				<li>
+					<b>single-attribute</b> &mdash; uses a single element attribute
+					with a <a href="https://tools.ietf.org/html/rfc4627">JavaScript object
+						notation</a> (JSON) string to convey all SSML functions and
+					properties.
+				</li>
+			</ul>
+
+			<p>
+				The task force encourages implementors and authors to provide
+				feedback about these approaches. Once analyzed, the feedback will help
+				determine which
+				approach will become the final normative W3C recommendation.
+			</p>
+			<p>
+				The following sections include example code for each approach.
+				Please refer to the <a
+					href="https://w3c.github.io/pronunciation/samples/">sample content</a>
+				examples,
+				complete with audio files, for comparison with existing TTS technology.
+			</p>
+			<div class="ednote">
+				<div>
+					Using the <code>data-</code> prefix to name attributes is not the
+					editors' recommendation or preference. Rather, it is the canonical
+					approach for developing enhancements to HTML as defined in the <a
+						href="https://html.spec.whatwg.org/#embedding-custom-non-visible-data-with-the-data-*-attributes">HTML
+						5.x specification</a>.
+					This standards-based development approach enables experimental
+					implementations which, in turn, will inform the further development of
+					this
+					specification.
+				</div>
 			</div>
-		</div>
-		<p>
-			For a more in-depth introduction to pronunciation issues and related W3C documents, please refer to <a href="https://www.w3.org/WAI/pronunciation/">Pronunciation Overview</a>.
-		</p>
-	</section>
+			<p>
+				For a more in-depth introduction to pronunciation issues and related W3C
+				documents, please refer to <a
+					href="https://www.w3.org/WAI/pronunciation/">Pronunciation
+					Overview</a>.
+			</p>
+		</section>
 
-	<section>
-		<h2>
-			Multi-attribute Approach for Including SSML in HTML
-		</h2>
-		<p>
-			By converting SSML tags and attributes to HTML attributes,
-			authors can embed pronunciation (and related spoken presentation) 
-			in their HTML document. 
-			Authors can combine most supported tags with each other to apply multiple speech effects.
-		</p>
-		<p>	
-			Most of the markup included in SSML is suitable for use by the majority of content developers; 
-			however, some features such as, <code>phoneme</code> and <code>prosody</code>  may require specialized knowledge.
-			Publishers in Japan use a <a href="http://www.w3.org/publishing/epub3/epub-contentdocs.html#sec-xhtml-ssml-attrib">similar technique
-			from EPUB 3</a> for the SSML <code>phoneme</code> element.
-		</p>
-		<p>
-			Edgar Allen Poe's <i>The Raven</i>:
-		</p>
-		<div class="example">
-			EXAMPLE 1
-			<pre>
+		<section>
+			<h2>
+				Multi-attribute Approach for Including SSML in HTML
+			</h2>
+			<p>
+				By converting SSML tags and attributes to HTML attributes,
+				authors can embed pronunciation (and related spoken presentation)
+				in their HTML document.
+				Authors can combine most supported tags with each other to apply
+				multiple speech effects.
+			</p>
+			<p>
+				Most of the markup included in SSML is suitable for use by the majority
+				of content developers;
+				however, some features such as, <code>phoneme</code> and
+				<code>prosody</code> may require specialized knowledge.
+				Publishers in Japan use a <a
+					href="http://www.w3.org/publishing/epub3/epub-contentdocs.html#sec-xhtml-ssml-attrib">similar
+					technique
+					from EPUB 3</a> for the SSML <code>phoneme</code> element.
+			</p>
+			<p>
+				Edgar Allen Poe's <i>The Raven</i>:
+			</p>
+			<div class="example">
+				EXAMPLE 1
+				<pre>
 &lt;p data-ssml-prosody-rate=&quot;slow&quot; data-ssml-prosody-pitch=&quot;low&quot;&gt;
     Once upon a midnight 
     &lt;span data-ssml-phoneme-alphabet=&quot;ipa&quot; data-ssml-phoneme-ph=&quot;&#x2C8;dr&#x26A;&#x259;ri&quot;&gt;dreary&lt;/span&gt;
@@ -163,355 +225,437 @@
 &lt;/p&gt;
 </pre>
 
-		</div>
-		<section>
-			<h3>The <code>data-ssml-*</code> Multi-Attribute Set</h3>
-			<p>
-				These attributes provide functional equivalence to the SSML counterparts. These attributes are valid
-				on the following HTML elements:
-			</p>
-			<ul>
-				<li><a href="https://html.spec.whatwg.org/multipage/dom.html#flow-content">flow content</a></li>
-				<li><a href="https://html.spec.whatwg.org/multipage/dom.html#phrasing-content">phrasing content</a></li>
-				<li><a href="https://www.w3.org/TR/wai-aria/#namefromcontent">roles supporting name from content</a>
-				</li>
-			</ul>
-
+			</div>
 			<section>
-				<h4><code>data-ssml-say-as-*</code></h4>
+				<h3>The <code>data-ssml-*</code> Multi-Attribute Set</h3>
 				<p>
-					Allows the author to classify the element's text content. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.9">SSML <code>say-as</code> element</a> and associated properties.
-
-					<div class="note">Editor's note: <code>interpret-as</code> seems superfluous, and should be implied</div>
+					These attributes provide functional equivalence to the SSML
+					counterparts. These attributes are valid
+					on the following HTML elements:
 				</p>
-				<section class="role notoc">
-					<h5><code>data-ssml-say-as</code></h5>
-					<p>
-						Values: <code>date | time | telephone | characters | cardinal | ordinal</code>
-					</p>
-				</section>
+				<ul>
+					<li><a
+							href="https://html.spec.whatwg.org/multipage/dom.html#flow-content">flow
+							content</a></li>
+					<li><a
+							href="https://html.spec.whatwg.org/multipage/dom.html#phrasing-content">phrasing
+							content</a></li>
+					<li><a href="https://www.w3.org/TR/wai-aria/#namefromcontent">roles
+							supporting name from content</a>
+					</li>
+				</ul>
 
-				<section class="role notoc">
-
-					<h5><code>data-ssml-say-as-format</code> (optional)</h5>
+				<section>
+					<h4><code>data-ssml-say-as(-*)</code></h4>
 					<p>
-						Value: time/date format as defined in W3C Note, SSML <code>say-as</code> attribute values. <a href="https://www.w3.org/TR/ssml-sayas/">SSML 1.0 say-as attribute</a>
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-say-as-detail</code> (optional)</h5>
-					<p>
-						Value: detail as defined in W3C Note, SSML <code>say-as</code> attribute values. <a href="https://www.w3.org/TR/ssml-sayas/">SSML 1.0 say-as attribute</a>
-					</p>
+						Allows the author to classify the element's text content. The
+						attributes are derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.1.9">SSML
+							<code>say-as</code> element</a> and associated properties.
 
-					<div class=" example">
-						EXAMPLE 2
-						<pre>
+					<div class="ednote"><code>interpret-as</code> seems superfluous, and
+						should be implied</div>
+					</p>
+					<section class="role notoc">
+						<h5><code>data-ssml-say-as</code></h5>
+						<p>
+							Values:
+							<code>date | time | telephone | characters | cardinal | ordinal</code>
+						</p>
+					</section>
+
+					<section class="role notoc">
+
+						<h5><code>data-ssml-say-as-format</code> (optional)</h5>
+						<p>
+							Value: time/date format as defined in W3C Note, SSML
+							<code>say-as</code> attribute values. <a
+								href="https://www.w3.org/TR/ssml-sayas/">SSML 1.0 say-as
+								attribute</a>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-say-as-detail</code> (optional)</h5>
+						<p>
+							Value: detail as defined in W3C Note, SSML <code>say-as</code>
+							attribute values. <a href="https://www.w3.org/TR/ssml-sayas/">SSML
+								1.0 say-as attribute</a>
+						</p>
+						<div class="ednote">
+							The <code>data-ssml-say-as-detail</code> attribute allows authors
+							to target
+							implementation-specific TTS engine features or behavior.
+						</div>
+
+						<div class=" example">
+							EXAMPLE 2
+							<pre>
 According the 2010 US Census, the population of &lt;span data-ssml-say-as='characters'&gt;90274&lt;/span&gt;
 increased to 25209 from 24976 over the past 10 years.				
 				</pre>
-					</div>
+						</div>
+					</section>
 				</section>
-			</section>
 
-			<section>
-				<h4><code>data-ssml-phoneme-*</code></h4>
-				<p>
-					Defines two required attributes for phonemic/phonetic pronunciation. The element
-					with the phoneme attributes can only contain text (no elements). The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.10">SSML <code>phoneme</code> element</a> and associated properties.
-				</p>
-				<section class="role notoc">
-					<h5><code>data-ssml-phoneme-ph</code></h5>
-					<p>Value: The phoneme string.</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-phoneme-alphabet</code></h5>
-					<p>Values: The phonetic alphabet in use. <code>ipa | x-sampa</code> </p>
+				<section>
+					<h4><code>data-ssml-phoneme-*</code></h4>
+					<p>
+						Defines two required attributes for phonemic/phonetic pronunciation.
+						The element
+						with the phoneme attributes can only contain text (no elements). The
+						attributes are derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.1.10">SSML
+							<code>phoneme</code> element</a> and associated properties.
+					</p>
+					<section class="role notoc">
+						<h5><code>data-ssml-phoneme-ph</code></h5>
+						<p>Value: The phoneme string.</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-phoneme-alphabet</code></h5>
+						<p>Values: The phonetic alphabet in use. <code>ipa | x-sampa</code>
+						</p>
 
-					<div class="example">
-						EXAMPLE 3
-						<pre>
+						<div class="example">
+							EXAMPLE 3
+							<pre>
 
 Once upon a midnight &lt;span data-ssml-alphabet="ipa" data-ssml-phoneme-ph="ˈdrɪəri"&gt;dreary&lt;/span&gt;
 						</pre>
-					</div>
+						</div>
+					</section>
+
 				</section>
+				<section>
+					<h4><code>data-ssml-sub-alias</code></h4>
+					<p>
+						A string value that replaces the text content for pronunciation.
+						While similar to <code>aria-label</code>, alias does not alter
+						spelling (i.e., a Braille display).
+						Additionally, the alias attribute can be used by TTS technologies
+						that do not access the
+						accessibility
+						tree. The processor should apply text normalization to the alias
+						value. The attribute is derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.1.11">SSML
+							<code>sub</code> element</a> and associated properties.
+					</p>
+					<p>Value: text string to be substituted and delivered to the TTS for
+						presentation.</p>
 
-			</section>
-			<section>
-				<h4><code>data-ssml-sub-alias</code></h4>
-				<p>
-					A string value that replaces the text content for pronunciation. 
-					While similar to <code>aria-label</code>, alias does not alter spelling (i.e., a Braille display).
-					Additionally, the alias attribute can be used by TTS technologies that do not access the
-					accessibility
-					tree. The processor should apply text normalization to the alias value. The attribute is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.11">SSML <code>sub</code> element</a> and associated properties.
-				</p>
-				<p>Value: text string to be substituted and delivered to the TTS for presentation.</p>
-
-				<div class="example">
-					EXAMPLE 4
-					<pre>
+					<div class="example">
+						EXAMPLE 4
+						<pre>
 &lt;span data-ssml-sub-alias="Sodium Chloride"&gt;NaCL&lt;/span&gt;
 				</pre>
-				</div>
+					</div>
 
 
-			</section>
-			<section>
-				<h4><code>data-ssml-voice-*</code></h4>
-				<p>
-					A set of attributes defining production values that requests a
-					change in speaking voice. There are
-					two kinds of attributes for the voice element: those that indicate desired features of a voice and
-					those
-					that control behavior. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.1">SSML <code>voice</code> element</a> and associated properties.
-				</p>
-				<section class="role notoc">
-					<h5><code>data-ssml-voice-gender</code> (optional)</h5>
-					<p>
-						Values: <code>female | male | neutral</code>
-					</p>
 				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-voice-age</code> (optional)</h5>
+				<section>
+					<h4><code>data-ssml-voice-*</code></h4>
 					<p>
-						Value: <i>integer</i> corresponding to age in years
+						A set of attributes defining production values that requests a
+						change in speaking voice. There are
+						two kinds of attributes for the voice element: those that indicate
+						desired features of a voice and
+						those
+						that control behavior. The attributes are derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.2.1">SSML
+							<code>voice</code> element</a> and associated properties.
 					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-voice-variant</code> (optional)</h5>
-					<p>
-						Value: <i>integer</i> indicating a numeric voice variant
-					</p>
-				</section>
-				<section class="role notoc">
+					<section class="role notoc">
+						<h5><code>data-ssml-voice-gender</code> (optional)</h5>
+						<p>
+							Values: <code>female | male | neutral</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-voice-age</code> (optional)</h5>
+						<p>
+							Value: <i>integer</i> corresponding to age in years
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-voice-variant</code> (optional)</h5>
+						<p>
+							Value: <i>integer</i> indicating a numeric voice variant
+						</p>
+					</section>
+					<section class="role notoc">
 
-					<h5><code>data-ssml-voice-name</code> (optional)</h5>
-					<p>
-						Values: specific voice name requested from the current TTS engine (e.g.,
-						<code>"David"</code>).
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-voice-languages</code> (optional)</h5>
-					<p>
-						Value: <i>string</i> a space delimited list of one or more languages to be spoken by this voice.
-					</p>
+						<h5><code>data-ssml-voice-name</code> (optional)</h5>
+						<p>
+							Values: specific voice name requested from the current TTS engine
+							(e.g.,
+							<code>"David"</code>).
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-voice-languages</code> (optional)</h5>
+						<p>
+							Value: <i>string</i> a space delimited list of one or more
+							languages to be spoken by this voice.
+						</p>
+						<div class="ednote">
+							The <code>data-ssml-voice-languages</code> attribute only assists
+							the TTS engine with selecting the appropriate voice. It does not
+							indicate the language of content. To specify language, use the
+							HTML
+							<code>lang</code> attribute.
+						</div>
 
-					<div class="example">
-						EXAMPLE 5
-						<pre>
+						<div class="example">
+							EXAMPLE 5
+							<pre>
 She said, "&lt;span data-ssml-voice-gender="female"&gt;My name is Marie&lt;/span&gt;".
 						</pre>
-					</div>
+						</div>
+					</section>
+
 				</section>
+				<section>
+					<h4><code>data-ssml-emphasis-level</code></h4>
+					<p>
+						Requests that the text content be spoken with
+						emphasis (also
+						referred to as prominence or stress). This is a single attribute and
+						is derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.2.2">SSML
+							<code>emphasis</code> element</a> and associated properties.
+					</p>
 
-			</section>
-			<section>
-				<h4><code>data-ssml-emphasis-level</code></h4>
-				<p>
-					Requests that the text content be spoken with
-					emphasis (also
-					referred to as prominence or stress). This is a single attribute and is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.2">SSML <code>emphasis</code> element</a> and associated properties.
-				</p>
+					<p>
+						Values: <code>strong | moderate | none | reduced</code>
+					</p>
 
-				<p>
-					Values: <code>strong | moderate | none | reduced</code>
-				</p>
-
-				<div class="example">
-					EXAMPLE 6
-					<pre>
+					<div class="example">
+						EXAMPLE 6
+						<pre>
 Please use &lt;span data-ssml-emphasis-level="strong"&gt;extreme caution.&lt;/span&gt;
 				</pre>
-				</div>
+					</div>
 
-			</section>
-			<section>
-				<h4><code>data-ssml-break-*</code></h4>
-				<p>
-					Describes the timing associated with an empty element to
-					control the pausing or other prosodic boundaries between tokens. The use of the break attribute
-					between
-					any pair of tokens is optional. If the element is not present between tokens, the synthesis
-					processor is
-					expected to automatically determine a break based on the linguistic context. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.3">SSML <code>break</code> element</a> and associated properties.
-				</p>
-				<section class="role notoc">
-					<h5><code>data-ssml-break-strength</code></h5>
-					<p>
-						Values: <code>none | x-weak | weak | medium (default) | strong | x-strong</code>
-					</p>
 				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-break-time</code></h5>
+				<section>
+					<h4><code>data-ssml-break-*</code></h4>
 					<p>
-						Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.
+						Describes the timing associated with an empty element to
+						control the pausing or other prosodic boundaries between tokens. The
+						use of the break attribute
+						between
+						any pair of tokens is optional. If the element is not present
+						between tokens, the synthesis
+						processor is
+						expected to automatically determine a break based on the linguistic
+						context. The attributes are derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.2.3">SSML
+							<code>break</code> element</a> and associated properties.
 					</p>
+					<section class="role notoc">
+						<h5><code>data-ssml-break-strength</code></h5>
+						<p>
+							Values:
+							<code>none | x-weak | weak | medium (default) | strong | x-strong</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-break-time</code></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc.
+						</p>
 
-					<div class="example">
-						EXAMPLE 7
-						<pre>
+						<div class="example">
+							EXAMPLE 7
+							<pre>
 Take a deep breath,&lt;span data-ssml-break-time="1s"&gt;&lt;/span&gt; and exhale.
 				</pre>
-					</div>
-				</section>
+						</div>
+					</section>
 
 
-			</section>
-			<section>
-				<h4><code>data-ssml-prosody-*</code></h4>
-				<p>
-					Permits control of the pitch, speaking rate and volume of
-					the speech output. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML <code>prosody</code> element</a> and associated properties.
-				</p>
-				<section class="role notoc">
-					<h5><code>data-ssml-prosody-pitch</code> (optional)</h5>
-					<p>
-						Values: <code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code>
-					</p>
 				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-prosody-contour</code> (optional)</h5>
+				<section>
+					<h4><code>data-ssml-prosody-*</code></h4>
 					<p>
-						Value: <i>string</i> of contour change parameters as defined in the <a href="https://www.w3.org/TR/speech-synthesis11/#pitch_contour">SSML 1.1 recommendation</a>.
+						Permits control of the pitch, speaking rate and volume of
+						the speech output. The attributes are derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML
+							<code>prosody</code> element</a> and associated properties.
 					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-prosody-range</code> (optional)</h5>
-					<p>
-						Value: <i>string</i> range value as defined in the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML 1.1 recommendation</a>.
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-prosody-rate</code> (optional)</h5>
-					<p>
-						Values: <code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code>
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-prosody-duration</code> (optional)</h5>
-					<p>
-						Value: <i>string</i> containing a time duration (e.g., "250ms", "1s", etc.).
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-prosody-volume</code> (optional)</h5>
-					<p>
-						Values: <code><i>+/- soundlevel</i>>"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code>
-					</p>
+					<section class="role notoc">
+						<h5><code>data-ssml-prosody-pitch</code> (optional)</h5>
+						<p>
+							Values:
+							<code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-prosody-contour</code> (optional)</h5>
+						<p>
+							Value: <i>string</i> of contour change parameters as defined in
+							the <a
+								href="https://www.w3.org/TR/speech-synthesis11/#pitch_contour">SSML
+								1.1 recommendation</a>.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-prosody-range</code> (optional)</h5>
+						<p>
+							Value: <i>string</i> range value as defined in the <a
+								href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML 1.1
+								recommendation</a>.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-prosody-rate</code> (optional)</h5>
+						<p>
+							Values:
+							<code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-prosody-duration</code> (optional)</h5>
+						<p>
+							Value: <i>string</i> containing a time duration (e.g., "250ms",
+							"1s", etc.).
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-prosody-volume</code> (optional)</h5>
+						<p>
+							Values:
+							<code><i>+/- soundlevel</i>>"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code>
+						</p>
 
-					<div class="example">
-						EXAMPLE 8
-						<pre>
+						<div class="example">
+							EXAMPLE 8
+							<pre>
 The tortoise, said (slowly) "&lt;span data-ssml-prosody-rate="x-slow"&gt;
 I am almost at the finish line&lt;/span&gt;."
 						</pre>
-					</div>
-				</section>
+						</div>
+					</section>
 
 
-			</section>
-			<section>
-				<h4><code>data-ssml-audio-*</code></h4>
-				<p>
-					Supports the insertion of recorded audio files in conjunction with synthesized speech output.
-					The element may be empty. If the element is not empty, then the
-					contents should be spoken if the audio document is not available. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.3.1">SSML <code>audio</code> element</a> and associated properties.
-				</p>
-
-				<section class="role notoc">
-					<h5><code>data-ssml-audio-src</code></h5>
-					<p>
-						Value: <i>The URI of a document with an appropriate media file.</i>
-					</p>
 				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-audio-fetchtimeout</code> (optional)</h5>
+				<section>
+					<h4><code>data-ssml-audio-*</code></h4>
 					<p>
-						Value: <i>string</i> containing a time duration (e.g., "250ms", "1s", etc.).
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-audio-fetchint</code> (optional)</h5>
-					<p>
-						Values: <code>safe | prefetch</code>
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-audio-maxage</code> (optional)</h5>
-					<p>
-						Value: <i>string</i> 
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-audio-maxstale</code> (optional)</h5>
-					<p>
-						Value: <i>string</i>
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-audio-clipBegin</code> (optional)</h5>
-					<p>
-						Value: <i>string</i> containing a time duration (e.g., "250ms", "1s", etc.).
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-audio-clipEnd</code> (optional)</h5>
-					<p>
-						Value: <i>string</i> containing a time duration (e.g., "250ms", "1s", etc.).
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-audio-repeatCount</code> (optional)</h5>
-					<p>
-						Value: <i>integer</i> indicating the number of times to repeat the audio clip.
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-audio-repeatDur</code> (optional)</h5>
-					<p>
-						Value: <i>string</i> containing a time duration (e.g., "250ms", "1s", etc.).
+						Supports the insertion of recorded audio files in conjunction with
+						synthesized speech output.
+						The element may be empty. If the element is not empty, then the
+						contents should be spoken if the audio document is not available.
+						The attributes are derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.3.1">SSML
+							<code>audio</code> element</a> and associated properties.
 					</p>
 
-					<div class="example">
-						EXAMPLE 9
-						<pre>
+					<section class="role notoc">
+						<h5><code>data-ssml-audio-src</code></h5>
+						<p>
+							Value: <i>The URI of a document with an appropriate media
+								file.</i>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-audio-fetchtimeout</code> (optional)</h5>
+						<p>
+							Value: <i>string</i> containing a time duration (e.g., "250ms",
+							"1s", etc.).
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-audio-fetchint</code> (optional)</h5>
+						<p>
+							Values: <code>safe | prefetch</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-audio-maxage</code> (optional)</h5>
+						<p>
+							Value: <i>string</i>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-audio-maxstale</code> (optional)</h5>
+						<p>
+							Value: <i>string</i>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-audio-clipBegin</code> (optional)</h5>
+						<p>
+							Value: <i>string</i> containing a time duration (e.g., "250ms",
+							"1s", etc.).
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-audio-clipEnd</code> (optional)</h5>
+						<p>
+							Value: <i>string</i> containing a time duration (e.g., "250ms",
+							"1s", etc.).
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-audio-repeatCount</code> (optional)</h5>
+						<p>
+							Value: <i>integer</i> indicating the number of times to repeat the
+							audio clip.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-audio-repeatDur</code> (optional)</h5>
+						<p>
+							Value: <i>string</i> containing a time duration (e.g., "250ms",
+							"1s", etc.).
+						</p>
+
+						<div class="example">
+							EXAMPLE 9
+							<pre>
 You will hear a brief chime &lt;span data-ssml-audio-src="/audio/chime.ogg"&gt;&lt;/span&gt; 
 when your time is up.
 						</pre>
-					</div>
-				</section>
+						</div>
+					</section>
 
+				</section>
 			</section>
 		</section>
-	</section>
 
-	<section>
-		<h2>
-			Single-attribute Approach for Including SSML in HTML
-		</h2>
-		<p>
-			By converting SSML tags and attributes into a single HTML attribute
-			with a <a href="https://www.ietf.org/rfc/rfc4627.txt">JSON</a> string value,
-			authors can embed pronunciation (and related spoken presentation) 
-			in their HTML document. 
-			Authors can combine most supported tags with each other to apply multiple speech effects.
-		</p>
-		<p>	
-			Most of the markup included in SSML is suitable for use by the majority of content developers; 
-			however, some features such as, <code>phoneme</code> and <code>prosody</code>  may require specialized knowledge.
-			This approach emerged as a means to transform content conforming to the <a href="http://www.imsglobal.org/question/index.html">IMS
-			Question & Test Interoperability (QTI) Specification</a>. The QTI standard supports inclusion of SSML in HTML for TTS tools used in educational assessment.
-		</p>
-		<p>
-			Edgar Allen Poe's <i>The Raven</i>:
-		</p>
-		<div class="example">
-			EXAMPLE 1
+		<section>
+			<h2>
+				Single-attribute Approach for Including SSML in HTML
+			</h2>
+			<p>
+				By converting SSML tags and attributes into a single HTML attribute
+				with a <a href="https://www.ietf.org/rfc/rfc4627.txt">JSON</a> string
+				value,
+				authors can embed pronunciation (and related spoken presentation)
+				in their HTML document.
+				Authors can combine most supported tags with each other to apply
+				multiple speech effects.
+			</p>
+			<p>
+				Most of the markup included in SSML is suitable for use by the majority
+				of content developers;
+				however, some features such as, <code>phoneme</code> and
+				<code>prosody</code> may require specialized knowledge.
+				This approach emerged as a means to transform content conforming to the
+				<a href="http://www.imsglobal.org/question/index.html">IMS
+					Question & Test Interoperability (QTI) Specification</a>. The QTI
+				standard supports inclusion of SSML in HTML for TTS tools used in
+				educational assessment.
+			</p>
+			<p>
+				Edgar Allen Poe's <i>The Raven</i>:
+			</p>
+			<div class="example">
+				EXAMPLE 1
 
-			<pre>
+				<pre>
 &lt;p data-ssml=&apos;{&quot;prosody&quot;:{&quot;rate&quot;:&quot;slow&quot;,&quot;pitch&quot;:&quot;low&quot;}}&apos;&gt;
 &#x9;Once upon a midnight
         &lt;span data-ssml=&apos;{&quot;phoneme&quot;:{&quot;alphabet&quot;:&quot;ipa&quot;,&quot;ph&quot;:&quot;ˈdrɪəri&quot;}}&apos;&gt;dreary&lt;/span&gt;
@@ -540,408 +684,494 @@ when your time is up.
 &lt;/p&gt;
 			</pre>
 
-		</div>
-		<section>
-			<h3><code>data-ssml</code> Attribute, Properties and Values</h3>
-			<p>
-				The following properties are defined and provide functional equivalence to the their SSML
-				counterpart.
-			</p>
-			<p>
-				The <code>data-ssml</code> provides functional equivalence to SSML. The attribute is valid
-				on the following HTML elements:
-			</p>
-			<ul>
-				<li><a href="https://html.spec.whatwg.org/multipage/dom.html#flow-content">flow content</a></li>
-				<li><a href="https://html.spec.whatwg.org/multipage/dom.html#phrasing-content">phrasing content</a></li>
-				<li><a href="https://www.w3.org/TR/wai-aria/#namefromcontent">roles supporting name from content</a>
-				</li>
-			</ul>
-			<p>
-				The value of the data-ssml attribute is a JSON string, enclosed with single quotes (<code>&apos;</code>),
-				containing a single JSON object representing a specific SSML function with one or
-				more property/value pairs. The valid objects, properties and associated values are defined in the
-				following sections. The
-				JSON schema is presented in Appendix A.
-			</p>
-
+			</div>
 			<section>
-				<h4><code>say-as</code></h4>
+				<h3><code>data-ssml</code> Attribute, Properties and Values</h3>
 				<p>
-					Allows the author to classify the element's text content. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.9">SSML <code>say-as</code> element</a> and associated properties.
+					The following properties are defined and provide functional
+					equivalence to the their SSML
+					counterpart.
 				</p>
-				<section class="role notoc">
-					<h5><code>interpret-as</code></h5>
-					<p>
-						Value: <code>date | time | telephone | characters | cardinal | ordinal</code>
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>format</code> (optional)</h5>
-					<p>
-						Value: time/date format as defined in W3C Note SSML <code>say-as</code> attribute values.
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>detail</code> (optional)</h5>
-					<p>
-						Value: detail as defined in W3C Note SSML <code>say-as</code> attribute values.
-					</p>
+				<p>
+					The <code>data-ssml</code> provides functional equivalence to SSML.
+					The attribute is valid
+					on the following HTML elements:
+				</p>
+				<ul>
+					<li><a
+							href="https://html.spec.whatwg.org/multipage/dom.html#flow-content">flow
+							content</a></li>
+					<li><a
+							href="https://html.spec.whatwg.org/multipage/dom.html#phrasing-content">phrasing
+							content</a></li>
+					<li><a href="https://www.w3.org/TR/wai-aria/#namefromcontent">roles
+							supporting name from content</a>
+					</li>
+				</ul>
+				<p>
+					The value of the data-ssml attribute is a JSON string, enclosed with
+					single quotes (<code>&apos;</code>),
+					containing a single JSON object representing a specific SSML function
+					with one or
+					more property/value pairs. The valid objects, properties and
+					associated values are defined in the
+					following sections. The
+					JSON schema is presented in Appendix A.
+				</p>
 
-					<div class="example">
-						EXAMPLE 2
+				<section>
+					<h4><code>say-as</code></h4>
+					<p>
+						Allows the author to classify the element's text content. The JSON
+						definition is derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.1.9">SSML
+							<code>say-as</code> element</a> and associated properties.
+					</p>
+					<section class="role notoc">
+						<h5><code>interpret-as</code></h5>
+						<p>
+							Value:
+							<code>date | time | telephone | characters | cardinal | ordinal</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>format</code> (optional)</h5>
+						<p>
+							Value: time/date format as defined in W3C Note SSML
+							<code>say-as</code> attribute values.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>detail</code> (optional)</h5>
+						<p>
+							Value: detail as defined in W3C Note SSML <code>say-as</code>
+							attribute values.
+						</p>
+						<div class="ednote">
+							The <code>detail</code> property allows authors to target
+							implementation-specific TTS engine features or behavior.
+						</div>
 
-						<pre>
+						<div class="example">
+							EXAMPLE 2
+
+							<pre>
 According the 2010 US Census, the population of 
 &lt;span data-ssml='{&quot;say-as&quot;:{&quot;interpret-as&quot;:&quot;characters&quot;}}'&gt;90274&lt;/span&gt;
 increased to 25209 from 24976 over the past 10 years.	
 					</pre>
-					</div>
-				</section>
+						</div>
+					</section>
 
-			</section>
-			<section>
-				<h4><code>phoneme</code></h4>
-				<p>
-					Defines two required attributes for phonemic/phonetic pronunciation. The element
-					with the phoneme attributes can only contain text (no elements). 
-					The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.10">SSML <code>phoneme</code> element</a> and associated properties.
-				</p>
-				<section class="role notoc">
-					<h5><code>ph</code></h5>
-					<p>
-						Value: <i>string</i> containing the phonetic characters corresponding to the content to be spoken
-					</p>
 				</section>
-				<section class="role notoc">
-					<h5><code>data-ssml-phoneme-alphabet</code></h5>
+				<section>
+					<h4><code>phoneme</code></h4>
 					<p>
-						Value: <code>ipa | x-sampa</code> defining the phonetic alphabet used for the <code>ph</code> string
+						Defines two required attributes for phonemic/phonetic pronunciation.
+						The element
+						with the phoneme attributes can only contain text (no elements).
+						The JSON definition is derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.1.10">SSML
+							<code>phoneme</code> element</a> and associated properties.
 					</p>
+					<section class="role notoc">
+						<h5><code>ph</code></h5>
+						<p>
+							Value: <i>string</i> containing the phonetic characters
+							corresponding to the content to be spoken
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>data-ssml-phoneme-alphabet</code></h5>
+						<p>
+							Value: <code>ipa | x-sampa</code> defining the phonetic alphabet
+							used for the <code>ph</code> string
+						</p>
 
-					<div class="example">
-						EXAMPLE 3
-						<pre>
+						<div class="example">
+							EXAMPLE 3
+							<pre>
 Once upon a midnight 
 &lt;span data-ssml='{"phoneme":{"alphabet":"ipa","ph":"ˈdrɪəri"}}'&gt;dreary&lt;/span&gt;
 						</pre>
-					</div>
+						</div>
+					</section>
+
 				</section>
-
-			</section>
-			<section>
-				<h4><code>sub</code></h4>
-				<p>
-					Indicates that the text in the alias attribute value
-					replaces the text content for pronunciation. The required alias property specifies the string to be
-					spoken instead of the text content. The
-					processor should apply text normalization to the alias value. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.11">SSML <code>sub</code> element</a> and associated properties.
-				</p>
-				<section class="role notoc">
-					<h5><code>alias</code></h5>
+				<section>
+					<h4><code>sub</code></h4>
 					<p>
-						Value: <i>string</i> containing the text to be spoken as a substitution for the text content of
-						the element to which <code>sub</code> is applied.
+						Indicates that the text in the alias attribute value
+						replaces the text content for pronunciation. The required alias
+						property specifies the string to be
+						spoken instead of the text content. The
+						processor should apply text normalization to the alias value. The
+						JSON definition is derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.1.11">SSML
+							<code>sub</code> element</a> and associated properties.
 					</p>
+					<section class="role notoc">
+						<h5><code>alias</code></h5>
+						<p>
+							Value: <i>string</i> containing the text to be spoken as a
+							substitution for the text content of
+							the element to which <code>sub</code> is applied.
+						</p>
 
-					<div class="example">
-						EXAMPLE 4
-						<pre>
+						<div class="example">
+							EXAMPLE 4
+							<pre>
 &lt;span data-ssml='{"sub":{"alias":"Sodium Chloride"}}'&gt;NaCL&lt;/span&gt;
 						</pre>
-					</div>
-				</section>
+						</div>
+					</section>
 
-			</section>
-			<section>
-				<h4><code>voice</code></h4>
-				<p>
-					Requests a change in speaking voice. There are
-					two kinds of attributes for <code>voice</code>: those that indicate desired features of a voice
-					and those that control behavior. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.1">SSML <code>voice</code> element</a> and associated properties.
-				</p>
-				<section class="role notoc">
-					<h5><code>gender</code> (optional)</h5>
-					<p>
-						Values: <code>female | male | neutral</code>
-					</p>
 				</section>
-				<section class="role notoc">
-					<h5><code>age</code> (optional)</h5>
+				<section>
+					<h4><code>voice</code></h4>
 					<p>
-						Value: <i>integer</i> corresponding to age in years
+						Requests a change in speaking voice. There are
+						two kinds of attributes for <code>voice</code>: those that indicate
+						desired features of a voice
+						and those that control behavior. The JSON definition is derived from
+						the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.1">SSML
+							<code>voice</code> element</a> and associated properties.
 					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>variant</code> (optional)</h5>
-					<p>
-						Value: <i>integer</i> indicating a numeric voice variant
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>name</code> (optional)</h5>
-					<p>
-						Value: <i>string</i> defining a specific voice name requested from the current TTS engine, e.g.,
-						<code>"Microsoft David (English)"</code>
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>languages</code> (optional)</h5>
-					<p>
-						Value: <i>string</i> a space delimited list of one or more languages to be spoken by this voice.
-					</p>
+					<section class="role notoc">
+						<h5><code>gender</code> (optional)</h5>
+						<p>
+							Values: <code>female | male | neutral</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>age</code> (optional)</h5>
+						<p>
+							Value: <i>integer</i> corresponding to age in years
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>variant</code> (optional)</h5>
+						<p>
+							Value: <i>integer</i> indicating a numeric voice variant
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>name</code> (optional)</h5>
+						<p>
+							Value: <i>string</i> defining a specific voice name requested from
+							the current TTS engine, e.g.,
+							<code>"Microsoft David (English)"</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>languages</code> (optional)</h5>
+						<p>
+							Value: <i>string</i> a space delimited list of one or more
+							languages to be spoken by this voice.
+						</p>
+						<div class="ednote">
+							The <code>voice > languages</code> property only assists
+							the TTS engine with selecting the appropriate voice. It does not
+							indicate the language of content. To specify language, use the
+							HTML <code>lang</code> attribute.
+						</div>
 
-					<div class="example">
-						EXAMPLE 5
-						<pre>
+						<div class="example">
+							EXAMPLE 5
+							<pre>
 She said, "&lt;span data-ssml='{"voice":{"gender":"female"}}'&gt;My name is Marie&lt;/span&gt;".
 						</pre>
-					</div>
+						</div>
+					</section>
+
 				</section>
-
-			</section>
-			<section>
-				<h4><code>emphasis</code></h4>
-				<p>
-					Requests that the text content of the element to which emphasis
-					spoken with emphasis (also referred to
-					as prominence or stress). The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.2">SSML <code>emphasis</code> element</a> and associated properties.
-				</p>
-
-				<section class="role notoc">
-					<h5><code>level</code></h5>
+				<section>
+					<h4><code>emphasis</code></h4>
 					<p>
-						Value: <code>strong | moderate | none | reduced</code>
+						Requests that the text content of the element to which emphasis
+						spoken with emphasis (also referred to
+						as prominence or stress). The JSON definition is derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.2.2">SSML
+							<code>emphasis</code> element</a> and associated properties.
 					</p>
-					<div class="example">
-						EXAMPLE 6
-						<pre>
+
+					<section class="role notoc">
+						<h5><code>level</code></h5>
+						<p>
+							Value: <code>strong | moderate | none | reduced</code>
+						</p>
+						<div class="example">
+							EXAMPLE 6
+							<pre>
 
 Please use &lt;span data-ssml='{"emphasis":{"level":"strong"}}'&gt;extreme caution.&lt;/span&gt;
 
 						</pre>
-					</div>
-				</section>
+						</div>
+					</section>
 
-			</section>
-			<section>
-				<h4><code>break</code></h4>
-				<p>
-					Describes the timing associated with an empty element to
-					control the pausing or other prosodic boundaries between tokens. The use of the <code>break</code>
-					between any pair of tokens is optional. If the
-					element is not present between tokens, the synthesis processor is expected to automatically
-					determine a break based on the linguistic context. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.3">SSML <code>break</code> element</a> and associated properties.
-				</p>
-				<section class="role notoc">
-					<h5><code>strength</code></h5>
-					<p>
-						Value: <code>none | x-weak | weak | medium (default) | strong | x-strong</code>
-					</p>
 				</section>
-				<section class="role notoc">
-					<h5><code>time</code></h5>
+				<section>
+					<h4><code>break</code></h4>
 					<p>
-						Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc. (s=second, ms=milliseconds)
+						Describes the timing associated with an empty element to
+						control the pausing or other prosodic boundaries between tokens. The
+						use of the <code>break</code>
+						between any pair of tokens is optional. If the
+						element is not present between tokens, the synthesis processor is
+						expected to automatically
+						determine a break based on the linguistic context. The JSON
+						definition is derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.2.3">SSML
+							<code>break</code> element</a> and associated properties.
 					</p>
+					<section class="role notoc">
+						<h5><code>strength</code></h5>
+						<p>
+							Value:
+							<code>none | x-weak | weak | medium (default) | strong | x-strong</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>time</code></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc. (s=second, ms=milliseconds)
+						</p>
 
-					<div class="example">
-						EXAMPLE 7
-						<pre>
+						<div class="example">
+							EXAMPLE 7
+							<pre>
 
 Take a deep breath,&lt;span data-ssml='{"break":{"time":"1s"}}'&gt;&lt;/span&gt; and exhale.
 
 						</pre>
-					</div>
-				</section>
+						</div>
+					</section>
 
-			</section>
-			<section>
-				<h4><code>prosody</code></h4>
-				<p>
-					Permits control of the pitch, speaking rate and volume of the speech
-					output. The object has six properties. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML <code>prosody</code> element</a> and associated properties.
-				</p>
-				<section class="role notoc">
-					<h5><code>pitch</code></h5>
+				</section>
+				<section>
+					<h4><code>prosody</code></h4>
 					<p>
-						Value: <code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code>
+						Permits control of the pitch, speaking rate and volume of the speech
+						output. The object has six properties. The JSON definition is
+						derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML
+							<code>prosody</code> element</a> and associated properties.
 					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>contour</code></h5>
-					<p>
-						Value: <i>string</i> of contour change parameters as defined in the SSML 1.1 recommendation
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>range</code></h5>
-					<p>
-						Value: <i>string</i> range value as defined in the SSML 1.1 recommendation
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>rate</code></h5>
-					<p>Values:
-						<code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code>
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>duration</code></h5>
-					<p>
-						Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>volume</code></h5>
-					<p>Values:
-						<code><i>+/- soundlevel</i>>"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code>
-					</p>
+					<section class="role notoc">
+						<h5><code>pitch</code></h5>
+						<p>
+							Value:
+							<code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>contour</code></h5>
+						<p>
+							Value: <i>string</i> of contour change parameters as defined in
+							the SSML 1.1 recommendation
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>range</code></h5>
+						<p>
+							Value: <i>string</i> range value as defined in the SSML 1.1
+							recommendation
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>rate</code></h5>
+						<p>Values:
+							<code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>duration</code></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>volume</code></h5>
+						<p>Values:
+							<code><i>+/- soundlevel</i>>"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code>
+						</p>
 
-					<div class="example">
-						EXAMPLE 8
-						<pre>
+						<div class="example">
+							EXAMPLE 8
+							<pre>
 
 The tortoise, said (slowly) "
 &lt;span data-ssml='{"prosody":{"rate":"x-slow"}}'&gt;I am almost at the finish line&lt;/span&gt;."
 
 						</pre>
-					</div>
-				</section>
+						</div>
+					</section>
 
-			</section>
-			<section>
-				<h4><code>audio</code></h4>
-				<p>
-					Supports the insertion of recorded audio files in conjunction with synthesized speech output.
-					The element may be empty. If the element is not empty, then the
-					contents should be the text to be spoken if the audio document is not available. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.3.1">SSML <code>audio</code> element</a> and associated properties.
-				</p>
-				<section class="role notoc">
-					<h5><code>src</code></h5>
-					<p>
-						Value: <i>The URI of a document with an appropriate media file.</i>
-					</p>
 				</section>
-				<section class="role notoc">
-					<h5><code>fetchtimeout</code></h5>
+				<section>
+					<h4><code>audio</code></h4>
 					<p>
-						Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.
+						Supports the insertion of recorded audio files in conjunction with
+						synthesized speech output.
+						The element may be empty. If the element is not empty, then the
+						contents should be the text to be spoken if the audio document is
+						not available. The JSON definition is derived from the <a
+							href="https://www.w3.org/TR/speech-synthesis11/#S3.3.1">SSML
+							<code>audio</code> element</a> and associated properties.
 					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>fetchint</code></h5>
-					<p>
-						Value: <code>safe | prefetch</code>
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>maxage</code></h5>
-					<p>
-						Value: <i>string</i>
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>maxstale</code></h5>
-					<p>
-						Value: <i>string</i>
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>clipBegin</code></h5>
-					<p>
-						Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>clipEnd</code></h5>
-					<p>
-						Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>repeatCount</code></h5>
-					<p>
-						Value: <i>integer</i> indicating the number of times to repeat the audio clip.
-					</p>
-				</section>
-				<section class="role notoc">
-					<h5><code>repeatDur</code></h5>
-					<p>
-						Value: <i>string</i> containing a time duration expressed in numeric form as "250ms", "1s", etc.
-					</p>
+					<section class="role notoc">
+						<h5><code>src</code></h5>
+						<p>
+							Value: <i>The URI of a document with an appropriate media
+								file.</i>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>fetchtimeout</code></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>fetchint</code></h5>
+						<p>
+							Value: <code>safe | prefetch</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>maxage</code></h5>
+						<p>
+							Value: <i>string</i>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>maxstale</code></h5>
+						<p>
+							Value: <i>string</i>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>clipBegin</code></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>clipEnd</code></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>repeatCount</code></h5>
+						<p>
+							Value: <i>integer</i> indicating the number of times to repeat the
+							audio clip.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5><code>repeatDur</code></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc.
+						</p>
 
 
-					<div class="example">
-						EXAMPLE 9
-						<pre>
+						<div class="example">
+							EXAMPLE 9
+							<pre>
 
 You will hear a brief chime 
 &lt;span data-ssml='{"audio":{"src":"/audio/chime.ogg"}}'&gt;&lt;/span&gt; when your time is up.
 
 						</pre>
-					</div>
-				</section>
+						</div>
+					</section>
 
+				</section>
 			</section>
 		</section>
-	</section>
 
-	<section>
-		<h2>
-			Technical Considerations
-		</h2>
-		<p>
-			In each approach, implementers must consume <code>data-ssml-</code> attributes, values,
-			and associated text content to produce a valid format required by the target TTS technology.
-			For instance, if targeting the <a href="https://wicg.github.io/speech-api/">Web Speech API</a>,
-			an implementation must produce valid SSML. How to determine the text content of each pronunciation
-			function will challenge implementers of either approach.
-		</p>
-		<p>
-			Following the multi-attribute approach, implementors must find all related attributes
-			and collect them into the proper SSML representation. Implementors must determine
-			how to handle authoring errors such as missing required attributes, conflicting functions,
-			or invalid values.
-		</p>
-		<p>
-			Following the single-attribute approach, implementors must parse JSON string values.
-			No existing W3C recommendation uses JSON strings as attribute values in
-			HTML, but there is evidence of its use for custom applications using the <code>data-</code> attribute. 
-		</p>
-		<p>
-			JSON has
-			potential security concerns, and the impact of
-			malformed JSON strings resulting from errors in authoring is among issues that need wider review.
-			Implementors must determine how to handle malformed JSON as well as incorrect property
-			and value combinations. The use of JSON schemas could help authors and implementors of
-			the single-attribute approach.
-		</p>
-		<p>
-			While a JSON schema is proposed, there are potentially related standards, such as
-			<a href="https://schema.org/SpeakableSpecification">SpeakableSpecification</a>, in development.
-			Converting SSML to a proper JSON schema could
-			cause confusion for implementers and authors. Often such conversions are
-			"...not exactly 1:1 transformation, but very very close". Authoring tools are hypothesized to address
-			these concerns, by
-			eliminating the need for authors to directly write JSON.
-		</p>
-	</section>
+		<section>
+			<h2>
+				Technical Considerations
+			</h2>
+			<p>
+				In each approach, implementers must consume <code>data-ssml-</code>
+				attributes, values,
+				and associated text content to produce a valid format required by the
+				target TTS technology.
+				For instance, if targeting the <a
+					href="https://wicg.github.io/speech-api/">Web Speech API</a>,
+				an implementation must produce valid SSML. How to determine the text
+				content of each pronunciation
+				function will challenge implementers of either approach.
+			</p>
+			<p>
+				Following the multi-attribute approach, implementors must find all
+				related attributes
+				and collect them into the proper SSML representation. Implementors must
+				determine
+				how to handle authoring errors such as missing required attributes,
+				conflicting functions,
+				or invalid values.
+			</p>
+			<p>
+				Following the single-attribute approach, implementors must parse JSON
+				string values.
+				No existing W3C recommendation uses JSON strings as attribute values in
+				HTML, but there is evidence of its use for custom applications using the
+				<code>data-</code> attribute.
+			</p>
+			<p>
+				JSON has
+				potential security concerns, and the impact of
+				malformed JSON strings resulting from errors in authoring is among
+				issues that need wider review.
+				Implementors must determine how to handle malformed JSON as well as
+				incorrect property
+				and value combinations. The use of JSON schemas could help authors and
+				implementors of
+				the single-attribute approach.
+			</p>
+			<p>
+				While a JSON schema is proposed, there are potentially related
+				standards, such as
+				<a
+					href="https://schema.org/SpeakableSpecification">SpeakableSpecification</a>,
+				in development.
+				Converting SSML to a proper JSON schema could
+				cause confusion for implementers and authors. Often such conversions are
+				"...not exactly 1:1 transformation, but very very close". Authoring
+				tools are hypothesized to address
+				these concerns, by
+				eliminating the need for authors to directly write JSON.
+			</p>
+		</section>
 
-	<section class="appendix">
-		<h2>SSML JSON Schema </h2>
-		<p>
-			Please see the <a href="https://w3c.github.io/pronunciation/technical-approach/appendixJSON.html">JSON schema example here.</a>
-		</p>
-	</section>
+		<section class="appendix">
+			<h2>SSML JSON Schema </h2>
+			<p>
+				Please see the <a
+					href="https://w3c.github.io/pronunciation/technical-approach/appendixJSON.html">JSON
+					schema example here.</a>
+			</p>
+		</section>
 
 
 
 
-	<div data-include="../common/acknowledgements.html" data-oninclude="fixIncludes" data-include-replace="true">
-		Acknowledgements placeholder
+		<div data-include="../common/acknowledgements.html"
+			data-oninclude="fixIncludes" data-include-replace="true">
+			Acknowledgements placeholder
 
-	</div>
-</body>
+		</div>
+	</body>
 
 </html>
