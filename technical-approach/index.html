@@ -173,6 +173,45 @@
 
 		<section>
 			<h2>
+				Internationalization Considerations
+			</h2>
+			<p>
+				A web specification that will contain language specific information must
+				consider internationalization (i18n). HTML specifies the
+				<code>lang</code> attribute which sets the language used for any given
+				content. A speech engine can use this to select an appropriate voice for
+				audible presentation. An example of this might include text like "1". Do
+				we say "one" or "<span lang="es">uno</span>?" That would depend on the
+				<code>lang</code> attribute. Text-to-speech (TTS) technology presents
+				the declared language. User preference provides an implicit language
+				when not declared.
+			</p>
+			<p>
+				This specification augments existing language support giving authors the
+				ability to clarify intent. Authors can declare pronunciation within the
+				expressive capabilities of the TTS engine. Including how TTS engines
+				should pronounce abbreviations, proper nouns, and other ambiguities. For
+				example, "Versailles" has two possible pronunciations. It depends on
+				whether the city in question is in Indiana or France. Regardless of the
+				language context.
+			</p>
+			<p>
+				Explicit pronunciations can override the presentation of an entire
+				element. Authors should exercise caution when the visual content and
+				aural presentation differ. Consider:
+			<ol>
+				<li>This can cause confusion for TTS users who attempt to separate the
+					parts from
+					the whole.</li>
+				<li>Searching a document for heard words or phrases may not match
+					content. It
+					would be incumbent of the user agent to allow for this use case.</li>
+			</ol>
+			</p>
+		</section>
+
+		<section>
+			<h2>
 				Multi-attribute Approach for Including SSML in HTML
 			</h2>
 			<p>
