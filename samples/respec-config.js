@@ -74,7 +74,7 @@ var respecConfig = {
 
 
    // WG info
-   group: 83907
+   group: "apa"
 
     // Spec URLs
 
