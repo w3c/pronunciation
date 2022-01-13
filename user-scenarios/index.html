@@ -1,0 +1,617 @@
+<!DOCTYPE html><html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 28.2.1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;margin-top:.25em}
+.dfn-panel ul a[href]{color:#333}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+		
+<title>Pronunciation User Scenarios</title>
+		
+		
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
+dfn{font-weight:700}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+code{color:#c63501}
+th code{color:inherit}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+.toc a,.tof a{text-decoration:none}
+a .figno,a .secno{color:#000}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+.simple th a{color:#fff;padding:3px 5px;text-align:left}
+.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+.simple td{padding:3px 10px;border-top:1px solid #ddd}
+.simple tr:nth-child(even){background:#f0f6ff}
+.section dd>p:first-child{margin-top:0}
+.section dd>p:last-child{margin-bottom:0}
+.section dd{margin-bottom:1em}
+.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+h2,h3,h4,h5,h6{position:relative}
+aside.example .marker>a.self-link{color:inherit}
+:is(h2,h3,h4,h5,h6)>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
+:is(h2,h3,h4,h5,h6)>a.self-link::before{content:"§";display:block}
+@media (max-width:767px){
+dd{margin-left:0}
+:is(h2,h3,h4,h5,h6)>a.self-link{left:auto;top:auto}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+		
+		
+
+	
+<meta name="description" content="The objective of the Pronunciation Task Force is to develop normative specifications and best practices guidance collaborating with other W3C groups as appropriate, to provide for proper pronunciation in HTML content when using text to speech (TTS) synthesis. This document provides various user scenarios highlighting the need for standardization of pronunciation markup, to ensure that consistent and accurate representation of the content. The requirements that come from the user scenarios provide the basis for the technical requirements/specifications.">
+<style>
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "trace": true,
+  "doRDFa": "1.0",
+  "includePermalinks": true,
+  "permalinkEdge": true,
+  "permalinkHide": false,
+  "tocIntroductory": true,
+  "specStatus": "ED",
+  "noRecTrack": true,
+  "shortName": "pronunciation-user-scenarios",
+  "copyrightStart": "2018",
+  "license": "w3c-software",
+  "edDraftURI": "https://w3c.github.io/pronunciation/user-scenarios",
+  "editors": [
+    {
+      "name": "Irfan Ali",
+      "url": "mailto:iali@ets.org",
+      "mailto": "iali@ets.org",
+      "company": "Educational Testing Service",
+      "companyURI": "https://www.ets.org/",
+      "w3cid": 98332
+    },
+    {
+      "name": "Sam Kanta",
+      "mailto": "sam.kanta@thesustainablechange.com",
+      "url": "mailto:sam.kanta@thesustainablechange.com"
+    },
+    {
+      "name": "Christine Loew",
+      "company": "College Board",
+      "mailto": "cloew@collegeboard.org",
+      "url": "mailto:cloew@collegeboard.org"
+    },
+    {
+      "name": "Paul Grenier",
+      "company": "Deque System",
+      "mailto": "paul.grenier@deque.com",
+      "url": "mailto:paul.grenier@deque.com"
+    },
+    {
+      "name": "Roy Ran",
+      "url": "mailto:ran@w3.org",
+      "mailto": "ran@w3.org",
+      "company": "W3C",
+      "companyURI": "http://www.w3.org",
+      "w3cid": 100586
+    }
+  ],
+  "wgPublicList": "public-pronunciation",
+  "group": "apa",
+  "github": "https://github.com/w3c/pronunciation/",
+  "publishISODate": "2022-01-13T00:00:00.000Z",
+  "generatedSubtitle": "Editor's Draft 13 January 2022"
+}</script>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
+	<body class="h-entry informative"><div class="head">
+    <a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
+  </a> <h1 id="title" class="title">Pronunciation User Scenarios</h1>
+    
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2022-01-13">13 January 2022</time></p>
+    <details open="">
+      <summary>More details about this document</summary>
+      <dl>
+        <dt>This version:</dt><dd>
+                <a class="u-url" href="https://w3c.github.io/pronunciation/user-scenarios">https://w3c.github.io/pronunciation/user-scenarios</a>
+              </dd><dt>Latest published version:</dt><dd>
+                <a href="https://www.w3.org/TR/pronunciation-user-scenarios/">https://www.w3.org/TR/pronunciation-user-scenarios/</a>
+              </dd>
+        <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/pronunciation/user-scenarios">https://w3c.github.io/pronunciation/user-scenarios</a></dd>
+        <dt>History:</dt><dd>
+      <a href="https://www.w3.org/standards/history/pronunciation-user-scenarios">https://www.w3.org/standards/history/pronunciation-user-scenarios</a>
+    </dd><dd>
+        <a href="https://github.com/w3c/pronunciation/commits/">Commit history</a>
+      </dd>
+        
+        
+        
+        
+        
+        <dt>Editors:</dt>
+        <dd class="editor p-author h-card vcard" data-editor-id="98332">
+    <a class="ed_mailto u-email email p-name" href="mailto:iali@ets.org">Irfan Ali</a> (<span class="p-org org h-org">Educational Testing Service</span>)
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="ed_mailto u-email email p-name" href="mailto:sam.kanta@thesustainablechange.com">Sam Kanta</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="ed_mailto u-email email p-name" href="mailto:cloew@collegeboard.org">Christine Loew</a> (<span class="p-org org h-org">College Board</span>)
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="ed_mailto u-email email p-name" href="mailto:paul.grenier@deque.com">Paul Grenier</a> (<span class="p-org org h-org">Deque System</span>)
+  </dd><dd class="editor p-author h-card vcard" data-editor-id="100586">
+    <a class="ed_mailto u-email email p-name" href="mailto:ran@w3.org">Roy Ran</a> (<span class="p-org org h-org">W3C</span>)
+  </dd>
+        
+        
+        <dt>Feedback:</dt><dd>
+        <a href="https://github.com/w3c/pronunciation/">GitHub w3c/pronunciation</a>
+        (<a href="https://github.com/w3c/pronunciation/pulls/">pull requests</a>,
+        <a href="https://github.com/w3c/pronunciation/issues/new/choose">new issue</a>,
+        <a href="https://github.com/w3c/pronunciation/issues/">open issues</a>)
+      </dd><dd><a href="mailto:public-pronunciation@w3.org?subject=%5Bpronunciation-user-scenarios%5D%20YOUR%20TOPIC%20HERE">public-pronunciation@w3.org</a> with subject line <kbd>[pronunciation-user-scenarios] <em>… message topic …</em></kbd> (<a rel="discussion" href="https://lists.w3.org/Archives/Public/public-pronunciation">archives</a>)</dd>
+        
+        
+      </dl>
+    </details>
+    
+    
+    <p class="copyright">
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+    ©
+    2018-2022
+    
+    <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+    <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>,
+    <a href="https://ev.buaa.edu.cn/">Beihang</a>). W3C
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+    <a rel="license" href="https://www.w3.org/Consortium/Legal/2002/copyright-software-20021231" title="W3C Software Notice and License">W3C Software</a> rules apply.
+  </p>
+    <hr title="Separator for header">
+  </div>
+
+		<section id="abstract" class="introductory"><h2 id="abstract-0">Abstract<a class="self-link" href="#abstract" aria-label="Permalink for Section"></a></h2>
+            
+            
+			<p>The objective of the Pronunciation Task Force is to develop normative specifications and best practices guidance collaborating with other <abbr title="World Wide Web Consortium">W3C</abbr> groups as appropriate, to provide for proper pronunciation in HTML content when using text to speech (TTS) synthesis. This document provides various user scenarios highlighting the need for standardization of pronunciation markup, to ensure that consistent and accurate representation of the content. The requirements that come from the user scenarios provide the basis for the technical requirements/specifications. </p>
+		</section>
+
+		<section id="sotd" class="introductory"><h2 id="status-of-this-document">Status of This Document<a class="self-link" href="#sotd" aria-label="Permalink for Section"></a></h2><p><em>This section describes the status of this
+      document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr>
+      publications and the latest revision of this technical report can be found
+      in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at
+      https://www.w3.org/TR/.</em></p><p>
+    This document was published by the <a href="https://www.w3.org/groups/wg/apa">Accessible Platform Architectures Working Group</a> as
+    an Editor's Draft. 
+  </p><p>Publication as an Editor's Draft does not
+  imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. </p><p>
+    This is a draft document and may be updated, replaced or obsoleted by other
+    documents at any time. It is inappropriate to cite this document as other
+    than work in progress.
+    
+  </p><p>
+    
+        This document was produced by a group
+        operating under the
+        <a href="https://www.w3.org/Consortium/Patent-Policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent
+          Policy</a>.
+      
+    
+                <abbr title="World Wide Web Consortium">W3C</abbr> maintains a
+                <a rel="disclosure" href="https://www.w3.org/groups/wg/apa/ipr">public list of any patent disclosures</a>
+          made in connection with the deliverables of
+          the group; that page also includes
+          instructions for disclosing a patent. An individual who has actual
+          knowledge of a patent which the individual believes contains
+          <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential Claim(s)</a>
+          must disclose the information in accordance with
+          <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+        
+  </p><p>
+                  This document is governed by the
+                  <a id="w3c_process_revision" href="https://www.w3.org/2021/Process-20211102/">2 November 2021 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#user-scenarios"><bdi class="secno">2. </bdi>User Scenarios</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#end-consumer-of-tts"><bdi class="secno">2.1 </bdi>End-Consumer of TTS</a></li><li class="tocline"><a class="tocxref" href="#digital-content-management-for-tts"><bdi class="secno">2.2 </bdi>Digital Content Management for TTS</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#educational-assessment"><bdi class="secno">2.2.1 </bdi>Educational Assessment</a></li><li class="tocline"><a class="tocxref" href="#academic-and-linguistic-practitioners"><bdi class="secno">2.2.2 </bdi>Academic and Linguistic Practitioners </a></li></ol></li><li class="tocline"><a class="tocxref" href="#software-application-development"><bdi class="secno">2.3 </bdi>Software Application Development</a></li></ol></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgments</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ack_group"><bdi class="secno">A.1 </bdi>Participants active in the Pronunciation TF at the time of publication</a></li></ol></li></ol></nav>
+
+		<section class="informative" id="introduction">
+
+			<h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></h2><p><em>This section is non-normative.</em></p>
+     
+            <p>As part of the Accessible Platform Architectures (APA) Working Group, the Pronunciation Task Force (PTF) is a collaboration of subject matter experts working to identify and specify the optimal approach which can deliver reliably accurate pronunciation across browser and operating environments. With the introduction of the Kurzweil reading aid in 1976, to the more sophisticated synthetic speech currently used to assist communication as reading aids for the visually impaired and those with reading disabilities, the technology has multiple applications in education, communication, entertainment, etc. From helping to teach spelling and pronunciation in different languages, Text-to-Speech (TTS) has become a vital technology for providing access to digital content on the web and through mobile devices.
+			</p>
+			<p>The challenges that TTS presents include but are not limited to: the inability to accommodate regional variation and presentation of every phoneme present throughout the world; the incorrect determination by TTS of the pronunciation of content in context, and; the current inability to influence other pronunciation characteristics such as prosody and emphasis.</p>
+			
+			
+
+		</section>
+
+		<section id="user-scenarios">
+			<h2 id="x2-user-scenarios"><bdi class="secno">2. </bdi>User Scenarios<a class="self-link" href="#user-scenarios" aria-label="Permalink for Section 2."></a></h2>
+			<p>The purpose of developing user scenarios is to facilitate discussion and further requirements definition for pronunciation standards developed within the PTF prior to review of the APA. There are numerous interpretations of what form user scenarios adopt. Within the user experience research (UXR) body of practice, a user scenario is a written narrative related to the use of a service from the perspective of a user or user group. Importantly, the context of use is emphasized as is the desired outcome of use. There are potentially thousands of user scenarios for a technology such as TTS, however, the focus for the PTF is on the core scenarios that relate to the kinds of users who will engage with TTS.</p>
+			<p>User scenarios, like Personas, represent a composite of real-world experiences. In the case of the PTF, the scenarios were derived from interviews of people who were end-consumers of TTS, as well as submitted narratives and industry examples from practitioners. There are several formats of scenarios. Several are general goal or task-oriented scenarios. Others elaborate on richer context, for example, educational assessment.</p>
+			<p>The following user scenarios are organized on the three perspectives of TTS use derived from analysis of the qualitative data collected from the discovery work:</p>
+			<ul>
+				<li><strong>End-Consumers of TTS: </strong>Encompasses those with a visual disability or other need to have TTS operational when using assistive technologies (ATs).</li>
+				<li><strong>Digital Content Managers: </strong>Addresses activities related to those responsible for producing content that needs to be accessible to ATs and <abbr title="World Wide Web Consortium">W3C</abbr>-WAI Guidelines.</li>
+				<li><strong>Software Engineers: </strong>Includes developers and architects required to put TTS into an application or service.</li>
+			</ul>
+			<section id="end-consumer-of-tts">
+				<h3 id="x2-1-end-consumer-of-tts"><bdi class="secno">2.1 </bdi>End-Consumer of TTS<a class="self-link" href="#end-consumer-of-tts" aria-label="Permalink for Section 2.1"></a></h3>
+				<p>Ultimately, the quality and variation of TTS rendering by assistive technologies vary widely according to a user's context. The following user scenarios reinforce the necessity for accurate pronunciation from the perspective of those who consume digitally generated content.</p>
+				<ul>
+					<li>A.	As a traveler who uses assistive technology (AT) with TTS to help navigate through websites, I need to hear arrival and destination codes pronounced accurately so I can select the desired travel itinerary. For example, a user with a visual impairment attempts to book a flight to Ottawa, Canada and so goes to a travel website. The user already knows the airport code and enters "YOW". The site produces the result in a drop-down list as "Ottawa, CA" but the AT does not pronounce the text accurately to help the user make the correct association between their data entry and the list item. </li>
+					<li>B.	As a test taker (tester) with a visual impairment who may use assistive technology to access the test content with speech software, screen reader or refreshable braille device, I want the content to be presented as intended, with accurate pronunciation and articulation, so that my assessment accurately reflects my knowledge of the content.</li>
+					<li>C.	As a student/learner with auditory and cognitive processing issues, it is difficult to distinguish sounds, inflections, and variations in pronunciation as rendered through synthetic voice, such as text-to-speech or screen reader technologies. Consistent and accurate pronunciation whether human-provided, external, or embedded is needed to support working executive processing, auditory processing and memory that facilitates comprehension in literacy and numeracy for learning and for assessments.</li>
+					<li>D.	As an English Learner (EL) or a visually impaired early learner using speech synthesis for reading comprehension that includes decoding words from letters as part of the learning construct (intent of measurement), pronunciation accuracy is vital to successful comprehension, as it allows the learner to distinguish sounds at the sentence, word, syllable, and phoneme level.</li>
+				</ul>
+			
+			</section>
+			<section id="digital-content-management-for-tts">
+				<h3 id="x2-2-digital-content-management-for-tts"><bdi class="secno">2.2 </bdi>Digital Content Management for TTS<a class="self-link" href="#digital-content-management-for-tts" aria-label="Permalink for Section 2.2"></a></h3>
+				<p>The advent of graphical user interfaces (GUIs) for the management and editing of text content has given rise to content creators not requiring technical expertise beyond the ability to operate a text editing application such as Microsoft Word. The following scenario summarizes the general use, accompanied by a hypothetical application. </p>
+				<ul>
+					<li>A.	As a content creator, I want to create content that can readily be delivered through assistive technology, can convey the correct meaning, and ensure that screen readers render the right pronunciation based on the surrounding context. </li>
+					<li>B.	As a content producer for a global commercial site that is inclusive, I need to be able to provide accessible culture-specific content for different geographic regions.</li>
+				</ul>
+
+				<section id="educational-assessment">
+					<h4 id="x2-2-1-educational-assessment"><bdi class="secno">2.2.1 </bdi>Educational Assessment<a class="self-link" href="#educational-assessment" aria-label="Permalink for Section 2.2.1"></a></h4>
+					<p>In the educational assessment field, providing accurate and concise pronunciation for students with auditory accommodations, such as text-to-speech (TTS) or students with screen readers, is vital for ensuring content validity and alignment with the intended construct, which objectively measures a test takers knowledge and skills. For test administrators/educators, pronunciations must be consistent across instruction and assessment in order to avoid test bias or impact effects for students. Some additional requirements for the test administrators, include, but are not limited to, such scenarios:</p>
+					
+					<ul>
+						<li>A.	As a test administrator, I want to ensure that students with the read-aloud accommodation, who are using assistive technology or speech synthesis as an alternative to a human reader, have the same speech quality (e.g., intonation, expression, pronunciation, and pace, etc.) as a spoken language.</li>
+						<li>B.	As a math educator, I want to ensure that speech accuracy with mathematical expressions, including numbers, fractions, and operations have accurate pronunciation for those who rely on TTS. Some mathematical expressions require special pronunciations to ensure accurate interpretation while maintaining test validity and construct. Specific examples include:
+							<ul>
+								<li>Mathematical formulas written in simple text with special formatting should convey the correct meaning of the expression to identify changes from normal text to super- or to sub-script text. For example, without the proper formatting, the equation:<code>a<sup>3</sup>-b<sup>3</sup>=(a-b)(a<sup>2</sup>+ab+b<sup>2</sup>)</code> may incorrectly render through some technologies and applications as a3-b3=(a-b)(a2+ab+b2).</li>
+								<li>Distinctions made in writing are often not made explicit in speech; For example, “fx” may be interpreted as fx, f(x), fx, F X, F X. The distinction depends on the context; requiring the author to provide consistent and accurate semantic markup.</li>
+								<li>For math equations with Greek letters, it is important that the speech synthesizer be able to distinguish the phonetic differences between them, whether in the natural language or phonetic equivalents. For example, ε (epsilon) υ (upsilon) φ (phi) χ (chi) ξ(xi).</li>
+							</ul>
+
+						</li>
+						<li>C.	As a test administrator/educator, pronunciations must be consistent across instruction and assessment, in order to avoid test bias and pronunciation effects on performance for students with disabilities (SWD) in comparison to students without disabilities (SWOD). Examples include:
+							<ul>
+								<li>If a test question is measuring rhyming of words or sounds of words, the speech synthesis should not read aloud the words, but rather spell out the words in the answer options.</li>
+								<li>If a test question is measuring spelling and the student needs to consider spelling correctness/incorrectness, the speech synthesis should not read aloud the misspelt words, especially for words, such as:
+									<ul>
+										<li><strong>Heteronyms/homographs</strong>: same spelling, different pronunciation, different meanings, such as lead (to go in front of) or lead (a metal); wind (to follow a course that is not straight) or wind (a gust of air); bass (low, deep sound) or bass (a type of fish), etc.</li>
+										<li><strong>Homophone</strong>: words that sound alike, such as, to/two/too; there/their/they're; pray/prey; etc.</li>
+										<li><strong>Homonyms</strong>: multiple meaning words, such as scale (measure) or scale (climb, mount); fair (reasonable) or fair (carnival); suit (outfit) or suit (harmonize); etc.</li>
+									</ul>
+
+								</li>
+							</ul>
+
+						</li>
+					</ul>
+					
+				</section>
+				<section id="academic-and-linguistic-practitioners">
+					<h4 id="x2-2-2-academic-and-linguistic-practitioners"><bdi class="secno">2.2.2 </bdi>Academic and Linguistic Practitioners <a class="self-link" href="#academic-and-linguistic-practitioners" aria-label="Permalink for Section 2.2.2"></a></h4>
+					<p>The extension of content management in TTS is one as a means of encoding and preserving spoken text for academic analyses; irrespective of discipline, subject domain, or research methodology.</p>
+					<ul>
+						<li>A.	As a linguist, I want to represent all the pronunciation variations of a given word in any language, for future analyses.</li>
+						<li>B.	As a speech language pathologist or speech therapists, I want TTS functionality to include components of speech and language that include dialectal and individual differences in pronunciation; identify differences in intonation, syntax, and semantics, and; allow for enhanced comprehension, language processing and support phonological awareness.</li>
+					</ul>
+				</section>
+
+			</section>
+			<section id="software-application-development">
+				<h3 id="x2-3-software-application-development"><bdi class="secno">2.3 </bdi>Software Application Development<a class="self-link" href="#software-application-development" aria-label="Permalink for Section 2.3"></a></h3>
+				<p>Technical standards for software development assist organizations and individuals to provide accessible experiences for users with disabilities. The final user scenarios in this document are considered from the perspective of those who design and develop software. </p>
+				<ul>
+					<li>A.	As a Product Owner for a web content management system (CMS), I want the next software product release to have the capability of pronouncing speech "just like Alexa can".</li>
+					<li>B.	As a client-side user interface developer, I need a way to render text content, so it is spoken accurately with assistive technologies. </li>
+				</ul>
+			</section>
+
+
+			
+		</section>
+
+		
+
+
+
+		<section class="appendix informative section" id="acknowledgements">
+	<h2 id="a-acknowledgments"><bdi class="secno">A. </bdi>Acknowledgments<a class="self-link" href="#acknowledgements" aria-label="Permalink for Appendix A."></a></h2><p><em>This section is non-normative.</em></p>
+	<p>The following people contributed to the development of this document.</p>
+	<section class="section" id="ack_group">
+		<h3 id="a-1-participants-active-in-the-pronunciation-tf-at-the-time-of-publication"><bdi class="secno">A.1 </bdi>Participants active in the Pronunciation TF at the time of publication<a class="self-link" href="#ack_group" aria-label="Permalink for Appendix A.1"></a></h3>
+		<ul>
+			<li>Irfan Ali (Educational Testing Service)</li>
+			<li>Michael Cooper (<abbr title="World Wide Web Consortium">W3C</abbr>/<abbr title="Massachusetts Institute of Technology">MIT</abbr>)</li>
+			<li>Dee Dyer (Educational Testing Service)</li>
+			<li>Markku Hakkinen (Educational Testing Service)</li>
+			<li>Christine Loew (Invited Expert)</li>
+			<li>Steve Noble (Pearson plc)</li>
+			<li>Roy Ran (<abbr title="World Wide Web Consortium">W3C</abbr>/Beihang)</li>
+			<li>Janina Sajka (<abbr title="World Wide Web Consortium">W3C</abbr> invited expert)</li>
+			<li>John Foliot (Invited Expert)</li>
+			<li>Paul Grenier (Invited Expert)</li>
+			<li>Sam Kanta (Invited Expert)</li>
+			<li>Neil Soiffer (Invited Expert)</li>
+			<li>Léonie, Watson (TetraLogical)</li>
+			<li>Tom Babinszki (UnitedHealth Group)</li>
+			<li>Paul Bohman (Deque Systems, Inc.)</li>
+			<li>Becky Gibson (<abbr title="World Wide Web Consortium">W3C</abbr> Invited Expert)</li>
+			<li>Alan Reeve (Invited Expert)</li>
+
+		</ul>
+  </section>
+</section>
+
+
+
+
+	
+
+<p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
