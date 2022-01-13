@@ -1,0 +1,1662 @@
+<!DOCTYPE html><html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 28.2.1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+.issue-label{text-transform:initial}
+.warning>p:first-child{margin-top:0}
+.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
+span.warning{padding:.1em .5em .15em}
+.issue.closed span.issue-number{text-decoration:line-through}
+.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
+.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
+li.task-list-item{list-style:none}
+input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
+.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}
+</style>
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;margin-top:.25em}
+.dfn-panel ul a[href]{color:#333}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+		
+<title>Specification for Spoken Presentation in HTML</title>
+		
+		
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
+dfn{font-weight:700}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+code{color:#c63501}
+th code{color:inherit}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+.toc a,.tof a{text-decoration:none}
+a .figno,a .secno{color:#000}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+.simple th a{color:#fff;padding:3px 5px;text-align:left}
+.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+.simple td{padding:3px 10px;border-top:1px solid #ddd}
+.simple tr:nth-child(even){background:#f0f6ff}
+.section dd>p:first-child{margin-top:0}
+.section dd>p:last-child{margin-bottom:0}
+.section dd{margin-bottom:1em}
+.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+h2,h3,h4,h5,h6{position:relative}
+aside.example .marker>a.self-link{color:inherit}
+:is(h2,h3,h4,h5,h6)>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
+:is(h2,h3,h4,h5,h6)>a.self-link::before{content:"§";display:block}
+@media (max-width:767px){
+dd{margin-left:0}
+:is(h2,h3,h4,h5,h6)>a.self-link{left:auto;top:auto}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+
+		
+	
+<meta name="description" content="Accurate pronunciation by text-to-speech (TTS) synthesis is very
+				important in many
+				contexts, and critical in education, publishing, communication,
+				entertainment,
+				among other domains. TTS has become an important technology for
+				providing access to digital content on the web. Yet there is no way to
+				markup content today that will correctly present TTS generated output
+				across commonly used TTS engines and operating environments.">
+<style>
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
+.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
+.hljs-literal{color:#0b76c5}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "trace": true,
+  "doRDFa": "1.0",
+  "includePermalinks": true,
+  "permalinkEdge": true,
+  "permalinkHide": false,
+  "tocIntroductory": true,
+  "specStatus": "ED",
+  "noRecTrack": false,
+  "shortName": "spoken-html",
+  "copyrightStart": "2021",
+  "license": "w3c-software",
+  "edDraftURI": "https://w3c.github.io/pronunciation/technical-approach",
+  "editors": [
+    {
+      "name": "Irfan Ali",
+      "url": "mailto:iali@ets.org",
+      "mailto": "iali@ets.org",
+      "company": "Educational Testing Service",
+      "companyURI": "https://www.ets.org/",
+      "w3cid": 98332
+    },
+    {
+      "name": "Markku Hakkinen",
+      "url": "mailto:mhakkinen@ets.org",
+      "mailto": "mhakkinen@ets.org",
+      "company": "Educational Testing Service",
+      "companyURI": "https://www.ets.org/",
+      "w3cid": 35712
+    },
+    {
+      "name": "Paul Grenier",
+      "url": "mailto:pgrenier@gmail.com",
+      "mailto": "pgrenier@gmail.com",
+      "company": "Invited Expert",
+      "w3cid": 111500
+    },
+    {
+      "name": "Ruoxi Ran",
+      "url": "mailto:ran@w3.org",
+      "mailto": "ran@w3.org",
+      "company": "W3C",
+      "companyURI": "http://www.w3.org",
+      "w3cid": 100586
+    }
+  ],
+  "maxTocLevel": 3,
+  "group": "apa",
+  "github": "https://github.com/w3c/pronunciation/",
+  "publishISODate": "2022-01-13T00:00:00.000Z",
+  "generatedSubtitle": "Editor's Draft 13 January 2022"
+}</script>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
+
+	<body class="h-entry informative"><div class="head">
+    <a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
+  </a> <h1 id="title" class="title">Specification for Spoken Presentation in HTML</h1>
+    
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2022-01-13">13 January 2022</time></p>
+    <details open="">
+      <summary>More details about this document</summary>
+      <dl>
+        <dt>This version:</dt><dd>
+                <a class="u-url" href="https://w3c.github.io/pronunciation/technical-approach">https://w3c.github.io/pronunciation/technical-approach</a>
+              </dd><dt>Latest published version:</dt><dd>
+                <a href="https://www.w3.org/TR/spoken-html/">https://www.w3.org/TR/spoken-html/</a>
+              </dd>
+        <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/pronunciation/technical-approach">https://w3c.github.io/pronunciation/technical-approach</a></dd>
+        <dt>History:</dt><dd>
+      <a href="https://www.w3.org/standards/history/spoken-html">https://www.w3.org/standards/history/spoken-html</a>
+    </dd><dd>
+        <a href="https://github.com/w3c/pronunciation/commits/">Commit history</a>
+      </dd>
+        
+        
+        
+        
+        
+        <dt>Editors:</dt>
+        <dd class="editor p-author h-card vcard" data-editor-id="98332">
+    <a class="ed_mailto u-email email p-name" href="mailto:iali@ets.org">Irfan Ali</a> (<span class="p-org org h-org">Educational Testing Service</span>)
+  </dd><dd class="editor p-author h-card vcard" data-editor-id="35712">
+    <a class="ed_mailto u-email email p-name" href="mailto:mhakkinen@ets.org">Markku Hakkinen</a> (<span class="p-org org h-org">Educational Testing Service</span>)
+  </dd><dd class="editor p-author h-card vcard" data-editor-id="111500">
+    <a class="ed_mailto u-email email p-name" href="mailto:pgrenier@gmail.com">Paul Grenier</a> (<span class="p-org org h-org">Invited Expert</span>)
+  </dd><dd class="editor p-author h-card vcard" data-editor-id="100586">
+    <a class="ed_mailto u-email email p-name" href="mailto:ran@w3.org">Ruoxi Ran</a> (<span class="p-org org h-org">W3C</span>)
+  </dd>
+        
+        
+        <dt>Feedback:</dt><dd>
+        <a href="https://github.com/w3c/pronunciation/">GitHub w3c/pronunciation</a>
+        (<a href="https://github.com/w3c/pronunciation/pulls/">pull requests</a>,
+        <a href="https://github.com/w3c/pronunciation/issues/new/choose">new issue</a>,
+        <a href="https://github.com/w3c/pronunciation/issues/">open issues</a>)
+      </dd>
+        
+        
+      </dl>
+    </details>
+    
+    
+    <p class="copyright">
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+    ©
+    2021-2022
+    
+    <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+    <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>,
+    <a href="https://ev.buaa.edu.cn/">Beihang</a>). W3C
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+    <a rel="license" href="https://www.w3.org/Consortium/Legal/2002/copyright-software-20021231" title="W3C Software Notice and License">W3C Software</a> rules apply.
+  </p>
+    <hr title="Separator for header">
+  </div>
+		<section id="abstract" class="introductory"><h2 id="abstract-0">Abstract<a class="self-link" href="#abstract" aria-label="Permalink for Section"></a></h2>
+			<p>
+				Accurate pronunciation by text-to-speech (TTS) synthesis is very
+				important in many
+				contexts, and critical in education, publishing, communication,
+				entertainment,
+				among other domains. TTS has become an important technology for
+				providing access to digital content on the web. Yet there is no way to
+				markup content today that will correctly present TTS generated output
+				across commonly used TTS engines and operating environments.
+			</p>
+
+			<p>
+				We identify two markup approaches in this publication to give content
+				authors reliable
+				pronunciation of HTML content regardless of the operating environment
+				(or assistive technology) users might choose to use. Each approach has
+				been demonstrated to yield consistent results. We seek feedback from
+				authors and implementors to help determine which approach should be
+				advanced to normative recommendation status by <abbr title="World Wide Web Consortium">W3C</abbr>.
+			</p>
+			<p>
+				We base each candidate approach on a subset of <a href="https://www.w3.org/TR/speech-synthesis/">Speech Synthesis Markup
+					Language (SSML)</a>. Our selected
+				subset is carefully chosen to bring consistency and predictability to
+				spoken presentation across a full range of assistive technologies and
+				operating environments. Both technical approaches described in this
+				publication carefully avoid the impasse that has prevented SSML from
+				becoming a native HTML technology and should, therefore, be generally
+				applicable. Either approach described here satisfies our requirements
+				for assistive technologies and will be useful to voice
+				assistants which consume and present HTML content in spoken form.
+				We seek feedback on which approach would prove most implementable across
+				all applications of spoken presentation of web content.
+			</p>
+		</section>
+
+		<section id="sotd" class="introductory"><h2 id="status-of-this-document">Status of This Document<a class="self-link" href="#sotd" aria-label="Permalink for Section"></a></h2><p><em>This section describes the status of this
+      document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr>
+      publications and the latest revision of this technical report can be found
+      in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at
+      https://www.w3.org/TR/.</em></p><p>
+    This document was published by the <a href="https://www.w3.org/groups/wg/apa">Accessible Platform Architectures Working Group</a> as
+    an Editor's Draft. 
+  </p><p>Publication as an Editor's Draft does not
+  imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. </p><p>
+    This is a draft document and may be updated, replaced or obsoleted by other
+    documents at any time. It is inappropriate to cite this document as other
+    than work in progress.
+    
+  </p><p>
+    
+        This document was produced by a group
+        operating under the
+        <a href="https://www.w3.org/Consortium/Patent-Policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent
+          Policy</a>.
+      
+    
+                <abbr title="World Wide Web Consortium">W3C</abbr> maintains a
+                <a rel="disclosure" href="https://www.w3.org/groups/wg/apa/ipr">public list of any patent disclosures</a>
+          made in connection with the deliverables of
+          the group; that page also includes
+          instructions for disclosing a patent. An individual who has actual
+          knowledge of a patent which the individual believes contains
+          <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential Claim(s)</a>
+          must disclose the information in accordance with
+          <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+        
+  </p><p>
+                  This document is governed by the
+                  <a id="w3c_process_revision" href="https://www.w3.org/2021/Process-20211102/">2 November 2021 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#internationalization-considerations"><bdi class="secno">2. </bdi>
+				Internationalization Considerations
+			</a></li><li class="tocline"><a class="tocxref" href="#multi-attribute-approach-for-including-ssml-in-html"><bdi class="secno">3. </bdi>
+				Multi-attribute Approach for Including SSML in HTML
+			</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#the-data-ssml-multi-attribute-set"><bdi class="secno">3.1 </bdi>The <code>data-ssml-*</code> Multi-Attribute Set</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#data-ssml-say-as"><bdi class="secno">3.1.1 </bdi><code>data-ssml-say-as(-*)</code></a></li><li class="tocline"><a class="tocxref" href="#data-ssml-phoneme"><bdi class="secno">3.1.2 </bdi><code>data-ssml-phoneme-*</code></a></li><li class="tocline"><a class="tocxref" href="#data-ssml-sub-alias"><bdi class="secno">3.1.3 </bdi><code>data-ssml-sub-alias</code></a></li><li class="tocline"><a class="tocxref" href="#data-ssml-voice"><bdi class="secno">3.1.4 </bdi><code>data-ssml-voice-*</code></a></li><li class="tocline"><a class="tocxref" href="#data-ssml-emphasis-level"><bdi class="secno">3.1.5 </bdi><code>data-ssml-emphasis-level</code></a></li><li class="tocline"><a class="tocxref" href="#data-ssml-break"><bdi class="secno">3.1.6 </bdi><code>data-ssml-break-*</code></a></li><li class="tocline"><a class="tocxref" href="#data-ssml-prosody"><bdi class="secno">3.1.7 </bdi><code>data-ssml-prosody-*</code></a></li><li class="tocline"><a class="tocxref" href="#data-ssml-audio"><bdi class="secno">3.1.8 </bdi><code>data-ssml-audio-*</code></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#single-attribute-approach-for-including-ssml-in-html"><bdi class="secno">4. </bdi>
+				Single-attribute Approach for Including SSML in HTML
+			</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#data-ssml-attribute-properties-and-values"><bdi class="secno">4.1 </bdi><code>data-ssml</code> Attribute, Properties and Values</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#say-as"><bdi class="secno">4.1.1 </bdi><code>say-as</code></a></li><li class="tocline"><a class="tocxref" href="#phoneme"><bdi class="secno">4.1.2 </bdi><code>phoneme</code></a></li><li class="tocline"><a class="tocxref" href="#sub"><bdi class="secno">4.1.3 </bdi><code>sub</code></a></li><li class="tocline"><a class="tocxref" href="#voice"><bdi class="secno">4.1.4 </bdi><code>voice</code></a></li><li class="tocline"><a class="tocxref" href="#emphasis"><bdi class="secno">4.1.5 </bdi><code>emphasis</code></a></li><li class="tocline"><a class="tocxref" href="#break"><bdi class="secno">4.1.6 </bdi><code>break</code></a></li><li class="tocline"><a class="tocxref" href="#prosody"><bdi class="secno">4.1.7 </bdi><code>prosody</code></a></li><li class="tocline"><a class="tocxref" href="#audio"><bdi class="secno">4.1.8 </bdi><code>audio</code></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#technical-considerations"><bdi class="secno">5. </bdi>
+				Technical Considerations
+			</a></li><li class="tocline"><a class="tocxref" href="#ssml-json-schema"><bdi class="secno">A. </bdi>SSML JSON Schema </a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">B. </bdi>Acknowledgments</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ack_group"><bdi class="secno">B.1 </bdi>Participants active in the Pronunciation TF at the time of publication</a></li></ol></li></ol></nav>
+
+		<section class="informative" id="introduction">
+			<h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></h2><p><em>This section is non-normative.</em></p>
+
+			<p>In this First Public Working Draft (FPWD) publication we define two
+				independent approaches for achieving accurate, consistent,
+				and reliable pronunciation by Text-to-Speech (TTS) engines across all
+				operating environments, regardless of any assistive technology also
+				utilized. We are publishing two approaches now in order to obtain
+				feedback from the wider community on which of these two approaches is
+				deemed to be preferable—and why.
+			</p>
+
+			<p>
+				Text-to-speech is necessary for people with disabilities and useful for
+				all. Accurate pronunciation is
+				essential in many situations such as in education and educational
+				assessment (testing students). Many computers and mobile
+				devices today have built-in TTS functionality that is also commonly used
+				by people without disabilities in
+				different situations, such as when driving or interacting with personal
+				data assistants.
+			</p>
+
+			<p>
+				The <abbr title="World Wide Web Consortium">W3C</abbr>'s Web Content Accessibility Guidelines (WCAG) emphasize the
+				importance of correct pronunciation.
+			</p><blockquote>
+				For example, in the English language heteronyms are words that are
+				spelled the same but have different pronunciations and meanings, such as
+				the words desert (abandon) and desert (arid region). …
+				Additionally, in some languages certain characters can be
+				pronounced in different ways. In Japanese, for example, there are
+				characters like Han characters(Kanji) that have multiple pronunciations.
+				… When read incorrectly, the content will not make sense to
+				users.
+				<cite>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/pronunciation.html">Understanding
+						Success Criterion 3.1.6: Pronunciation</a>
+				</cite>
+			</blockquote>
+			While WCAG provides numerous workarounds for indicating correct
+			pronunciation, it is nevertheless forced to categorize Success Criterion
+			3.1.6 as AAA because it cannot point to a reliable technological solution.
+			<p></p>
+
+			<p>
+				The <abbr title="World Wide Web Consortium">W3C</abbr> has two mature pronunciation related specifications:
+			</p>
+
+			<ul>
+				<li><a href="https://www.w3.org/TR/speech-synthesis11/">Speech Synthesis
+						Markup Language</a> (SSML)</li>
+				<li><a href="https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation
+						Lexicon Specification</a> (PLS)</li>
+			</ul>
+
+			<p>
+				These have long provided technical methods to allow authors to embed
+				pronunciation (and related spoken presentation) markup in their HTML
+				document, but SSML's approach has not been adopted for several technical
+				reasons. Additionally, feedback from various browser and assistive
+				technology vendors has
+				indicated that this is not a likely or viable approach. In our
+				specification therefore, we do not attempt to reinvent this wheel, but
+				rather to bridge the long-standing technical barriers that have
+				prevented use of SSML in HTML. Our approaches rely directly on both
+				specifications, wrapping them as attributes which will be accepted by
+				HTML validation.
+			</p>
+			<p>
+				As noted we have identified two candidate approaches:
+			</p>
+			<ul>
+				<li>
+					<b>multi-attribute</b> — uses one or more element attributes
+					with string values to convey each SSML function and property.
+				</li>
+				<li>
+					<b>single-attribute</b> — uses a single element attribute
+					with a <a href="https://tools.ietf.org/html/rfc4627">JavaScript object
+						notation</a> (JSON) string to convey all SSML functions and
+					properties.
+				</li>
+			</ul>
+
+			<p>
+				The task force encourages implementors and authors to provide
+				feedback about these approaches. Once analyzed, the feedback will help
+				determine which
+				approach will become the final normative <abbr title="World Wide Web Consortium">W3C</abbr> recommendation.
+			</p>
+			<p>
+				The following sections include example code for each approach.
+				Please refer to the <a href="https://w3c.github.io/pronunciation/samples/">sample content</a>
+				examples,
+				complete with audio files, for comparison with existing TTS technology.
+			</p>
+			<div class="note" id="issue-container-generatedID"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="3"><span>Editor's note</span></div><div class="">
+				<div>
+					Using the <code>data-</code> prefix to name attributes is not the
+					editors' recommendation or preference. Rather, it is the canonical
+					approach for developing enhancements to HTML as defined in the <a href="https://html.spec.whatwg.org/#embedding-custom-non-visible-data-with-the-data-*-attributes">HTML
+						5.x specification</a>.
+					This standards-based development approach enables experimental
+					implementations which, in turn, will inform the further development of
+					this
+					specification.
+				</div>
+			</div></div>
+			<p>
+				For a more in-depth introduction to pronunciation issues and related <abbr title="World Wide Web Consortium">W3C</abbr>
+				documents, please refer to <a href="https://www.w3.org/WAI/pronunciation/">Pronunciation
+					Overview</a>.
+			</p>
+		</section>
+
+		<section id="internationalization-considerations">
+			<h2 id="x2-internationalization-considerations"><bdi class="secno">2. </bdi>
+				Internationalization Considerations
+			<a class="self-link" href="#internationalization-considerations" aria-label="Permalink for Section 2."></a></h2>
+			<p>
+				A web specification that will contain language specific information must
+				consider internationalization (i18n). HTML specifies the
+				<code>lang</code> attribute which sets the language used for any given
+				content. A speech engine can use this to select an appropriate voice for
+				audible presentation. An example of this might include text like "1". Do
+				we say "one" or "<span lang="es">uno</span>?" That would depend on the
+				<code>lang</code> attribute. Text-to-speech (TTS) technology presents
+				the declared language. User preference provides an implicit language
+				when not declared.
+			</p>
+			<p>
+				This specification augments existing language support giving authors the
+				ability to clarify intent. Authors can declare pronunciation within the
+				expressive capabilities of the TTS engine. Including how TTS engines
+				should pronounce abbreviations, proper nouns, and other ambiguities. For
+				example, "Versailles" has two possible pronunciations. It depends on
+				whether the city in question is in Indiana or France. Regardless of the
+				language context.
+			</p>
+			<p>
+				Explicit pronunciations can override the presentation of an entire
+				element. Authors should exercise caution when the visual content and
+				aural presentation differ. Consider:
+			</p><ol>
+				<li>This can cause confusion for TTS users who attempt to separate the
+					parts from
+					the whole.</li>
+				<li>Searching a document for heard words or phrases may not match
+					content. It
+					would be incumbent of the user agent to allow for this use case.</li>
+			</ol>
+			<p></p>
+		</section>
+
+		<section id="multi-attribute-approach-for-including-ssml-in-html">
+			<h2 id="x3-multi-attribute-approach-for-including-ssml-in-html"><bdi class="secno">3. </bdi>
+				Multi-attribute Approach for Including SSML in HTML
+			<a class="self-link" href="#multi-attribute-approach-for-including-ssml-in-html" aria-label="Permalink for Section 3."></a></h2>
+			<p>
+				By converting SSML tags and attributes to HTML attributes,
+				authors can embed pronunciation (and related spoken presentation)
+				in their HTML document.
+				Authors can combine most supported tags with each other to apply
+				multiple speech effects.
+			</p>
+			<p>
+				Most of the markup included in SSML is suitable for use by the majority
+				of content developers;
+				however, some features such as, <code>phoneme</code> and
+				<code>prosody</code> may require specialized knowledge.
+				Publishers in Japan use a <a href="http://www.w3.org/publishing/epub3/epub-contentdocs.html#sec-xhtml-ssml-attrib">similar
+					technique
+					from EPUB 3</a> for the SSML <code>phoneme</code> element.
+			</p>
+			<p>
+				Edgar Allen Poe's <i>The Raven</i>:
+			</p>
+			<div class="example">
+				EXAMPLE 1
+				<pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">data-ssml-prosody-rate</span>=<span class="hljs-string">"slow"</span> <span class="hljs-attr">data-ssml-prosody-pitch</span>=<span class="hljs-string">"low"</span>&gt;</span>
+    Once upon a midnight 
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-phoneme-alphabet</span>=<span class="hljs-string">"ipa"</span> <span class="hljs-attr">data-ssml-phoneme-ph</span>=<span class="hljs-string">"ˈdrɪəri"</span>&gt;</span>dreary<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-break-time</span>=<span class="hljs-string">"500ms"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>,
+    while I pondered, weak
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-break-time</span>=<span class="hljs-string">"150ms"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> and weary,<span class="hljs-tag">&lt;<span class="hljs-name">br</span> <span class="hljs-attr">data-ssml-break-time</span>=<span class="hljs-string">"500ms"</span> /&gt;</span>
+    Over many a quaint and curious volume of forgotten
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-prosody-rate</span>=<span class="hljs-string">"x-slow"</span> <span class="hljs-attr">data-ssml-prosody-pitch</span>=<span class="hljs-string">"low"</span>&gt;</span> lore—<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+    While I nodded, nearly napping, suddenly there came a tapping,
+    <span class="hljs-tag">&lt;<span class="hljs-name">br</span> <span class="hljs-attr">data-ssml-audio-src</span>=<span class="hljs-string">"/soundlibrary/wood/hits/hits_11"</span> /&gt;</span>
+    As of some one gently rapping,
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-audio-src</span>=<span class="hljs-string">"/soundlibrary/wood/hits/hits_11"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    rapping at my chamber door.
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-audio-src</span>=<span class="hljs-string">"/soundlibrary/wood/hits/hits_11"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">br</span> <span class="hljs-attr">data-ssml-audio-src</span>=<span class="hljs-string">"/soundlibrary/wood/hits/hits_11"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-prosody-volume</span>=<span class="hljs-string">"x-soft"</span> <span class="hljs-attr">data-ssml-prosody-rate</span>=<span class="hljs-string">"medium"</span>&gt;</span>
+      "'Tis some visitor,"
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    I muttered, <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-prosody-volume</span>=<span class="hljs-string">"x-soft"</span> <span class="hljs-attr">data-ssml-prosody-rate</span>=<span class="hljs-string">"x-slow"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-phoneme-alphabet</span>=<span class="hljs-string">"ipa"</span> <span class="hljs-attr">data-ssem-phoneme-ph</span>=<span class="hljs-string">"tæpɪŋ"</span>&gt;</span>"tapping<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    at my chamber door—<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> <span class="hljs-attr">data-ssml-break-time</span>=<span class="hljs-string">"750ms"</span> /&gt;</span>
+    Only this <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-break-strength</span>=<span class="hljs-string">"weak"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> and nothing
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-break-strength</span>=<span class="hljs-string">"none"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-prosody-volume</span>=<span class="hljs-string">"soft"</span> <span class="hljs-attr">data-ssml-prosody-rate</span>=<span class="hljs-string">"75%"</span>&gt;</span> more."<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+
+			</div>
+			<section id="the-data-ssml-multi-attribute-set">
+				<h3 id="x3-1-the-data-ssml-multi-attribute-set"><bdi class="secno">3.1 </bdi>The <code>data-ssml-*</code> Multi-Attribute Set<a class="self-link" href="#the-data-ssml-multi-attribute-set" aria-label="Permalink for Section 3.1"></a></h3>
+				<p>
+					These attributes provide functional equivalence to the SSML
+					counterparts. These attributes are valid
+					on the following HTML elements:
+				</p>
+				<ul>
+					<li><a href="https://html.spec.whatwg.org/multipage/dom.html#flow-content">flow
+							content</a></li>
+					<li><a href="https://html.spec.whatwg.org/multipage/dom.html#phrasing-content">phrasing
+							content</a></li>
+					<li><a href="https://www.w3.org/TR/wai-aria/#namefromcontent">roles
+							supporting name from content</a>
+					</li>
+				</ul>
+
+				<section id="data-ssml-say-as">
+					<h4 id="x3-1-1-data-ssml-say-as"><bdi class="secno">3.1.1 </bdi><code>data-ssml-say-as(-*)</code><a class="self-link" href="#data-ssml-say-as" aria-label="Permalink for Section 3.1.1"></a></h4>
+					<p>
+						Allows the author to classify the element's text content. The
+						attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.9">SSML
+							<code>say-as</code> element</a> and associated properties.
+
+					</p><div class="note" id="issue-container-generatedID-0"><div role="heading" class="ednote-title marker" id="h-ednote-0" aria-level="5"><span>Editor's note</span></div><div class=""><code>interpret-as</code> seems superfluous, and
+						should be implied</div></div>
+					<p></p>
+					<section class="role notoc">
+						<h5 id="data-ssml-say-as-0"><code>data-ssml-say-as</code><a class="self-link" href="#data-ssml-say-as-0" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Values:
+							<code>date | time | telephone | characters | cardinal | ordinal</code>
+						</p>
+					</section>
+
+					<section class="role notoc">
+
+						<h5 id="data-ssml-say-as-format-optional"><code>data-ssml-say-as-format</code> (optional)<a class="self-link" href="#data-ssml-say-as-format-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: time/date format as defined in <abbr title="World Wide Web Consortium">W3C</abbr> Note, SSML
+							<code>say-as</code> attribute values. <a href="https://www.w3.org/TR/ssml-sayas/">SSML 1.0 say-as
+								attribute</a>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-say-as-detail-optional"><code>data-ssml-say-as-detail</code> (optional)<a class="self-link" href="#data-ssml-say-as-detail-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: detail as defined in <abbr title="World Wide Web Consortium">W3C</abbr> Note, SSML <code>say-as</code>
+							attribute values. <a href="https://www.w3.org/TR/ssml-sayas/">SSML
+								1.0 say-as attribute</a>
+						</p>
+						<div class="note" id="issue-container-generatedID-1"><div role="heading" class="ednote-title marker" id="h-ednote-1" aria-level="6"><span>Editor's note</span></div><div class="">
+							The <code>data-ssml-say-as-detail</code> attribute allows authors
+							to target
+							implementation-specific TTS engine features or behavior.
+						</div></div>
+
+						<div class=" example">
+							EXAMPLE 2
+							<pre aria-busy="false"><code class="hljs javascript">According the <span class="hljs-number">2010</span> US Census, the population <span class="hljs-keyword">of</span> &lt;span data-ssml-say-<span class="hljs-keyword">as</span>=<span class="hljs-string">'characters'</span>&gt;<span class="hljs-number">90274</span>&lt;/span&gt;
+increased to <span class="hljs-number">25209</span> <span class="hljs-keyword">from</span> <span class="hljs-number">24976</span> over the past <span class="hljs-number">10</span> years.</code></pre>
+						</div>
+					</section>
+				</section>
+
+				<section id="data-ssml-phoneme">
+					<h4 id="x3-1-2-data-ssml-phoneme"><bdi class="secno">3.1.2 </bdi><code>data-ssml-phoneme-*</code><a class="self-link" href="#data-ssml-phoneme" aria-label="Permalink for Section 3.1.2"></a></h4>
+					<p>
+						Defines two required attributes for phonemic/phonetic pronunciation.
+						The element
+						with the phoneme attributes can only contain text (no elements). The
+						attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.10">SSML
+							<code>phoneme</code> element</a> and associated properties.
+					</p>
+					<section class="role notoc">
+						<h5 id="data-ssml-phoneme-ph"><code>data-ssml-phoneme-ph</code><a class="self-link" href="#data-ssml-phoneme-ph" aria-label="Permalink for Section"></a></h5>
+						<p>Value: The phoneme string.</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-phoneme-alphabet"><code>data-ssml-phoneme-alphabet</code><a class="self-link" href="#data-ssml-phoneme-alphabet" aria-label="Permalink for Section"></a></h5>
+						<p>Values: The phonetic alphabet in use. <code>ipa | x-sampa</code>
+						</p>
+
+						<div class="example">
+							EXAMPLE 3
+							<pre aria-busy="false"><code class="hljs xml">Once upon a midnight <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-alphabet</span>=<span class="hljs-string">"ipa"</span> <span class="hljs-attr">data-ssml-phoneme-ph</span>=<span class="hljs-string">"ˈdrɪəri"</span>&gt;</span>dreary<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+						</div>
+					</section>
+
+				</section>
+				<section id="data-ssml-sub-alias">
+					<h4 id="x3-1-3-data-ssml-sub-alias"><bdi class="secno">3.1.3 </bdi><code>data-ssml-sub-alias</code><a class="self-link" href="#data-ssml-sub-alias" aria-label="Permalink for Section 3.1.3"></a></h4>
+					<p>
+						A string value that replaces the text content for pronunciation.
+						While similar to <code>aria-label</code>, alias does not alter
+						spelling (i.e., a Braille display).
+						Additionally, the alias attribute can be used by TTS technologies
+						that do not access the
+						accessibility
+						tree. The processor should apply text normalization to the alias
+						value. The attribute is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.11">SSML
+							<code>sub</code> element</a> and associated properties.
+					</p>
+					<p>Value: text string to be substituted and delivered to the TTS for
+						presentation.</p>
+
+					<div class="example">
+						EXAMPLE 4
+						<pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-sub-alias</span>=<span class="hljs-string">"Sodium Chloride"</span>&gt;</span>NaCL<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+					</div>
+
+
+				</section>
+				<section id="data-ssml-voice">
+					<h4 id="x3-1-4-data-ssml-voice"><bdi class="secno">3.1.4 </bdi><code>data-ssml-voice-*</code><a class="self-link" href="#data-ssml-voice" aria-label="Permalink for Section 3.1.4"></a></h4>
+					<p>
+						A set of attributes defining production values that requests a
+						change in speaking voice. There are
+						two kinds of attributes for the voice element: those that indicate
+						desired features of a voice and
+						those
+						that control behavior. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.1">SSML
+							<code>voice</code> element</a> and associated properties.
+					</p>
+					<section class="role notoc">
+						<h5 id="data-ssml-voice-gender-optional"><code>data-ssml-voice-gender</code> (optional)<a class="self-link" href="#data-ssml-voice-gender-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Values: <code>female | male | neutral</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-voice-age-optional"><code>data-ssml-voice-age</code> (optional)<a class="self-link" href="#data-ssml-voice-age-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>integer</i> corresponding to age in years
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-voice-variant-optional"><code>data-ssml-voice-variant</code> (optional)<a class="self-link" href="#data-ssml-voice-variant-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>integer</i> indicating a numeric voice variant
+						</p>
+					</section>
+					<section class="role notoc">
+
+						<h5 id="data-ssml-voice-name-optional"><code>data-ssml-voice-name</code> (optional)<a class="self-link" href="#data-ssml-voice-name-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Values: specific voice name requested from the current TTS engine
+							(e.g.,
+							<code>"David"</code>).
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-voice-languages-optional"><code>data-ssml-voice-languages</code> (optional)<a class="self-link" href="#data-ssml-voice-languages-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> a space delimited list of one or more
+							languages to be spoken by this voice.
+						</p>
+						<div class="note" id="issue-container-generatedID-2"><div role="heading" class="ednote-title marker" id="h-ednote-2" aria-level="6"><span>Editor's note</span></div><div class="">
+							The <code>data-ssml-voice-languages</code> attribute only assists
+							the TTS engine with selecting the appropriate voice. It does not
+							indicate the language of content. To specify language, use the
+							HTML
+							<code>lang</code> attribute.
+						</div></div>
+
+						<div class="example">
+							EXAMPLE 5
+							<pre aria-busy="false"><code class="hljs xml">She said, "<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-voice-gender</span>=<span class="hljs-string">"female"</span>&gt;</span>My name is Marie<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>".</code></pre>
+						</div>
+					</section>
+
+				</section>
+				<section id="data-ssml-emphasis-level">
+					<h4 id="x3-1-5-data-ssml-emphasis-level"><bdi class="secno">3.1.5 </bdi><code>data-ssml-emphasis-level</code><a class="self-link" href="#data-ssml-emphasis-level" aria-label="Permalink for Section 3.1.5"></a></h4>
+					<p>
+						Requests that the text content be spoken with
+						emphasis (also
+						referred to as prominence or stress). This is a single attribute and
+						is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.2">SSML
+							<code>emphasis</code> element</a> and associated properties.
+					</p>
+
+					<p>
+						Values: <code>strong | moderate | none | reduced</code>
+					</p>
+
+					<div class="example">
+						EXAMPLE 6
+						<pre aria-busy="false"><code class="hljs xml">Please use <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-emphasis-level</span>=<span class="hljs-string">"strong"</span>&gt;</span>extreme caution.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+					</div>
+
+				</section>
+				<section id="data-ssml-break">
+					<h4 id="x3-1-6-data-ssml-break"><bdi class="secno">3.1.6 </bdi><code>data-ssml-break-*</code><a class="self-link" href="#data-ssml-break" aria-label="Permalink for Section 3.1.6"></a></h4>
+					<p>
+						Describes the timing associated with an empty element to
+						control the pausing or other prosodic boundaries between tokens. The
+						use of the break attribute
+						between
+						any pair of tokens is optional. If the element is not present
+						between tokens, the synthesis
+						processor is
+						expected to automatically determine a break based on the linguistic
+						context. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.3">SSML
+							<code>break</code> element</a> and associated properties.
+					</p>
+					<section class="role notoc">
+						<h5 id="data-ssml-break-strength"><code>data-ssml-break-strength</code><a class="self-link" href="#data-ssml-break-strength" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Values:
+							<code>none | x-weak | weak | medium (default) | strong | x-strong</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-break-time"><code>data-ssml-break-time</code><a class="self-link" href="#data-ssml-break-time" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc.
+						</p>
+
+						<div class="example">
+							EXAMPLE 7
+							<pre aria-busy="false"><code class="hljs javascript">Take a deep breath,<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-break-time</span>=<span class="hljs-string">"1s"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span> and exhale.</code></pre>
+						</div>
+					</section>
+
+
+				</section>
+				<section id="data-ssml-prosody">
+					<h4 id="x3-1-7-data-ssml-prosody"><bdi class="secno">3.1.7 </bdi><code>data-ssml-prosody-*</code><a class="self-link" href="#data-ssml-prosody" aria-label="Permalink for Section 3.1.7"></a></h4>
+					<p>
+						Permits control of the pitch, speaking rate and volume of
+						the speech output. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML
+							<code>prosody</code> element</a> and associated properties.
+					</p>
+					<section class="role notoc">
+						<h5 id="data-ssml-prosody-pitch-optional"><code>data-ssml-prosody-pitch</code> (optional)<a class="self-link" href="#data-ssml-prosody-pitch-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Values:
+							<code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-prosody-contour-optional"><code>data-ssml-prosody-contour</code> (optional)<a class="self-link" href="#data-ssml-prosody-contour-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> of contour change parameters as defined in
+							the <a href="https://www.w3.org/TR/speech-synthesis11/#pitch_contour">SSML
+								1.1 recommendation</a>.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-prosody-range-optional"><code>data-ssml-prosody-range</code> (optional)<a class="self-link" href="#data-ssml-prosody-range-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> range value as defined in the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML 1.1
+								recommendation</a>.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-prosody-rate-optional"><code>data-ssml-prosody-rate</code> (optional)<a class="self-link" href="#data-ssml-prosody-rate-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Values:
+							<code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-prosody-duration-optional"><code>data-ssml-prosody-duration</code> (optional)<a class="self-link" href="#data-ssml-prosody-duration-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing a time duration (e.g., "250ms",
+							"1s", etc.).
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-prosody-volume-optional"><code>data-ssml-prosody-volume</code> (optional)<a class="self-link" href="#data-ssml-prosody-volume-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Values:
+							<code><i>+/- soundlevel</i>&gt;"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code>
+						</p>
+
+						<div class="example">
+							EXAMPLE 8
+							<pre aria-busy="false"><code class="hljs xml">The tortoise, said (slowly) "<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-prosody-rate</span>=<span class="hljs-string">"x-slow"</span>&gt;</span>
+I am almost at the finish line<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>."</code></pre>
+						</div>
+					</section>
+
+
+				</section>
+				<section id="data-ssml-audio">
+					<h4 id="x3-1-8-data-ssml-audio"><bdi class="secno">3.1.8 </bdi><code>data-ssml-audio-*</code><a class="self-link" href="#data-ssml-audio" aria-label="Permalink for Section 3.1.8"></a></h4>
+					<p>
+						Supports the insertion of recorded audio files in conjunction with
+						synthesized speech output.
+						The element may be empty. If the element is not empty, then the
+						contents should be spoken if the audio document is not available.
+						The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.3.1">SSML
+							<code>audio</code> element</a> and associated properties.
+					</p>
+
+					<section class="role notoc">
+						<h5 id="data-ssml-audio-src"><code>data-ssml-audio-src</code><a class="self-link" href="#data-ssml-audio-src" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>The URI of a document with an appropriate media
+								file.</i>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-audio-fetchtimeout-optional"><code>data-ssml-audio-fetchtimeout</code> (optional)<a class="self-link" href="#data-ssml-audio-fetchtimeout-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing a time duration (e.g., "250ms",
+							"1s", etc.).
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-audio-fetchint-optional"><code>data-ssml-audio-fetchint</code> (optional)<a class="self-link" href="#data-ssml-audio-fetchint-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Values: <code>safe | prefetch</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-audio-maxage-optional"><code>data-ssml-audio-maxage</code> (optional)<a class="self-link" href="#data-ssml-audio-maxage-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-audio-maxstale-optional"><code>data-ssml-audio-maxstale</code> (optional)<a class="self-link" href="#data-ssml-audio-maxstale-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-audio-clipbegin-optional"><code>data-ssml-audio-clipBegin</code> (optional)<a class="self-link" href="#data-ssml-audio-clipbegin-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing a time duration (e.g., "250ms",
+							"1s", etc.).
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-audio-clipend-optional"><code>data-ssml-audio-clipEnd</code> (optional)<a class="self-link" href="#data-ssml-audio-clipend-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing a time duration (e.g., "250ms",
+							"1s", etc.).
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-audio-repeatcount-optional"><code>data-ssml-audio-repeatCount</code> (optional)<a class="self-link" href="#data-ssml-audio-repeatcount-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>integer</i> indicating the number of times to repeat the
+							audio clip.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-audio-repeatdur-optional"><code>data-ssml-audio-repeatDur</code> (optional)<a class="self-link" href="#data-ssml-audio-repeatdur-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing a time duration (e.g., "250ms",
+							"1s", etc.).
+						</p>
+
+						<div class="example">
+							EXAMPLE 9
+							<pre aria-busy="false"><code class="hljs xml">You will hear a brief chime <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml-audio-src</span>=<span class="hljs-string">"/audio/chime.ogg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> 
+when your time is up.</code></pre>
+						</div>
+					</section>
+
+				</section>
+			</section>
+		</section>
+
+		<section id="single-attribute-approach-for-including-ssml-in-html">
+			<h2 id="x4-single-attribute-approach-for-including-ssml-in-html"><bdi class="secno">4. </bdi>
+				Single-attribute Approach for Including SSML in HTML
+			<a class="self-link" href="#single-attribute-approach-for-including-ssml-in-html" aria-label="Permalink for Section 4."></a></h2>
+			<p>
+				By converting SSML tags and attributes into a single HTML attribute
+				with a <a href="https://www.ietf.org/rfc/rfc4627.txt">JSON</a> string
+				value,
+				authors can embed pronunciation (and related spoken presentation)
+				in their HTML document.
+				Authors can combine most supported tags with each other to apply
+				multiple speech effects.
+			</p>
+			<p>
+				Most of the markup included in SSML is suitable for use by the majority
+				of content developers;
+				however, some features such as, <code>phoneme</code> and
+				<code>prosody</code> may require specialized knowledge.
+				This approach emerged as a means to transform content conforming to the
+				<a href="http://www.imsglobal.org/question/index.html">IMS
+					Question &amp; Test Interoperability (QTI) Specification</a>. The QTI
+				standard supports inclusion of SSML in HTML for TTS tools used in
+				educational assessment.
+			</p>
+			<p>
+				Edgar Allen Poe's <i>The Raven</i>:
+			</p>
+			<div class="example">
+				EXAMPLE 1
+
+				<pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"prosody":{"rate":"slow","pitch":"low"}}'</span>&gt;</span>
+	Once upon a midnight
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"phoneme":{"alphabet":"ipa","ph":"ˈdrɪəri"}}'</span>&gt;</span>dreary<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"break":{"time":"500ms"}'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>,
+	while I pondered, weak
+	<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"break":{"time":"150ms"}'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> and weary,
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"break":{"time":"500ms"}'</span> /&gt;</span>
+	Over many a quaint and curious volume of forgotten 
+	<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"prosody":{"rate":"x-slow","pitch":"low"}}'</span>&gt;</span>lore—<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+	While I nodded, nearly napping, suddenly there came a tapping,
+	<span class="hljs-tag">&lt;<span class="hljs-name">br</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'</span>/&gt;</span>
+	As of some one gently rapping,
+	<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	rapping at my chamber door.
+	<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">br</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"audio":{"src":"/soundlibrary/wood/hits/hits_11"}}'</span> /&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"prosody":{"volume":"x-soft","rate":"medium"}}'</span>&gt;</span>
+          "'Tis some visitor,"
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	I muttered, <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"prosody":{"volume":"x-soft","rate":"x-slow"}}'</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"phoneme":{"alphabet":"ipa","ph":"tæpɪŋ"}}'</span>&gt;</span>"tapping<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	at my chamber door—<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"break":{"time":"750ms"}'</span>/&gt;</span>
+	Only this<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"break":{"strength":"weak"}'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	and nothing<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"break":{"strength":"none"}'</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"prosody":{"volume":"soft","rate":"75%"}}'</span>&gt;</span>more."<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+
+			</div>
+			<section id="data-ssml-attribute-properties-and-values">
+				<h3 id="x4-1-data-ssml-attribute-properties-and-values"><bdi class="secno">4.1 </bdi><code>data-ssml</code> Attribute, Properties and Values<a class="self-link" href="#data-ssml-attribute-properties-and-values" aria-label="Permalink for Section 4.1"></a></h3>
+				<p>
+					The following properties are defined and provide functional
+					equivalence to the their SSML
+					counterpart.
+				</p>
+				<p>
+					The <code>data-ssml</code> provides functional equivalence to SSML.
+					The attribute is valid
+					on the following HTML elements:
+				</p>
+				<ul>
+					<li><a href="https://html.spec.whatwg.org/multipage/dom.html#flow-content">flow
+							content</a></li>
+					<li><a href="https://html.spec.whatwg.org/multipage/dom.html#phrasing-content">phrasing
+							content</a></li>
+					<li><a href="https://www.w3.org/TR/wai-aria/#namefromcontent">roles
+							supporting name from content</a>
+					</li>
+				</ul>
+				<p>
+					The value of the data-ssml attribute is a JSON string, enclosed with
+					single quotes (<code>'</code>),
+					containing a single JSON object representing a specific SSML function
+					with one or
+					more property/value pairs. The valid objects, properties and
+					associated values are defined in the
+					following sections. The
+					JSON schema is presented in Appendix A.
+				</p>
+
+				<section id="say-as">
+					<h4 id="x4-1-1-say-as"><bdi class="secno">4.1.1 </bdi><code>say-as</code><a class="self-link" href="#say-as" aria-label="Permalink for Section 4.1.1"></a></h4>
+					<p>
+						Allows the author to classify the element's text content. The JSON
+						definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.9">SSML
+							<code>say-as</code> element</a> and associated properties.
+					</p>
+					<section class="role notoc">
+						<h5 id="interpret-as"><code>interpret-as</code><a class="self-link" href="#interpret-as" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value:
+							<code>date | time | telephone | characters | cardinal | ordinal</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="format-optional"><code>format</code> (optional)<a class="self-link" href="#format-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: time/date format as defined in <abbr title="World Wide Web Consortium">W3C</abbr> Note SSML
+							<code>say-as</code> attribute values.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="detail-optional"><code>detail</code> (optional)<a class="self-link" href="#detail-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: detail as defined in <abbr title="World Wide Web Consortium">W3C</abbr> Note SSML <code>say-as</code>
+							attribute values.
+						</p>
+						<div class="note" id="issue-container-generatedID-3"><div role="heading" class="ednote-title marker" id="h-ednote-3" aria-level="6"><span>Editor's note</span></div><div class="">
+							The <code>detail</code> property allows authors to target
+							implementation-specific TTS engine features or behavior.
+						</div></div>
+
+						<div class="example">
+							EXAMPLE 2
+
+							<pre aria-busy="false"><code class="hljs xml">According the 2010 US Census, the population of 
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"say-as":{"interpret-as":"characters"}}'</span>&gt;</span>90274<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+increased to 25209 from 24976 over the past 10 years.</code></pre>
+						</div>
+					</section>
+
+				</section>
+				<section id="phoneme">
+					<h4 id="x4-1-2-phoneme"><bdi class="secno">4.1.2 </bdi><code>phoneme</code><a class="self-link" href="#phoneme" aria-label="Permalink for Section 4.1.2"></a></h4>
+					<p>
+						Defines two required attributes for phonemic/phonetic pronunciation.
+						The element
+						with the phoneme attributes can only contain text (no elements).
+						The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.10">SSML
+							<code>phoneme</code> element</a> and associated properties.
+					</p>
+					<section class="role notoc">
+						<h5 id="ph"><code>ph</code><a class="self-link" href="#ph" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing the phonetic characters
+							corresponding to the content to be spoken
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="data-ssml-phoneme-alphabet-0"><code>data-ssml-phoneme-alphabet</code><a class="self-link" href="#data-ssml-phoneme-alphabet-0" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <code>ipa | x-sampa</code> defining the phonetic alphabet
+							used for the <code>ph</code> string
+						</p>
+
+						<div class="example">
+							EXAMPLE 3
+							<pre aria-busy="false"><code class="hljs xml">Once upon a midnight 
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"phoneme":{"alphabet":"ipa","ph":"ˈdrɪəri"}}'</span>&gt;</span>dreary<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+						</div>
+					</section>
+
+				</section>
+				<section id="sub">
+					<h4 id="x4-1-3-sub"><bdi class="secno">4.1.3 </bdi><code>sub</code><a class="self-link" href="#sub" aria-label="Permalink for Section 4.1.3"></a></h4>
+					<p>
+						Indicates that the text in the alias attribute value
+						replaces the text content for pronunciation. The required alias
+						property specifies the string to be
+						spoken instead of the text content. The
+						processor should apply text normalization to the alias value. The
+						JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.11">SSML
+							<code>sub</code> element</a> and associated properties.
+					</p>
+					<section class="role notoc">
+						<h5 id="alias"><code>alias</code><a class="self-link" href="#alias" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing the text to be spoken as a
+							substitution for the text content of
+							the element to which <code>sub</code> is applied.
+						</p>
+
+						<div class="example">
+							EXAMPLE 4
+							<pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"sub":{"alias":"Sodium Chloride"}}'</span>&gt;</span>NaCL<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+						</div>
+					</section>
+
+				</section>
+				<section id="voice">
+					<h4 id="x4-1-4-voice"><bdi class="secno">4.1.4 </bdi><code>voice</code><a class="self-link" href="#voice" aria-label="Permalink for Section 4.1.4"></a></h4>
+					<p>
+						Requests a change in speaking voice. There are
+						two kinds of attributes for <code>voice</code>: those that indicate
+						desired features of a voice
+						and those that control behavior. The JSON definition is derived from
+						the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.1">SSML
+							<code>voice</code> element</a> and associated properties.
+					</p>
+					<section class="role notoc">
+						<h5 id="gender-optional"><code>gender</code> (optional)<a class="self-link" href="#gender-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Values: <code>female | male | neutral</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="age-optional"><code>age</code> (optional)<a class="self-link" href="#age-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>integer</i> corresponding to age in years
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="variant-optional"><code>variant</code> (optional)<a class="self-link" href="#variant-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>integer</i> indicating a numeric voice variant
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="name-optional"><code>name</code> (optional)<a class="self-link" href="#name-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> defining a specific voice name requested from
+							the current TTS engine, e.g.,
+							<code>"Microsoft David (English)"</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="languages-optional"><code>languages</code> (optional)<a class="self-link" href="#languages-optional" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> a space delimited list of one or more
+							languages to be spoken by this voice.
+						</p>
+						<div class="note" id="issue-container-generatedID-4"><div role="heading" class="ednote-title marker" id="h-ednote-4" aria-level="6"><span>Editor's note</span></div><div class="">
+							The <code>voice &gt; languages</code> property only assists
+							the TTS engine with selecting the appropriate voice. It does not
+							indicate the language of content. To specify language, use the
+							HTML <code>lang</code> attribute.
+						</div></div>
+
+						<div class="example">
+							EXAMPLE 5
+							<pre aria-busy="false"><code class="hljs javascript">She said, <span class="hljs-string">"&lt;span data-ssml='{"</span>voice<span class="hljs-string">":{"</span>gender<span class="hljs-string">":"</span>female<span class="hljs-string">"}}'&gt;My name is Marie&lt;/span&gt;"</span>.</code></pre>
+						</div>
+					</section>
+
+				</section>
+				<section id="emphasis">
+					<h4 id="x4-1-5-emphasis"><bdi class="secno">4.1.5 </bdi><code>emphasis</code><a class="self-link" href="#emphasis" aria-label="Permalink for Section 4.1.5"></a></h4>
+					<p>
+						Requests that the text content of the element to which emphasis
+						spoken with emphasis (also referred to
+						as prominence or stress). The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.2">SSML
+							<code>emphasis</code> element</a> and associated properties.
+					</p>
+
+					<section class="role notoc">
+						<h5 id="level"><code>level</code><a class="self-link" href="#level" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <code>strong | moderate | none | reduced</code>
+						</p>
+						<div class="example">
+							EXAMPLE 6
+							<pre aria-busy="false"><code class="hljs xml">Please use <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"emphasis":{"level":"strong"}}'</span>&gt;</span>extreme caution.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+						</div>
+					</section>
+
+				</section>
+				<section id="break">
+					<h4 id="x4-1-6-break"><bdi class="secno">4.1.6 </bdi><code>break</code><a class="self-link" href="#break" aria-label="Permalink for Section 4.1.6"></a></h4>
+					<p>
+						Describes the timing associated with an empty element to
+						control the pausing or other prosodic boundaries between tokens. The
+						use of the <code>break</code>
+						between any pair of tokens is optional. If the
+						element is not present between tokens, the synthesis processor is
+						expected to automatically
+						determine a break based on the linguistic context. The JSON
+						definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.3">SSML
+							<code>break</code> element</a> and associated properties.
+					</p>
+					<section class="role notoc">
+						<h5 id="strength"><code>strength</code><a class="self-link" href="#strength" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value:
+							<code>none | x-weak | weak | medium (default) | strong | x-strong</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="time"><code>time</code><a class="self-link" href="#time" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc. (s=second, ms=milliseconds)
+						</p>
+
+						<div class="example">
+							EXAMPLE 7
+							<pre aria-busy="false"><code class="hljs javascript">Take a deep breath,<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"break":{"time":"1s"}}'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span> and exhale.</code></pre>
+						</div>
+					</section>
+
+				</section>
+				<section id="prosody">
+					<h4 id="x4-1-7-prosody"><bdi class="secno">4.1.7 </bdi><code>prosody</code><a class="self-link" href="#prosody" aria-label="Permalink for Section 4.1.7"></a></h4>
+					<p>
+						Permits control of the pitch, speaking rate and volume of the speech
+						output. The object has six properties. The JSON definition is
+						derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML
+							<code>prosody</code> element</a> and associated properties.
+					</p>
+					<section class="role notoc">
+						<h5 id="pitch"><code>pitch</code><a class="self-link" href="#pitch" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value:
+							<code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="contour"><code>contour</code><a class="self-link" href="#contour" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> of contour change parameters as defined in
+							the SSML 1.1 recommendation
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="range"><code>range</code><a class="self-link" href="#range" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> range value as defined in the SSML 1.1
+							recommendation
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="rate"><code>rate</code><a class="self-link" href="#rate" aria-label="Permalink for Section"></a></h5>
+						<p>Values:
+							<code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="duration"><code>duration</code><a class="self-link" href="#duration" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="volume"><code>volume</code><a class="self-link" href="#volume" aria-label="Permalink for Section"></a></h5>
+						<p>Values:
+							<code><i>+/- soundlevel</i>&gt;"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code>
+						</p>
+
+						<div class="example">
+							EXAMPLE 8
+							<pre aria-busy="false"><code class="hljs xml">The tortoise, said (slowly) "
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"prosody":{"rate":"x-slow"}}'</span>&gt;</span>I am almost at the finish line<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>."</code></pre>
+						</div>
+					</section>
+
+				</section>
+				<section id="audio">
+					<h4 id="x4-1-8-audio"><bdi class="secno">4.1.8 </bdi><code>audio</code><a class="self-link" href="#audio" aria-label="Permalink for Section 4.1.8"></a></h4>
+					<p>
+						Supports the insertion of recorded audio files in conjunction with
+						synthesized speech output.
+						The element may be empty. If the element is not empty, then the
+						contents should be the text to be spoken if the audio document is
+						not available. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.3.1">SSML
+							<code>audio</code> element</a> and associated properties.
+					</p>
+					<section class="role notoc">
+						<h5 id="src"><code>src</code><a class="self-link" href="#src" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>The URI of a document with an appropriate media
+								file.</i>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="fetchtimeout"><code>fetchtimeout</code><a class="self-link" href="#fetchtimeout" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="fetchint"><code>fetchint</code><a class="self-link" href="#fetchint" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <code>safe | prefetch</code>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="maxage"><code>maxage</code><a class="self-link" href="#maxage" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="maxstale"><code>maxstale</code><a class="self-link" href="#maxstale" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i>
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="clipbegin"><code>clipBegin</code><a class="self-link" href="#clipbegin" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="clipend"><code>clipEnd</code><a class="self-link" href="#clipend" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="repeatcount"><code>repeatCount</code><a class="self-link" href="#repeatcount" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>integer</i> indicating the number of times to repeat the
+							audio clip.
+						</p>
+					</section>
+					<section class="role notoc">
+						<h5 id="repeatdur"><code>repeatDur</code><a class="self-link" href="#repeatdur" aria-label="Permalink for Section"></a></h5>
+						<p>
+							Value: <i>string</i> containing a time duration expressed in
+							numeric form as "250ms", "1s", etc.
+						</p>
+
+
+						<div class="example">
+							EXAMPLE 9
+							<pre aria-busy="false"><code class="hljs xml">You will hear a brief chime 
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"audio":{"src":"/audio/chime.ogg"}}'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> when your time is up.</code></pre>
+						</div>
+					</section>
+
+				</section>
+			</section>
+		</section>
+
+		<section id="technical-considerations">
+			<h2 id="x5-technical-considerations"><bdi class="secno">5. </bdi>
+				Technical Considerations
+			<a class="self-link" href="#technical-considerations" aria-label="Permalink for Section 5."></a></h2>
+			<p>
+				In each approach, implementers must consume <code>data-ssml-</code>
+				attributes, values,
+				and associated text content to produce a valid format required by the
+				target TTS technology.
+				For instance, if targeting the <a href="https://wicg.github.io/speech-api/">Web Speech API</a>,
+				an implementation must produce valid SSML. How to determine the text
+				content of each pronunciation
+				function will challenge implementers of either approach.
+			</p>
+			<p>
+				Following the multi-attribute approach, implementors must find all
+				related attributes
+				and collect them into the proper SSML representation. Implementors must
+				determine
+				how to handle authoring errors such as missing required attributes,
+				conflicting functions,
+				or invalid values.
+			</p>
+			<p>
+				Following the single-attribute approach, implementors must parse JSON
+				string values.
+				No existing <abbr title="World Wide Web Consortium">W3C</abbr> recommendation uses JSON strings as attribute values in
+				HTML, but there is evidence of its use for custom applications using the
+				<code>data-</code> attribute.
+			</p>
+			<p>
+				JSON has
+				potential security concerns, and the impact of
+				malformed JSON strings resulting from errors in authoring is among
+				issues that need wider review.
+				Implementors must determine how to handle malformed JSON as well as
+				incorrect property
+				and value combinations. The use of JSON schemas could help authors and
+				implementors of
+				the single-attribute approach.
+			</p>
+			<p>
+				While a JSON schema is proposed, there are potentially related
+				standards, such as
+				<a href="https://schema.org/SpeakableSpecification">SpeakableSpecification</a>,
+				in development.
+				Converting SSML to a proper JSON schema could
+				cause confusion for implementers and authors. Often such conversions are
+				"...not exactly 1:1 transformation, but very very close". Authoring
+				tools are hypothesized to address
+				these concerns, by
+				eliminating the need for authors to directly write JSON.
+			</p>
+		</section>
+
+		<section class="appendix" id="ssml-json-schema">
+			<h2 id="a-ssml-json-schema"><bdi class="secno">A. </bdi>SSML JSON Schema <a class="self-link" href="#ssml-json-schema" aria-label="Permalink for Appendix A."></a></h2>
+			<p>
+				Please see the <a href="https://w3c.github.io/pronunciation/technical-approach/appendixJSON.html">JSON
+					schema example here.</a>
+			</p>
+		</section>
+
+
+
+
+		<section class="appendix informative section" id="acknowledgements">
+	<h2 id="b-acknowledgments"><bdi class="secno">B. </bdi>Acknowledgments<a class="self-link" href="#acknowledgements" aria-label="Permalink for Appendix B."></a></h2><p><em>This section is non-normative.</em></p>
+	<p>The following people contributed to the development of this document.</p>
+	<section class="section" id="ack_group">
+		<h3 id="b-1-participants-active-in-the-pronunciation-tf-at-the-time-of-publication"><bdi class="secno">B.1 </bdi>Participants active in the Pronunciation TF at the time of publication<a class="self-link" href="#ack_group" aria-label="Permalink for Appendix B.1"></a></h3>
+		<ul>
+			<li>Irfan Ali (Educational Testing Service)</li>
+			<li>Michael Cooper (<abbr title="World Wide Web Consortium">W3C</abbr>/<abbr title="Massachusetts Institute of Technology">MIT</abbr>)</li>
+			<li>Dee Dyer (Educational Testing Service)</li>
+			<li>Markku Hakkinen (Educational Testing Service)</li>
+			<li>Christine Loew (Invited Expert)</li>
+			<li>Steve Noble (Pearson plc)</li>
+			<li>Roy Ran (<abbr title="World Wide Web Consortium">W3C</abbr>/Beihang)</li>
+			<li>Janina Sajka (<abbr title="World Wide Web Consortium">W3C</abbr> invited expert)</li>
+			<li>John Foliot (Invited Expert)</li>
+			<li>Paul Grenier (Invited Expert)</li>
+			<li>Sam Kanta (Invited Expert)</li>
+			<li>Neil Soiffer (Invited Expert)</li>
+			<li>Léonie, Watson (TetraLogical)</li>
+			<li>Tom Babinszki (UnitedHealth Group)</li>
+			<li>Paul Bohman (Deque Systems, Inc.)</li>
+			<li>Becky Gibson (<abbr title="World Wide Web Consortium">W3C</abbr> Invited Expert)</li>
+			<li>Alan Reeve (Invited Expert)</li>
+
+		</ul>
+  </section>
+</section>
+
+	
+
+<p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
