@@ -1,0 +1,594 @@
+<!DOCTYPE html><html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 28.2.1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;margin-top:.25em}
+.dfn-panel ul a[href]{color:#333}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+		
+<title>Explainer: Improving Spoken Presentation on the Web</title>
+		
+		
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
+dfn{font-weight:700}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+code{color:#c63501}
+th code{color:inherit}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+.toc a,.tof a{text-decoration:none}
+a .figno,a .secno{color:#000}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+.simple th a{color:#fff;padding:3px 5px;text-align:left}
+.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+.simple td{padding:3px 10px;border-top:1px solid #ddd}
+.simple tr:nth-child(even){background:#f0f6ff}
+.section dd>p:first-child{margin-top:0}
+.section dd>p:last-child{margin-bottom:0}
+.section dd{margin-bottom:1em}
+.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+h2,h3,h4,h5,h6{position:relative}
+aside.example .marker>a.self-link{color:inherit}
+:is(h2,h3,h4,h5,h6)>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
+:is(h2,h3,h4,h5,h6)>a.self-link::before{content:"§";display:block}
+@media (max-width:767px){
+dd{margin-left:0}
+:is(h2,h3,h4,h5,h6)>a.self-link{left:auto;top:auto}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+		
+		
+
+	
+<meta name="description" content="The objective of the Pronunciation Task Force is to develop normative specifications and best practices guidance collaborating with other W3C groups as appropriate, to provide for proper pronunciation in HTML content when using text to speech (TTS) synthesis.  This document defines a standard mechanism to allow 
+				content authors to include spoken presentation guidance in HTML content. Also, it contains
+			two identified approaches and enumerates their advantages and disadvantages.">
+<style>
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "trace": true,
+  "doRDFa": "1.0",
+  "includePermalinks": true,
+  "permalinkEdge": true,
+  "permalinkHide": false,
+  "tocIntroductory": true,
+  "specStatus": "ED",
+  "noRecTrack": true,
+  "shortName": "pronunciation-explainer",
+  "copyrightStart": "2019",
+  "edDraftURI": "https://w3c.github.io/pronunciation/explainer",
+  "editors": [
+    {
+      "name": "Markku Hakkinen",
+      "url": "mailto:mhakkinen@ets.org",
+      "mailto": "mhakkinen@ets.org",
+      "company": "Educational Testing Service",
+      "companyURI": "https://www.ets.org/",
+      "w3cid": 35712
+    },
+    {
+      "name": "Irfan Ali",
+      "url": "mailto:iali@ets.org",
+      "mailto": "iali@ets.org",
+      "company": "Educational Testing Service",
+      "companyURI": "https://www.ets.org/",
+      "w3cid": 98332
+    }
+  ],
+  "group": "apa",
+  "github": "https://github.com/w3c/pronunciation/",
+  "publishISODate": "2022-01-13T00:00:00.000Z",
+  "generatedSubtitle": "Editor's Draft 13 January 2022"
+}</script>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
+	<body class="h-entry informative"><div class="head">
+    <a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
+  </a> <h1 id="title" class="title">Explainer: Improving Spoken Presentation on the Web</h1>
+    
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2022-01-13">13 January 2022</time></p>
+    <details open="">
+      <summary>More details about this document</summary>
+      <dl>
+        <dt>This version:</dt><dd>
+                <a class="u-url" href="https://w3c.github.io/pronunciation/explainer">https://w3c.github.io/pronunciation/explainer</a>
+              </dd><dt>Latest published version:</dt><dd>
+                <a href="https://www.w3.org/TR/pronunciation-explainer/">https://www.w3.org/TR/pronunciation-explainer/</a>
+              </dd>
+        <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/pronunciation/explainer">https://w3c.github.io/pronunciation/explainer</a></dd>
+        <dt>History:</dt><dd>
+      <a href="https://www.w3.org/standards/history/pronunciation-explainer">https://www.w3.org/standards/history/pronunciation-explainer</a>
+    </dd><dd>
+        <a href="https://github.com/w3c/pronunciation/commits/">Commit history</a>
+      </dd>
+        
+        
+        
+        
+        
+        <dt>Editors:</dt>
+        <dd class="editor p-author h-card vcard" data-editor-id="35712">
+    <a class="ed_mailto u-email email p-name" href="mailto:mhakkinen@ets.org">Markku Hakkinen</a> (<span class="p-org org h-org">Educational Testing Service</span>)
+  </dd><dd class="editor p-author h-card vcard" data-editor-id="98332">
+    <a class="ed_mailto u-email email p-name" href="mailto:iali@ets.org">Irfan Ali</a> (<span class="p-org org h-org">Educational Testing Service</span>)
+  </dd>
+        
+        
+        <dt>Feedback:</dt><dd>
+        <a href="https://github.com/w3c/pronunciation/">GitHub w3c/pronunciation</a>
+        (<a href="https://github.com/w3c/pronunciation/pulls/">pull requests</a>,
+        <a href="https://github.com/w3c/pronunciation/issues/new/choose">new issue</a>,
+        <a href="https://github.com/w3c/pronunciation/issues/">open issues</a>)
+      </dd>
+        
+        
+      </dl>
+    </details>
+    
+    
+    <p class="copyright">
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+    ©
+    2019-2022
+    
+    <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+    <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>,
+    <a href="https://ev.buaa.edu.cn/">Beihang</a>). W3C
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+    <a rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
+  </p>
+    <hr title="Separator for header">
+  </div>
+
+		<section id="abstract" class="introductory"><h2 id="abstract-0">Abstract<a class="self-link" href="#abstract" aria-label="Permalink for Section"></a></h2>
+            
+            
+			<p>The objective of the Pronunciation Task Force is to develop normative specifications and best practices guidance collaborating with other <abbr title="World Wide Web Consortium">W3C</abbr> groups as appropriate, to provide for proper pronunciation in HTML content when using text to speech (TTS) synthesis.  This document defines a standard mechanism to allow 
+				content authors to include spoken presentation guidance in HTML content. Also, it contains
+			two identified approaches and enumerates their advantages and disadvantages.</p>
+
+		</section>
+
+		<section id="sotd" class="introductory"><h2 id="status-of-this-document">Status of This Document<a class="self-link" href="#sotd" aria-label="Permalink for Section"></a></h2><p><em>This section describes the status of this
+      document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr>
+      publications and the latest revision of this technical report can be found
+      in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at
+      https://www.w3.org/TR/.</em></p><p>
+    This document was published by the <a href="https://www.w3.org/groups/wg/apa">Accessible Platform Architectures Working Group</a> as
+    an Editor's Draft. 
+  </p><p>Publication as an Editor's Draft does not
+  imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. </p><p>
+    This is a draft document and may be updated, replaced or obsoleted by other
+    documents at any time. It is inappropriate to cite this document as other
+    than work in progress.
+    
+  </p><p>
+    
+        This document was produced by a group
+        operating under the
+        <a href="https://www.w3.org/Consortium/Patent-Policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent
+          Policy</a>.
+      
+    
+                <abbr title="World Wide Web Consortium">W3C</abbr> maintains a
+                <a rel="disclosure" href="https://www.w3.org/groups/wg/apa/ipr">public list of any patent disclosures</a>
+          made in connection with the deliverables of
+          the group; that page also includes
+          instructions for disclosing a patent. An individual who has actual
+          knowledge of a patent which the individual believes contains
+          <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential Claim(s)</a>
+          must disclose the information in accordance with
+          <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+        
+  </p><p>
+                  This document is governed by the
+                  <a id="w3c_process_revision" href="https://www.w3.org/2021/Process-20211102/">2 November 2021 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#what-is-this"><bdi class="secno">2. </bdi>What is this?</a></li><li class="tocline"><a class="tocxref" href="#why-do-we-care"><bdi class="secno">3. </bdi>Why do we care?</a></li><li class="tocline"><a class="tocxref" href="#goals"><bdi class="secno">4. </bdi>Goals</a></li><li class="tocline"><a class="tocxref" href="#non-goals"><bdi class="secno">5. </bdi>Non-Goals</a></li><li class="tocline"><a class="tocxref" href="#approaches-considered"><bdi class="secno">6. </bdi>Approaches considered</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#in-line-ssml"><bdi class="secno">6.1 </bdi>In-line SSML</a></li><li class="tocline"><a class="tocxref" href="#attribute-based-model-of-ssml"><bdi class="secno">6.2 </bdi>Attribute-based Model of SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#open-questions"><bdi class="secno">7. </bdi>Open Questions</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgments</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ack_group"><bdi class="secno">A.1 </bdi>Participants active in the Pronunciation TF at the time of publication</a></li></ol></li></ol></nav>
+
+		<section class="informative" id="introduction">
+
+			<h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></h2><p><em>This section is non-normative.</em></p>
+			<p>Accurate, consistent pronunciation and presentation of content spoken by text to speech synthesis (TTS) is an essential requirement in education, 
+				communication, entertainment, and other domains. 
+				From helping to teach spelling and pronunciation in different languages, to reading learning materials or new stories,
+				TTS has become a vital technology for providing access to digital content on the web, through mobile devices, and now via voice-based assistants. 
+				Organizations such as educational publishers and assessment vendors are looking for a standards-based solution to 
+				enable authoring of spoken presentation guidance in HTML which can then be consumed by assistive technologies and other 
+				applications that utilize text to speech synthesis (TTS) for rendering of content. 
+				Historically, efforts at standardization (e.g. SSML or CSS Speech) have not led to broad adoption of any standard by user agents, authors or assistive technologies; 
+				what has arisen are a variety of non-interoperable approaches that meet specific needs for some applications. This explainer document presents the case for 
+			improving spoken presentation on the Web and how a standards-based approach can address the requirements.</p>
+	
+
+		</section>
+		<section id="what-is-this">
+			<h2 id="x2-what-is-this"><bdi class="secno">2. </bdi>What is this?<a class="self-link" href="#what-is-this" aria-label="Permalink for Section 2."></a></h2>
+			<p>This is a proposal for a mechanism to allow content authors to include spoken presentation guidance in HTML content.  Such guidance can be used by assistive technologies (including screen readers and read aloud tools) and voice assistants to control text to speech synthesis. A key requirement is to ensure the spoken presentation content matches the author's intent and user expectations.</p>
+			<p>Currently, the <abbr title="World Wide Web Consortium">W3C</abbr> SSML standard is seen as an important piece of a solution. The challenge is integrating SSML into HTML so that it is easy to author, does not "break" content, and is straightforward for consumption by assistive technologies, voice assistants, and other tools that produce spoken presentation of content.</p>
+			<p>This proposal has emerged from the work of the Accessible Platform Architecture Pronunciation Task Force and represents a decision point arising from two differing approaches for integrating SSML (or SSML-like characteristics) into HTML.  Each of the approaches differs in authoring and consumption models (specifically for assistive technologies).</p>
+		</section>
+		<section id="why-do-we-care">
+			<h2 id="x3-why-do-we-care"><bdi class="secno">3. </bdi>Why do we care?<a class="self-link" href="#why-do-we-care" aria-label="Permalink for Section 3."></a></h2>
+			<p>Several classes of assistive technology users depend upon spoken rendering of web content by text to speech synthesis (TTS). In contexts such as education, there are specific expectations for accuracy of spoken presentation in terms of pronunciation, emphasis, prosody, pausing, etc.</p>
+			<p>Correct pronunciation is also important in the context of language learning, where incorrect pronunciation can confuse learners.</p>
+			<p>In practice, the ecosystem of devices used in classrooms is broad, and each vendor generally provides their own text to speech engines for their platforms.  Ensuring consistent spoken presentation across devices is a very real problem, and challenge. For many educational assessment vendors, the problem necessitates non-interoperable hacks to tune pronunciation and other presentation features, such as pausing, which itself can introduce new problems through inconsistent representation of text across speech and braille.</p>
+			<p>It could be argued that continual advances in machine learning will improve the quality of synthesized speech, reducing the need for this proposal. Waiting for a robust solution that will likely still not fully address our needs is risky, especially when an authorable, declarative approach may be within reach (and wouldn't preclude or conflict with continual improvement in TTS technology).</p>
+			<p>The current situation:</p>
+			<ul>
+				<li>Is an authoring challenge for content developers that wish to support spoken presentation</li>
+				<li>Limits interoperability and exchange of content between vendors and platforms</li>
+				<li>Is an implementation challenge for developers creating assistive technologies and read aloud capabilities</li>
+				<li>Presents an inconsistent, potentially confusing user experience for listeners of TTS</li>
+			</ul>
+			<p>With the growing consumer adoption of voice assistants, user expectations for high quality spoken presentation is growing.  Google and Amazon both encourage application developers to utilize SSML to enhance the user experience on their platforms, yet Web content authors do not have the same opportunity to enhance the spoken presentation of their content.</p>
+			<p>Finding a solution to this need can have broader benefit in allowing authors to create web content that presents a better user experience if the content is presented by voice assistants.</p>
+		</section>
+		<section id="goals">
+			<h2 id="x4-goals"><bdi class="secno">4. </bdi>Goals<a class="self-link" href="#goals" aria-label="Permalink for Section 4."></a></h2>
+			<ul>
+				<li>Define a standard mechanism that enables spoken presentation guidance to be authored in HTML</li>
+				<li>Leverage SSML, if possible, as it is an existing standard that meets all identified requirements, and is supported by many speech synthesis platforms</li>
+				<li>The mechanism must be consumable by assistive technologies such as screen readers</li>
+			</ul>
+		</section>
+		<section id="non-goals">
+			<h2 id="x5-non-goals"><bdi class="secno">5. </bdi>Non-Goals<a class="self-link" href="#non-goals" aria-label="Permalink for Section 5."></a></h2>
+			<ul>
+				<li>Not trying to create a new speech presentation standard</li>
+				<li>Not trying to resurrect CSS Speech (incomplete solution in any case)</li>
+			</ul>
+		</section>
+		<section id="approaches-considered">
+			<h2 id="x6-approaches-considered"><bdi class="secno">6. </bdi>Approaches considered<a class="self-link" href="#approaches-considered" aria-label="Permalink for Section 6."></a></h2>
+			<p>A variety of approaches have been identified thus far by the Task Force, 
+				but two are considered front runners:</p>
+			<ol>
+				<li>In-line SSML within Web Content</li>
+				<li>Attribute-based Model of SSML</li>
+			</ol>
+			<p>Both approaches have advantages and disadvantages and these are  briefly summarized below.</p>
+			<section id="in-line-ssml">
+				<h3 id="x6-1-in-line-ssml"><bdi class="secno">6.1 </bdi>In-line SSML<a class="self-link" href="#in-line-ssml" aria-label="Permalink for Section 6.1"></a></h3>
+				<p>Advantages including the existence of SSML standard that is directly consumable by many speech synthesizers, and the precedent for in-lining non-HTML markup such as SVG and MathML. Also, this approach may be more easily consumed by Voice Assistants.</p>
+				<p>A key disadvantage is that inline SSML appears to be more difficult for Assistive Technologies to implement, specifically for screen readers.</p>
+				<p>A simple example of in-line SSML in an HTML fragment is shown below:</p>
+				<div class="example">
+					<p>According the 2010 US Census, the population of &lt;speak&gt;&lt;say-as interpret-as="digits"&gt;90274&lt;/say-as&gt;&lt;/speak&gt; increased to 25209 from 24976 over the past 10 years.</p>
+				</div>
+			</section>
+			<section id="attribute-based-model-of-ssml">
+				<h3 id="x6-2-attribute-based-model-of-ssml"><bdi class="secno">6.2 </bdi>Attribute-based Model of SSML<a class="self-link" href="#attribute-based-model-of-ssml" aria-label="Permalink for Section 6.2"></a></h3>
+				<p>Advantages include the current uses of variants of the attribute model are currently used by educational assessment vendors, these variants are supported by custom read aloud tools, and it appears that the attribute model may be more easily implementable by screen reader vendors. For example, the EPUB3 standard includes the SSML phoneme element implemented as a pair of namespaced attributes and is used by publishers in Japan.</p>
+				<p>Disadvantages may include challenges resulting from the use of JSON. The introduction of JSON may add a level of complexity to authoring. However, this could be mitigated by authoring tools. This approach requires transforming the attribute content represented in JSON into SSML by the consumer (screen reader, read aloud tool, voice assistant, etc.). Possible security concerns exist with the JSON approach. The EPUB approach would lead to a large number of attributes if all the SSML elements were to be implemented in that manner.</p>
+				<p>Furthermore, no other standard uses string JSON values for attributes in HTML. This may cause problems for implementers who must parse the JSON values before processing. The browser, which normally attempts to address malformed HTML, can make no guarantees about the JSON strings. Implementers must decide how to handle malformed JSON.</p>
+				<p>Finally, the schema for <code>data-ssml</code> values has not been set. Competing standards for this format, like <a href="http://webschemas.org/SpeakableSpecification">SpeakableSpecification</a>, as well as any issues converting SSML to a proper JSON schema could cause confusion for implementors and authors. Often such conversions are "...not exactly 1:1 transformation, but very very close".</p>
+				<p>A simple example of the attribute based model of SSML is shown below:</p>
+				<div class="example">
+					<p>According the 2010 US Census, the population of &lt;span data-ssml='{"say-as" : {"interpret-as":"digits"}}'&gt;90274&lt;/span&gt; increased to 25209 from 24976 over the past 10 years.</p>
+				</div>
+			</section>
+		</section>
+		<section id="open-questions">
+			<h2 id="x7-open-questions"><bdi class="secno">7. </bdi>Open Questions<a class="self-link" href="#open-questions" aria-label="Permalink for Section 7."></a></h2>
+			<ol>
+				<li>From the TAG/WHATWG perspective,  what disadvantages/challenges have we missed with either approach?</li>
+				<li>Whichever approach makes sense from the web standards perspective, will/can it be adopted by assistive technologies? Particularly for screen readers, does it fit the accessibility API model?</li>
+			</ol>
+		</section>
+
+
+		
+
+
+
+		<section class="appendix informative section" id="acknowledgements">
+	<h2 id="a-acknowledgments"><bdi class="secno">A. </bdi>Acknowledgments<a class="self-link" href="#acknowledgements" aria-label="Permalink for Appendix A."></a></h2><p><em>This section is non-normative.</em></p>
+	<p>The following people contributed to the development of this document.</p>
+	<section class="section" id="ack_group">
+		<h3 id="a-1-participants-active-in-the-pronunciation-tf-at-the-time-of-publication"><bdi class="secno">A.1 </bdi>Participants active in the Pronunciation TF at the time of publication<a class="self-link" href="#ack_group" aria-label="Permalink for Appendix A.1"></a></h3>
+		<ul>
+			<li>Irfan Ali (Educational Testing Service)</li>
+			<li>Michael Cooper (<abbr title="World Wide Web Consortium">W3C</abbr>/<abbr title="Massachusetts Institute of Technology">MIT</abbr>)</li>
+			<li>Dee Dyer (Educational Testing Service)</li>
+			<li>Markku Hakkinen (Educational Testing Service)</li>
+			<li>Christine Loew (Invited Expert)</li>
+			<li>Steve Noble (Pearson plc)</li>
+			<li>Roy Ran (<abbr title="World Wide Web Consortium">W3C</abbr>/Beihang)</li>
+			<li>Janina Sajka (<abbr title="World Wide Web Consortium">W3C</abbr> invited expert)</li>
+			<li>John Foliot (Invited Expert)</li>
+			<li>Paul Grenier (Invited Expert)</li>
+			<li>Sam Kanta (Invited Expert)</li>
+			<li>Neil Soiffer (Invited Expert)</li>
+			<li>Léonie, Watson (TetraLogical)</li>
+			<li>Tom Babinszki (UnitedHealth Group)</li>
+			<li>Paul Bohman (Deque Systems, Inc.)</li>
+			<li>Becky Gibson (<abbr title="World Wide Web Consortium">W3C</abbr> Invited Expert)</li>
+			<li>Alan Reeve (Invited Expert)</li>
+
+		</ul>
+  </section>
+</section>
+
+
+
+
+	
+
+<p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
