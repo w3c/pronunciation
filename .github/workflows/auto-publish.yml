@@ -43,8 +43,8 @@ jobs:
           VALIDATE_MARKUP: false
       - uses: w3c/spec-prod@v2
         with:
-          SOURCE: sample/index.html
-          DESTINATION: sample/index.html
+          SOURCE: samples/index.html
+          DESTINATION: samples/index.html
           TOOLCHAIN: respec
           GH_PAGES_BRANCH: gh-pages
           VALIDATE_WEBIDL: false
