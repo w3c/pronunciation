@@ -109,7 +109,9 @@ var respecConfig = {
     //wgPatentURI:  "https://www.w3.org/2004/01/pp-impl/83907/status",
     //maxTocLevel: 2,
 
-   group: 83907
+   //group: 83907
+   group: "apa",
+    github: "https://github.com/w3c/pronunciation/"
 
     // Spec URLs
 

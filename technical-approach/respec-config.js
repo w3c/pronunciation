@@ -95,7 +95,9 @@ var respecConfig = {
     maxTocLevel: 3,
 
    // WG info
-   group: 83907
+   //group: 83907
+    group: "apa",
+    github: "https://github.com/w3c/pronunciation/"
 
     // Spec URLs
 
