@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 28.2.1">
+<meta name="generator" content="ReSpec 34.1.4">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 .issue-label{text-transform:initial}
@@ -8,6 +8,7 @@
 .warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
 span.warning{padding:.1em .5em .15em}
 .issue.closed span.issue-number{text-decoration:line-through}
+.issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
 .warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
 .warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
 li.task-list-item{list-style:none}
@@ -16,7 +17,7 @@ input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
 </style>
 <style>
 dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
 .dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
 .dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
@@ -57,8 +58,6 @@ a.bibref{text-decoration:none}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
 cite .bibref{font-style:normal}
-code{color:#c63501}
-th code{color:inherit}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 .toc a,.tof a{text-decoration:none}
@@ -83,14 +82,16 @@ details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin 
 details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
 details.respec-tests-details>ul{width:100%;margin-top:-.3em}
 details.respec-tests-details>li{padding-left:1em}
-a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
-h2,h3,h4,h5,h6{position:relative}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
-:is(h2,h3,h4,h5,h6)>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
-:is(h2,h3,h4,h5,h6)>a.self-link::before{content:"§";display:block}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
 @media (max-width:767px){
 dd{margin-left:0}
-:is(h2,h3,h4,h5,h6)>a.self-link{left:auto;top:auto}
 }
 @media print{
 .removeOnSave{display:none}
@@ -177,37 +178,37 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "maxTocLevel": 3,
   "group": "apa",
   "github": "https://github.com/w3c/pronunciation/",
-  "publishISODate": "2022-01-13T00:00:00.000Z",
-  "generatedSubtitle": "Editor's Draft 13 January 2022"
+  "publishISODate": "2023-07-10T00:00:00.000Z",
+  "generatedSubtitle": "W3C Editor's Draft 10 July 2023"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
 
 	<body class="h-entry informative"><div class="head">
-    <a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
-  </a> <h1 id="title" class="title">Specification for Spoken Presentation in HTML</h1>
-    
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2022-01-13">13 January 2022</time></p>
+    <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
+  </a></p>
+    <h1 id="title" class="title">Specification for Spoken Presentation in HTML</h1> 
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2023-07-10">10 July 2023</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
                 <a class="u-url" href="https://w3c.github.io/pronunciation/technical-approach">https://w3c.github.io/pronunciation/technical-approach</a>
-              </dd><dt>Latest published version:</dt><dd>
+              </dd>
+        <dt>Latest published version:</dt><dd>
                 <a href="https://www.w3.org/TR/spoken-html/">https://www.w3.org/TR/spoken-html/</a>
               </dd>
         <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/pronunciation/technical-approach">https://w3c.github.io/pronunciation/technical-approach</a></dd>
         <dt>History:</dt><dd>
-      <a href="https://www.w3.org/standards/history/spoken-html">https://www.w3.org/standards/history/spoken-html</a>
-    </dd><dd>
-        <a href="https://github.com/w3c/pronunciation/commits/">Commit history</a>
-      </dd>
+                    <a href="https://www.w3.org/standards/history/spoken-html/">https://www.w3.org/standards/history/spoken-html/</a>
+                  </dd><dd>
+                    <a href="https://github.com/w3c/pronunciation/commits/">Commit history</a>
+                  </dd>
         
         
         
         
         
-        <dt>Editors:</dt>
-        <dd class="editor p-author h-card vcard" data-editor-id="98332">
+        <dt>Editors:</dt><dd class="editor p-author h-card vcard" data-editor-id="98332">
     <a class="ed_mailto u-email email p-name" href="mailto:iali@ets.org">Irfan Ali</a> (<span class="p-org org h-org">Educational Testing Service</span>)
   </dd><dd class="editor p-author h-card vcard" data-editor-id="35712">
     <a class="ed_mailto u-email email p-name" href="mailto:mhakkinen@ets.org">Markku Hakkinen</a> (<span class="p-org org h-org">Educational Testing Service</span>)
@@ -233,18 +234,17 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <p class="copyright">
     <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
     ©
-    2021-2022
+    2021-2023
     
-    <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
-    <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>,
-    <a href="https://ev.buaa.edu.cn/">Beihang</a>). W3C
+    <a href="https://www.w3.org/">World Wide Web Consortium</a>.
+    <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup>
     <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
     <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
     <a rel="license" href="https://www.w3.org/Consortium/Legal/2002/copyright-software-20021231" title="W3C Software Notice and License">W3C Software</a> rules apply.
   </p>
     <hr title="Separator for header">
   </div>
-		<section id="abstract" class="introductory"><h2 id="abstract-0">Abstract<a class="self-link" href="#abstract" aria-label="Permalink for Section"></a></h2>
+		<section id="abstract" class="introductory"><h2>Abstract</h2>
 			<p>
 				Accurate pronunciation by text-to-speech (TTS) synthesis is very
 				important in many
@@ -281,7 +281,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 			</p>
 		</section>
 
-		<section id="sotd" class="introductory"><h2 id="status-of-this-document">Status of This Document<a class="self-link" href="#sotd" aria-label="Permalink for Section"></a></h2><p><em>This section describes the status of this
+		<section id="sotd" class="introductory"><h2>Status of This Document</h2><p><em>This section describes the status of this
       document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr>
       publications and the latest revision of this technical report can be found
       in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at
@@ -325,8 +325,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 				Technical Considerations
 			</a></li><li class="tocline"><a class="tocxref" href="#ssml-json-schema"><bdi class="secno">A. </bdi>SSML JSON Schema </a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">B. </bdi>Acknowledgments</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ack_group"><bdi class="secno">B.1 </bdi>Participants active in the Pronunciation TF at the time of publication</a></li></ol></li></ol></nav>
 
-		<section class="informative" id="introduction">
-			<h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></h2><p><em>This section is non-normative.</em></p>
+		<section class="informative" id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
+			
 
 			<p>In this First Public Working Draft (FPWD) publication we define two
 				independent approaches for achieving accurate, consistent,
@@ -441,10 +441,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 			</p>
 		</section>
 
-		<section id="internationalization-considerations">
-			<h2 id="x2-internationalization-considerations"><bdi class="secno">2. </bdi>
+		<section id="internationalization-considerations"><div class="header-wrapper"><h2 id="x2-internationalization-considerations"><bdi class="secno">2. </bdi>
 				Internationalization Considerations
-			<a class="self-link" href="#internationalization-considerations" aria-label="Permalink for Section 2."></a></h2>
+			</h2><a class="self-link" href="#internationalization-considerations" aria-label="Permalink for Section 2."></a></div>
+			
 			<p>
 				A web specification that will contain language specific information must
 				consider internationalization (i18n). HTML specifies the
@@ -480,10 +480,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 			<p></p>
 		</section>
 
-		<section id="multi-attribute-approach-for-including-ssml-in-html">
-			<h2 id="x3-multi-attribute-approach-for-including-ssml-in-html"><bdi class="secno">3. </bdi>
+		<section id="multi-attribute-approach-for-including-ssml-in-html"><div class="header-wrapper"><h2 id="x3-multi-attribute-approach-for-including-ssml-in-html"><bdi class="secno">3. </bdi>
 				Multi-attribute Approach for Including SSML in HTML
-			<a class="self-link" href="#multi-attribute-approach-for-including-ssml-in-html" aria-label="Permalink for Section 3."></a></h2>
+			</h2><a class="self-link" href="#multi-attribute-approach-for-including-ssml-in-html" aria-label="Permalink for Section 3."></a></div>
+			
 			<p>
 				By converting SSML tags and attributes to HTML attributes,
 				authors can embed pronunciation (and related spoken presentation)
@@ -532,8 +532,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 
 			</div>
-			<section id="the-data-ssml-multi-attribute-set">
-				<h3 id="x3-1-the-data-ssml-multi-attribute-set"><bdi class="secno">3.1 </bdi>The <code>data-ssml-*</code> Multi-Attribute Set<a class="self-link" href="#the-data-ssml-multi-attribute-set" aria-label="Permalink for Section 3.1"></a></h3>
+			<section id="the-data-ssml-multi-attribute-set"><div class="header-wrapper"><h3 id="x3-1-the-data-ssml-multi-attribute-set"><bdi class="secno">3.1 </bdi>The <code>data-ssml-*</code> Multi-Attribute Set</h3><a class="self-link" href="#the-data-ssml-multi-attribute-set" aria-label="Permalink for Section 3.1"></a></div>
+				
 				<p>
 					These attributes provide functional equivalence to the SSML
 					counterparts. These attributes are valid
@@ -549,8 +549,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 					</li>
 				</ul>
 
-				<section id="data-ssml-say-as">
-					<h4 id="x3-1-1-data-ssml-say-as"><bdi class="secno">3.1.1 </bdi><code>data-ssml-say-as(-*)</code><a class="self-link" href="#data-ssml-say-as" aria-label="Permalink for Section 3.1.1"></a></h4>
+				<section id="data-ssml-say-as"><div class="header-wrapper"><h4 id="x3-1-1-data-ssml-say-as"><bdi class="secno">3.1.1 </bdi><code>data-ssml-say-as(-*)</code></h4><a class="self-link" href="#data-ssml-say-as" aria-label="Permalink for Section 3.1.1"></a></div>
+					
 					<p>
 						Allows the author to classify the element's text content. The
 						attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.9">SSML
@@ -559,25 +559,25 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 					</p><div class="note" id="issue-container-generatedID-0"><div role="heading" class="ednote-title marker" id="h-ednote-0" aria-level="5"><span>Editor's note</span></div><div class=""><code>interpret-as</code> seems superfluous, and
 						should be implied</div></div>
 					<p></p>
-					<section class="role notoc">
-						<h5 id="data-ssml-say-as-0"><code>data-ssml-say-as</code><a class="self-link" href="#data-ssml-say-as-0" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-say-as-0"><code>data-ssml-say-as</code></h5><a class="self-link" href="#data-ssml-say-as-0" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Values:
 							<code>date | time | telephone | characters | cardinal | ordinal</code>
 						</p>
 					</section>
 
-					<section class="role notoc">
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-say-as-format-optional"><code>data-ssml-say-as-format</code> (optional)</h5><a class="self-link" href="#data-ssml-say-as-format-optional" aria-label="Permalink for this Section"></a></div>
 
-						<h5 id="data-ssml-say-as-format-optional"><code>data-ssml-say-as-format</code> (optional)<a class="self-link" href="#data-ssml-say-as-format-optional" aria-label="Permalink for Section"></a></h5>
+						
 						<p>
 							Value: time/date format as defined in <abbr title="World Wide Web Consortium">W3C</abbr> Note, SSML
 							<code>say-as</code> attribute values. <a href="https://www.w3.org/TR/ssml-sayas/">SSML 1.0 say-as
 								attribute</a>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-say-as-detail-optional"><code>data-ssml-say-as-detail</code> (optional)<a class="self-link" href="#data-ssml-say-as-detail-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-say-as-detail-optional"><code>data-ssml-say-as-detail</code> (optional)</h5><a class="self-link" href="#data-ssml-say-as-detail-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: detail as defined in <abbr title="World Wide Web Consortium">W3C</abbr> Note, SSML <code>say-as</code>
 							attribute values. <a href="https://www.w3.org/TR/ssml-sayas/">SSML
@@ -597,8 +597,8 @@ increased to <span class="hljs-number">25209</span> <span class="hljs-keyword">f
 					</section>
 				</section>
 
-				<section id="data-ssml-phoneme">
-					<h4 id="x3-1-2-data-ssml-phoneme"><bdi class="secno">3.1.2 </bdi><code>data-ssml-phoneme-*</code><a class="self-link" href="#data-ssml-phoneme" aria-label="Permalink for Section 3.1.2"></a></h4>
+				<section id="data-ssml-phoneme"><div class="header-wrapper"><h4 id="x3-1-2-data-ssml-phoneme"><bdi class="secno">3.1.2 </bdi><code>data-ssml-phoneme-*</code></h4><a class="self-link" href="#data-ssml-phoneme" aria-label="Permalink for Section 3.1.2"></a></div>
+					
 					<p>
 						Defines two required attributes for phonemic/phonetic pronunciation.
 						The element
@@ -606,12 +606,12 @@ increased to <span class="hljs-number">25209</span> <span class="hljs-keyword">f
 						attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.10">SSML
 							<code>phoneme</code> element</a> and associated properties.
 					</p>
-					<section class="role notoc">
-						<h5 id="data-ssml-phoneme-ph"><code>data-ssml-phoneme-ph</code><a class="self-link" href="#data-ssml-phoneme-ph" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-phoneme-ph"><code>data-ssml-phoneme-ph</code></h5><a class="self-link" href="#data-ssml-phoneme-ph" aria-label="Permalink for this Section"></a></div>
+						
 						<p>Value: The phoneme string.</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-phoneme-alphabet"><code>data-ssml-phoneme-alphabet</code><a class="self-link" href="#data-ssml-phoneme-alphabet" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-phoneme-alphabet"><code>data-ssml-phoneme-alphabet</code></h5><a class="self-link" href="#data-ssml-phoneme-alphabet" aria-label="Permalink for this Section"></a></div>
+						
 						<p>Values: The phonetic alphabet in use. <code>ipa | x-sampa</code>
 						</p>
 
@@ -622,8 +622,8 @@ increased to <span class="hljs-number">25209</span> <span class="hljs-keyword">f
 					</section>
 
 				</section>
-				<section id="data-ssml-sub-alias">
-					<h4 id="x3-1-3-data-ssml-sub-alias"><bdi class="secno">3.1.3 </bdi><code>data-ssml-sub-alias</code><a class="self-link" href="#data-ssml-sub-alias" aria-label="Permalink for Section 3.1.3"></a></h4>
+				<section id="data-ssml-sub-alias"><div class="header-wrapper"><h4 id="x3-1-3-data-ssml-sub-alias"><bdi class="secno">3.1.3 </bdi><code>data-ssml-sub-alias</code></h4><a class="self-link" href="#data-ssml-sub-alias" aria-label="Permalink for Section 3.1.3"></a></div>
+					
 					<p>
 						A string value that replaces the text content for pronunciation.
 						While similar to <code>aria-label</code>, alias does not alter
@@ -645,8 +645,8 @@ increased to <span class="hljs-number">25209</span> <span class="hljs-keyword">f
 
 
 				</section>
-				<section id="data-ssml-voice">
-					<h4 id="x3-1-4-data-ssml-voice"><bdi class="secno">3.1.4 </bdi><code>data-ssml-voice-*</code><a class="self-link" href="#data-ssml-voice" aria-label="Permalink for Section 3.1.4"></a></h4>
+				<section id="data-ssml-voice"><div class="header-wrapper"><h4 id="x3-1-4-data-ssml-voice"><bdi class="secno">3.1.4 </bdi><code>data-ssml-voice-*</code></h4><a class="self-link" href="#data-ssml-voice" aria-label="Permalink for Section 3.1.4"></a></div>
+					
 					<p>
 						A set of attributes defining production values that requests a
 						change in speaking voice. There are
@@ -656,35 +656,35 @@ increased to <span class="hljs-number">25209</span> <span class="hljs-keyword">f
 						that control behavior. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.1">SSML
 							<code>voice</code> element</a> and associated properties.
 					</p>
-					<section class="role notoc">
-						<h5 id="data-ssml-voice-gender-optional"><code>data-ssml-voice-gender</code> (optional)<a class="self-link" href="#data-ssml-voice-gender-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-voice-gender-optional"><code>data-ssml-voice-gender</code> (optional)</h5><a class="self-link" href="#data-ssml-voice-gender-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Values: <code>female | male | neutral</code>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-voice-age-optional"><code>data-ssml-voice-age</code> (optional)<a class="self-link" href="#data-ssml-voice-age-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-voice-age-optional"><code>data-ssml-voice-age</code> (optional)</h5><a class="self-link" href="#data-ssml-voice-age-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>integer</i> corresponding to age in years
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-voice-variant-optional"><code>data-ssml-voice-variant</code> (optional)<a class="self-link" href="#data-ssml-voice-variant-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-voice-variant-optional"><code>data-ssml-voice-variant</code> (optional)</h5><a class="self-link" href="#data-ssml-voice-variant-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>integer</i> indicating a numeric voice variant
 						</p>
 					</section>
-					<section class="role notoc">
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-voice-name-optional"><code>data-ssml-voice-name</code> (optional)</h5><a class="self-link" href="#data-ssml-voice-name-optional" aria-label="Permalink for this Section"></a></div>
 
-						<h5 id="data-ssml-voice-name-optional"><code>data-ssml-voice-name</code> (optional)<a class="self-link" href="#data-ssml-voice-name-optional" aria-label="Permalink for Section"></a></h5>
+						
 						<p>
 							Values: specific voice name requested from the current TTS engine
 							(e.g.,
 							<code>"David"</code>).
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-voice-languages-optional"><code>data-ssml-voice-languages</code> (optional)<a class="self-link" href="#data-ssml-voice-languages-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-voice-languages-optional"><code>data-ssml-voice-languages</code> (optional)</h5><a class="self-link" href="#data-ssml-voice-languages-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> a space delimited list of one or more
 							languages to be spoken by this voice.
@@ -704,8 +704,8 @@ increased to <span class="hljs-number">25209</span> <span class="hljs-keyword">f
 					</section>
 
 				</section>
-				<section id="data-ssml-emphasis-level">
-					<h4 id="x3-1-5-data-ssml-emphasis-level"><bdi class="secno">3.1.5 </bdi><code>data-ssml-emphasis-level</code><a class="self-link" href="#data-ssml-emphasis-level" aria-label="Permalink for Section 3.1.5"></a></h4>
+				<section id="data-ssml-emphasis-level"><div class="header-wrapper"><h4 id="x3-1-5-data-ssml-emphasis-level"><bdi class="secno">3.1.5 </bdi><code>data-ssml-emphasis-level</code></h4><a class="self-link" href="#data-ssml-emphasis-level" aria-label="Permalink for Section 3.1.5"></a></div>
+					
 					<p>
 						Requests that the text content be spoken with
 						emphasis (also
@@ -724,8 +724,8 @@ increased to <span class="hljs-number">25209</span> <span class="hljs-keyword">f
 					</div>
 
 				</section>
-				<section id="data-ssml-break">
-					<h4 id="x3-1-6-data-ssml-break"><bdi class="secno">3.1.6 </bdi><code>data-ssml-break-*</code><a class="self-link" href="#data-ssml-break" aria-label="Permalink for Section 3.1.6"></a></h4>
+				<section id="data-ssml-break"><div class="header-wrapper"><h4 id="x3-1-6-data-ssml-break"><bdi class="secno">3.1.6 </bdi><code>data-ssml-break-*</code></h4><a class="self-link" href="#data-ssml-break" aria-label="Permalink for Section 3.1.6"></a></div>
+					
 					<p>
 						Describes the timing associated with an empty element to
 						control the pausing or other prosodic boundaries between tokens. The
@@ -738,15 +738,15 @@ increased to <span class="hljs-number">25209</span> <span class="hljs-keyword">f
 						context. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.3">SSML
 							<code>break</code> element</a> and associated properties.
 					</p>
-					<section class="role notoc">
-						<h5 id="data-ssml-break-strength"><code>data-ssml-break-strength</code><a class="self-link" href="#data-ssml-break-strength" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-break-strength"><code>data-ssml-break-strength</code></h5><a class="self-link" href="#data-ssml-break-strength" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Values:
 							<code>none | x-weak | weak | medium (default) | strong | x-strong</code>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-break-time"><code>data-ssml-break-time</code><a class="self-link" href="#data-ssml-break-time" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-break-time"><code>data-ssml-break-time</code></h5><a class="self-link" href="#data-ssml-break-time" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing a time duration expressed in
 							numeric form as "250ms", "1s", etc.
@@ -760,51 +760,51 @@ increased to <span class="hljs-number">25209</span> <span class="hljs-keyword">f
 
 
 				</section>
-				<section id="data-ssml-prosody">
-					<h4 id="x3-1-7-data-ssml-prosody"><bdi class="secno">3.1.7 </bdi><code>data-ssml-prosody-*</code><a class="self-link" href="#data-ssml-prosody" aria-label="Permalink for Section 3.1.7"></a></h4>
+				<section id="data-ssml-prosody"><div class="header-wrapper"><h4 id="x3-1-7-data-ssml-prosody"><bdi class="secno">3.1.7 </bdi><code>data-ssml-prosody-*</code></h4><a class="self-link" href="#data-ssml-prosody" aria-label="Permalink for Section 3.1.7"></a></div>
+					
 					<p>
 						Permits control of the pitch, speaking rate and volume of
 						the speech output. The attributes are derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML
 							<code>prosody</code> element</a> and associated properties.
 					</p>
-					<section class="role notoc">
-						<h5 id="data-ssml-prosody-pitch-optional"><code>data-ssml-prosody-pitch</code> (optional)<a class="self-link" href="#data-ssml-prosody-pitch-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-prosody-pitch-optional"><code>data-ssml-prosody-pitch</code> (optional)</h5><a class="self-link" href="#data-ssml-prosody-pitch-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Values:
 							<code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-prosody-contour-optional"><code>data-ssml-prosody-contour</code> (optional)<a class="self-link" href="#data-ssml-prosody-contour-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-prosody-contour-optional"><code>data-ssml-prosody-contour</code> (optional)</h5><a class="self-link" href="#data-ssml-prosody-contour-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> of contour change parameters as defined in
 							the <a href="https://www.w3.org/TR/speech-synthesis11/#pitch_contour">SSML
 								1.1 recommendation</a>.
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-prosody-range-optional"><code>data-ssml-prosody-range</code> (optional)<a class="self-link" href="#data-ssml-prosody-range-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-prosody-range-optional"><code>data-ssml-prosody-range</code> (optional)</h5><a class="self-link" href="#data-ssml-prosody-range-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> range value as defined in the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML 1.1
 								recommendation</a>.
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-prosody-rate-optional"><code>data-ssml-prosody-rate</code> (optional)<a class="self-link" href="#data-ssml-prosody-rate-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-prosody-rate-optional"><code>data-ssml-prosody-rate</code> (optional)</h5><a class="self-link" href="#data-ssml-prosody-rate-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Values:
 							<code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-prosody-duration-optional"><code>data-ssml-prosody-duration</code> (optional)<a class="self-link" href="#data-ssml-prosody-duration-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-prosody-duration-optional"><code>data-ssml-prosody-duration</code> (optional)</h5><a class="self-link" href="#data-ssml-prosody-duration-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing a time duration (e.g., "250ms",
 							"1s", etc.).
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-prosody-volume-optional"><code>data-ssml-prosody-volume</code> (optional)<a class="self-link" href="#data-ssml-prosody-volume-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-prosody-volume-optional"><code>data-ssml-prosody-volume</code> (optional)</h5><a class="self-link" href="#data-ssml-prosody-volume-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Values:
 							<code><i>+/- soundlevel</i>&gt;"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code>
@@ -819,8 +819,8 @@ I am almost at the finish line<span class="hljs-tag">&lt;/<span class="hljs-name
 
 
 				</section>
-				<section id="data-ssml-audio">
-					<h4 id="x3-1-8-data-ssml-audio"><bdi class="secno">3.1.8 </bdi><code>data-ssml-audio-*</code><a class="self-link" href="#data-ssml-audio" aria-label="Permalink for Section 3.1.8"></a></h4>
+				<section id="data-ssml-audio"><div class="header-wrapper"><h4 id="x3-1-8-data-ssml-audio"><bdi class="secno">3.1.8 </bdi><code>data-ssml-audio-*</code></h4><a class="self-link" href="#data-ssml-audio" aria-label="Permalink for Section 3.1.8"></a></div>
+					
 					<p>
 						Supports the insertion of recorded audio files in conjunction with
 						synthesized speech output.
@@ -830,61 +830,61 @@ I am almost at the finish line<span class="hljs-tag">&lt;/<span class="hljs-name
 							<code>audio</code> element</a> and associated properties.
 					</p>
 
-					<section class="role notoc">
-						<h5 id="data-ssml-audio-src"><code>data-ssml-audio-src</code><a class="self-link" href="#data-ssml-audio-src" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-audio-src"><code>data-ssml-audio-src</code></h5><a class="self-link" href="#data-ssml-audio-src" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>The URI of a document with an appropriate media
 								file.</i>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-audio-fetchtimeout-optional"><code>data-ssml-audio-fetchtimeout</code> (optional)<a class="self-link" href="#data-ssml-audio-fetchtimeout-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-audio-fetchtimeout-optional"><code>data-ssml-audio-fetchtimeout</code> (optional)</h5><a class="self-link" href="#data-ssml-audio-fetchtimeout-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing a time duration (e.g., "250ms",
 							"1s", etc.).
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-audio-fetchint-optional"><code>data-ssml-audio-fetchint</code> (optional)<a class="self-link" href="#data-ssml-audio-fetchint-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-audio-fetchint-optional"><code>data-ssml-audio-fetchint</code> (optional)</h5><a class="self-link" href="#data-ssml-audio-fetchint-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Values: <code>safe | prefetch</code>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-audio-maxage-optional"><code>data-ssml-audio-maxage</code> (optional)<a class="self-link" href="#data-ssml-audio-maxage-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-audio-maxage-optional"><code>data-ssml-audio-maxage</code> (optional)</h5><a class="self-link" href="#data-ssml-audio-maxage-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-audio-maxstale-optional"><code>data-ssml-audio-maxstale</code> (optional)<a class="self-link" href="#data-ssml-audio-maxstale-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-audio-maxstale-optional"><code>data-ssml-audio-maxstale</code> (optional)</h5><a class="self-link" href="#data-ssml-audio-maxstale-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-audio-clipbegin-optional"><code>data-ssml-audio-clipBegin</code> (optional)<a class="self-link" href="#data-ssml-audio-clipbegin-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-audio-clipbegin-optional"><code>data-ssml-audio-clipBegin</code> (optional)</h5><a class="self-link" href="#data-ssml-audio-clipbegin-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing a time duration (e.g., "250ms",
 							"1s", etc.).
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-audio-clipend-optional"><code>data-ssml-audio-clipEnd</code> (optional)<a class="self-link" href="#data-ssml-audio-clipend-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-audio-clipend-optional"><code>data-ssml-audio-clipEnd</code> (optional)</h5><a class="self-link" href="#data-ssml-audio-clipend-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing a time duration (e.g., "250ms",
 							"1s", etc.).
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-audio-repeatcount-optional"><code>data-ssml-audio-repeatCount</code> (optional)<a class="self-link" href="#data-ssml-audio-repeatcount-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-audio-repeatcount-optional"><code>data-ssml-audio-repeatCount</code> (optional)</h5><a class="self-link" href="#data-ssml-audio-repeatcount-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>integer</i> indicating the number of times to repeat the
 							audio clip.
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-audio-repeatdur-optional"><code>data-ssml-audio-repeatDur</code> (optional)<a class="self-link" href="#data-ssml-audio-repeatdur-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-audio-repeatdur-optional"><code>data-ssml-audio-repeatDur</code> (optional)</h5><a class="self-link" href="#data-ssml-audio-repeatdur-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing a time duration (e.g., "250ms",
 							"1s", etc.).
@@ -901,10 +901,10 @@ when your time is up.</code></pre>
 			</section>
 		</section>
 
-		<section id="single-attribute-approach-for-including-ssml-in-html">
-			<h2 id="x4-single-attribute-approach-for-including-ssml-in-html"><bdi class="secno">4. </bdi>
+		<section id="single-attribute-approach-for-including-ssml-in-html"><div class="header-wrapper"><h2 id="x4-single-attribute-approach-for-including-ssml-in-html"><bdi class="secno">4. </bdi>
 				Single-attribute Approach for Including SSML in HTML
-			<a class="self-link" href="#single-attribute-approach-for-including-ssml-in-html" aria-label="Permalink for Section 4."></a></h2>
+			</h2><a class="self-link" href="#single-attribute-approach-for-including-ssml-in-html" aria-label="Permalink for Section 4."></a></div>
+			
 			<p>
 				By converting SSML tags and attributes into a single HTML attribute
 				with a <a href="https://www.ietf.org/rfc/rfc4627.txt">JSON</a> string
@@ -959,8 +959,8 @@ when your time is up.</code></pre>
 <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 
 			</div>
-			<section id="data-ssml-attribute-properties-and-values">
-				<h3 id="x4-1-data-ssml-attribute-properties-and-values"><bdi class="secno">4.1 </bdi><code>data-ssml</code> Attribute, Properties and Values<a class="self-link" href="#data-ssml-attribute-properties-and-values" aria-label="Permalink for Section 4.1"></a></h3>
+			<section id="data-ssml-attribute-properties-and-values"><div class="header-wrapper"><h3 id="x4-1-data-ssml-attribute-properties-and-values"><bdi class="secno">4.1 </bdi><code>data-ssml</code> Attribute, Properties and Values</h3><a class="self-link" href="#data-ssml-attribute-properties-and-values" aria-label="Permalink for Section 4.1"></a></div>
+				
 				<p>
 					The following properties are defined and provide functional
 					equivalence to the their SSML
@@ -991,29 +991,29 @@ when your time is up.</code></pre>
 					JSON schema is presented in Appendix A.
 				</p>
 
-				<section id="say-as">
-					<h4 id="x4-1-1-say-as"><bdi class="secno">4.1.1 </bdi><code>say-as</code><a class="self-link" href="#say-as" aria-label="Permalink for Section 4.1.1"></a></h4>
+				<section id="say-as"><div class="header-wrapper"><h4 id="x4-1-1-say-as"><bdi class="secno">4.1.1 </bdi><code>say-as</code></h4><a class="self-link" href="#say-as" aria-label="Permalink for Section 4.1.1"></a></div>
+					
 					<p>
 						Allows the author to classify the element's text content. The JSON
 						definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.9">SSML
 							<code>say-as</code> element</a> and associated properties.
 					</p>
-					<section class="role notoc">
-						<h5 id="interpret-as"><code>interpret-as</code><a class="self-link" href="#interpret-as" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="interpret-as"><code>interpret-as</code></h5><a class="self-link" href="#interpret-as" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value:
 							<code>date | time | telephone | characters | cardinal | ordinal</code>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="format-optional"><code>format</code> (optional)<a class="self-link" href="#format-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="format-optional"><code>format</code> (optional)</h5><a class="self-link" href="#format-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: time/date format as defined in <abbr title="World Wide Web Consortium">W3C</abbr> Note SSML
 							<code>say-as</code> attribute values.
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="detail-optional"><code>detail</code> (optional)<a class="self-link" href="#detail-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="detail-optional"><code>detail</code> (optional)</h5><a class="self-link" href="#detail-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: detail as defined in <abbr title="World Wide Web Consortium">W3C</abbr> Note SSML <code>say-as</code>
 							attribute values.
@@ -1033,8 +1033,8 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 					</section>
 
 				</section>
-				<section id="phoneme">
-					<h4 id="x4-1-2-phoneme"><bdi class="secno">4.1.2 </bdi><code>phoneme</code><a class="self-link" href="#phoneme" aria-label="Permalink for Section 4.1.2"></a></h4>
+				<section id="phoneme"><div class="header-wrapper"><h4 id="x4-1-2-phoneme"><bdi class="secno">4.1.2 </bdi><code>phoneme</code></h4><a class="self-link" href="#phoneme" aria-label="Permalink for Section 4.1.2"></a></div>
+					
 					<p>
 						Defines two required attributes for phonemic/phonetic pronunciation.
 						The element
@@ -1042,15 +1042,15 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 						The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.10">SSML
 							<code>phoneme</code> element</a> and associated properties.
 					</p>
-					<section class="role notoc">
-						<h5 id="ph"><code>ph</code><a class="self-link" href="#ph" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="ph"><code>ph</code></h5><a class="self-link" href="#ph" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing the phonetic characters
 							corresponding to the content to be spoken
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="data-ssml-phoneme-alphabet-0"><code>data-ssml-phoneme-alphabet</code><a class="self-link" href="#data-ssml-phoneme-alphabet-0" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="data-ssml-phoneme-alphabet-0"><code>data-ssml-phoneme-alphabet</code></h5><a class="self-link" href="#data-ssml-phoneme-alphabet-0" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <code>ipa | x-sampa</code> defining the phonetic alphabet
 							used for the <code>ph</code> string
@@ -1064,8 +1064,8 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 					</section>
 
 				</section>
-				<section id="sub">
-					<h4 id="x4-1-3-sub"><bdi class="secno">4.1.3 </bdi><code>sub</code><a class="self-link" href="#sub" aria-label="Permalink for Section 4.1.3"></a></h4>
+				<section id="sub"><div class="header-wrapper"><h4 id="x4-1-3-sub"><bdi class="secno">4.1.3 </bdi><code>sub</code></h4><a class="self-link" href="#sub" aria-label="Permalink for Section 4.1.3"></a></div>
+					
 					<p>
 						Indicates that the text in the alias attribute value
 						replaces the text content for pronunciation. The required alias
@@ -1075,8 +1075,8 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 						JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.1.11">SSML
 							<code>sub</code> element</a> and associated properties.
 					</p>
-					<section class="role notoc">
-						<h5 id="alias"><code>alias</code><a class="self-link" href="#alias" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="alias"><code>alias</code></h5><a class="self-link" href="#alias" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing the text to be spoken as a
 							substitution for the text content of
@@ -1090,8 +1090,8 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 					</section>
 
 				</section>
-				<section id="voice">
-					<h4 id="x4-1-4-voice"><bdi class="secno">4.1.4 </bdi><code>voice</code><a class="self-link" href="#voice" aria-label="Permalink for Section 4.1.4"></a></h4>
+				<section id="voice"><div class="header-wrapper"><h4 id="x4-1-4-voice"><bdi class="secno">4.1.4 </bdi><code>voice</code></h4><a class="self-link" href="#voice" aria-label="Permalink for Section 4.1.4"></a></div>
+					
 					<p>
 						Requests a change in speaking voice. There are
 						two kinds of attributes for <code>voice</code>: those that indicate
@@ -1100,34 +1100,34 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 						the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.1">SSML
 							<code>voice</code> element</a> and associated properties.
 					</p>
-					<section class="role notoc">
-						<h5 id="gender-optional"><code>gender</code> (optional)<a class="self-link" href="#gender-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="gender-optional"><code>gender</code> (optional)</h5><a class="self-link" href="#gender-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Values: <code>female | male | neutral</code>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="age-optional"><code>age</code> (optional)<a class="self-link" href="#age-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="age-optional"><code>age</code> (optional)</h5><a class="self-link" href="#age-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>integer</i> corresponding to age in years
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="variant-optional"><code>variant</code> (optional)<a class="self-link" href="#variant-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="variant-optional"><code>variant</code> (optional)</h5><a class="self-link" href="#variant-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>integer</i> indicating a numeric voice variant
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="name-optional"><code>name</code> (optional)<a class="self-link" href="#name-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="name-optional"><code>name</code> (optional)</h5><a class="self-link" href="#name-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> defining a specific voice name requested from
 							the current TTS engine, e.g.,
 							<code>"Microsoft David (English)"</code>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="languages-optional"><code>languages</code> (optional)<a class="self-link" href="#languages-optional" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="languages-optional"><code>languages</code> (optional)</h5><a class="self-link" href="#languages-optional" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> a space delimited list of one or more
 							languages to be spoken by this voice.
@@ -1146,8 +1146,8 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 					</section>
 
 				</section>
-				<section id="emphasis">
-					<h4 id="x4-1-5-emphasis"><bdi class="secno">4.1.5 </bdi><code>emphasis</code><a class="self-link" href="#emphasis" aria-label="Permalink for Section 4.1.5"></a></h4>
+				<section id="emphasis"><div class="header-wrapper"><h4 id="x4-1-5-emphasis"><bdi class="secno">4.1.5 </bdi><code>emphasis</code></h4><a class="self-link" href="#emphasis" aria-label="Permalink for Section 4.1.5"></a></div>
+					
 					<p>
 						Requests that the text content of the element to which emphasis
 						spoken with emphasis (also referred to
@@ -1155,8 +1155,8 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 							<code>emphasis</code> element</a> and associated properties.
 					</p>
 
-					<section class="role notoc">
-						<h5 id="level"><code>level</code><a class="self-link" href="#level" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="level"><code>level</code></h5><a class="self-link" href="#level" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <code>strong | moderate | none | reduced</code>
 						</p>
@@ -1167,8 +1167,8 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 					</section>
 
 				</section>
-				<section id="break">
-					<h4 id="x4-1-6-break"><bdi class="secno">4.1.6 </bdi><code>break</code><a class="self-link" href="#break" aria-label="Permalink for Section 4.1.6"></a></h4>
+				<section id="break"><div class="header-wrapper"><h4 id="x4-1-6-break"><bdi class="secno">4.1.6 </bdi><code>break</code></h4><a class="self-link" href="#break" aria-label="Permalink for Section 4.1.6"></a></div>
+					
 					<p>
 						Describes the timing associated with an empty element to
 						control the pausing or other prosodic boundaries between tokens. The
@@ -1180,15 +1180,15 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 						definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.3">SSML
 							<code>break</code> element</a> and associated properties.
 					</p>
-					<section class="role notoc">
-						<h5 id="strength"><code>strength</code><a class="self-link" href="#strength" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="strength"><code>strength</code></h5><a class="self-link" href="#strength" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value:
 							<code>none | x-weak | weak | medium (default) | strong | x-strong</code>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="time"><code>time</code><a class="self-link" href="#time" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="time"><code>time</code></h5><a class="self-link" href="#time" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing a time duration expressed in
 							numeric form as "250ms", "1s", etc. (s=second, ms=milliseconds)
@@ -1201,50 +1201,50 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 					</section>
 
 				</section>
-				<section id="prosody">
-					<h4 id="x4-1-7-prosody"><bdi class="secno">4.1.7 </bdi><code>prosody</code><a class="self-link" href="#prosody" aria-label="Permalink for Section 4.1.7"></a></h4>
+				<section id="prosody"><div class="header-wrapper"><h4 id="x4-1-7-prosody"><bdi class="secno">4.1.7 </bdi><code>prosody</code></h4><a class="self-link" href="#prosody" aria-label="Permalink for Section 4.1.7"></a></div>
+					
 					<p>
 						Permits control of the pitch, speaking rate and volume of the speech
 						output. The object has six properties. The JSON definition is
 						derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.2.4">SSML
 							<code>prosody</code> element</a> and associated properties.
 					</p>
-					<section class="role notoc">
-						<h5 id="pitch"><code>pitch</code><a class="self-link" href="#pitch" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="pitch"><code>pitch</code></h5><a class="self-link" href="#pitch" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value:
 							<code><i>frequency-value</i>"Hz" | <i>+/- change value</i> | "x-low" | "low" | "medium" | "high" | "x-high" | "default"</code>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="contour"><code>contour</code><a class="self-link" href="#contour" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="contour"><code>contour</code></h5><a class="self-link" href="#contour" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> of contour change parameters as defined in
 							the SSML 1.1 recommendation
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="range"><code>range</code><a class="self-link" href="#range" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="range"><code>range</code></h5><a class="self-link" href="#range" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> range value as defined in the SSML 1.1
 							recommendation
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="rate"><code>rate</code><a class="self-link" href="#rate" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="rate"><code>rate</code></h5><a class="self-link" href="#rate" aria-label="Permalink for this Section"></a></div>
+						
 						<p>Values:
 							<code><i>non-negative-percentage</i>% | "x-slow" | "slow" | "medium" | "fast"| "x-fast" | "default" </code>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="duration"><code>duration</code><a class="self-link" href="#duration" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="duration"><code>duration</code></h5><a class="self-link" href="#duration" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing a time duration expressed in
 							numeric form as "250ms", "1s", etc.
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="volume"><code>volume</code><a class="self-link" href="#volume" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="volume"><code>volume</code></h5><a class="self-link" href="#volume" aria-label="Permalink for this Section"></a></div>
+						
 						<p>Values:
 							<code><i>+/- soundlevel</i>&gt;"dB" | "silent" | "x-soft" | "soft" | "medium" | "loud" | "x-loud" | "default"</code>
 						</p>
@@ -1257,8 +1257,8 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 					</section>
 
 				</section>
-				<section id="audio">
-					<h4 id="x4-1-8-audio"><bdi class="secno">4.1.8 </bdi><code>audio</code><a class="self-link" href="#audio" aria-label="Permalink for Section 4.1.8"></a></h4>
+				<section id="audio"><div class="header-wrapper"><h4 id="x4-1-8-audio"><bdi class="secno">4.1.8 </bdi><code>audio</code></h4><a class="self-link" href="#audio" aria-label="Permalink for Section 4.1.8"></a></div>
+					
 					<p>
 						Supports the insertion of recorded audio files in conjunction with
 						synthesized speech output.
@@ -1267,61 +1267,61 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 						not available. The JSON definition is derived from the <a href="https://www.w3.org/TR/speech-synthesis11/#S3.3.1">SSML
 							<code>audio</code> element</a> and associated properties.
 					</p>
-					<section class="role notoc">
-						<h5 id="src"><code>src</code><a class="self-link" href="#src" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="src"><code>src</code></h5><a class="self-link" href="#src" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>The URI of a document with an appropriate media
 								file.</i>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="fetchtimeout"><code>fetchtimeout</code><a class="self-link" href="#fetchtimeout" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="fetchtimeout"><code>fetchtimeout</code></h5><a class="self-link" href="#fetchtimeout" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing a time duration expressed in
 							numeric form as "250ms", "1s", etc.
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="fetchint"><code>fetchint</code><a class="self-link" href="#fetchint" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="fetchint"><code>fetchint</code></h5><a class="self-link" href="#fetchint" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <code>safe | prefetch</code>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="maxage"><code>maxage</code><a class="self-link" href="#maxage" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="maxage"><code>maxage</code></h5><a class="self-link" href="#maxage" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="maxstale"><code>maxstale</code><a class="self-link" href="#maxstale" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="maxstale"><code>maxstale</code></h5><a class="self-link" href="#maxstale" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i>
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="clipbegin"><code>clipBegin</code><a class="self-link" href="#clipbegin" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="clipbegin"><code>clipBegin</code></h5><a class="self-link" href="#clipbegin" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing a time duration expressed in
 							numeric form as "250ms", "1s", etc.
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="clipend"><code>clipEnd</code><a class="self-link" href="#clipend" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="clipend"><code>clipEnd</code></h5><a class="self-link" href="#clipend" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing a time duration expressed in
 							numeric form as "250ms", "1s", etc.
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="repeatcount"><code>repeatCount</code><a class="self-link" href="#repeatcount" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="repeatcount"><code>repeatCount</code></h5><a class="self-link" href="#repeatcount" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>integer</i> indicating the number of times to repeat the
 							audio clip.
 						</p>
 					</section>
-					<section class="role notoc">
-						<h5 id="repeatdur"><code>repeatDur</code><a class="self-link" href="#repeatdur" aria-label="Permalink for Section"></a></h5>
+					<section class="role notoc"><div class="header-wrapper"><h5 id="repeatdur"><code>repeatDur</code></h5><a class="self-link" href="#repeatdur" aria-label="Permalink for this Section"></a></div>
+						
 						<p>
 							Value: <i>string</i> containing a time duration expressed in
 							numeric form as "250ms", "1s", etc.
@@ -1339,10 +1339,10 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 			</section>
 		</section>
 
-		<section id="technical-considerations">
-			<h2 id="x5-technical-considerations"><bdi class="secno">5. </bdi>
+		<section id="technical-considerations"><div class="header-wrapper"><h2 id="x5-technical-considerations"><bdi class="secno">5. </bdi>
 				Technical Considerations
-			<a class="self-link" href="#technical-considerations" aria-label="Permalink for Section 5."></a></h2>
+			</h2><a class="self-link" href="#technical-considerations" aria-label="Permalink for Section 5."></a></div>
+			
 			<p>
 				In each approach, implementers must consume <code>data-ssml-</code>
 				attributes, values,
@@ -1394,8 +1394,8 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 			</p>
 		</section>
 
-		<section class="appendix" id="ssml-json-schema">
-			<h2 id="a-ssml-json-schema"><bdi class="secno">A. </bdi>SSML JSON Schema <a class="self-link" href="#ssml-json-schema" aria-label="Permalink for Appendix A."></a></h2>
+		<section class="appendix" id="ssml-json-schema"><div class="header-wrapper"><h2 id="a-ssml-json-schema"><bdi class="secno">A. </bdi>SSML JSON Schema </h2><a class="self-link" href="#ssml-json-schema" aria-label="Permalink for Appendix A."></a></div>
+			
 			<p>
 				Please see the <a href="https://w3c.github.io/pronunciation/technical-approach/appendixJSON.html">JSON
 					schema example here.</a>
@@ -1405,14 +1405,14 @@ increased to 25209 from 24976 over the past 10 years.</code></pre>
 
 
 
-		<section class="appendix informative section" id="acknowledgements">
-	<h2 id="b-acknowledgments"><bdi class="secno">B. </bdi>Acknowledgments<a class="self-link" href="#acknowledgements" aria-label="Permalink for Appendix B."></a></h2><p><em>This section is non-normative.</em></p>
+		<section class="appendix informative section" id="acknowledgements"><div class="header-wrapper"><h2 id="b-acknowledgments"><bdi class="secno">B. </bdi>Acknowledgments</h2><a class="self-link" href="#acknowledgements" aria-label="Permalink for Appendix B."></a></div><p><em>This section is non-normative.</em></p>
+	
 	<p>The following people contributed to the development of this document.</p>
-	<section class="section" id="ack_group">
-		<h3 id="b-1-participants-active-in-the-pronunciation-tf-at-the-time-of-publication"><bdi class="secno">B.1 </bdi>Participants active in the Pronunciation TF at the time of publication<a class="self-link" href="#ack_group" aria-label="Permalink for Appendix B.1"></a></h3>
+	<section class="section" id="ack_group"><div class="header-wrapper"><h3 id="b-1-participants-active-in-the-pronunciation-tf-at-the-time-of-publication"><bdi class="secno">B.1 </bdi>Participants active in the Pronunciation TF at the time of publication</h3><a class="self-link" href="#ack_group" aria-label="Permalink for Appendix B.1"></a></div>
+		
 		<ul>
 			<li>Irfan Ali (Educational Testing Service)</li>
-			<li>Michael Cooper (<abbr title="World Wide Web Consortium">W3C</abbr>/<abbr title="Massachusetts Institute of Technology">MIT</abbr>)</li>
+			<li>Michael Cooper (<abbr title="World Wide Web Consortium">W3C</abbr>/MIT)</li>
 			<li>Dee Dyer (Educational Testing Service)</li>
 			<li>Markku Hakkinen (Educational Testing Service)</li>
 			<li>Christine Loew (Invited Expert)</li>
