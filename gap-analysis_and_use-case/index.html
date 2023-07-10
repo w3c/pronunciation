@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 28.2.1">
+<meta name="generator" content="ReSpec 34.1.4">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -17,6 +17,7 @@ aside.example div.example{border-left-width:.1em;border-color:#999;background:#f
 .warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
 span.warning{padding:.1em .5em .15em}
 .issue.closed span.issue-number{text-decoration:line-through}
+.issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
 .warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
 .warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
 li.task-list-item{list-style:none}
@@ -25,7 +26,7 @@ input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
 </style>
 <style>
 dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
 .dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
 .dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
@@ -66,8 +67,6 @@ a.bibref{text-decoration:none}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
 cite .bibref{font-style:normal}
-code{color:#c63501}
-th code{color:inherit}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 .toc a,.tof a{text-decoration:none}
@@ -92,14 +91,16 @@ details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin 
 details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
 details.respec-tests-details>ul{width:100%;margin-top:-.3em}
 details.respec-tests-details>li{padding-left:1em}
-a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
-h2,h3,h4,h5,h6{position:relative}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
-:is(h2,h3,h4,h5,h6)>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
-:is(h2,h3,h4,h5,h6)>a.self-link::before{content:"§";display:block}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
 @media (max-width:767px){
 dd{margin-left:0}
-:is(h2,h3,h4,h5,h6)>a.self-link{left:auto;top:auto}
 }
 @media print{
 .removeOnSave{display:none}
@@ -190,36 +191,36 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   ],
   "group": "apa",
   "github": "https://github.com/w3c/pronunciation/",
-  "publishISODate": "2022-01-13T00:00:00.000Z",
-  "generatedSubtitle": "Editor's Draft 13 January 2022"
+  "publishISODate": "2023-07-10T00:00:00.000Z",
+  "generatedSubtitle": "W3C Editor's Draft 10 July 2023"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
 <body class="h-entry informative"><div class="head">
-    <a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
-  </a> <h1 id="title" class="title">Pronunciation Gap Analysis &amp; Use Cases</h1>
-    
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2022-01-13">13 January 2022</time></p>
+    <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
+  </a></p>
+    <h1 id="title" class="title">Pronunciation Gap Analysis &amp; Use Cases</h1> 
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2023-07-10">10 July 2023</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
                 <a class="u-url" href="https://w3c.github.io/pronunciation/gap-analysis_and_use-case">https://w3c.github.io/pronunciation/gap-analysis_and_use-case</a>
-              </dd><dt>Latest published version:</dt><dd>
+              </dd>
+        <dt>Latest published version:</dt><dd>
                 <a href="https://www.w3.org/TR/pronunciation-gap-analysis-and-use-cases/">https://www.w3.org/TR/pronunciation-gap-analysis-and-use-cases/</a>
               </dd>
         <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/pronunciation/gap-analysis_and_use-case">https://w3c.github.io/pronunciation/gap-analysis_and_use-case</a></dd>
         <dt>History:</dt><dd>
-      <a href="https://www.w3.org/standards/history/pronunciation-gap-analysis-and-use-cases">https://www.w3.org/standards/history/pronunciation-gap-analysis-and-use-cases</a>
-    </dd><dd>
-        <a href="https://github.com/w3c/pronunciation/commits/">Commit history</a>
-      </dd>
+                    <a href="https://www.w3.org/standards/history/pronunciation-gap-analysis-and-use-cases/">https://www.w3.org/standards/history/pronunciation-gap-analysis-and-use-cases/</a>
+                  </dd><dd>
+                    <a href="https://github.com/w3c/pronunciation/commits/">Commit history</a>
+                  </dd>
         
         
         
         
         
-        <dt>Editors:</dt>
-        <dd class="editor p-author h-card vcard" data-editor-id="35712">
+        <dt>Editors:</dt><dd class="editor p-author h-card vcard" data-editor-id="35712">
     <a class="ed_mailto u-email email p-name" href="mailto:mhakkinen@ets.org">Markku Hakkinen</a> (<span class="p-org org h-org">Educational Testing Service</span>)
   </dd><dd class="editor p-author h-card vcard" data-editor-id="98332">
     <a class="ed_mailto u-email email p-name" href="mailto:steve.noble@pearson.com">Steve Noble</a> (<span class="p-org org h-org">Pearson</span>)
@@ -249,21 +250,20 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <p class="copyright">
     <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
     ©
-    2020-2022
+    2020-2023
     
-    <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
-    <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>,
-    <a href="https://ev.buaa.edu.cn/">Beihang</a>). W3C
+    <a href="https://www.w3.org/">World Wide Web Consortium</a>.
+    <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup>
     <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
     <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
-    <a rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
+    <a rel="license" href="https://www.w3.org/Consortium/Legal/2023/software-license" title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
   </p>
     <hr title="Separator for header">
   </div>
-  <section id="abstract" class="introductory"><h2 id="abstract-0">Abstract<a class="self-link" href="#abstract" aria-label="Permalink for Section"></a></h2>
+  <section id="abstract" class="introductory"><h2>Abstract</h2>
     <p>The objective of the Pronunciation Task Force is to develop normative specifications and best practices guidance collaborating with other <abbr title="World Wide Web Consortium">W3C</abbr> groups as appropriate, to provide for proper pronunciation in HTML content when using text to speech (TTS) synthesis. This document presents the results of the Pronunciation Task Force work on an HTML standard. It includes an introduction with a historical perspective, an enumeration of the core requirements, a listing of approach use cases, and finally a gap analysis. Gaps are defined when a requirement does not have a corresponding use case approach by which it can be authored in HTML.</p>
   </section>
-  <section id="sotd" class="introductory"><h2 id="status-of-this-document">Status of This Document<a class="self-link" href="#sotd" aria-label="Permalink for Section"></a></h2><p><em>This section describes the status of this
+  <section id="sotd" class="introductory"><h2>Status of This Document</h2><p><em>This section describes the status of this
       document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr>
       publications and the latest revision of this technical report can be found
       in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at
@@ -297,9 +297,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </p><p>
                   This document is governed by the
                   <a id="w3c_process_revision" href="https://www.w3.org/2021/Process-20211102/">2 November 2021 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
-                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#core-features-for-pronunciation-and-spoken-presentation"><bdi class="secno">2. </bdi>Core Features for Pronunciation and Spoken Presentation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#language"><bdi class="secno">2.1 </bdi>Language</a></li><li class="tocline"><a class="tocxref" href="#voice-family-gender"><bdi class="secno">2.2 </bdi>Voice Family / Gender</a></li><li class="tocline"><a class="tocxref" href="#phonetic-pronunciation-of-string-values"><bdi class="secno">2.3 </bdi>Phonetic Pronunciation of String Values</a></li><li class="tocline"><a class="tocxref" href="#string-substitution"><bdi class="secno">2.4 </bdi>String Substitution</a></li><li class="tocline"><a class="tocxref" href="#rate-pitch-volume"><bdi class="secno">2.5 </bdi>Rate / Pitch / Volume</a></li><li class="tocline"><a class="tocxref" href="#emphasis"><bdi class="secno">2.6 </bdi>Emphasis</a></li><li class="tocline"><a class="tocxref" href="#say-as"><bdi class="secno">2.7 </bdi>Say As</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#presentation-of-numeric-values"><bdi class="secno">2.7.1 </bdi>Presentation of Numeric Values</a></li><li class="tocline"><a class="tocxref" href="#presentation-of-string-values"><bdi class="secno">2.7.2 </bdi>Presentation of String Values</a></li></ol></li><li class="tocline"><a class="tocxref" href="#pausing"><bdi class="secno">2.8 </bdi>Pausing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">3. </bdi>Use Cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#use-case-aria-ssml"><bdi class="secno">3.1 </bdi>Use Case aria-ssml</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice"><bdi class="secno">3.1.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal"><bdi class="secno">3.1.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience"><bdi class="secno">3.1.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options"><bdi class="secno">3.1.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work"><bdi class="secno">3.1.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations"><bdi class="secno">3.1.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-data-ssml"><bdi class="secno">3.2 </bdi>Use Case data-ssml</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-0"><bdi class="secno">3.2.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-0"><bdi class="secno">3.2.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-0"><bdi class="secno">3.2.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-0"><bdi class="secno">3.2.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-0"><bdi class="secno">3.2.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-0"><bdi class="secno">3.2.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-html5"><bdi class="secno">3.3 </bdi>Use Case HTML5</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-1"><bdi class="secno">3.3.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-1"><bdi class="secno">3.3.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-1"><bdi class="secno">3.3.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-1"><bdi class="secno">3.3.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-1"><bdi class="secno">3.3.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-1"><bdi class="secno">3.3.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-custom-element"><bdi class="secno">3.4 </bdi>Use Case Custom Element</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-2"><bdi class="secno">3.4.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-2"><bdi class="secno">3.4.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-2"><bdi class="secno">3.4.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-2"><bdi class="secno">3.4.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-2"><bdi class="secno">3.4.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-2"><bdi class="secno">3.4.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-json-ld"><bdi class="secno">3.5 </bdi>Use Case JSON-LD</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-3"><bdi class="secno">3.5.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-3"><bdi class="secno">3.5.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-3"><bdi class="secno">3.5.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-3"><bdi class="secno">3.5.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-3"><bdi class="secno">3.5.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-3"><bdi class="secno">3.5.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-ruby"><bdi class="secno">3.6 </bdi>Use Case Ruby</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-4"><bdi class="secno">3.6.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-4"><bdi class="secno">3.6.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-4"><bdi class="secno">3.6.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-4"><bdi class="secno">3.6.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-4"><bdi class="secno">3.6.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-4"><bdi class="secno">3.6.6 </bdi>Problems and Limitations</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#gap-analysis"><bdi class="secno">4. </bdi>Gap Analysis</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#language-0"><bdi class="secno">4.1 </bdi>Language</a></li><li class="tocline"><a class="tocxref" href="#voice-family-gender-0"><bdi class="secno">4.2 </bdi>Voice Family/Gender</a></li><li class="tocline"><a class="tocxref" href="#phonetic-pronunciation"><bdi class="secno">4.3 </bdi>Phonetic Pronunciation</a></li><li class="tocline"><a class="tocxref" href="#substitution"><bdi class="secno">4.4 </bdi>Substitution</a></li><li class="tocline"><a class="tocxref" href="#rate-pitch-volume-0"><bdi class="secno">4.5 </bdi>Rate/Pitch/Volume</a></li><li class="tocline"><a class="tocxref" href="#emphasis-0"><bdi class="secno">4.6 </bdi>Emphasis</a></li><li class="tocline"><a class="tocxref" href="#say-as-0"><bdi class="secno">4.7 </bdi>Say As</a></li><li class="tocline"><a class="tocxref" href="#pausing-0"><bdi class="secno">4.8 </bdi>Pausing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgments</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ack_group"><bdi class="secno">A.1 </bdi>Participants active in the Pronunciation TF at the time of publication</a></li></ol></li></ol></nav>
-  <section class="informative" id="introduction">
-    <h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></h2><p><em>This section is non-normative.</em></p>
+                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#core-features-for-pronunciation-and-spoken-presentation"><bdi class="secno">2. </bdi>Core Features for Pronunciation and Spoken Presentation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#language"><bdi class="secno">2.1 </bdi>Language</a></li><li class="tocline"><a class="tocxref" href="#voice-family-gender"><bdi class="secno">2.2 </bdi>Voice Family / Gender</a></li><li class="tocline"><a class="tocxref" href="#phonetic-pronunciation-of-string-values"><bdi class="secno">2.3 </bdi>Phonetic Pronunciation of String Values</a></li><li class="tocline"><a class="tocxref" href="#string-substitution"><bdi class="secno">2.4 </bdi>String Substitution</a></li><li class="tocline"><a class="tocxref" href="#rate-pitch-volume"><bdi class="secno">2.5 </bdi>Rate / Pitch / Volume</a></li><li class="tocline"><a class="tocxref" href="#emphasis"><bdi class="secno">2.6 </bdi>Emphasis</a></li><li class="tocline"><a class="tocxref" href="#say-as"><bdi class="secno">2.7 </bdi>Say As</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#presentation-of-numeric-values"><bdi class="secno">2.7.1 </bdi>Presentation of Numeric Values</a></li><li class="tocline"><a class="tocxref" href="#presentation-of-string-values"><bdi class="secno">2.7.2 </bdi>Presentation of String Values</a></li></ol></li><li class="tocline"><a class="tocxref" href="#pausing"><bdi class="secno">2.8 </bdi>Pausing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">3. </bdi>Use Cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#use-case-aria-ssml"><bdi class="secno">3.1 </bdi>Use Case aria-ssml</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice"><bdi class="secno">3.1.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal"><bdi class="secno">3.1.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience"><bdi class="secno">3.1.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options"><bdi class="secno">3.1.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work"><bdi class="secno">3.1.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations"><bdi class="secno">3.1.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-data-ssml"><bdi class="secno">3.2 </bdi>Use Case data-ssml</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-0"><bdi class="secno">3.2.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-0"><bdi class="secno">3.2.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-0"><bdi class="secno">3.2.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-0"><bdi class="secno">3.2.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-0"><bdi class="secno">3.2.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-0"><bdi class="secno">3.2.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-html5"><bdi class="secno">3.3 </bdi>Use Case HTML5</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-1"><bdi class="secno">3.3.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-1"><bdi class="secno">3.3.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-1"><bdi class="secno">3.3.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-1"><bdi class="secno">3.3.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-1"><bdi class="secno">3.3.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-1"><bdi class="secno">3.3.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-custom-element"><bdi class="secno">3.4 </bdi>Use Case Custom Element</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-2"><bdi class="secno">3.4.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-2"><bdi class="secno">3.4.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-2"><bdi class="secno">3.4.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-2"><bdi class="secno">3.4.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-2"><bdi class="secno">3.4.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-2"><bdi class="secno">3.4.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-json-ld"><bdi class="secno">3.5 </bdi>Use Case JSON-LD</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-3"><bdi class="secno">3.5.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-3"><bdi class="secno">3.5.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-3"><bdi class="secno">3.5.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-3"><bdi class="secno">3.5.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-3"><bdi class="secno">3.5.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-3"><bdi class="secno">3.5.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-ruby"><bdi class="secno">3.6 </bdi>Use Case Ruby</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-4"><bdi class="secno">3.6.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-4"><bdi class="secno">3.6.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-4"><bdi class="secno">3.6.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-4"><bdi class="secno">3.6.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-4"><bdi class="secno">3.6.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-4"><bdi class="secno">3.6.6 </bdi>Problems and Limitations</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#gap-analysis"><bdi class="secno">4. </bdi>Gap Analysis</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#language-0"><bdi class="secno">4.1 </bdi>Language</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#html"><bdi class="secno">4.1.1 </bdi>HTML</a></li><li class="tocline"><a class="tocxref" href="#ssml"><bdi class="secno">4.1.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#voice-family-gender-0"><bdi class="secno">4.2 </bdi>Voice Family/Gender</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#css"><bdi class="secno">4.2.1 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-0"><bdi class="secno">4.2.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#phonetic-pronunciation"><bdi class="secno">4.3 </bdi>Phonetic Pronunciation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pls"><bdi class="secno">4.3.1 </bdi>PLS</a></li><li class="tocline"><a class="tocxref" href="#ssml-1"><bdi class="secno">4.3.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#substitution"><bdi class="secno">4.4 </bdi>Substitution</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wai-aria"><bdi class="secno">4.4.1 </bdi>WAI-ARIA</a></li><li class="tocline"><a class="tocxref" href="#ssml-2"><bdi class="secno">4.4.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#rate-pitch-volume-0"><bdi class="secno">4.5 </bdi>Rate/Pitch/Volume</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#css-0"><bdi class="secno">4.5.1 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-3"><bdi class="secno">4.5.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#emphasis-0"><bdi class="secno">4.6 </bdi>Emphasis</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#html-0"><bdi class="secno">4.6.1 </bdi>HTML</a></li><li class="tocline"><a class="tocxref" href="#css-1"><bdi class="secno">4.6.2 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-4"><bdi class="secno">4.6.3 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#say-as-0"><bdi class="secno">4.7 </bdi>Say As</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#css-2"><bdi class="secno">4.7.1 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-5"><bdi class="secno">4.7.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#pausing-0"><bdi class="secno">4.8 </bdi>Pausing</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#css-3"><bdi class="secno">4.8.1 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-6"><bdi class="secno">4.8.2 </bdi>SSML</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgments</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ack_group"><bdi class="secno">A.1 </bdi>Participants active in the Pronunciation TF at the time of publication</a></li></ol></li></ol></nav>
+  <section class="informative" id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
+    
     <p>Accurate, consistent pronunciation and presentation of content spoken by text to speech synthesis (TTS) is an essential requirement in education, communication, entertainment, and other domains. 
           From helping to teach spelling and pronunciation in different languages, 
           TTS has become a vital technology for providing access to digital content on the web, through mobile devices, and now via voice-based assistants. 
@@ -346,88 +346,88 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <li>Gap Analysis, which identifies gaps in support based on the requirements and use cases. Gaps are defined when a requirement does not have a corresponding use case approach by which it can be authored in HTML.</li></ul>
         <p></p>
   </section>
-  <section id="core-features-for-pronunciation-and-spoken-presentation">
-    <h2 id="x2-core-features-for-pronunciation-and-spoken-presentation"><bdi class="secno">2. </bdi>Core Features for Pronunciation and Spoken Presentation<a class="self-link" href="#core-features-for-pronunciation-and-spoken-presentation" aria-label="Permalink for Section 2."></a></h2>
+  <section id="core-features-for-pronunciation-and-spoken-presentation"><div class="header-wrapper"><h2 id="x2-core-features-for-pronunciation-and-spoken-presentation"><bdi class="secno">2. </bdi>Core Features for Pronunciation and Spoken Presentation</h2><a class="self-link" href="#core-features-for-pronunciation-and-spoken-presentation" aria-label="Permalink for Section 2."></a></div>
+    
     <p>The common spoken pronunciation requirements from the education domain serve as a primary source for the core features and are applicable to many other domains that require accurate pronunciation and presentation. These requirements can be broken down into the following main functions that would support authoring and spoken presentation
     needs.</p>
-    <section id="language">
-      <h3 id="x2-1-language"><bdi class="secno">2.1 </bdi>Language<a class="self-link" href="#language" aria-label="Permalink for Section 2.1"></a></h3>
+    <section id="language"><div class="header-wrapper"><h3 id="x2-1-language"><bdi class="secno">2.1 </bdi>Language</h3><a class="self-link" href="#language" aria-label="Permalink for Section 2.1"></a></div>
+      
       <p>When content is authored in mixed language, a mechanism is needed to allow authors to indicate both the base language of the content as well as the language of individual words and phrases. The expectation is that assistive technologies and
     other tools that utilize text to speech synthesis would detect and apply the language requested when presenting the text.</p>
     </section>
-    <section id="voice-family-gender">
-      <h3 id="x2-2-voice-family-gender"><bdi class="secno">2.2 </bdi>Voice Family / Gender<a class="self-link" href="#voice-family-gender" aria-label="Permalink for Section 2.2"></a></h3>
+    <section id="voice-family-gender"><div class="header-wrapper"><h3 id="x2-2-voice-family-gender"><bdi class="secno">2.2 </bdi>Voice Family / Gender</h3><a class="self-link" href="#voice-family-gender" aria-label="Permalink for Section 2.2"></a></div>
+      
       <p>Content authors may elect to adjust the spoken presentation to provide a gender specific voice to reflect that of the author, or for a character (or characters) in theatrical a
       presentation of a story. Many assistive technologies already provide user selection of voice family and gender independent of any authored intent.</p>
     </section>
-    <section id="phonetic-pronunciation-of-string-values">
-      <h3 id="x2-3-phonetic-pronunciation-of-string-values"><bdi class="secno">2.3 </bdi>Phonetic Pronunciation of String Values<a class="self-link" href="#phonetic-pronunciation-of-string-values" aria-label="Permalink for Section 2.3"></a></h3>
+    <section id="phonetic-pronunciation-of-string-values"><div class="header-wrapper"><h3 id="x2-3-phonetic-pronunciation-of-string-values"><bdi class="secno">2.3 </bdi>Phonetic Pronunciation of String Values</h3><a class="self-link" href="#phonetic-pronunciation-of-string-values" aria-label="Permalink for Section 2.3"></a></div>
+      
       <p>In some cases, words may need to have their phonetic pronunciation prescribed by the content author. This may occur when uncommon words (not supported by text to speech synthesizers)are present, or in cases where word pronunciation will vary based on
       context, and that context may not be correctly interpreted.</p>
     </section>
-    <section id="string-substitution">
-      <h3 id="x2-4-string-substitution"><bdi class="secno">2.4 </bdi>String Substitution<a class="self-link" href="#string-substitution" aria-label="Permalink for Section 2.4"></a></h3>
+    <section id="string-substitution"><div class="header-wrapper"><h3 id="x2-4-string-substitution"><bdi class="secno">2.4 </bdi>String Substitution</h3><a class="self-link" href="#string-substitution" aria-label="Permalink for Section 2.4"></a></div>
+      
       <p>There are cases where content that is visually presented may require replacement (substitution) with an alternate textual form to ensure correct pronunciation by text to speech synthesizers. In these cases, phonetic pronunciation may be a
       solution to this need.</p>
     </section>
-    <section id="rate-pitch-volume">
-      <h3 id="x2-5-rate-pitch-volume"><bdi class="secno">2.5 </bdi>Rate / Pitch / Volume<a class="self-link" href="#rate-pitch-volume" aria-label="Permalink for Section 2.5"></a></h3>
+    <section id="rate-pitch-volume"><div class="header-wrapper"><h3 id="x2-5-rate-pitch-volume"><bdi class="secno">2.5 </bdi>Rate / Pitch / Volume</h3><a class="self-link" href="#rate-pitch-volume" aria-label="Permalink for Section 2.5"></a></div>
+      
       <p>While end users should have full control over spoken presentation parameters such as speaking rate, pitch, and volume (e.g., WCAG 1.4.2 ), content authors may elect to adjust those parameters to control the spoken presentation for
       purposes such as a theatrical presentation of a story. Many assistive technologies already provide user controlled speaking rate, pitch, and volume independent of any authored intent.</p>
     </section>
-    <section id="emphasis">
-    <h3 id="x2-6-emphasis"><bdi class="secno">2.6 </bdi>Emphasis<a class="self-link" href="#emphasis" aria-label="Permalink for Section 2.6"></a></h3>
+    <section id="emphasis"><div class="header-wrapper"><h3 id="x2-6-emphasis"><bdi class="secno">2.6 </bdi>Emphasis</h3><a class="self-link" href="#emphasis" aria-label="Permalink for Section 2.6"></a></div>
+    
     <p>In written text, an author may find it necessary to add emphasis to an important word or phrase. HTML supports both semantic elements (e.g., <code>em</code>) and CSS properties which, through a variety of style options, make programmatic
     detection of authored emphasis difficult (e.g., <code>font-weight: heavy</code>). While the emphasis element has existed since HTML 2.0, there is currently no uptake by assistive technology or read aloud tools to present text semantically tagged
     for emphasis to be spoken with emphasis.</p>
     </section>
-    <section id="say-as">
-    <h3 id="x2-7-say-as"><bdi class="secno">2.7 </bdi>Say As<a class="self-link" href="#say-as" aria-label="Permalink for Section 2.7"></a></h3>
+    <section id="say-as"><div class="header-wrapper"><h3 id="x2-7-say-as"><bdi class="secno">2.7 </bdi>Say As</h3><a class="self-link" href="#say-as" aria-label="Permalink for Section 2.7"></a></div>
+    
       <p>While text to speech engines continue to improve in their ability to process text and provide accurate spoken rendering of acronyms and numeric values, there can be instances where uncommon terms or alphanumeric constructs pose challenges.</p>
-      <section id="presentation-of-numeric-values">
-        <h4 id="x2-7-1-presentation-of-numeric-values"><bdi class="secno">2.7.1 </bdi>Presentation of Numeric Values<a class="self-link" href="#presentation-of-numeric-values" aria-label="Permalink for Section 2.7.1"></a></h4>
+      <section id="presentation-of-numeric-values"><div class="header-wrapper"><h4 id="x2-7-1-presentation-of-numeric-values"><bdi class="secno">2.7.1 </bdi>Presentation of Numeric Values</h4><a class="self-link" href="#presentation-of-numeric-values" aria-label="Permalink for Section 2.7.1"></a></div>
+        
         <p>Precise spoken presentation of numeric values may not always be correctly determined by text to speech engines from context.&nbsp; Examples include speaking a multidigit number as individual digits (100 spoken as "one, zer, zero" instead of "one hundred"), correct reading of year values, and
         the correct speaking of ordinal and cardinal numbers. Furthermore, some educators may have specific requirements for the spoken presentation of a numeric value which may differ from a TTS engine's default rendering. For example, the Smarter Balanced Assessment Consortium has developed <a href="https://portal.smarterbalanced.org/library/en/read-aloud-guidelines.pdf">Read Aloud Guidelines</a> to be followed by human readers used by students who may require a spoken presentation of an educational test, which includes specific examples
       of how numeric values should be read aloud.</p>
       </section>
-      <section id="presentation-of-string-values">
-        <h4 id="x2-7-2-presentation-of-string-values"><bdi class="secno">2.7.2 </bdi>Presentation of String Values<a class="self-link" href="#presentation-of-string-values" aria-label="Permalink for Section 2.7.2"></a></h4>
+      <section id="presentation-of-string-values"><div class="header-wrapper"><h4 id="x2-7-2-presentation-of-string-values"><bdi class="secno">2.7.2 </bdi>Presentation of String Values</h4><a class="self-link" href="#presentation-of-string-values" aria-label="Permalink for Section 2.7.2"></a></div>
+        
         <p>Precise presentation of string values may not be determined correctly by text to speech synthesizers. Examples include speaking acroyms as individual letters rather than words and providing a substitute pronunciation for a word based on context (the word "read" may be pronounced as either "reed" or "red"), and providing a phonetic pronunciation of a word to ensure the correct spoken presentation.</p>
       </section>
     </section>
-    <section id="pausing">
-      <h3 id="x2-8-pausing"><bdi class="secno">2.8 </bdi>Pausing<a class="self-link" href="#pausing" aria-label="Permalink for Section 2.8"></a></h3>
+    <section id="pausing"><div class="header-wrapper"><h3 id="x2-8-pausing"><bdi class="secno">2.8 </bdi>Pausing</h3><a class="self-link" href="#pausing" aria-label="Permalink for Section 2.8"></a></div>
+      
       <p>Content authors may elect or find it necessary to insert pauses in content. Pauses can be inserted for dramatic effect or may be necessary to render the spoken presentation understandable. For example, pauses inserted between numeric values may be needed to limit the chance of hearing multiple numbers as a single value. One common technique to achieve pausing to date has involved inserting non-visible commas before or after a text string requiring a pause. While this may work in practice for a read aloud TTS tool, it is problematic for screen reader users who may, based on verbosity settings, hear the multiple commas announced, and for refreshable braille users who will have the commas visible in braille. In addition, some tests, such as PARCC, specify spoken presentation requirements in their accessibility guidelines which include inserting pauses before and after emphasized word and mathematical terms.</p>
     </section>
   </section>
-  <section id="use-cases">
-    <h2 id="x3-use-cases"><bdi class="secno">3. </bdi>Use Cases<a class="self-link" href="#use-cases" aria-label="Permalink for Section 3."></a></h2>
+  <section id="use-cases"><div class="header-wrapper"><h2 id="x3-use-cases"><bdi class="secno">3. </bdi>Use Cases</h2><a class="self-link" href="#use-cases" aria-label="Permalink for Section 3."></a></div>
+    
     <p>This section presents 6 use cases which describe specific implmentationimplementation approaches for introducing pronunciation and spoken presentation authoring markup into HTML5 and are based on an inline or attribute model. These two differing approach models emerged from the work of the Accessible Platform Architecture Pronunciation Task Force and represent a decision point for integrating SSML (or SSML-like characteristics) into HTML. Each of the approaches differs in authoring and consumption models (specifically for assistive technologies. Other approaches may appear in subsequent working drafts.</p>
     <p>Successful use cases provide ease of authoring and consumption by assistive technologies and user 
         agents that utilize synthetic speech for spoken presentation of web content. The most challenging aspect of consumption may
         be alignment of the markup approach with the standard mechanisms by which assistive technologies, specifically screen
         readers, obtain content via platform accessibility APIs.
     </p>
-        <section id="use-case-aria-ssml">
-      <h3 id="x3-1-use-case-aria-ssml"><bdi class="secno">3.1 </bdi>Use Case aria-ssml<a class="self-link" href="#use-case-aria-ssml" aria-label="Permalink for Section 3.1"></a></h3>
-      <section id="background-and-current-practice">
-        <h4 id="x3-1-1-background-and-current-practice"><bdi class="secno">3.1.1 </bdi>Background and Current Practice<a class="self-link" href="#background-and-current-practice" aria-label="Permalink for Section 3.1.1"></a></h4>
+        <section id="use-case-aria-ssml"><div class="header-wrapper"><h3 id="x3-1-use-case-aria-ssml"><bdi class="secno">3.1 </bdi>Use Case aria-ssml</h3><a class="self-link" href="#use-case-aria-ssml" aria-label="Permalink for Section 3.1"></a></div>
+      
+      <section id="background-and-current-practice"><div class="header-wrapper"><h4 id="x3-1-1-background-and-current-practice"><bdi class="secno">3.1.1 </bdi>Background and Current Practice</h4><a class="self-link" href="#background-and-current-practice" aria-label="Permalink for Section 3.1.1"></a></div>
+        
         <p>A new <code>aria</code> attribute could be used to include pronunciation content. This option may have the best chance of being added to the accessibility tree by browsers.</p>
       </section>
-      <section id="goal">
-        <h4 id="x3-1-2-goal"><bdi class="secno">3.1.2 </bdi>Goal<a class="self-link" href="#goal" aria-label="Permalink for Section 3.1.2"></a></h4>
+      <section id="goal"><div class="header-wrapper"><h4 id="x3-1-2-goal"><bdi class="secno">3.1.2 </bdi>Goal</h4><a class="self-link" href="#goal" aria-label="Permalink for Section 3.1.2"></a></div>
+        
         <p>Embed SSML in an HTML document.</p>
       </section>
-      <section id="target-audience">
-        <h4 id="x3-1-3-target-audience"><bdi class="secno">3.1.3 </bdi>Target Audience<a class="self-link" href="#target-audience" aria-label="Permalink for Section 3.1.3"></a></h4>
+      <section id="target-audience"><div class="header-wrapper"><h4 id="x3-1-3-target-audience"><bdi class="secno">3.1.3 </bdi>Target Audience</h4><a class="self-link" href="#target-audience" aria-label="Permalink for Section 3.1.3"></a></div>
+        
         <ul>
           <li>Assistive Technology</li>
           <li>Browser Extensions</li>
           <li>Search Engines</li>
         </ul>
       </section>
-      <section id="implementation-options">
-        <h4 id="x3-1-4-implementation-options"><bdi class="secno">3.1.4 </bdi>Implementation Options<a class="self-link" href="#implementation-options" aria-label="Permalink for Section 3.1.4"></a></h4>
+      <section id="implementation-options"><div class="header-wrapper"><h4 id="x3-1-4-implementation-options"><bdi class="secno">3.1.4 </bdi>Implementation Options</h4><a class="self-link" href="#implementation-options" aria-label="Permalink for Section 3.1.4"></a></div>
+        
         <p><strong>aria-ssml as embedded JSON</strong></p>
         <p>When AT encounters an element with aria-ssml, the AT should enhance the UI by processing the pronunciation content and passing it to the <a href="https://w3c.github.io/speech-api/">Web Speech API</a> or an external API (e.g., <a href="https://cloud.google.com/text-to-speech/">Google's Text to Speech API</a>).</p>
         <div class="example" id="example-1">
@@ -513,16 +513,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
       </div>
       </section>
-      <section id="existing-work">
-        <h4 id="x3-1-5-existing-work"><bdi class="secno">3.1.5 </bdi>Existing Work<a class="self-link" href="#existing-work" aria-label="Permalink for Section 3.1.5"></a></h4>
+      <section id="existing-work"><div class="header-wrapper"><h4 id="x3-1-5-existing-work"><bdi class="secno">3.1.5 </bdi>Existing Work</h4><a class="self-link" href="#existing-work" aria-label="Permalink for Section 3.1.5"></a></div>
+        
         <ul>
           <li><a href="https://github.com/alia11y/SSMLinHTMLproposal">aria-ssml proposal</a></li>
           <li><a href="https://www.w3.org/TR/speech-synthesis11/">SSML</a></li>
           <li><a href="https://w3c.github.io/speech-api/">Web Speech API</a></li>
         </ul>
       </section>
-      <section id="problems-and-limitations">
-        <h4 id="x3-1-6-problems-and-limitations"><bdi class="secno">3.1.6 </bdi>Problems and Limitations<a class="self-link" href="#problems-and-limitations" aria-label="Permalink for Section 3.1.6"></a></h4>
+      <section id="problems-and-limitations"><div class="header-wrapper"><h4 id="x3-1-6-problems-and-limitations"><bdi class="secno">3.1.6 </bdi>Problems and Limitations</h4><a class="self-link" href="#problems-and-limitations" aria-label="Permalink for Section 3.1.6"></a></div>
+        
         <ul>
           <li>aria-ssml is not a valid aria-* attribute.</li>
           <li>OS/Browsers combinations that do not support the serialized XML usage of the Web Speech API.</li>
@@ -531,26 +531,26 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       
     </section>
 
-    <section id="use-case-data-ssml">
-      <h3 id="x3-2-use-case-data-ssml"><bdi class="secno">3.2 </bdi>Use Case data-ssml<a class="self-link" href="#use-case-data-ssml" aria-label="Permalink for Section 3.2"></a></h3>
-      <section id="background-and-current-practice-0">
-        <h4 id="x3-2-1-background-and-current-practice"><bdi class="secno">3.2.1 </bdi>Background and Current Practice<a class="self-link" href="#background-and-current-practice-0" aria-label="Permalink for Section 3.2.1"></a></h4>
+    <section id="use-case-data-ssml"><div class="header-wrapper"><h3 id="x3-2-use-case-data-ssml"><bdi class="secno">3.2 </bdi>Use Case data-ssml</h3><a class="self-link" href="#use-case-data-ssml" aria-label="Permalink for Section 3.2"></a></div>
+      
+      <section id="background-and-current-practice-0"><div class="header-wrapper"><h4 id="x3-2-1-background-and-current-practice"><bdi class="secno">3.2.1 </bdi>Background and Current Practice</h4><a class="self-link" href="#background-and-current-practice-0" aria-label="Permalink for Section 3.2.1"></a></div>
+        
         <p>As an existing attribute, data-* could be used, with some conventions, to include pronunciation content.</p>
       </section>
-      <section id="goal-0">
-        <h4 id="x3-2-2-goal"><bdi class="secno">3.2.2 </bdi>Goal<a class="self-link" href="#goal-0" aria-label="Permalink for Section 3.2.2"></a></h4>
+      <section id="goal-0"><div class="header-wrapper"><h4 id="x3-2-2-goal"><bdi class="secno">3.2.2 </bdi>Goal</h4><a class="self-link" href="#goal-0" aria-label="Permalink for Section 3.2.2"></a></div>
+        
         <ul>
           <li>Support repeated use within the page context</li>
           <li>Support external file references</li>
           <li>Reuse existing techniques without expanding specifications</li>
         </ul>
       </section>
-      <section id="target-audience-0">
-        <h4 id="x3-2-3-target-audience"><bdi class="secno">3.2.3 </bdi>Target Audience<a class="self-link" href="#target-audience-0" aria-label="Permalink for Section 3.2.3"></a></h4>
+      <section id="target-audience-0"><div class="header-wrapper"><h4 id="x3-2-3-target-audience"><bdi class="secno">3.2.3 </bdi>Target Audience</h4><a class="self-link" href="#target-audience-0" aria-label="Permalink for Section 3.2.3"></a></div>
+        
         <p>Hearing users</p>
       </section>
-      <section id="implementation-options-0">
-        <h4 id="x3-2-4-implementation-options"><bdi class="secno">3.2.4 </bdi>Implementation Options<a class="self-link" href="#implementation-options-0" aria-label="Permalink for Section 3.2.4"></a></h4>
+      <section id="implementation-options-0"><div class="header-wrapper"><h4 id="x3-2-4-implementation-options"><bdi class="secno">3.2.4 </bdi>Implementation Options</h4><a class="self-link" href="#implementation-options-0" aria-label="Permalink for Section 3.2.4"></a></div>
+        
         <p><strong>data-ssml as embedded JSON</strong></p>
         <p>When an element with data-ssml is encountered by an SSML-aware AT, the AT should enhance the user interface by processing the referenced SSML content and passing it to the <a href="https://w3c.github.io/speech-api/">Web Speech API</a> or an external API (e.g., <a href="https://cloud.google.com/text-to-speech/">Google's Text to Speech API</a>).</p>
         <div class="example" id="example-5">
@@ -636,16 +636,16 @@ You say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span cla
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
       </div>
       </section>
-      <section id="existing-work-0">
-        <h4 id="x3-2-5-existing-work"><bdi class="secno">3.2.5 </bdi>Existing Work<a class="self-link" href="#existing-work-0" aria-label="Permalink for Section 3.2.5"></a></h4>
+      <section id="existing-work-0"><div class="header-wrapper"><h4 id="x3-2-5-existing-work"><bdi class="secno">3.2.5 </bdi>Existing Work</h4><a class="self-link" href="#existing-work-0" aria-label="Permalink for Section 3.2.5"></a></div>
+        
         <ul>
           <li><a href="https://github.com/alia11y/SSMLinHTMLproposal">aria-ssml proposal</a></li>
           <li><a href="https://www.w3.org/TR/speech-synthesis11/">SSML</a></li>
           <li><a href="https://w3c.github.io/speech-api/">Web Speech API</a></li>
         </ul>
       </section>
-      <section id="problems-and-limitations-0">
-        <h4 id="x3-2-6-problems-and-limitations"><bdi class="secno">3.2.6 </bdi>Problems and Limitations<a class="self-link" href="#problems-and-limitations-0" aria-label="Permalink for Section 3.2.6"></a></h4>
+      <section id="problems-and-limitations-0"><div class="header-wrapper"><h4 id="x3-2-6-problems-and-limitations"><bdi class="secno">3.2.6 </bdi>Problems and Limitations</h4><a class="self-link" href="#problems-and-limitations-0" aria-label="Permalink for Section 3.2.6"></a></div>
+        
         <ul>
           <li>Does not assume or suggest visual pronunciation help for deaf or hard of hearing</li>
           <li>Use of data-* requires input from AT vendors</li>
@@ -654,28 +654,28 @@ You say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span cla
       </section>
     </section>
 
-    <section id="use-case-html5">
-      <h3 id="x3-3-use-case-html5"><bdi class="secno">3.3 </bdi>Use Case HTML5<a class="self-link" href="#use-case-html5" aria-label="Permalink for Section 3.3"></a></h3>
-      <section id="background-and-current-practice-1">
-        <h4 id="x3-3-1-background-and-current-practice"><bdi class="secno">3.3.1 </bdi>Background and Current Practice<a class="self-link" href="#background-and-current-practice-1" aria-label="Permalink for Section 3.3.1"></a></h4>
+    <section id="use-case-html5"><div class="header-wrapper"><h3 id="x3-3-use-case-html5"><bdi class="secno">3.3 </bdi>Use Case HTML5</h3><a class="self-link" href="#use-case-html5" aria-label="Permalink for Section 3.3"></a></div>
+      
+      <section id="background-and-current-practice-1"><div class="header-wrapper"><h4 id="x3-3-1-background-and-current-practice"><bdi class="secno">3.3.1 </bdi>Background and Current Practice</h4><a class="self-link" href="#background-and-current-practice-1" aria-label="Permalink for Section 3.3.1"></a></div>
+        
         <p>HTML5 includes the XML namespaces for MathML and SVG. Therefore, using either's elements in an HTML5 document is valid. Likewise, including an SSML namespace would allow the valid use of SSML in HTML5. Because SSML's implementation is non-visual in nature, browser implementation could be slow or non-existent without affecting how authors use SSML in HTML. Browsers would treat the element like any other unknown element, as HTMLUnknownElement.</p>
       </section>
-      <section id="goal-1">
-        <h4 id="x3-3-2-goal"><bdi class="secno">3.3.2 </bdi>Goal<a class="self-link" href="#goal-1" aria-label="Permalink for Section 3.3.2"></a></h4>
+      <section id="goal-1"><div class="header-wrapper"><h4 id="x3-3-2-goal"><bdi class="secno">3.3.2 </bdi>Goal</h4><a class="self-link" href="#goal-1" aria-label="Permalink for Section 3.3.2"></a></div>
+        
         <ul>
           <li>Support valid use of SSML in HTML5 documents</li>
           <li>Allow visual pronunciation support</li>
         </ul>
       </section>
-      <section id="target-audience-1">
-        <h4 id="x3-3-3-target-audience"><bdi class="secno">3.3.3 </bdi>Target Audience<a class="self-link" href="#target-audience-1" aria-label="Permalink for Section 3.3.3"></a></h4>
+      <section id="target-audience-1"><div class="header-wrapper"><h4 id="x3-3-3-target-audience"><bdi class="secno">3.3.3 </bdi>Target Audience</h4><a class="self-link" href="#target-audience-1" aria-label="Permalink for Section 3.3.3"></a></div>
+        
         <ul>
           <li>SSML-aware technologies and browser extensions</li>
           <li>Search indexers</li>
         </ul>
       </section>
-      <section id="implementation-options-1">
-        <h4 id="x3-3-4-implementation-options"><bdi class="secno">3.3.4 </bdi>Implementation Options<a class="self-link" href="#implementation-options-1" aria-label="Permalink for Section 3.3.4"></a></h4>
+      <section id="implementation-options-1"><div class="header-wrapper"><h4 id="x3-3-4-implementation-options"><bdi class="secno">3.3.4 </bdi>Implementation Options</h4><a class="self-link" href="#implementation-options-1" aria-label="Permalink for Section 3.3.4"></a></div>
+        
         <p><strong>SSML</strong></p>
         <p>When an element with data-ssml is encountered by an <a href="https://www.w3.org/TR/speech-synthesis11/">SSML</a>-aware AT, the AT should enhance the user interface by processing the referenced SSML content and passing it to the <a href="https://w3c.github.io/speech-api/">Web Speech API</a> or an external API (e.g., <a href="https://cloud.google.com/text-to-speech/">Google's Text to Speech API</a>).</p>
         <div class="example" id="example-9">
@@ -688,39 +688,39 @@ You say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span cla
 <span class="hljs-tag">&lt;/<span class="hljs-name">speak</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
       </div>
       </section>
-      <section id="existing-work-1">
-        <h4 id="x3-3-5-existing-work"><bdi class="secno">3.3.5 </bdi>Existing Work<a class="self-link" href="#existing-work-1" aria-label="Permalink for Section 3.3.5"></a></h4>
+      <section id="existing-work-1"><div class="header-wrapper"><h4 id="x3-3-5-existing-work"><bdi class="secno">3.3.5 </bdi>Existing Work</h4><a class="self-link" href="#existing-work-1" aria-label="Permalink for Section 3.3.5"></a></div>
+        
         <ul>
           <li><a href="https://www.w3.org/TR/voicexml21/">VoiceXML 2.1</a></li>
           <li><a href="https://www.w3.org/TR/REC-smil/smil-extended-linking.html#SMILLinking-Relationship-to-XLink">SMIL - Synchronized Multimedia Integration Language</a></li>
           <li><a href="https://www.w3.org/TR/pronunciation-lexicon/#AppB">PLS - Pronunciation Lexicon</a></li>
         </ul>
       </section>
-      <section id="problems-and-limitations-1">
-        <h4 id="x3-3-6-problems-and-limitations"><bdi class="secno">3.3.6 </bdi>Problems and Limitations<a class="self-link" href="#problems-and-limitations-1" aria-label="Permalink for Section 3.3.6"></a></h4>
+      <section id="problems-and-limitations-1"><div class="header-wrapper"><h4 id="x3-3-6-problems-and-limitations"><bdi class="secno">3.3.6 </bdi>Problems and Limitations</h4><a class="self-link" href="#problems-and-limitations-1" aria-label="Permalink for Section 3.3.6"></a></div>
+        
         <p>SSML is not valid HTML5</p>
       </section>
     </section>
 
-    <section id="use-case-custom-element">
-      <h3 id="x3-4-use-case-custom-element"><bdi class="secno">3.4 </bdi>Use Case Custom Element<a class="self-link" href="#use-case-custom-element" aria-label="Permalink for Section 3.4"></a></h3>
-      <section id="background-and-current-practice-2">
-        <h4 id="x3-4-1-background-and-current-practice"><bdi class="secno">3.4.1 </bdi>Background and Current Practice<a class="self-link" href="#background-and-current-practice-2" aria-label="Permalink for Section 3.4.1"></a></h4>
+    <section id="use-case-custom-element"><div class="header-wrapper"><h3 id="x3-4-use-case-custom-element"><bdi class="secno">3.4 </bdi>Use Case Custom Element</h3><a class="self-link" href="#use-case-custom-element" aria-label="Permalink for Section 3.4"></a></div>
+      
+      <section id="background-and-current-practice-2"><div class="header-wrapper"><h4 id="x3-4-1-background-and-current-practice"><bdi class="secno">3.4.1 </bdi>Background and Current Practice</h4><a class="self-link" href="#background-and-current-practice-2" aria-label="Permalink for Section 3.4.1"></a></div>
+        
         <p>Embed valid SSML in HTML using custom elements registered as ssml-* where * is the actual SSML tag name (except for p which expects the same treatment as an HTML p in HTML layout).</p>
       </section>
-      <section id="goal-2">
-        <h4 id="x3-4-2-goal"><bdi class="secno">3.4.2 </bdi>Goal<a class="self-link" href="#goal-2" aria-label="Permalink for Section 3.4.2"></a></h4>
+      <section id="goal-2"><div class="header-wrapper"><h4 id="x3-4-2-goal"><bdi class="secno">3.4.2 </bdi>Goal</h4><a class="self-link" href="#goal-2" aria-label="Permalink for Section 3.4.2"></a></div>
+        
         <p>Support use of SSML in HTML documents.</p>
       </section>
-      <section id="target-audience-2">
-        <h4 id="x3-4-3-target-audience"><bdi class="secno">3.4.3 </bdi>Target Audience<a class="self-link" href="#target-audience-2" aria-label="Permalink for Section 3.4.3"></a></h4>
+      <section id="target-audience-2"><div class="header-wrapper"><h4 id="x3-4-3-target-audience"><bdi class="secno">3.4.3 </bdi>Target Audience</h4><a class="self-link" href="#target-audience-2" aria-label="Permalink for Section 3.4.3"></a></div>
+        
         <ul>
           <li>SSML-aware technologies and browser extensions</li>
           <li>Search indexers</li>
         </ul>
       </section>
-      <section id="implementation-options-2">
-        <h4 id="x3-4-4-implementation-options"><bdi class="secno">3.4.4 </bdi>Implementation Options<a class="self-link" href="#implementation-options-2" aria-label="Permalink for Section 3.4.4"></a></h4>
+      <section id="implementation-options-2"><div class="header-wrapper"><h4 id="x3-4-4-implementation-options"><bdi class="secno">3.4.4 </bdi>Implementation Options</h4><a class="self-link" href="#implementation-options-2" aria-label="Permalink for Section 3.4.4"></a></div>
+        
         <p><strong>ssml-speak: see <a href="https://ssml-components.glitch.me">demo</a> </strong></p>
         <p>Only the &lt;ssml-speak&gt; component requires registration. The component code lifts the SSML by getting the innerHTML and removing the ssml- prefix from the interior tags and passing it to the web speech API. The &lt;p&gt; tag from SSML is not given the prefix because we still want to start a semantic paragraph within the content. The other tags used in the example have no semantic meaning. Tags like &lt;em&gt; in HTML could be converted to &lt;emphasis&gt; in SSML. In that case, CSS styles will come from the browser's default styles or the page author.</p>
         <div class="example" id="example-10">
@@ -793,15 +793,15 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
       </div>
       </section>
-      <section id="existing-work-2">
-        <h4 id="x3-4-5-existing-work"><bdi class="secno">3.4.5 </bdi>Existing Work<a class="self-link" href="#existing-work-2" aria-label="Permalink for Section 3.4.5"></a></h4>
+      <section id="existing-work-2"><div class="header-wrapper"><h4 id="x3-4-5-existing-work"><bdi class="secno">3.4.5 </bdi>Existing Work</h4><a class="self-link" href="#existing-work-2" aria-label="Permalink for Section 3.4.5"></a></div>
+        
         <ul>
           <li><a href="https://dom.spec.whatwg.org/#concept-element-custom">DOM Living Standard</a></li>
           <li><a href="https://w3c.github.io/speech-api/">Web Speech API</a></li>
         </ul>
       </section>
-      <section id="problems-and-limitations-2">
-        <h4 id="x3-4-6-problems-and-limitations"><bdi class="secno">3.4.6 </bdi>Problems and Limitations<a class="self-link" href="#problems-and-limitations-2" aria-label="Permalink for Section 3.4.6"></a></h4>
+      <section id="problems-and-limitations-2"><div class="header-wrapper"><h4 id="x3-4-6-problems-and-limitations"><bdi class="secno">3.4.6 </bdi>Problems and Limitations</h4><a class="self-link" href="#problems-and-limitations-2" aria-label="Permalink for Section 3.4.6"></a></div>
+        
         <ul>
           <li>OS/Browsers combinations that do not support the serialized XML usage of the Web Speech API.</li>
           <li>Browsers may need to map SSML tags with CSS styles for default user agent styles.</li>
@@ -811,25 +811,25 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
       </section>
     </section>
 
-    <section id="use-case-json-ld">
-      <h3 id="x3-5-use-case-json-ld"><bdi class="secno">3.5 </bdi>Use Case JSON-LD<a class="self-link" href="#use-case-json-ld" aria-label="Permalink for Section 3.5"></a></h3>
-      <section id="background-and-current-practice-3">
-        <h4 id="x3-5-1-background-and-current-practice"><bdi class="secno">3.5.1 </bdi>Background and Current Practice<a class="self-link" href="#background-and-current-practice-3" aria-label="Permalink for Section 3.5.1"></a></h4>
+    <section id="use-case-json-ld"><div class="header-wrapper"><h3 id="x3-5-use-case-json-ld"><bdi class="secno">3.5 </bdi>Use Case JSON-LD</h3><a class="self-link" href="#use-case-json-ld" aria-label="Permalink for Section 3.5"></a></div>
+      
+      <section id="background-and-current-practice-3"><div class="header-wrapper"><h4 id="x3-5-1-background-and-current-practice"><bdi class="secno">3.5.1 </bdi>Background and Current Practice</h4><a class="self-link" href="#background-and-current-practice-3" aria-label="Permalink for Section 3.5.1"></a></div>
+        
         <p><a href="https://www.w3.org/2018/jsonld-cg-reports/json-ld/">JSON-LD</a> provides an established standard for embedding data in HTML. Unlike other microdata approaches, JSON-LD helps to reuse standardized annotations through external references.</p>
       </section>
-      <section id="goal-3">
-        <h4 id="x3-5-2-goal"><bdi class="secno">3.5.2 </bdi>Goal<a class="self-link" href="#goal-3" aria-label="Permalink for Section 3.5.2"></a></h4>
+      <section id="goal-3"><div class="header-wrapper"><h4 id="x3-5-2-goal"><bdi class="secno">3.5.2 </bdi>Goal</h4><a class="self-link" href="#goal-3" aria-label="Permalink for Section 3.5.2"></a></div>
+        
         <p>Support use of SSML in HTML documents.</p>
       </section>
-      <section id="target-audience-3">
-        <h4 id="x3-5-3-target-audience"><bdi class="secno">3.5.3 </bdi>Target Audience<a class="self-link" href="#target-audience-3" aria-label="Permalink for Section 3.5.3"></a></h4>
+      <section id="target-audience-3"><div class="header-wrapper"><h4 id="x3-5-3-target-audience"><bdi class="secno">3.5.3 </bdi>Target Audience</h4><a class="self-link" href="#target-audience-3" aria-label="Permalink for Section 3.5.3"></a></div>
+        
         <ul>
           <li>SSML-aware technologies and browser extensions</li>
           <li>Search indexers</li>
         </ul>
       </section>
-      <section id="implementation-options-3">
-        <h4 id="x3-5-4-implementation-options"><bdi class="secno">3.5.4 </bdi>Implementation Options<a class="self-link" href="#implementation-options-3" aria-label="Permalink for Section 3.5.4"></a></h4>
+      <section id="implementation-options-3"><div class="header-wrapper"><h4 id="x3-5-4-implementation-options"><bdi class="secno">3.5.4 </bdi>Implementation Options</h4><a class="self-link" href="#implementation-options-3" aria-label="Permalink for Section 3.5.4"></a></div>
+        
         <p><strong>JSON-LD</strong></p>
         <div class="example" id="example-11">
         <div class="marker">
@@ -852,41 +852,41 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
 <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
       </div>
       </section>
-      <section id="existing-work-3">
-        <h4 id="x3-5-5-existing-work"><bdi class="secno">3.5.5 </bdi>Existing Work<a class="self-link" href="#existing-work-3" aria-label="Permalink for Section 3.5.5"></a></h4>
+      <section id="existing-work-3"><div class="header-wrapper"><h4 id="x3-5-5-existing-work"><bdi class="secno">3.5.5 </bdi>Existing Work</h4><a class="self-link" href="#existing-work-3" aria-label="Permalink for Section 3.5.5"></a></div>
+        
         <ul>
           <li><a href="https://www.w3.org/WoT/WG/">Web of Things Working Group</a></li>
           <li><a href="https://schema.org/">Schema.org</a></li>
         </ul>
       </section>
-      <section id="problems-and-limitations-3">
-        <h4 id="x3-5-6-problems-and-limitations"><bdi class="secno">3.5.6 </bdi>Problems and Limitations<a class="self-link" href="#problems-and-limitations-3" aria-label="Permalink for Section 3.5.6"></a></h4>
+      <section id="problems-and-limitations-3"><div class="header-wrapper"><h4 id="x3-5-6-problems-and-limitations"><bdi class="secno">3.5.6 </bdi>Problems and Limitations</h4><a class="self-link" href="#problems-and-limitations-3" aria-label="Permalink for Section 3.5.6"></a></div>
+        
         <p>JSON-LD is not an established "type"/published schema</p>
       </section>
     </section>
-    <section id="use-case-ruby">
-      <h3 id="x3-6-use-case-ruby"><bdi class="secno">3.6 </bdi>Use Case Ruby<a class="self-link" href="#use-case-ruby" aria-label="Permalink for Section 3.6"></a></h3>
-      <section id="background-and-current-practice-4">
-        <h4 id="x3-6-1-background-and-current-practice"><bdi class="secno">3.6.1 </bdi>Background and Current Practice<a class="self-link" href="#background-and-current-practice-4" aria-label="Permalink for Section 3.6.1"></a></h4>
+    <section id="use-case-ruby"><div class="header-wrapper"><h3 id="x3-6-use-case-ruby"><bdi class="secno">3.6 </bdi>Use Case Ruby</h3><a class="self-link" href="#use-case-ruby" aria-label="Permalink for Section 3.6"></a></div>
+      
+      <section id="background-and-current-practice-4"><div class="header-wrapper"><h4 id="x3-6-1-background-and-current-practice"><bdi class="secno">3.6.1 </bdi>Background and Current Practice</h4><a class="self-link" href="#background-and-current-practice-4" aria-label="Permalink for Section 3.6.1"></a></div>
+        
         <blockquote>&lt;Ruby&gt; annotations are short runs of text presented alongside base text, primarily used in East Asian typography as a guide for pronunciation or to include other annotations.</blockquote>
         <p>ruby guides pronunciation visually.</p>
       </section>
-      <section id="goal-4">
-        <h4 id="x3-6-2-goal"><bdi class="secno">3.6.2 </bdi>Goal<a class="self-link" href="#goal-4" aria-label="Permalink for Section 3.6.2"></a></h4>
+      <section id="goal-4"><div class="header-wrapper"><h4 id="x3-6-2-goal"><bdi class="secno">3.6.2 </bdi>Goal</h4><a class="self-link" href="#goal-4" aria-label="Permalink for Section 3.6.2"></a></div>
+        
         <ul>
           <li>Support use of SSML in HTML documents.</li>
           <li>Offer visual pronunciation support.</li>
         </ul>
       </section>
-      <section id="target-audience-4">
-        <h4 id="x3-6-3-target-audience"><bdi class="secno">3.6.3 </bdi>Target Audience<a class="self-link" href="#target-audience-4" aria-label="Permalink for Section 3.6.3"></a></h4>
+      <section id="target-audience-4"><div class="header-wrapper"><h4 id="x3-6-3-target-audience"><bdi class="secno">3.6.3 </bdi>Target Audience</h4><a class="self-link" href="#target-audience-4" aria-label="Permalink for Section 3.6.3"></a></div>
+        
         <ul>
           <li>AT and browser extensions</li>
           <li>Search indexers</li>
         </ul>
       </section>
-      <section id="implementation-options-4">
-        <h4 id="x3-6-4-implementation-options"><bdi class="secno">3.6.4 </bdi>Implementation Options<a class="self-link" href="#implementation-options-4" aria-label="Permalink for Section 3.6.4"></a></h4>
+      <section id="implementation-options-4"><div class="header-wrapper"><h4 id="x3-6-4-implementation-options"><bdi class="secno">3.6.4 </bdi>Implementation Options</h4><a class="self-link" href="#implementation-options-4" aria-label="Permalink for Section 3.6.4"></a></div>
+        
         <p><strong>ruby with microdata</strong></p>
         <p>Microdata can augment the ruby element and its descendants.</p>
         <div class="example" id="example-12">
@@ -914,8 +914,8 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
 <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
       </div>
       </section>
-      <section id="existing-work-4">
-        <h4 id="x3-6-5-existing-work"><bdi class="secno">3.6.5 </bdi>Existing Work<a class="self-link" href="#existing-work-4" aria-label="Permalink for Section 3.6.5"></a></h4>
+      <section id="existing-work-4"><div class="header-wrapper"><h4 id="x3-6-5-existing-work"><bdi class="secno">3.6.5 </bdi>Existing Work</h4><a class="self-link" href="#existing-work-4" aria-label="Permalink for Section 3.6.5"></a></div>
+        
         <ul>
           <li><a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-ruby-element">HTML Living Standard</a></li>
           <li><a href="https://schema.org/">Schema.org</a></li>
@@ -923,8 +923,8 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
           <li><a href="https://w3c.github.io/jlreq/">Requirements for Japanese Text Layout (JLreq)</a></li>
         </ul>
       </section>
-      <section id="problems-and-limitations-4">
-        <h4 id="x3-6-6-problems-and-limitations"><bdi class="secno">3.6.6 </bdi>Problems and Limitations<a class="self-link" href="#problems-and-limitations-4" aria-label="Permalink for Section 3.6.6"></a></h4>
+      <section id="problems-and-limitations-4"><div class="header-wrapper"><h4 id="x3-6-6-problems-and-limitations"><bdi class="secno">3.6.6 </bdi>Problems and Limitations</h4><a class="self-link" href="#problems-and-limitations-4" aria-label="Permalink for Section 3.6.6"></a></div>
+        
         <ul>
           <li>AT may process annotations as content</li>
           <li>AT "double reading" words instead of choosing either the content or the annotation</li>
@@ -935,8 +935,8 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
       </section>
     </section>
   </section>
-  <section id="gap-analysis">
-    <h2 id="x4-gap-analysis"><bdi class="secno">4. </bdi>Gap Analysis<a class="self-link" href="#gap-analysis" aria-label="Permalink for Section 4."></a></h2>
+  <section id="gap-analysis"><div class="header-wrapper"><h2 id="x4-gap-analysis"><bdi class="secno">4. </bdi>Gap Analysis</h2><a class="self-link" href="#gap-analysis" aria-label="Permalink for Section 4."></a></div>
+    
     <p>Based on the features and use cases described in the prior sections, the following table presents existing speech presentation standards, HTML features, and WAI-ARIA attributes that may offer a method to achieve the requirement for HTML authors. A blank cell for any approach represents a gap in support.</p>
     <table border="1" cellpadding="2" cellspacing="2" width="100%">
       <tbody>
@@ -1016,31 +1016,31 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
     </table>
     <p>The following sections describe how each of the required features may be met by the use of existing approaches. A key consideration in the analysis is whether a means exists to directly author (or annotate) HTML content to incorporate the
     spoken presentation and pronunciation feature.</p>
-    <section id="language-0">
-      <h3 id="x4-1-language"><bdi class="secno">4.1 </bdi>Language<a class="self-link" href="#language-0" aria-label="Permalink for Section 4.1"></a></h3>
+    <section id="language-0"><div class="header-wrapper"><h3 id="x4-1-language"><bdi class="secno">4.1 </bdi>Language</h3><a class="self-link" href="#language-0" aria-label="Permalink for Section 4.1"></a></div>
+      
       <p>Allow content authors to specify the language of text contained within an element so that the TTS used for rendering will select the appropriate language for synthesis.<br></p>
     
-      <h4 id="html">HTML<a class="self-link" href="#language-0" aria-label="Permalink for Section"></a></h4>
+      <section id="html"><div class="header-wrapper"><h4 id="x4-1-1-html"><bdi class="secno">4.1.1 </bdi>HTML</h4><a class="self-link" href="#html" aria-label="Permalink for Section 4.1.1"></a></div>
       <p><code>lang</code> attribute can be applied at the document level or to individual elements. (WCAG) (AT Supported: some)<br></p>
-      <h4 id="ssml">SSML<a class="self-link" href="#language-0" aria-label="Permalink for Section"></a></h4>
+      </section><section id="ssml"><div class="header-wrapper"><h4 id="x4-1-2-ssml"><bdi class="secno">4.1.2 </bdi>SSML</h4><a class="self-link" href="#ssml" aria-label="Permalink for Section 4.1.2"></a></div>
       <p>Example: <code>&lt;speak&gt; In Paris, they pronounce it &lt;lang xml:lang="fr-FR"&gt;Paris&lt;/lang&gt; &lt;/speak&gt;</code>code&gt;</p>
-    </section>
-    <section id="voice-family-gender-0">
-      <h3 id="x4-2-voice-family-gender"><bdi class="secno">4.2 </bdi>Voice Family/Gender<a class="self-link" href="#voice-family-gender-0" aria-label="Permalink for Section 4.2"></a></h3>
+    </section></section>
+    <section id="voice-family-gender-0"><div class="header-wrapper"><h3 id="x4-2-voice-family-gender"><bdi class="secno">4.2 </bdi>Voice Family/Gender</h3><a class="self-link" href="#voice-family-gender-0" aria-label="Permalink for Section 4.2"></a></div>
+      
       <p>Allow content authors to specify a specific TTS voice to be used to render text. For example, for content that presents a dialog between two people, a woman and a man, the author may specify that a female voice be used for the woman's text and a
       male voice be used for the man's text. Some platform TTS services may support a variety of voices, identified by a name, gender, or even age.</p>
-      <h4 id="css">CSS<a class="self-link" href="#voice-family-gender-0" aria-label="Permalink for Section"></a></h4>
+      <section id="css"><div class="header-wrapper"><h4 id="x4-2-1-css"><bdi class="secno">4.2.1 </bdi>CSS</h4><a class="self-link" href="#css" aria-label="Permalink for Section 4.2.1"></a></div>
       <p><code>voice-family</code> property can be used to specify the gender of the voice.<br></p>
       <p>Example: <code>{ voice-family: male; }</code></p>
-      <h4 id="ssml-0">SSML<a class="self-link" href="#voice-family-gender-0" aria-label="Permalink for Section"></a></h4>
+      </section><section id="ssml-0"><div class="header-wrapper"><h4 id="x4-2-2-ssml"><bdi class="secno">4.2.2 </bdi>SSML</h4><a class="self-link" href="#ssml-0" aria-label="Permalink for Section 4.2.2"></a></div>
       <p>Using the <code>&lt;voice&gt;</code> element, the gender of the speaker, if supported by the TTS engine, can be specified.</p>
       <p>Example: <code>&lt;voice gender="female" &gt;Mary had a little lamb,&lt;/voice&gt;</code></p>
 
-    </section>
-    <section id="phonetic-pronunciation">
-      <h3 id="x4-3-phonetic-pronunciation"><bdi class="secno">4.3 </bdi>Phonetic Pronunciation<a class="self-link" href="#phonetic-pronunciation" aria-label="Permalink for Section 4.3"></a></h3>
+    </section></section>
+    <section id="phonetic-pronunciation"><div class="header-wrapper"><h3 id="x4-3-phonetic-pronunciation"><bdi class="secno">4.3 </bdi>Phonetic Pronunciation</h3><a class="self-link" href="#phonetic-pronunciation" aria-label="Permalink for Section 4.3"></a></div>
+      
       <p>Allow content authors to precisely specify the phonetic pronunciation of a word or phrase.</p>
-      <h4 id="pls">PLS<a class="self-link" href="#phonetic-pronunciation" aria-label="Permalink for Section"></a></h4>
+      <section id="pls"><div class="header-wrapper"><h4 id="x4-3-1-pls"><bdi class="secno">4.3.1 </bdi>PLS</h4><a class="self-link" href="#pls" aria-label="Permalink for Section 4.3.1"></a></div>
          <p>Using PLS, all the pronunciations can be factored out into an external PLS document which is referenced by the <code>&lt;lexicon&gt;</code> element of SSML </p>
           <p>
                 </p><div class="example" id="example-13">
@@ -1052,7 +1052,7 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
       </div>
     <p></p>     
       
-          <h4 id="ssml-1">SSML<a class="self-link" href="#phonetic-pronunciation" aria-label="Permalink for Section"></a></h4>
+          </section><section id="ssml-1"><div class="header-wrapper"><h4 id="x4-3-2-ssml"><bdi class="secno">4.3.2 </bdi>SSML</h4><a class="self-link" href="#ssml-1" aria-label="Permalink for Section 4.3.2"></a></div>
           <p>The following is a simple example of an SSML document. It includes an Italian movie title and the name of the director to be read in US English.</p>
       <p>
             </p><div class="example" id="example-14">
@@ -1068,14 +1068,14 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
       </div>
         <p></p>     
           
-    </section>
-    <section id="substitution">
-      <h3 id="x4-4-substitution"><bdi class="secno">4.4 </bdi>Substitution<a class="self-link" href="#substitution" aria-label="Permalink for Section 4.4"></a></h3>
+    </section></section>
+    <section id="substitution"><div class="header-wrapper"><h3 id="x4-4-substitution"><bdi class="secno">4.4 </bdi>Substitution</h3><a class="self-link" href="#substitution" aria-label="Permalink for Section 4.4"></a></div>
+      
       <p>Allow content authors to substitute a text string to be rendered by TTS instead of the actual text contained in an element.</p>
-      <h4 id="wai-aria">WAI-ARIA<a class="self-link" href="#substitution" aria-label="Permalink for Section"></a></h4>
+      <section id="wai-aria"><div class="header-wrapper"><h4 id="x4-4-1-wai-aria"><bdi class="secno">4.4.1 </bdi>WAI-ARIA</h4><a class="self-link" href="#wai-aria" aria-label="Permalink for Section 4.4.1"></a></div>
       <p>The <a href="https://www.w3.org/TR/wai-aria/#aria-label"><code>aria-label</code></a> and <a href="https://www.w3.org/TR/wai-aria/#aria-labelledby"><code>aria-labelledby</code></a> attribute can be used by an author to supply a text string
       that will become the accessible name for the element upon which it is applied.&nbsp; This usage effectively provides a mechanism for performing text substation that is supported by a screen reader. However, it is problematic for one significant reason; for users who utilize screen readers and refreshable Braille, the content that is voiced will not match the content that is sent to the refreshable Braille device. This mismatch would not be acceptable for some content, particularly for assessment content.<br></p>
-      <h4 id="ssml-2">SSML<a class="self-link" href="#substitution" aria-label="Permalink for Section"></a></h4>
+      </section><section id="ssml-2"><div class="header-wrapper"><h4 id="x4-4-2-ssml"><bdi class="secno">4.4.2 </bdi>SSML</h4><a class="self-link" href="#ssml-2" aria-label="Permalink for Section 4.4.2"></a></div>
           <p>Pronounce the specified word or phrase as a different word or phrase. Specify the pronunciation to substitute with the <code>alias</code> attribute.</p>
          <p> </p><div class="example" id="example-15">
         <div class="marker">
@@ -1088,11 +1088,11 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
  </code></pre>
       </div>
           <p></p>   
-    </section>
-    <section id="rate-pitch-volume-0">
-      <h3 id="x4-5-rate-pitch-volume"><bdi class="secno">4.5 </bdi>Rate/Pitch/Volume<a class="self-link" href="#rate-pitch-volume-0" aria-label="Permalink for Section 4.5"></a></h3>
+    </section></section>
+    <section id="rate-pitch-volume-0"><div class="header-wrapper"><h3 id="x4-5-rate-pitch-volume"><bdi class="secno">4.5 </bdi>Rate/Pitch/Volume</h3><a class="self-link" href="#rate-pitch-volume-0" aria-label="Permalink for Section 4.5"></a></div>
+      
       <p>Allow content authors to specify characteristics, such as rate, pitch, and/or volume of the TTS rendering of the text.</p>
-      <h4 id="css-0">CSS<a class="self-link" href="#rate-pitch-volume-0" aria-label="Permalink for Section"></a></h4>
+      <section id="css-0"><div class="header-wrapper"><h4 id="x4-5-1-css"><bdi class="secno">4.5.1 </bdi>CSS</h4><a class="self-link" href="#css-0" aria-label="Permalink for Section 4.5.1"></a></div>
           <p>
            </p><dl>
                  <dt><strong>voice-rate</strong></dt>
@@ -1112,7 +1112,7 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
                  <dd>The <code>‘voice-range’</code> property specifies the variability in the "baseline" pitch, i.e. how much the fundamental frequency may deviate from the average pitch of the speech output. The dynamic pitch range of the generated speech generally increases for a highly animated voice, for example when variations in inflection are used to convey meaning and emphasis in speech. Typically, a low range produces a flat, monotonic voice, whereas a high range produces an animated voice.</dd>
             </dl>          
           <p></p>
-      <h4 id="ssml-3">SSML<a class="self-link" href="#rate-pitch-volume-0" aria-label="Permalink for Section"></a></h4>
+      </section><section id="ssml-3"><div class="header-wrapper"><h4 id="x4-5-2-ssml"><bdi class="secno">4.5.2 </bdi>SSML</h4><a class="self-link" href="#ssml-3" aria-label="Permalink for Section 4.5.2"></a></div>
           <p><code>prosody</code> modifies the volume, pitch, and rate of the tagged speech.</p>
           <p>
           </p><div class="example" id="example-16">
@@ -1130,11 +1130,11 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
 </code></pre>
       </div>
           <p></p>
-    </section>
-    <section id="emphasis-0">
-      <h3 id="x4-6-emphasis"><bdi class="secno">4.6 </bdi>Emphasis<a class="self-link" href="#emphasis-0" aria-label="Permalink for Section 4.6"></a></h3>
+    </section></section>
+    <section id="emphasis-0"><div class="header-wrapper"><h3 id="x4-6-emphasis"><bdi class="secno">4.6 </bdi>Emphasis</h3><a class="self-link" href="#emphasis-0" aria-label="Permalink for Section 4.6"></a></div>
+      
       <p>Allow content authors to specify that text content be spoken with emphasis, for example, louder and more slowly. This can be viewed as a simplification of the Rate/Pitch/Volume controls to reduce authoring complexity.</p>
-      <h4 id="html-0">HTML<a class="self-link" href="#emphasis-0" aria-label="Permalink for Section"></a></h4>
+      <section id="html-0"><div class="header-wrapper"><h4 id="x4-6-1-html"><bdi class="secno">4.6.1 </bdi>HTML</h4><a class="self-link" href="#html-0" aria-label="Permalink for Section 4.6.1"></a></div>
           <p>
                 The HTML <code>&lt;em&gt;</code> element marks text that has stress emphasis. The <code>&lt;em&gt;</code> element can be nested, with each level of nesting indicating a greater degree of emphasis.
           </p>
@@ -1144,7 +1144,7 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
  Typically this element is displayed in italic type. However, it should not be used simply to apply italic styling; use the CSS <code>font-style</code> property for that purpose. Use the <code>&lt;cite&gt;</code> element to mark the title of a work (book, play, song, etc.). Use the <code>&lt;i&gt;</code> element to mark text that is in an alternate tone or mood, which covers many common situations for italics such as scientific names or words in other languages. Use the <code>&lt;strong&gt;</code> element to mark text that has greater importance than surrounding text. 
                 </p>      
           
-          <h4 id="css-1">CSS<a class="self-link" href="#emphasis-0" aria-label="Permalink for Section"></a></h4>
+          </section><section id="css-1"><div class="header-wrapper"><h4 id="x4-6-2-css"><bdi class="secno">4.6.2 </bdi>CSS</h4><a class="self-link" href="#css-1" aria-label="Permalink for Section 4.6.2"></a></div>
           <p>
            </p><dl>
                  <dt><strong>voice-stress</strong></dt>
@@ -1152,7 +1152,7 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
             </dl>          
           <p></p>
           
-      <h4 id="ssml-4">SSML<a class="self-link" href="#emphasis-0" aria-label="Permalink for Section"></a></h4>
+      </section><section id="ssml-4"><div class="header-wrapper"><h4 id="x4-6-3-ssml"><bdi class="secno">4.6.3 </bdi>SSML</h4><a class="self-link" href="#ssml-4" aria-label="Permalink for Section 4.6.3"></a></div>
       <p>Emphasize the tagged words or phrases. Emphasis changes rate and volume of the speech. More emphasis is spoken louder and slower. Less emphasis is quieter and faster.</p>         
        <p>
                  </p><div class="example" id="example-17">
@@ -1166,16 +1166,16 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
 </code></pre>
       </div>          
        <p></p>           
-    </section>
-    <section id="say-as-0">
-      <h3 id="x4-7-say-as"><bdi class="secno">4.7 </bdi>Say As<a class="self-link" href="#say-as-0" aria-label="Permalink for Section 4.7"></a></h3>
+    </section></section>
+    <section id="say-as-0"><div class="header-wrapper"><h3 id="x4-7-say-as"><bdi class="secno">4.7 </bdi>Say As</h3><a class="self-link" href="#say-as-0" aria-label="Permalink for Section 4.7"></a></div>
+      
           <p>Allow content authors to specify how text is spoken. For example, content authors would be able to indicate that a series of four numbers should be spoken as a year rather than a cardinal number.</p>
-      <h4 id="css-2">CSS<a class="self-link" href="#say-as-0" aria-label="Permalink for Section"></a></h4>
+      <section id="css-2"><div class="header-wrapper"><h4 id="x4-7-1-css"><bdi class="secno">4.7.1 </bdi>CSS</h4><a class="self-link" href="#css-2" aria-label="Permalink for Section 4.7.1"></a></div>
           <p>The <code>‘speak-as’</code> property determines in what manner text gets rendered aurally, based upon a predefined list of possibilities.</p>
           <div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Note</span></div><p class="">
           Speech synthesizers are knowledgeable about what a number is. The <code>‘speak-as’</code> property enables some level of control on how user agents render numbers, and may be implemented as a preprocessing step before passing the text to the actual speech synthesizer.
           </p></div>
-      <h4 id="ssml-5">SSML<a class="self-link" href="#say-as-0" aria-label="Permalink for Section"></a></h4>
+      </section><section id="ssml-5"><div class="header-wrapper"><h4 id="x4-7-2-ssml"><bdi class="secno">4.7.2 </bdi>SSML</h4><a class="self-link" href="#ssml-5" aria-label="Permalink for Section 4.7.2"></a></div>
       <p>
             Describes how the text should be interpreted. This lets you provide additional context to the text and eliminate any ambiguity on how Alexa should render the text. Indicate how Alexa should interpret the text with the <code>interpret-as</code> attribute.
       </p>
@@ -1195,11 +1195,11 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
       </div>
 <p></p>
     
-</section>
-    <section id="pausing-0">
-      <h3 id="x4-8-pausing"><bdi class="secno">4.8 </bdi>Pausing<a class="self-link" href="#pausing-0" aria-label="Permalink for Section 4.8"></a></h3>
+</section></section>
+    <section id="pausing-0"><div class="header-wrapper"><h3 id="x4-8-pausing"><bdi class="secno">4.8 </bdi>Pausing</h3><a class="self-link" href="#pausing-0" aria-label="Permalink for Section 4.8"></a></div>
+      
           <p>Allow content authors to specify pauses before or after content to ensure the desired prosody of the presentation, which can affect the pronunciation of the pronunciation of content the precedes or follows the pause.</p>
-      <h4 id="css-3">CSS<a class="self-link" href="#pausing-0" aria-label="Permalink for Section"></a></h4>
+      <section id="css-3"><div class="header-wrapper"><h4 id="x4-8-1-css"><bdi class="secno">4.8.1 </bdi>CSS</h4><a class="self-link" href="#css-3" aria-label="Permalink for Section 4.8.1"></a></div>
           <p>
                 The <code>‘pause-before’</code> and <code>‘pause-after’</code> properties specify a prosodic boundary (silence with a specific duration) that occurs before (or after) the speech synthesis rendition of the selected element, or if any <code>‘cue-before’</code> (or <code>‘cue-after’</code>) is specified, before (or after) the cue within the aural box model.
           </p>
@@ -1208,7 +1208,7 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
           Note that although the functionality provided by this property is similar to the <code>break element</code> from the SSML markup language [SSML], the application of ‘pause’ prosodic boundaries within the aural box model of CSS Speech requires special considerations (e.g. "collapsed" pauses).
           
           </p></div>
-      <h4 id="ssml-6">SSML<a class="self-link" href="#pausing-0" aria-label="Permalink for Section"></a></h4>
+      </section><section id="ssml-6"><div class="header-wrapper"><h4 id="x4-8-2-ssml"><bdi class="secno">4.8.2 </bdi>SSML</h4><a class="self-link" href="#ssml-6" aria-label="Permalink for Section 4.8.2"></a></div>
           <p>
                 <code>break</code> represents a pause in the speech. Set the length of the pause with the <code>strength</code> or <code>time</code> attributes.
           </p>
@@ -1225,16 +1225,16 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
       </div>
 <p></p>
          
-    </section>
+    </section></section>
   </section>
-  <section class="appendix informative section" id="acknowledgements">
-	<h2 id="a-acknowledgments"><bdi class="secno">A. </bdi>Acknowledgments<a class="self-link" href="#acknowledgements" aria-label="Permalink for Appendix A."></a></h2><p><em>This section is non-normative.</em></p>
+  <section class="appendix informative section" id="acknowledgements"><div class="header-wrapper"><h2 id="a-acknowledgments"><bdi class="secno">A. </bdi>Acknowledgments</h2><a class="self-link" href="#acknowledgements" aria-label="Permalink for Appendix A."></a></div><p><em>This section is non-normative.</em></p>
+	
 	<p>The following people contributed to the development of this document.</p>
-	<section class="section" id="ack_group">
-		<h3 id="a-1-participants-active-in-the-pronunciation-tf-at-the-time-of-publication"><bdi class="secno">A.1 </bdi>Participants active in the Pronunciation TF at the time of publication<a class="self-link" href="#ack_group" aria-label="Permalink for Appendix A.1"></a></h3>
+	<section class="section" id="ack_group"><div class="header-wrapper"><h3 id="a-1-participants-active-in-the-pronunciation-tf-at-the-time-of-publication"><bdi class="secno">A.1 </bdi>Participants active in the Pronunciation TF at the time of publication</h3><a class="self-link" href="#ack_group" aria-label="Permalink for Appendix A.1"></a></div>
+		
 		<ul>
 			<li>Irfan Ali (Educational Testing Service)</li>
-			<li>Michael Cooper (<abbr title="World Wide Web Consortium">W3C</abbr>/<abbr title="Massachusetts Institute of Technology">MIT</abbr>)</li>
+			<li>Michael Cooper (<abbr title="World Wide Web Consortium">W3C</abbr>/MIT)</li>
 			<li>Dee Dyer (Educational Testing Service)</li>
 			<li>Markku Hakkinen (Educational Testing Service)</li>
 			<li>Christine Loew (Invited Expert)</li>
