@@ -1,15 +1,13 @@
 <!DOCTYPE html><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 34.1.8">
+<meta name="generator" content="ReSpec 35.1.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
 :is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
 div.illegal-example{color:red}
 div.illegal-example p{color:#000}
-:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
 aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
-.example pre{background-color:rgba(0,0,0,.03)}
 </style>
 <style>
 .issue-label{text-transform:initial}
@@ -18,7 +16,7 @@ aside.example div.example{border-left-width:.1em;border-color:#999;background:#f
 span.warning{padding:.1em .5em .15em}
 .issue.closed span.issue-number{text-decoration:line-through}
 .issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
-.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
+.warning{border-color:#f11;border-color:var(--warning-border,#f11);border-width:.2em;border-style:solid;background:#fbe9e9;background:var(--warning-bg,#fbe9e9);color:#000;color:var(--text,#000)}
 .warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
 li.task-list-item{list-style:none}
 input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
@@ -26,13 +24,13 @@ input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
 </style>
 <style>
 dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
-.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
-.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
 .dfn-panel *{margin:0}
-.dfn-panel b{display:block;color:#000;margin-top:.25em}
-.dfn-panel ul a[href]{color:#333}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
 .dfn-panel>div{display:flex}
 .dfn-panel a.self-link{font-weight:700;margin-right:auto}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
@@ -54,8 +52,6 @@ dfn{cursor:pointer}
 25%{transform:scale(1.25,1.25);opacity:.75}
 100%{transform:scale(1,1)}
 }
-:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
-dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
 a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
 a.bibref{text-decoration:none}
@@ -69,20 +65,8 @@ a.bibref{text-decoration:none}
 cite .bibref{font-style:normal}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
-.toc a,.tof a{text-decoration:none}
-a .figno,a .secno{color:#000}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
-table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
-.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
-.simple th a{color:#fff;padding:3px 5px;text-align:left}
-.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
-.simple td{padding:3px 10px;border-top:1px solid #ddd}
-.simple tr:nth-child(even){background:#f0f6ff}
-.section dd>p:first-child{margin-top:0}
-.section dd>p:last-child{margin-bottom:0}
-.section dd{margin-bottom:1em}
-.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
 #issue-summary>ul{column-count:2}
 #issue-summary li{list-style:none;display:inline-block}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
@@ -108,17 +92,22 @@ dd{margin-left:0}
 </style>
   
 
+<meta name="color-scheme" content="light">
 <meta name="description" content="The objective of the Pronunciation Task Force is to develop normative specifications and best practices guidance collaborating with other W3C groups as appropriate, to provide for proper pronunciation in HTML content when using text to speech (TTS) synthesis. This document presents the results of the Pronunciation Task Force work on an HTML standard. It includes an introduction with a historical perspective, an enumeration of the core requirements, a listing of approach use cases, and finally a gap analysis. Gaps are defined when a requirement does not have a corresponding use case approach by which it can be authored in HTML.">
 <style>
-.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
-.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
-.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
-.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
-.hljs-literal{color:#0b76c5}
-.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
-.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
-.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
-.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
 .hljs-emphasis{font-style:italic}
 .hljs-strong{font-weight:700}
 .hljs-link{text-decoration:underline}
@@ -126,8 +115,8 @@ dd{margin-left:0}
 <style>
 var{position:relative;cursor:pointer}
 var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
-var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
-var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#222}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#222;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
 var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </style>
 <script id="initialUserConfig" type="application/json">{
@@ -191,15 +180,15 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   ],
   "group": "apa",
   "github": "https://github.com/w3c/pronunciation/",
-  "publishISODate": "2023-10-02T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 02 October 2023"
+  "publishISODate": "2024-09-02T00:00:00.000Z",
+  "generatedSubtitle": "W3C Editor's Draft 02 September 2024"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
 <body class="h-entry informative"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Pronunciation Gap Analysis &amp; Use Cases</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2023-10-02">02 October 2023</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2024-09-02">02 September 2024</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
@@ -248,15 +237,15 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     
     
     <p class="copyright">
-    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+    <a href="https://www.w3.org/policies/#copyright">Copyright</a>
     ©
-    2020-2023
+    2020-2024
     
     <a href="https://www.w3.org/">World Wide Web Consortium</a>.
     <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup>
-    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
-    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
-    <a rel="license" href="https://www.w3.org/Consortium/Legal/2023/software-license" title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
+    <a href="https://www.w3.org/policies/#Legal_Disclaimer">liability</a>,
+    <a href="https://www.w3.org/policies/#W3C_Trademarks">trademark</a> and
+    <a rel="license" href="https://www.w3.org/copyright/software-license-2023/" title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
   </p>
     <hr title="Separator for header">
   </div>
@@ -280,7 +269,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     
         This document was produced by a group
         operating under the
-        <a href="https://www.w3.org/Consortium/Patent-Policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent
+        <a href="https://www.w3.org/policies/patent-policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent
           Policy</a>.
       
     
@@ -290,14 +279,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           the group; that page also includes
           instructions for disclosing a patent. An individual who has actual
           knowledge of a patent which the individual believes contains
-          <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential Claim(s)</a>
+          <a href="https://www.w3.org/policies/patent-policy/#def-essential">Essential Claim(s)</a>
           must disclose the information in accordance with
-          <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+          <a href="https://www.w3.org/policies/patent-policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
         
   </p><p>
-                  This document is governed by the
-                  <a id="w3c_process_revision" href="https://www.w3.org/2023/Process-20230612/">12 June 2023 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
-                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#core-features-for-pronunciation-and-spoken-presentation"><bdi class="secno">2. </bdi>Core Features for Pronunciation and Spoken Presentation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#language"><bdi class="secno">2.1 </bdi>Language</a></li><li class="tocline"><a class="tocxref" href="#voice-family-gender"><bdi class="secno">2.2 </bdi>Voice Family / Gender</a></li><li class="tocline"><a class="tocxref" href="#phonetic-pronunciation-of-string-values"><bdi class="secno">2.3 </bdi>Phonetic Pronunciation of String Values</a></li><li class="tocline"><a class="tocxref" href="#string-substitution"><bdi class="secno">2.4 </bdi>String Substitution</a></li><li class="tocline"><a class="tocxref" href="#rate-pitch-volume"><bdi class="secno">2.5 </bdi>Rate / Pitch / Volume</a></li><li class="tocline"><a class="tocxref" href="#emphasis"><bdi class="secno">2.6 </bdi>Emphasis</a></li><li class="tocline"><a class="tocxref" href="#say-as"><bdi class="secno">2.7 </bdi>Say As</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#presentation-of-numeric-values"><bdi class="secno">2.7.1 </bdi>Presentation of Numeric Values</a></li><li class="tocline"><a class="tocxref" href="#presentation-of-string-values"><bdi class="secno">2.7.2 </bdi>Presentation of String Values</a></li></ol></li><li class="tocline"><a class="tocxref" href="#pausing"><bdi class="secno">2.8 </bdi>Pausing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">3. </bdi>Use Cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#use-case-aria-ssml"><bdi class="secno">3.1 </bdi>Use Case aria-ssml</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice"><bdi class="secno">3.1.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal"><bdi class="secno">3.1.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience"><bdi class="secno">3.1.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options"><bdi class="secno">3.1.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work"><bdi class="secno">3.1.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations"><bdi class="secno">3.1.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-data-ssml"><bdi class="secno">3.2 </bdi>Use Case data-ssml</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-0"><bdi class="secno">3.2.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-0"><bdi class="secno">3.2.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-0"><bdi class="secno">3.2.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-0"><bdi class="secno">3.2.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-0"><bdi class="secno">3.2.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-0"><bdi class="secno">3.2.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-html5"><bdi class="secno">3.3 </bdi>Use Case HTML5</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-1"><bdi class="secno">3.3.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-1"><bdi class="secno">3.3.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-1"><bdi class="secno">3.3.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-1"><bdi class="secno">3.3.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-1"><bdi class="secno">3.3.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-1"><bdi class="secno">3.3.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-custom-element"><bdi class="secno">3.4 </bdi>Use Case Custom Element</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-2"><bdi class="secno">3.4.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-2"><bdi class="secno">3.4.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-2"><bdi class="secno">3.4.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-2"><bdi class="secno">3.4.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-2"><bdi class="secno">3.4.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-2"><bdi class="secno">3.4.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-json-ld"><bdi class="secno">3.5 </bdi>Use Case JSON-LD</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-3"><bdi class="secno">3.5.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-3"><bdi class="secno">3.5.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-3"><bdi class="secno">3.5.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-3"><bdi class="secno">3.5.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-3"><bdi class="secno">3.5.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-3"><bdi class="secno">3.5.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-ruby"><bdi class="secno">3.6 </bdi>Use Case Ruby</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-4"><bdi class="secno">3.6.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-4"><bdi class="secno">3.6.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-4"><bdi class="secno">3.6.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-4"><bdi class="secno">3.6.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-4"><bdi class="secno">3.6.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-4"><bdi class="secno">3.6.6 </bdi>Problems and Limitations</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#gap-analysis"><bdi class="secno">4. </bdi>Gap Analysis</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#language-0"><bdi class="secno">4.1 </bdi>Language</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#html"><bdi class="secno">4.1.1 </bdi>HTML</a></li><li class="tocline"><a class="tocxref" href="#ssml"><bdi class="secno">4.1.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#voice-family-gender-0"><bdi class="secno">4.2 </bdi>Voice Family/Gender</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#css"><bdi class="secno">4.2.1 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-0"><bdi class="secno">4.2.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#phonetic-pronunciation"><bdi class="secno">4.3 </bdi>Phonetic Pronunciation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pls"><bdi class="secno">4.3.1 </bdi>PLS</a></li><li class="tocline"><a class="tocxref" href="#ssml-1"><bdi class="secno">4.3.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#substitution"><bdi class="secno">4.4 </bdi>Substitution</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wai-aria"><bdi class="secno">4.4.1 </bdi>WAI-ARIA</a></li><li class="tocline"><a class="tocxref" href="#ssml-2"><bdi class="secno">4.4.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#rate-pitch-volume-0"><bdi class="secno">4.5 </bdi>Rate/Pitch/Volume</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#css-0"><bdi class="secno">4.5.1 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-3"><bdi class="secno">4.5.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#emphasis-0"><bdi class="secno">4.6 </bdi>Emphasis</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#html-0"><bdi class="secno">4.6.1 </bdi>HTML</a></li><li class="tocline"><a class="tocxref" href="#css-1"><bdi class="secno">4.6.2 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-4"><bdi class="secno">4.6.3 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#say-as-0"><bdi class="secno">4.7 </bdi>Say As</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#css-2"><bdi class="secno">4.7.1 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-5"><bdi class="secno">4.7.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#pausing-0"><bdi class="secno">4.8 </bdi>Pausing</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#css-3"><bdi class="secno">4.8.1 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-6"><bdi class="secno">4.8.2 </bdi>SSML</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgments</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ack_group"><bdi class="secno">A.1 </bdi>Participants active in the Pronunciation TF at the time of publication</a></li></ol></li></ol></nav>
+                      This document is governed by the
+                      <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20231103/">03 November 2023 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+                    </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#core-features-for-pronunciation-and-spoken-presentation"><bdi class="secno">2. </bdi>Core Features for Pronunciation and Spoken Presentation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#language"><bdi class="secno">2.1 </bdi>Language</a></li><li class="tocline"><a class="tocxref" href="#voice-family-gender"><bdi class="secno">2.2 </bdi>Voice Family / Gender</a></li><li class="tocline"><a class="tocxref" href="#phonetic-pronunciation-of-string-values"><bdi class="secno">2.3 </bdi>Phonetic Pronunciation of String Values</a></li><li class="tocline"><a class="tocxref" href="#string-substitution"><bdi class="secno">2.4 </bdi>String Substitution</a></li><li class="tocline"><a class="tocxref" href="#rate-pitch-volume"><bdi class="secno">2.5 </bdi>Rate / Pitch / Volume</a></li><li class="tocline"><a class="tocxref" href="#emphasis"><bdi class="secno">2.6 </bdi>Emphasis</a></li><li class="tocline"><a class="tocxref" href="#say-as"><bdi class="secno">2.7 </bdi>Say As</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#presentation-of-numeric-values"><bdi class="secno">2.7.1 </bdi>Presentation of Numeric Values</a></li><li class="tocline"><a class="tocxref" href="#presentation-of-string-values"><bdi class="secno">2.7.2 </bdi>Presentation of String Values</a></li></ol></li><li class="tocline"><a class="tocxref" href="#pausing"><bdi class="secno">2.8 </bdi>Pausing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">3. </bdi>Use Cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#use-case-aria-ssml"><bdi class="secno">3.1 </bdi>Use Case aria-ssml</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice"><bdi class="secno">3.1.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal"><bdi class="secno">3.1.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience"><bdi class="secno">3.1.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options"><bdi class="secno">3.1.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work"><bdi class="secno">3.1.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations"><bdi class="secno">3.1.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-data-ssml"><bdi class="secno">3.2 </bdi>Use Case data-ssml</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-0"><bdi class="secno">3.2.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-0"><bdi class="secno">3.2.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-0"><bdi class="secno">3.2.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-0"><bdi class="secno">3.2.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-0"><bdi class="secno">3.2.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-0"><bdi class="secno">3.2.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-html5"><bdi class="secno">3.3 </bdi>Use Case HTML5</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-1"><bdi class="secno">3.3.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-1"><bdi class="secno">3.3.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-1"><bdi class="secno">3.3.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-1"><bdi class="secno">3.3.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-1"><bdi class="secno">3.3.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-1"><bdi class="secno">3.3.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-custom-element"><bdi class="secno">3.4 </bdi>Use Case Custom Element</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-2"><bdi class="secno">3.4.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-2"><bdi class="secno">3.4.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-2"><bdi class="secno">3.4.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-2"><bdi class="secno">3.4.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-2"><bdi class="secno">3.4.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-2"><bdi class="secno">3.4.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-json-ld"><bdi class="secno">3.5 </bdi>Use Case JSON-LD</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-3"><bdi class="secno">3.5.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-3"><bdi class="secno">3.5.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-3"><bdi class="secno">3.5.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-3"><bdi class="secno">3.5.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-3"><bdi class="secno">3.5.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-3"><bdi class="secno">3.5.6 </bdi>Problems and Limitations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-case-ruby"><bdi class="secno">3.6 </bdi>Use Case Ruby</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-and-current-practice-4"><bdi class="secno">3.6.1 </bdi>Background and Current Practice</a></li><li class="tocline"><a class="tocxref" href="#goal-4"><bdi class="secno">3.6.2 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#target-audience-4"><bdi class="secno">3.6.3 </bdi>Target Audience</a></li><li class="tocline"><a class="tocxref" href="#implementation-options-4"><bdi class="secno">3.6.4 </bdi>Implementation Options</a></li><li class="tocline"><a class="tocxref" href="#existing-work-4"><bdi class="secno">3.6.5 </bdi>Existing Work</a></li><li class="tocline"><a class="tocxref" href="#problems-and-limitations-4"><bdi class="secno">3.6.6 </bdi>Problems and Limitations</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#gap-analysis"><bdi class="secno">4. </bdi>Gap Analysis</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#language-0"><bdi class="secno">4.1 </bdi>Language</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#html"><bdi class="secno">4.1.1 </bdi>HTML</a></li><li class="tocline"><a class="tocxref" href="#ssml"><bdi class="secno">4.1.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#voice-family-gender-0"><bdi class="secno">4.2 </bdi>Voice Family/Gender</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#css"><bdi class="secno">4.2.1 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-0"><bdi class="secno">4.2.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#phonetic-pronunciation"><bdi class="secno">4.3 </bdi>Phonetic Pronunciation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pls"><bdi class="secno">4.3.1 </bdi>PLS</a></li><li class="tocline"><a class="tocxref" href="#ssml-1"><bdi class="secno">4.3.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#substitution"><bdi class="secno">4.4 </bdi>Substitution</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wai-aria"><bdi class="secno">4.4.1 </bdi>WAI-ARIA</a></li><li class="tocline"><a class="tocxref" href="#ssml-2"><bdi class="secno">4.4.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#rate-pitch-volume-0"><bdi class="secno">4.5 </bdi>Rate/Pitch/Volume</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#css-0"><bdi class="secno">4.5.1 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-3"><bdi class="secno">4.5.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#emphasis-0"><bdi class="secno">4.6 </bdi>Emphasis</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#html-0"><bdi class="secno">4.6.1 </bdi>HTML</a></li><li class="tocline"><a class="tocxref" href="#css-1"><bdi class="secno">4.6.2 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-4"><bdi class="secno">4.6.3 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#say-as-0"><bdi class="secno">4.7 </bdi>Say As</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#css-2"><bdi class="secno">4.7.1 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-5"><bdi class="secno">4.7.2 </bdi>SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#pausing-0"><bdi class="secno">4.8 </bdi>Pausing</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#css-3"><bdi class="secno">4.8.1 </bdi>CSS</a></li><li class="tocline"><a class="tocxref" href="#ssml-6"><bdi class="secno">4.8.2 </bdi>SSML</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgments</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ack_group"><bdi class="secno">A.1 </bdi>Participants active in the Pronunciation TF at the time of publication</a></li></ol></li></ol></nav>
   <section class="informative" id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
     
     <p>Accurate, consistent pronunciation and presentation of content spoken by text to speech synthesis (TTS) is an essential requirement in education, communication, entertainment, and other domains. 
