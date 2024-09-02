@@ -1,6 +1,6 @@
 - [Calendar link](https://www.w3.org/groups/tf/pronunciation-tf/calendar/)
 
-# Pronunciation Task Force current work
+# Spoken Presentation Task Force current work
 
 Editors' drafts are available on:
 
@@ -19,7 +19,7 @@ Markdown URL for Use-cases
 ## Timeline
 
 
-Pronunciation TF want to make a publication every three months if possible. 
+Spoken Presentation TF want to make a publication every three months if possible. 
 Timeline: https://github.com/w3c/pronunciation/wiki/Timeline
 
 # Implementations
