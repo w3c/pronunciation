@@ -181,11 +181,12 @@
         and for refreshable braille users who will have the commas visible in braille.</p>
     </section>
   </section>
+
   <section>
     <h1>Gap Analysis</h1>
-    <p>Based on the features defined in the prior section, the following table presents existing speech presentation
-      standards, HTML features, and WAI-ARIA attributes that may offer a method to achieve the requirement for HTML
-      authors.</p>
+    <p>Based on the features and use cases described in the prior sections, the following table presents existing speech
+      presentation standards, HTML features, and WAI-ARIA attributes that may offer a method to achieve the requirement
+      for HTML authors. A blank cell for any approach represents a gap in support.</p>
     <table border="1" cellpadding="2" cellspacing="2" width="100%">
       <tbody>
         <tr>
@@ -262,10 +263,10 @@
         </tr>
       </tbody>
     </table>
-    <p>The following sections present how each of the required features may or may not be met by use of existing
-      standards. A key considerationa in the analysis is whether a means exists to directly author (or annote) HTML
-      content to incporate the
-      spoken presentationa and pronunciation feature.</p>
+    <p>The following sections describe how each of the required features may be met by the use of existing approaches. A
+      key consideration in the analysis is whether a means exists to directly author (or annotate) HTML content to
+      incorporate the
+      spoken presentation and pronunciation feature.</p>
     <section>
       <h3>Language</h3>
       <p>Allow content authors to specify the language of text contained within an element so that the TTS used for
@@ -280,11 +281,11 @@
     </section>
     <section>
       <h3>Voice Family/Gender</h3>
-      <p>Allow content authors to specify a specific TTS voice to be used to render text. For example, content which
+      <p>Allow content authors to specify a specific TTS voice to be used to render text. For example, for content that
         presents a dialog between two people, a woman and a man, the author may specify that a female voice be used for
         the woman's text and a
-        male voice be used for the man. Some platform TTS services may support a variety of voices, identified by a
-        name, gender, or even age.</p>
+        male voice be used for the man's text. Some platform TTS services may support a variety of voices, identified by
+        a name, gender, or even age.</p>
       <h4>CSS</h4>
       <p><code>voice-family</code> property can be used to specify the gender of the voice.<br /></p>
       <p>Example: <code>{ voice-family: male; }</code></p>
@@ -298,7 +299,30 @@
       <h3>Phonetic Pronunciation</h3>
       <p>Allow content authors to precisely specify the phonetic pronunciation of a word or phrase.</p>
       <h4>PLS</h4>
+      <p>Using PLS, all the pronunciations can be factored out into an external PLS document which is referenced by the
+        <code>&lt;lexicon&gt;</code> element of SSML
+      </p>
+      <p>
+      <pre class="example">Example: <code>&lt;speak&gt; &lt;lexicon uri="http://www.example.com/movie_lexicon.pls"/&gt;
+          The title of the movie is: "La vita è bella" (Life is beautiful),
+          which is directed by Roberto Benigni.&lt;/speak&gt;</code>
+      </pre>
+      </p>
+
       <h4>SSML</h4>
+      <p>The following is a simple example of an SSML document. It includes an Italian movie title and the name of the
+        director to be read in US English.</p>
+      <p>
+      <pre class="example">Example: The title of the movie is:
+        <code>&lt;speak&gt; &lt;phoneme alphabet="ipa" ph="ˈlɑ ˈviːɾə ˈʔeɪ ˈbɛlə"&gt;
+          "La vita è bella"&lt;/phoneme&gt; (Life is beautiful),
+          which is directed by
+          &lt;phoneme alphabet="ipa" ph="ɹəˈbɛːɹɾoʊ bɛˈniːnji""&gt;
+          Roberto Benigni &lt;/phoneme&gt;.&lt;/speak&gt;
+        </code>
+      </pre>
+      </p>
+
     </section>
     <section>
       <h3>Substitution</h3>
@@ -314,13 +338,67 @@
         content that is voiced will not match the content that is sent to the refreshable Braille device. This mismatch
         would not be acceptable for some content, particularly for assessment content.<br /></p>
       <h4>SSML</h4>
+      <p>Pronounce the specified word or phrase as a different word or phrase. Specify the pronunciation to substitute
+        with the <code>alias</code> attribute.</p>
+      <p>
+      <pre class="example">
+        <code>
+          &lt;speak&gt;
+          My favorite chemical element is &lt;sub alias="aluminum"&gt;Al&lt;/sub&gt;,
+          but Al prefers &lt;sub alias="magnesium">Mg&lt;/sub&gt;.
+          &lt;/speak&gt;
+        </code>
+      </pre>
+      </p>
     </section>
     <section>
       <h3>Rate/Pitch/Volume</h3>
       <p>Allow content authors to specify characteristics, such as rate, pitch, and/or volume of the TTS rendering of
         the text.</p>
       <h4>CSS</h4>
+      <p>
+      <dl>
+        <dt><strong>voice-rate</strong></dt>
+        <dd>The <code>‘voice-rate’</code> property manipulates the rate of generated synthetic speech in terms of words
+          per minute.</dd>
+      </dl>
+      </p>
+
+      <p>
+      <dl>
+        <dt><strong>voice-pitch</strong></dt>
+        <dd>The <code>‘voice-pitch’</code> property specifies the "baseline" pitch of the generated speech output, which
+          depends on the used <code>‘voice-family’</code> instance, and varies across speech synthesis processors (it
+          approximately corresponds to the average pitch of the output). For example, the common pitch for a male voice
+          is around 120Hz, whereas it is around 210Hz for a female voice.</dd>
+      </dl>
+      </p>
+      <p>
+      <dl>
+        <dt><strong>voice-range</strong></dt>
+        <dd>The <code>‘voice-range’</code> property specifies the variability in the "baseline" pitch, i.e. how much the
+          fundamental frequency may deviate from the average pitch of the speech output. The dynamic pitch range of the
+          generated speech generally increases for a highly animated voice, for example when variations in inflection
+          are used to convey meaning and emphasis in speech. Typically, a low range produces a flat, monotonic voice,
+          whereas a high range produces an animated voice.</dd>
+      </dl>
+      </p>
       <h4>SSML</h4>
+      <p><code>prosody</code> modifies the volume, pitch, and rate of the tagged speech.</p>
+      <p>
+      <pre class="example">
+        <code>
+          &lt;speak&gt;
+          Normal volume for the first sentence.
+          &lt;prosody volume="x-loud"&gt;Louder volume for the second sentence&lt;/prosody&gt;.
+          When I wake up, &lt;prosody rate="x-slow"&gt;I speak quite slowly&lt;/prosody&gt;.
+          I can speak with my normal pitch,
+          &lt;prosody pitch="x-high"&gt; but also with a much higher pitch &lt;/prosody&gt;,
+          and also &lt;prosody pitch="low"&gt;with a lower pitch&lt;/prosody&gt;.
+          &lt;/speak&gt;
+        </code>
+      </pre>
+      </p>
     </section>
     <section>
       <h3>Emphasis</h3>
@@ -328,18 +406,114 @@
         slowly. This can be viewed as a simplification of the Rate/Pitch/Volume controls to reduce authoring complexity.
       </p>
       <h4>HTML</h4>
+      <p>
+        The HTML <code>&lt;em&gt;</code> element marks text that has stress emphasis. The <code>&lt;em&gt;</code>
+        element can be nested, with each level of nesting indicating a greater degree of emphasis.
+      </p>
+      <p>
+        The <code>&lt;em&gt;</code> element is for words that have a stressed emphasis compared to surrounding text,
+        which is often limited to a word or words of a sentence and affects the meaning of the sentence itself.
+
+        Typically this element is displayed in italic type. However, it should not be used simply to apply italic
+        styling; use the CSS <code>font-style</code> property for that purpose. Use the <code>&lt;cite&gt;</code>
+        element to mark the title of a work (book, play, song, etc.). Use the <code>&lt;i&gt;</code> element to mark
+        text that is in an alternate tone or mood, which covers many common situations for italics such as scientific
+        names or words in other languages. Use the <code>&lt;strong&gt;</code> element to mark text that has greater
+        importance than surrounding text.
+      </p>
+
       <h4>CSS</h4>
+      <p>
+      <dl>
+        <dt><strong>voice-stress</strong></dt>
+        <dd>The <code>‘voice-stress’</code> property manipulates the strength of emphasis, which is normally applied
+          using a combination of pitch change, timing changes, loudness and other acoustic differences. The precise
+          meaning of the values therefore depend on the language being spoken.</dd>
+      </dl>
+      </p>
+
       <h4>SSML</h4>
+      <p>Emphasize the tagged words or phrases. Emphasis changes rate and volume of the speech. More emphasis is spoken
+        louder and slower. Less emphasis is quieter and faster.</p>
+      <p>
+      <pre class="example">
+        <code>
+          &lt;speak&gt;
+          I already told you I
+          &lt;emphasis level="strong"&gt;really like&lt;/emphasis&gt; that person.
+          &lt;/speak&gt;
+        </code>
+      </pre>
+      </p>
     </section>
     <section>
       <h3>Say As</h3>
+      <p>Allow content authors to specify how text is spoken. For example, content authors would be able to indicate
+        that a series of four numbers should be spoken as a year rather than a cardinal number.</p>
       <h4>CSS</h4>
+      <p>The <code>‘speak-as’</code> property determines in what manner text gets rendered aurally, based upon a
+        predefined list of possibilities.</p>
+      <p class="note">
+        Speech synthesizers are knowledgeable about what a number is. The <code>‘speak-as’</code> property enables some
+        level of control on how user agents render numbers, and may be implemented as a preprocessing step before
+        passing the text to the actual speech synthesizer.
+      </p>
       <h4>SSML</h4>
+      <p>
+        Describes how the text should be interpreted. This lets you provide additional context to the text and eliminate
+        any ambiguity on how Alexa should render the text. Indicate how Alexa should interpret the text with the
+        <code>interpret-as</code> attribute.
+      </p>
+      <p>
+      <pre class="example">
+        <code>
+          &lt;speak&gt;
+          Here is a number spoken as a cardinal number:
+          &lt;say-as interpret-as="cardinal"&gt;12345&lt;/say-as&gt;.
+          Here is the same number with each digit spoken separately:
+          &lt;say-as interpret-as="digits"&gt;12345&lt;/say-as&gt;.
+          Here is a word spelled out: &lt;say-as interpret-as="spell-out"&gt;hello&lt;/say-as&gt;
+          &lt;/speak&gt;
+        </code>
+      </pre>
+      </p>
+
     </section>
     <section>
       <h3>Pausing</h3>
+      <p>Allow content authors to specify pauses before or after content to ensure the desired prosody of the
+        presentation, which can affect the pronunciation of the pronunciation of content the precedes or follows the
+        pause.</p>
       <h4>CSS</h4>
+      <p>
+        The <code>‘pause-before’</code> and <code>‘pause-after’</code> properties specify a prosodic boundary (silence
+        with a specific duration) that occurs before (or after) the speech synthesis rendition of the selected element,
+        or if any <code>‘cue-before’</code> (or <code>‘cue-after’</code>) is specified, before (or after) the cue within
+        the aural box model.
+      </p>
+      <p class="note">
+
+        Note that although the functionality provided by this property is similar to the <code>break element</code> from
+        the SSML markup language [SSML], the application of ‘pause’ prosodic boundaries within the aural box model of
+        CSS Speech requires special considerations (e.g. "collapsed" pauses).
+
+      </p>
       <h4>SSML</h4>
+      <p>
+        <code>break</code> represents a pause in the speech. Set the length of the pause with the <code>strength</code>
+        or <code>time</code> attributes.
+      </p>
+      <p>
+      <pre class="example">
+        <code>
+          &lt;speak&gt;
+          There is a three second pause here &lt;break time="3s"/&gt;
+          then the speech continues.
+          &lt;/speak&gt;
+        </code>
+      </pre>
+      </p>
+
     </section>
   </section>
   <div data-include="../common/acknowledgements.html" data-include-replace="true" data-oninclude="fixIncludes">
