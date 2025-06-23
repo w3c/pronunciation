@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.1.1">
+<meta name="generator" content="ReSpec 35.4.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -62,7 +62,7 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
-cite .bibref{font-style:normal}
+cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
@@ -111,6 +111,23 @@ dd{margin-left:0}
 .hljs-emphasis{font-style:italic}
 .hljs-strong{font-weight:700}
 .hljs-link{text-decoration:underline}
+</style>
+<style>
+var:hover{text-decoration:underline;cursor:pointer}
+var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}
+@media (prefers-color-scheme:dark){
+var.respec-hl{filter:saturate(.9) brightness(.9)}
+}
+var.respec-hl-c1{--bg-color:#f4d200}
+var.respec-hl-c2{--bg-color:#ff87a2}
+var.respec-hl-c3{--bg-color:#96e885}
+var.respec-hl-c4{--bg-color:#3eeed2}
+var.respec-hl-c5{--bg-color:#eacfb6}
+var.respec-hl-c6{--bg-color:#82ddff}
+var.respec-hl-c7{--bg-color:#ffbcf2}
+@media print{
+var.respec-hl{background:0 0;color:#000;box-shadow:unset}
+}
 </style>
 <style>
 var{position:relative;cursor:pointer}
@@ -180,15 +197,15 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   ],
   "group": "apa",
   "github": "https://github.com/w3c/pronunciation/",
-  "publishISODate": "2024-09-02T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 02 September 2024"
+  "publishISODate": "2025-06-23T00:00:00.000Z",
+  "generatedSubtitle": "W3C Editor's Draft 23 June 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
 <body class="h-entry informative"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Pronunciation Gap Analysis &amp; Use Cases</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2024-09-02">02 September 2024</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2025-06-23">23 June 2025</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
@@ -239,7 +256,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <p class="copyright">
     <a href="https://www.w3.org/policies/#copyright">Copyright</a>
     ©
-    2020-2024
+    2020-2025
     
     <a href="https://www.w3.org/">World Wide Web Consortium</a>.
     <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup>
@@ -255,13 +272,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   <section id="sotd" class="introductory"><h2>Status of This Document</h2><p><em>This section describes the status of this
       document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr>
       publications and the latest revision of this technical report can be found
-      in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at
+      in the
+      <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> standards and drafts index</a> at
       https://www.w3.org/TR/.</em></p><p>
     This document was published by the <a href="https://www.w3.org/groups/wg/apa">Accessible Platform Architectures Working Group</a> as
     an Editor's Draft. 
   </p><p>Publication as an Editor's Draft does not
   imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. </p><p>
-    This is a draft document and may be updated, replaced or obsoleted by other
+    This is a draft document and may be updated, replaced, or obsoleted by other
     documents at any time. It is inappropriate to cite this document as other
     than work in progress.
     
@@ -426,11 +444,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   I say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-ssml</span>=<span class="hljs-string">'{"phoneme":{"ph":"pɪˈkɑːn","alphabet":"ipa"}}'</span>&gt;</span>pecan<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>.
   You say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-ssml</span>=<span class="hljs-string">'{"phoneme":{"ph":"ˈpi.kæn","alphabet":"ipa"}}'</span>&gt;</span>pecan<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>.
 <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
   <span class="hljs-comment">// Client will convert JSON to SSML and pass the XML string a speech API.</span>
-  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance();
-  msg.text = convertJSONtoSSML(element.getAttribute(<span class="hljs-string">'aria-ssml'</span>));
-  speechSynthesis.speak(msg);
+  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SpeechSynthesisUtterance</span>();
+  msg.<span class="hljs-property">text</span> = <span class="hljs-title function_">convertJSONtoSSML</span>(element.<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">'aria-ssml'</span>));
+  speechSynthesis.<span class="hljs-title function_">speak</span>(msg);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
       </div>
         <p><strong>aria-ssml referencing XML by template ID</strong></p>
@@ -439,7 +457,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <a class="self-link" href="#example-2">Example<bdi> 2</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-comment">&lt;!-- ssml must appear inside a template to be valid --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"pecan"</span>&gt;</span>
-<span class="hljs-meta">&lt;?xml version="1.0"?&gt;</span>
+<span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span>?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">speak</span> <span class="hljs-attr">version</span>=<span class="hljs-string">"1.1"</span>
        <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2001/10/synthesis"</span>
        <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span>
@@ -453,12 +471,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">aria-ssml</span>=<span class="hljs-string">"#pecan"</span>&gt;</span>You say, pecan. I say, pecan.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
   <span class="hljs-comment">// Client will parse XML and serialize it before passing to a speech API:</span>
-  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance();
-  <span class="hljs-keyword">var</span> xml = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'pecan'</span>).content.firstElementChild;
-  msg.text = serialize(xml);
-  speechSynthesis.speak(msg);
+  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SpeechSynthesisUtterance</span>();
+  <span class="hljs-keyword">var</span> xml = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'pecan'</span>).<span class="hljs-property">content</span>.<span class="hljs-property">firstElementChild</span>;
+  msg.<span class="hljs-property">text</span> = <span class="hljs-title function_">serialize</span>(xml);
+  speechSynthesis.<span class="hljs-title function_">speak</span>(msg);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
       </div>
 
@@ -466,7 +484,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <div class="example" id="example-3">
         <div class="marker">
     <a class="self-link" href="#example-3">Example<bdi> 3</bdi></a>
-  </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"pecan"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/ssml+xml"</span>&gt;</span><span class="xml">
+  </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"pecan"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/ssml+xml"</span>&gt;</span><span class="language-xml">
 <span class="hljs-tag">&lt;<span class="hljs-name">speak</span> <span class="hljs-attr">version</span>=<span class="hljs-string">"1.1"</span>
        <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2001/10/synthesis"</span>
        <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span>
@@ -480,11 +498,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">aria-ssml</span>=<span class="hljs-string">"#pecan"</span>&gt;</span>You say, pecan. I say, pecan.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
   <span class="hljs-comment">// Client will pass the XML string raw to a speech API.</span>
-  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance();
-  msg.text = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'pecan'</span>).textContent;
-  speechSynthesis.speak(msg);
+  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SpeechSynthesisUtterance</span>();
+  msg.<span class="hljs-property">text</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'pecan'</span>).<span class="hljs-property">textContent</span>;
+  speechSynthesis.<span class="hljs-title function_">speak</span>(msg);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
       </div>
         <p><strong>aria-ssml referencing an external XML document by URL</strong></p>
@@ -493,12 +511,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <a class="self-link" href="#example-4">Example<bdi> 4</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">aria-ssml</span>=<span class="hljs-string">"http://example.com/pronounce.ssml#pecan"</span>&gt;</span>You say, pecan. I say, pecan.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
   <span class="hljs-comment">// Client will pass the string payload to a speech API.</span>
-  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance();
-  <span class="hljs-keyword">var</span> response = <span class="hljs-keyword">await</span> fetch(element.getAttribute(<span class="hljs-string">'aria-ssml'</span>));
-  msg.txt = <span class="hljs-keyword">await</span> response.text();
-  speechSynthesis.speak(msg);
+  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SpeechSynthesisUtterance</span>();
+  <span class="hljs-keyword">var</span> response = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(element.<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">'aria-ssml'</span>));
+  msg.<span class="hljs-property">txt</span> = <span class="hljs-keyword">await</span> response.<span class="hljs-title function_">text</span>();
+  speechSynthesis.<span class="hljs-title function_">speak</span>(msg);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
       </div>
       </section>
@@ -551,11 +569,11 @@ I say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class
 You say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">'{"phoneme":{"ph":"ˈpi.kæn","alphabet":"ipa"}}'</span>&gt;</span>pecan<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>.
 <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
   <span class="hljs-comment">// Client will convert JSON to SSML and pass the XML string a speech API.</span>
-  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance();
-  msg.text = convertJSONtoSSML(element.dataset.ssml);
-  speechSynthesis.speak(msg);
+  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SpeechSynthesisUtterance</span>();
+  msg.<span class="hljs-property">text</span> = <span class="hljs-title function_">convertJSONtoSSML</span>(element.<span class="hljs-property">dataset</span>.<span class="hljs-property">ssml</span>);
+  speechSynthesis.<span class="hljs-title function_">speak</span>(msg);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
       </div>
         <p><strong>data-ssml referencing XML by template ID</strong></p>
@@ -564,7 +582,7 @@ You say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span cla
     <a class="self-link" href="#example-6">Example<bdi> 6</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-comment">&lt;!-- ssml must appear inside a template to be valid --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"pecan"</span>&gt;</span>
-<span class="hljs-meta">&lt;?xml version="1.0"?&gt;</span>
+<span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span>?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">speak</span> <span class="hljs-attr">version</span>=<span class="hljs-string">"1.1"</span>
        <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2001/10/synthesis"</span>
        <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span>
@@ -578,19 +596,19 @@ You say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span cla
 
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">"#pecan"</span>&gt;</span>You say, pecan. I say, pecan.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
   <span class="hljs-comment">// Client will parse XML and serialize it before passing to a speech API:</span>
-  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance();
-  <span class="hljs-keyword">var</span> xml = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'pecan'</span>).content.firstElementChild;
-  msg.text = serialize(xml);
-  speechSynthesis.speak(msg);
+  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SpeechSynthesisUtterance</span>();
+  <span class="hljs-keyword">var</span> xml = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'pecan'</span>).<span class="hljs-property">content</span>.<span class="hljs-property">firstElementChild</span>;
+  msg.<span class="hljs-property">text</span> = <span class="hljs-title function_">serialize</span>(xml);
+  speechSynthesis.<span class="hljs-title function_">speak</span>(msg);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
       </div>
         <p><strong>data-ssml referencing an XML string as script tag</strong></p>
         <div class="example" id="example-7">
         <div class="marker">
     <a class="self-link" href="#example-7">Example<bdi> 7</bdi></a>
-  </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"pecan"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/ssml+xml"</span>&gt;</span><span class="xml">
+  </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"pecan"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/ssml+xml"</span>&gt;</span><span class="language-xml">
 <span class="hljs-tag">&lt;<span class="hljs-name">speak</span> <span class="hljs-attr">version</span>=<span class="hljs-string">"1.1"</span>
        <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2001/10/synthesis"</span>
        <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span>
@@ -602,11 +620,11 @@ You say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span cla
 <span class="hljs-tag">&lt;/<span class="hljs-name">speak</span>&gt;</span>
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
   <span class="hljs-comment">// Client will pass the XML string raw to a speech API.</span>
-  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance();
-  msg.text = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'pecan'</span>).textContent;
-  speechSynthesis.speak(msg);
+  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SpeechSynthesisUtterance</span>();
+  msg.<span class="hljs-property">text</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'pecan'</span>).<span class="hljs-property">textContent</span>;
+  speechSynthesis.<span class="hljs-title function_">speak</span>(msg);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">"#pecan"</span>&gt;</span>You say, pecan. I say, pecan.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
       </div>
@@ -616,12 +634,12 @@ You say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span cla
     <a class="self-link" href="#example-8">Example<bdi> 8</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">data-ssml</span>=<span class="hljs-string">"http://example.com/pronounce.ssml#pecan"</span>&gt;</span>You say, pecan. I say, pecan.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
   <span class="hljs-comment">// Client will pass the string payload to a speech API.</span>
-  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance();
-  <span class="hljs-keyword">var</span> response = <span class="hljs-keyword">await</span> fetch(el.dataset.ssml)
-  msg.txt = <span class="hljs-keyword">await</span> response.text();
-  speechSynthesis.speak(msg);
+  <span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SpeechSynthesisUtterance</span>();
+  <span class="hljs-keyword">var</span> response = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(el.<span class="hljs-property">dataset</span>.<span class="hljs-property">ssml</span>)
+  msg.<span class="hljs-property">txt</span> = <span class="hljs-keyword">await</span> response.<span class="hljs-title function_">text</span>();
+  speechSynthesis.<span class="hljs-title function_">speak</span>(msg);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
       </div>
       </section>
@@ -732,8 +750,8 @@ You say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span cla
   <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ssml-speak</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ssml-controls"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
-    <span class="hljs-selector-attr">[role=<span class="hljs-string">"switch"</span>]</span><span class="hljs-selector-attr">[aria-checked=<span class="hljs-string">"true"</span>]</span> <span class="hljs-selector-pseudo">:first</span>-child,
+  <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
+    <span class="hljs-selector-attr">[role=<span class="hljs-string">"switch"</span>]</span><span class="hljs-selector-attr">[aria-checked=<span class="hljs-string">"true"</span>]</span> <span class="hljs-selector-pseudo">:first-child</span>,
     <span class="hljs-selector-attr">[role=<span class="hljs-string">"switch"</span>]</span><span class="hljs-selector-attr">[aria-checked=<span class="hljs-string">"false"</span>]</span> <span class="hljs-selector-pseudo">:last-child</span> {
       <span class="hljs-attribute">background</span>: <span class="hljs-number">#000</span>;
       <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
@@ -749,21 +767,21 @@ You say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span cla
   <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SSMLSpeak</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span> </span>{
-  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params"></span>)</span> {
-    <span class="hljs-built_in">super</span>();
-    <span class="hljs-keyword">const</span> template = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'ssml-controls'</span>);
-    <span class="hljs-keyword">const</span> templateContent = template.content;
-    <span class="hljs-built_in">this</span>.attachShadow({<span class="hljs-attr">mode</span>: <span class="hljs-string">'open'</span>})
-      .appendChild(templateContent.cloneNode(<span class="hljs-literal">true</span>));
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">SSMLSpeak</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">HTMLElement</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">super</span>();
+    <span class="hljs-keyword">const</span> template = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'ssml-controls'</span>);
+    <span class="hljs-keyword">const</span> templateContent = template.<span class="hljs-property">content</span>;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">attachShadow</span>({<span class="hljs-attr">mode</span>: <span class="hljs-string">'open'</span>})
+      .<span class="hljs-title function_">appendChild</span>(templateContent.<span class="hljs-title function_">cloneNode</span>(<span class="hljs-literal">true</span>));
   }
-  <span class="hljs-function"><span class="hljs-title">connectedCallback</span>(<span class="hljs-params"></span>)</span> {
-    <span class="hljs-keyword">const</span> button = <span class="hljs-built_in">this</span>.shadowRoot.querySelector(<span class="hljs-string">'[role="switch"][aria-labelledby="play"]'</span>)
-    <span class="hljs-keyword">const</span> ssml = <span class="hljs-built_in">this</span>.innerHTML.replace(<span class="hljs-regexp">/ssml-/gm</span>, <span class="hljs-string">''</span>)
-    <span class="hljs-keyword">const</span> msg = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance();
-    msg.lang = <span class="hljs-built_in">document</span>.documentElement.lang;
-    msg.text = <span class="hljs-string">`&lt;speak version="1.1"
+  <span class="hljs-title function_">connectedCallback</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> button = <span class="hljs-variable language_">this</span>.<span class="hljs-property">shadowRoot</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">'[role="switch"][aria-labelledby="play"]'</span>)
+    <span class="hljs-keyword">const</span> ssml = <span class="hljs-variable language_">this</span>.<span class="hljs-property">innerHTML</span>.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/ssml-/gm</span>, <span class="hljs-string">''</span>)
+    <span class="hljs-keyword">const</span> msg = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SpeechSynthesisUtterance</span>();
+    msg.<span class="hljs-property">lang</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">lang</span>;
+    msg.<span class="hljs-property">text</span> = <span class="hljs-string">`&lt;speak version="1.1"
       xmlns="http://www.w3.org/2001/10/synthesis"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.w3.org/2001/10/synthesis
@@ -771,14 +789,14 @@ You say <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span cla
       xml:lang="<span class="hljs-subst">${msg.lang}</span>"&gt;
     <span class="hljs-subst">${ssml}</span>
     &lt;/speak&gt;`</span>;
-    msg.voice = speechSynthesis.getVoices().find(<span class="hljs-function"><span class="hljs-params">voice</span> =&gt;</span> voice.lang.startsWith(msg.lang));
-    msg.onstart = <span class="hljs-function">() =&gt;</span> button.setAttribute(<span class="hljs-string">'aria-checked'</span>, <span class="hljs-string">'true'</span>);
-    msg.onend = <span class="hljs-function">() =&gt;</span> button.setAttribute(<span class="hljs-string">'aria-checked'</span>, <span class="hljs-string">'false'</span>);
-    button.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function">() =&gt;</span> speechSynthesis[speechSynthesis.speaking ? <span class="hljs-string">'cancel'</span> : <span class="hljs-string">'speak'</span>](msg))
+    msg.<span class="hljs-property">voice</span> = speechSynthesis.<span class="hljs-title function_">getVoices</span>().<span class="hljs-title function_">find</span>(<span class="hljs-function"><span class="hljs-params">voice</span> =&gt;</span> voice.<span class="hljs-property">lang</span>.<span class="hljs-title function_">startsWith</span>(msg.<span class="hljs-property">lang</span>));
+    msg.<span class="hljs-property">onstart</span> = <span class="hljs-function">() =&gt;</span> button.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">'aria-checked'</span>, <span class="hljs-string">'true'</span>);
+    msg.<span class="hljs-property">onend</span> = <span class="hljs-function">() =&gt;</span> button.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">'aria-checked'</span>, <span class="hljs-string">'false'</span>);
+    button.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'click'</span>, <span class="hljs-function">() =&gt;</span> speechSynthesis[speechSynthesis.<span class="hljs-property">speaking</span> ? <span class="hljs-string">'cancel'</span> : <span class="hljs-string">'speak'</span>](msg))
   }
 }
 
-customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
+customElements.<span class="hljs-title function_">define</span>(<span class="hljs-string">'ssml-speak'</span>, <span class="hljs-title class_">SSMLSpeak</span>);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
       </div>
       </section>
@@ -823,7 +841,7 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
         <div class="example" id="example-11">
         <div class="marker">
     <a class="self-link" href="#example-11">Example<bdi> 11</bdi></a>
-  </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/ld+json"</span>&gt;</span><span class="javascript">
+  </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/ld+json"</span>&gt;</span><span class="language-javascript">
 {
   <span class="hljs-string">"@context"</span>: <span class="hljs-string">"http://schema.org/"</span>,
   <span class="hljs-string">"@id"</span>: <span class="hljs-string">"/Pronunciation#WKRP"</span>,
@@ -1174,11 +1192,11 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
     <a class="self-link" href="#example-18">Example<bdi> 18</bdi></a>
   </div> <pre class=""><code aria-busy="false" class="hljs javascript">
 &lt;speak&gt;
-    Here is a number spoken <span class="hljs-keyword">as</span> a cardinal number: 
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">say-as</span> <span class="hljs-attr">interpret-as</span>=<span class="hljs-string">"cardinal"</span>&gt;</span>12345<span class="hljs-tag">&lt;/<span class="hljs-name">say-as</span>&gt;</span></span>.
-    Here is the same number <span class="hljs-keyword">with</span> each digit spoken separately:
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">say-as</span> <span class="hljs-attr">interpret-as</span>=<span class="hljs-string">"digits"</span>&gt;</span>12345<span class="hljs-tag">&lt;/<span class="hljs-name">say-as</span>&gt;</span></span>.
-    Here is a word spelled out: <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">say-as</span> <span class="hljs-attr">interpret-as</span>=<span class="hljs-string">"spell-out"</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">say-as</span>&gt;</span></span>
+    <span class="hljs-title class_">Here</span> is a number spoken <span class="hljs-keyword">as</span> a cardinal <span class="hljs-attr">number</span>: 
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">say-as</span> <span class="hljs-attr">interpret-as</span>=<span class="hljs-string">"cardinal"</span>&gt;</span>12345<span class="hljs-tag">&lt;/<span class="hljs-name">say-as</span>&gt;</span></span>.
+    <span class="hljs-title class_">Here</span> is the same number <span class="hljs-keyword">with</span> each digit spoken <span class="hljs-attr">separately</span>:
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">say-as</span> <span class="hljs-attr">interpret-as</span>=<span class="hljs-string">"digits"</span>&gt;</span>12345<span class="hljs-tag">&lt;/<span class="hljs-name">say-as</span>&gt;</span></span>.
+    <span class="hljs-title class_">Here</span> is a word spelled <span class="hljs-attr">out</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">say-as</span> <span class="hljs-attr">interpret-as</span>=<span class="hljs-string">"spell-out"</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">say-as</span>&gt;</span></span>
 &lt;/speak&gt;
 </code></pre>
       </div>
@@ -1248,7 +1266,104 @@ customElements.define(<span class="hljs-string">'ssml-speak'</span>, SSMLSpeak);
 
 <p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
-  </p><script id="respec-dfn-panel">(() => {
+  </p><script id="respec-highlight-vars">(() => {
+// @ts-check
+
+if (document.respec) {
+  document.respec.ready.then(setupVarHighlighter);
+} else {
+  setupVarHighlighter();
+}
+
+function setupVarHighlighter() {
+  document
+    .querySelectorAll("var")
+    .forEach(varElem => varElem.addEventListener("click", highlightListener));
+}
+
+function highlightListener(ev) {
+  ev.stopPropagation();
+  const { target: varElem } = ev;
+  const hightligtedElems = highlightVars(varElem);
+  const resetListener = () => {
+    const hlColor = getHighlightColor(varElem);
+    hightligtedElems.forEach(el => removeHighlight(el, hlColor));
+    [...HL_COLORS.keys()].forEach(key => HL_COLORS.set(key, true));
+  };
+  if (hightligtedElems.length) {
+    document.body.addEventListener("click", resetListener, { once: true });
+  }
+}
+
+// availability of highlight colors. colors from var.css
+const HL_COLORS = new Map([
+  ["respec-hl-c1", true],
+  ["respec-hl-c2", true],
+  ["respec-hl-c3", true],
+  ["respec-hl-c4", true],
+  ["respec-hl-c5", true],
+  ["respec-hl-c6", true],
+  ["respec-hl-c7", true],
+]);
+
+function getHighlightColor(target) {
+  // return current colors if applicable
+  const { value } = target.classList;
+  const re = /respec-hl-\w+/;
+  const activeClass = re.test(value) && value.match(re);
+  if (activeClass) return activeClass[0];
+
+  // first color preference
+  if (HL_COLORS.get("respec-hl-c1") === true) return "respec-hl-c1";
+
+  // otherwise get some other available color
+  return [...HL_COLORS.keys()].find(c => HL_COLORS.get(c)) || "respec-hl-c1";
+}
+
+function highlightVars(varElem) {
+  const textContent = norm(varElem.textContent);
+  const parent = varElem.closest(".algorithm, section");
+  const highlightColor = getHighlightColor(varElem);
+
+  const varsToHighlight = [...parent.querySelectorAll("var")].filter(
+    el =>
+      norm(el.textContent) === textContent &&
+      el.closest(".algorithm, section") === parent
+  );
+
+  // update availability of highlight color
+  const colorStatus = varsToHighlight[0].classList.contains("respec-hl");
+  HL_COLORS.set(highlightColor, colorStatus);
+
+  // highlight vars
+  if (colorStatus) {
+    varsToHighlight.forEach(el => removeHighlight(el, highlightColor));
+    return [];
+  } else {
+    varsToHighlight.forEach(el => addHighlight(el, highlightColor));
+  }
+  return varsToHighlight;
+}
+
+function removeHighlight(el, highlightColor) {
+  el.classList.remove("respec-hl", highlightColor);
+  // clean up empty class attributes so they don't come in export
+  if (!el.classList.length) el.removeAttribute("class");
+}
+
+function addHighlight(elem, highlightColor) {
+  elem.classList.add("respec-hl", highlightColor);
+}
+
+/**
+ * Same as `norm` from src/core/utils, but our build process doesn't allow
+ * imports in runtime scripts, so duplicated here.
+ * @param {string} str
+ */
+function norm(str) {
+  return str.trim().replace(/\s+/g, " ");
+}
+})()</script><script id="respec-dfn-panel">(() => {
 // @ts-check
 if (document.respec) {
   document.respec.ready.then(setupPanel);
