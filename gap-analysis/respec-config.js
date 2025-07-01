@@ -58,9 +58,9 @@ var respecConfig = {
       {
         name: "Irfan Ali",
         url: 'https://www.w3.org/users/98332',
-        mailto: "iali@ets.org",
-        company: "Educational Testing Service",
-        companyURI: "https://www.ets.org/",
+        mailto: "irfan.ali@blackrock.com",
+        company: "BlackRock",
+        companyURI: "BlackRock",
         w3cid: 98332
       },
 
