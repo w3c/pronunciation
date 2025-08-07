@@ -45,6 +45,12 @@ th, td {
   text-align: center;   /* 相当于 align="center" */
   vertical-align: top;  /* 相当于 valign="top" */
 }
+table{
+  border:1; 
+  cellpadding:2; 
+  cellspacing:2; 
+  width:100%;
+}
 </style>
   
 <title>Pronunciation Gap Analysis</title>
@@ -167,7 +173,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "name": "Irfan Ali",
       "url": "https://www.w3.org/users/98332",
       "company": "BlackRock",
-      "w3cid": 98332
+      "w3cid": 139064
     }
   ],
   "group": "apa",
@@ -204,8 +210,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         
         <dt>Editors:</dt><dd class="editor p-author h-card vcard" data-editor-id="111500">
     <a class="u-url url p-name fn" href="https://www.w3.org/users/112867">Paul Grenier</a> (<span class="p-org org h-org">Invited Expert</span>)
-  </dd><dd class="editor p-author h-card vcard" data-editor-id="98332">
-    <a class="u-url url p-name fn" href="https://www.w3.org/users/98332">Irfan Ali</a> (<span class="p-org org h-org">BlackRock</span>)
+  </dd><dd class="editor p-author h-card vcard" data-editor-id="139064">
+    <a class="u-url url p-name fn" href="https://www.w3.org/users/139064">Irfan Ali</a> (<span class="p-org org h-org">BlackRock</span>)
   </dd>
         
         
@@ -354,14 +360,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         other tools that utilize text to speech synthesis would detect and apply the language requested when presenting
         the text.</p>
     </section>
-    <seciton>
+    <section>
       <div class="header-wrapper"><h2 id="voice-family-gender-0">Voice Family / Gender</h2><a class="self-link" href="#voice-family-gender-0" aria-label="Permalink for this Section"></a></div>
       <p>Content authors may elect to make adjustments of those paramters to control the spoken presentation for
         purposes such as providing a gender specific voice to reflect that of the author, or for a character (or
         characters) in theatrical
         presentation of a story. Many assistive technologies already provide user selection of voice family and gender
         independent of any authored intent.</p>
-    </seciton>
+    </section>
     <section id="phonetic-pronunciation-of-string-values"><div class="header-wrapper"><h3 id="x2-2-phonetic-pronunciation-of-string-values"><bdi class="secno">2.2 </bdi>Phonetic Pronunciation of String Values</h3><a class="self-link" href="#phonetic-pronunciation-of-string-values" aria-label="Permalink for Section 2.2"></a></div>
       
       <p>In some cases words may need to have their phonetic pronunciation prescribed by the content author. This may
@@ -437,7 +443,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <p>Based on the features and use cases described in the prior sections, the following table presents existing speech
       presentation standards, HTML features, and WAI-ARIA attributes that may offer a method to achieve the requirement
       for HTML authors. A blank cell for any approach represents a gap in support.</p>
-    <table border="1" cellpadding="2" cellspacing="2" width="100%">
+    <table>
       <tbody>
         <tr>
           <th >Requirement<br></th>
