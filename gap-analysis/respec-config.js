@@ -20,8 +20,8 @@ var respecConfig = {
 
     // if you wish the publication date to be other than today, set this
     //publishDate:  "2017-05-09",
-    copyrightStart:  "2018",
-    license: "w3c-software",
+    copyrightStart:  "2025",
+  license: "w3c-software-doc",
 
     // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
     // and its maturity status
@@ -40,27 +40,19 @@ var respecConfig = {
     // only "name" is required
     editors: [
       {
-        name: "Markku Hakkinen",
-        url: 'https://www.w3.org/users/35712',
-        mailto: "mhakkinen@ets.org",
-        company: "Educational Testing Service",
-        companyURI: "https://www.ets.org/",
-        w3cid: 35712
-      },
-      {
-        name: "Steve Noble",
+        name: "Paul Grenier",
         url: 'https://www.w3.org/users/112867',
-        mailto: "steve.noble@pearson.com",
-        company: "Pearson",
-        companyURI: "https://www.pearson.com/",
-        w3cid: 98332
+
+        company: "Invited Expert",
+
+        w3cid: 111500
       },
       {
         name: "Irfan Ali",
         url: 'https://www.w3.org/users/98332',
-        mailto: "irfan.ali@blackrock.com",
+
         company: "BlackRock",
-        companyURI: "https://www.blackrock.com",
+
         w3cid: 98332
       }
     ],

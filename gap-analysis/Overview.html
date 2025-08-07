@@ -41,6 +41,10 @@ dfn{cursor:pointer}
 .dfn-panel ul{padding:0}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+th, td {
+  text-align: center;   /* 相当于 align="center" */
+  vertical-align: top;  /* 相当于 valign="top" */
+}
 </style>
   
 <title>Pronunciation Gap Analysis</title>
@@ -149,32 +153,20 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "specStatus": "DNOTE",
   "noRecTrack": true,
   "shortName": "pronunciation-gap-analysis",
-  "copyrightStart": "2018",
-  "license": "w3c-software",
+  "copyrightStart": "2025",
+  "license": "w3c-software-doc",
   "edDraftURI": "https://w3c.github.io/pronunciation/gap-analysis",
   "editors": [
     {
-      "name": "Markku Hakkinen",
-      "url": "mailto:mhakkinen@ets.org",
-      "mailto": "mhakkinen@ets.org",
-      "company": "Educational Testing Service",
-      "companyURI": "https://www.ets.org/",
-      "w3cid": 35712
-    },
-    {
-      "name": "Steve Noble",
-      "url": "mailto:steve.noble@pearson.com",
-      "mailto": "steve.noble@pearson.com",
-      "company": "Pearson",
-      "companyURI": "https://www.pearson.com/",
-      "w3cid": 98332
+      "name": "Paul Grenier",
+      "url": "https://www.w3.org/users/112867",
+      "company": "Invited Expert",
+      "w3cid": 111500
     },
     {
       "name": "Irfan Ali",
-      "url": "mailto:irfan.ali@blackrock.com",
-      "mailto": "irfan.ali@blackrock.com",
+      "url": "https://www.w3.org/users/98332",
       "company": "BlackRock",
-      "companyURI": "https://www.blackrock.com",
       "w3cid": 98332
     }
   ],
@@ -210,12 +202,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         
         
         
-        <dt>Editors:</dt><dd class="editor p-author h-card vcard" data-editor-id="35712">
-    <a class="ed_mailto u-email email p-name" href="mailto:mhakkinen@ets.org">Markku Hakkinen</a> (<span class="p-org org h-org">Educational Testing Service</span>)
+        <dt>Editors:</dt><dd class="editor p-author h-card vcard" data-editor-id="111500">
+    <a class="u-url url p-name fn" href="https://www.w3.org/users/112867">Paul Grenier</a> (<span class="p-org org h-org">Invited Expert</span>)
   </dd><dd class="editor p-author h-card vcard" data-editor-id="98332">
-    <a class="ed_mailto u-email email p-name" href="mailto:steve.noble@pearson.com">Steve Noble</a> (<span class="p-org org h-org">Pearson</span>)
-  </dd><dd class="editor p-author h-card vcard" data-editor-id="98332">
-    <a class="ed_mailto u-email email p-name" href="mailto:irfan.ali@blackrock.com">Irfan Ali</a> (<span class="p-org org h-org">BlackRock</span>)
+    <a class="u-url url p-name fn" href="https://www.w3.org/users/98332">Irfan Ali</a> (<span class="p-org org h-org">BlackRock</span>)
   </dd>
         
         
@@ -234,18 +224,18 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <p class="copyright">
     <a href="https://www.w3.org/policies/#copyright">Copyright</a>
     ©
-    2018-2025
+    2025
     
     <a href="https://www.w3.org/">World Wide Web Consortium</a>.
     <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup>
     <a href="https://www.w3.org/policies/#Legal_Disclaimer">liability</a>,
     <a href="https://www.w3.org/policies/#W3C_Trademarks">trademark</a> and
-    <a rel="license" href="https://www.w3.org/copyright/software-license-2002/" title="W3C Software Notice and License">W3C Software</a> rules apply.
+    <a rel="license" href="https://www.w3.org/copyright/software-license-2023/" title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
   </p>
     <hr title="Separator for header">
   </div>
   <section id="abstract" class="introductory"><h2>Abstract</h2>
-    <div class="note" id="issue-container-generatedID"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="3"><span>Editor's note</span></div><p class="">This document was previously merged into the <a href="https://www.w3.org/TR/pronunciation-gap-analysis-and-use-cases/">Pronunciation Gap Analysis and Use Cases</a>. This Task Force now intends to separate
+    <div class="note" id="issue-container-generatedID"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="3"><span>Editor's note</span></div><p class="">This document was previously merged into the gap analysis. The working group now intends to separate
       it again and
       continue work on this document independently.</p></div>
     <p>This document is the Gap Analysis Review which presents required features of Spoken Text Pronunciation and
@@ -450,76 +440,76 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <table border="1" cellpadding="2" cellspacing="2" width="100%">
       <tbody>
         <tr>
-          <th align="left" valign="top">Requirement<br></th>
-          <th valign="top">HTML<br></th>
-          <th valign="top">WAI-ARIA<br></th>
-          <th valign="top">PLS<br></th>
-          <th valign="top">CSS Speech<br></th>
-          <th valign="top">SSML<br></th>
+          <th >Requirement<br></th>
+          <th>HTML<br></th>
+          <th>WAI-ARIA<br></th>
+          <th>PLS<br></th>
+          <th>CSS Speech<br></th>
+          <th>SSML<br></th>
         </tr>
         <tr>
-          <th align="left" valign="top">Language<br></th>
-          <td align="center" valign="top">Yes<br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top">Yes<br></td>
+          <th>Language<br></th>
+          <td>Yes<br></td>
+          <td><br></td>
+          <td><br></td>
+          <td><br></td>
+          <td>Yes<br></td>
         </tr>
         <tr>
-          <th align="left" valign="top">Voice Family/Gender<br></th>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top">Yes<br></td>
-          <td align="center" valign="top">Yes<br></td>
+          <th>Voice Family/Gender<br></th>
+          <td><br></td>
+          <td><br></td>
+          <td><br></td>
+          <td>Yes<br></td>
+          <td>Yes<br></td>
         </tr>
         <tr>
-          <th align="left" valign="top">Phonetic Pronunciation<br></th>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top">Yes<br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top">Yes<br></td>
+          <th>Phonetic Pronunciation<br></th>
+          <td><br></td>
+          <td><br></td>
+          <td>Yes<br></td>
+          <td><br></td>
+          <td>Yes<br></td>
         </tr>
         <tr>
-          <th align="left" valign="top">Substitution<br></th>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top">Partial<br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top">Yes<br></td>
+          <th>Substitution<br></th>
+          <td><br></td>
+          <td>Partial<br></td>
+          <td><br></td>
+          <td><br></td>
+          <td>Yes<br></td>
         </tr>
         <tr>
-          <th align="left" valign="top">Rate/Pitch/Volume<br></th>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top">Yes<br></td>
-          <td align="center" valign="top">Yes<br></td>
+          <th>Rate/Pitch/Volume<br></th>
+          <td><br></td>
+          <td><br></td>
+          <td><br></td>
+          <td>Yes<br></td>
+          <td>Yes<br></td>
         </tr>
         <tr>
-          <th align="left" valign="top">Emphasis<br></th>
-          <td align="center" valign="top">Yes<br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top">Yes<br></td>
-          <td align="center" valign="top">Yes<br></td>
+          <th>Emphasis<br></th>
+          <td>Yes<br></td>
+          <td><br></td>
+          <td><br></td>
+          <td>Yes<br></td>
+          <td>Yes<br></td>
         </tr>
         <tr>
-          <th align="left" valign="top">Say As<br></th>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top">Yes<br></td>
+          <th>Say As<br></th>
+          <td><br></td>
+          <td><br></td>
+          <td><br></td>
+          <td><br></td>
+          <td>Yes<br></td>
         </tr>
         <tr>
-          <th align="left" valign="top">Pausing<br></th>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top"><br></td>
-          <td align="center" valign="top">Yes<br></td>
-          <td align="center" valign="top">Yes<br></td>
+          <th>Pausing<br></th>
+          <td><br></td>
+          <td><br></td>
+          <td><br></td>
+          <td>Yes<br></td>
+          <td>Yes<br></td>
         </tr>
       </tbody>
     </table>
