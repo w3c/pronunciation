@@ -7,7 +7,7 @@ var respecConfig = {
     permalinkHide:     false,
     tocIntroductory: true,
     // specification status (e.g., WD, LC, NOTE, etc.). If in doubt use ED.
-    specStatus:           "ED",
+    specStatus:           "DNOTE",
     noRecTrack: true,
     //crEnd:                "2012-04-30",
     //perEnd:               "2013-07-23",
@@ -62,16 +62,6 @@ var respecConfig = {
         company: "BlackRock",
         companyURI: "https://www.blackrock.com",
         w3cid: 98332
-      },
-
-     
-      {
-        name: "Roy Ran",
-        url: 'https://www.w3.org',
-        mailto: "ran@w3.org",
-        company: "W3C",
-        companyURI: "http://www.w3.org",
-        w3cid: 100586
       }
     ],
 
@@ -95,21 +85,9 @@ var respecConfig = {
     // errata: 'http://www.w3.org/2010/02/rdfa/errata.html',
 
     // name of the WG
-    wg:           "Accessible Platform Architectures Working Group",
-
-    // URI of the public WG page
-    wgURI:        "https://www.w3.org/WAI/APA/",
-
-    // name (with the @w3c.org) of the public mailing to which comments are due
-    wgPublicList: "public-pronunciation",
-
-    // URI of the patent status for this WG, for Rec-track documents
-    // !!!! IMPORTANT !!!!
-    // This is important for Rec-track documents, do not copy a patent URI from a random
-    // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-    // Team Contact.
-    wgPatentURI:  "https://www.w3.org/2004/01/pp-impl/83907/status",
+  group: "apa",
     //maxTocLevel: 2,
+  github: "w3c/pronunciation",
 
    
 
