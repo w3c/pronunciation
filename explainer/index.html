@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.4.1">
+<meta name="generator" content="ReSpec 35.5.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 dfn{cursor:pointer}
@@ -134,15 +134,15 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   ],
   "group": "apa",
   "github": "https://github.com/w3c/pronunciation/",
-  "publishISODate": "2025-07-01T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 01 July 2025"
+  "publishISODate": "2025-09-22T00:00:00.000Z",
+  "generatedSubtitle": "W3C Editor's Draft 22 September 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
 	<body class="h-entry informative"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Explainer: Improving Spoken Presentation on the Web</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2025-07-01">01 July 2025</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2025-09-22">22 September 2025</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
@@ -209,15 +209,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr>
       publications and the latest revision of this technical report can be found
       in the
-      <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> standards and drafts index</a> at
-      https://www.w3.org/TR/.</em></p><p>
+      <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> standards and drafts index</a>.</em></p><p>
     This document was published by the <a href="https://www.w3.org/groups/wg/apa">Accessible Platform Architectures Working Group</a> as
     an Editor's Draft. 
   </p><p>Publication as an Editor's Draft does not
   imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. </p><p>
     This is a draft document and may be updated, replaced, or obsoleted by other
     documents at any time. It is inappropriate to cite this document as other
-    than work in progress.
+    than a work in progress.
     
   </p><p>
     
@@ -232,14 +231,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           made in connection with the deliverables of
           the group; that page also includes
           instructions for disclosing a patent. An individual who has actual
-          knowledge of a patent which the individual believes contains
+          knowledge of a patent that the individual believes contains
           <a href="https://www.w3.org/policies/patent-policy/#def-essential">Essential Claim(s)</a>
           must disclose the information in accordance with
           <a href="https://www.w3.org/policies/patent-policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
         
   </p><p>
                       This document is governed by the
-                      <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20231103/">03 November 2023 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+                      <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
                     </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#what-is-this"><bdi class="secno">2. </bdi>What is this?</a></li><li class="tocline"><a class="tocxref" href="#why-do-we-care"><bdi class="secno">3. </bdi>Why do we care?</a></li><li class="tocline"><a class="tocxref" href="#goals"><bdi class="secno">4. </bdi>Goals</a></li><li class="tocline"><a class="tocxref" href="#non-goals"><bdi class="secno">5. </bdi>Non-Goals</a></li><li class="tocline"><a class="tocxref" href="#approaches-considered"><bdi class="secno">6. </bdi>Approaches considered</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#in-line-ssml"><bdi class="secno">6.1 </bdi>In-line SSML</a></li><li class="tocline"><a class="tocxref" href="#attribute-based-model-of-ssml"><bdi class="secno">6.2 </bdi>Attribute-based Model of SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#open-questions"><bdi class="secno">7. </bdi>Open Questions</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgments</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ack_group"><bdi class="secno">A.1 </bdi>Participants active in the Pronunciation TF at the time of publication</a></li></ol></li></ol></nav>
 
 		<section class="informative" id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
