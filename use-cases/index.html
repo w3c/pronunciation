@@ -32,7 +32,6 @@
 				readers, obtain content via platform accessibility APIs.
 			</p>
 			
-			
 
 		</section>
 		<section>
@@ -501,73 +500,124 @@ customElements.define('ssml-speak', SSMLSpeak);</pre>
 				<li><strong>Digital Content Managers: </strong>Addresses activities related to those responsible for producing content that needs to be accessible to ATs and W3C-WAI Guidelines.</li>
 				<li><strong>Software Engineers: </strong>Includes developers and architects required to put TTS into an application or service.</li>
 			</ul>
-			<section>
-				<h2>End-Consumer of TTS</h2>
-				<p>Ultimately, the quality and variation of TTS rendering by assistive technologies vary widely according to a user's context. The following user scenarios reinforce the necessity for accurate pronunciation from the perspective of those who consume digitally generated content.</p>
-				<ul>
-					<li>A.	As a traveler who uses assistive technology (AT) with TTS to help navigate through websites, I need to hear arrival and destination codes pronounced accurately so I can select the desired travel itinerary. For example, a user with a visual impairment attempts to book a flight to Ottawa, Canada and so goes to a travel website. The user already knows the airport code and enters "YOW". The site produces the result in a drop-down list as "Ottawa, CA" but the AT does not pronounce the text accurately to help the user make the correct association between their data entry and the list item. </li>
-					<li>B.	As a test taker (tester) with a visual impairment who may use assistive technology to access the test content with speech software, screen reader or refreshable braille device, I want the content to be presented as intended, with accurate pronunciation and articulation, so that my assessment accurately reflects my knowledge of the content.</li>
-					<li>C.	As a student/learner with auditory and cognitive processing issues, it is difficult to distinguish sounds, inflections, and variations in pronunciation as rendered through synthetic voice, such as text-to-speech or screen reader technologies. Consistent and accurate pronunciation whether human-provided, external, or embedded is needed to support working executive processing, auditory processing and memory that facilitates comprehension in literacy and numeracy for learning and for assessments.</li>
-					<li>D.	As an English Learner (EL) or a visually impaired early learner using speech synthesis for reading comprehension that includes decoding words from letters as part of the learning construct (intent of measurement), pronunciation accuracy is vital to successful comprehension, as it allows the learner to distinguish sounds at the sentence, word, syllable, and phoneme level.</li>
-				</ul>
+			<p class=issue>Need to add the other categories, or remove the list above and just rely on the ToC.</p>
+		</section>
 			
-			</section>
+		<section>
+			<h1>Augmentative and Alternative Communication (AAC)</h1>
 			<section>
-				<h2>Digital Content Management for TTS</h2>
-				<p>The advent of graphical user interfaces (GUIs) for the management and editing of text content has given rise to content creators not requiring technical expertise beyond the ability to operate a text editing application such as Microsoft Word. The following scenario summarizes the general use, accompanied by a hypothetical application. </p>
-				<ul>
-					<li>A.	As a content creator, I want to create content that can readily be delivered through assistive technology, can convey the correct meaning, and ensure that screen readers render the right pronunciation based on the surrounding context. </li>
-					<li>B.	As a content producer for a global commercial site that is inclusive, I need to be able to provide accessible culture-specific content for different geographic regions.</li>
-				</ul>
-
+				<h2>Names</h2>
+				<p>As an AAC User I want my name to be pronounced correctly and I want to pronounce others names correctly using my AAC device.</p>
 				<section>
-					<h3>Educational Assessment</h3>
-					<p>In the educational assessment field, providing accurate and concise pronunciation for students with auditory accommodations, such as text-to-speech (TTS) or students with screen readers, is vital for ensuring content validity and alignment with the intended construct, which objectively measures a test takers knowledge and skills. For test administrators/educators, pronunciations must be consistent across instruction and assessment in order to avoid test bias or impact effects for students. Some additional requirements for the test administrators, include, but are not limited to, such scenarios:</p>
-					
-					<ul>
-						<li>A.	As a test administrator, I want to ensure that students with the read-aloud accommodation, who are using assistive technology or speech synthesis as an alternative to a human reader, have the same speech quality (e.g., intonation, expression, pronunciation, and pace, etc.) as a spoken language.</li>
-						<li>B.	As a math educator, I want to ensure that speech accuracy with mathematical expressions, including numbers, fractions, and operations have accurate pronunciation for those who rely on TTS. Some mathematical expressions require special pronunciations to ensure accurate interpretation while maintaining test validity and construct. Specific examples include:
-							<ul>
-								<li>Mathematical formulas written in simple text with special formatting should convey the correct meaning of the expression to identify changes from normal text to super- or to sub-script text. For example, without the proper formatting, the equation:<code>a<sup>3</sup>-b<sup>3</sup>=(a-b)(a<sup>2</sup>+ab+b<sup>2</sup>)</code> may incorrectly render through some technologies and applications as a3-b3=(a-b)(a2+ab+b2).</li>
-								<li>Distinctions made in writing are often not made explicit in speech; For example, “fx” may be interpreted as fx, f(x), fx, F X, F X. The distinction depends on the context; requiring the author to provide consistent and accurate semantic markup.</li>
-								<li>For math equations with Greek letters, it is important that the speech synthesizer be able to distinguish the phonetic differences between them, whether in the natural language or phonetic equivalents. For example, ε (epsilon) υ (upsilon) φ (phi) χ (chi) ξ(xi).</li>
-							</ul>
-
-						</li>
-						<li>C.	As a test administrator/educator, pronunciations must be consistent across instruction and assessment, in order to avoid test bias and pronunciation effects on performance for students with disabilities (SWD) in comparison to students without disabilities (SWOD). Examples include:
-							<ul>
-								<li>If a test question is measuring rhyming of words or sounds of words, the speech synthesis should not read aloud the words, but rather spell out the words in the answer options.</li>
-								<li>If a test question is measuring spelling and the student needs to consider spelling correctness/incorrectness, the speech synthesis should not read aloud the misspelt words, especially for words, such as:
-									<ul>
-										<li><strong>Heteronyms/homographs</strong>: same spelling, different pronunciation, different meanings, such as lead (to go in front of) or lead (a metal); wind (to follow a course that is not straight) or wind (a gust of air); bass (low, deep sound) or bass (a type of fish), etc.</li>
-										<li><strong>Homophone</strong>: words that sound alike, such as, to/two/too; there/their/they're; pray/prey; etc.</li>
-										<li><strong>Homonyms</strong>: multiple meaning words, such as scale (measure) or scale (climb, mount); fair (reasonable) or fair (carnival); suit (outfit) or suit (harmonize); etc.</li>
-									</ul>
-
-								</li>
-							</ul>
-
-						</li>
-					</ul>
-					
+					<h3>Storing others' names</h3>
+					<p>As an AAC user, I want to be able to input and store the correct pronunciation of others’ names, so I can address people respectfully and build meaningful relationships.</p>
+					<p>For instance, when meeting someone named “Nguyễn,” the AAC user wants to ensure their device pronounces the name correctly, using IPA or SSML markup, to foster respectful communication and avoid embarrassment.</p>
 				</section>
 				<section>
-					<h3>Academic and Linguistic Practitioners </h3>
-					<p>The extension of content management in TTS is one as a means of encoding and preserving spoken text for academic analyses; irrespective of discipline, subject domain, or research methodology.</p>
-					<ul>
-						<li>A.	As a linguist, I want to represent all the pronunciation variations of a given word in any language, for future analyses.</li>
-						<li>B.	As a speech language pathologist or speech therapists, I want TTS functionality to include components of speech and language that include dialectal and individual differences in pronunciation; identify differences in intonation, syntax, and semantics, and; allow for enhanced comprehension, language processing and support phonological awareness.</li>
-					</ul>
+					<h3>Pronouncing my name</h3>
+					<p>As an AAC user, I want my name to be pronounced correctly by my device, so that I can confidently introduce myself in social, educational, and professional settings.</p>
+					<p>For example, a user named “Siobhán” may find that default TTS engines mispronounce her name. She wants to input a phonetic or SSML-based pronunciation so that her name is spoken accurately every time.</p>
 				</section>
+			</section>
+		</section>
 
+		<section>
+			<h2>End-Consumer of TTS</h2>
+			<p>Ultimately, the quality and variation of TTS rendering by assistive technologies vary widely according to a user's context. The following user scenarios reinforce the necessity for accurate pronunciation from the perspective of those who consume digitally generated content.</p>
+			<section>
+				<h2>Traveller</h2>
+				<p>As a traveler who uses assistive technology (AT) with TTS to help navigate through websites, I need to hear arrival and destination codes pronounced accurately so I can select the desired travel itinerary. For example, a user with a visual impairment attempts to book a flight to Ottawa, Canada and so goes to a travel website. The user already knows the airport code and enters "YOW". The site produces the result in a drop-down list as "Ottawa, CA" but the AT does not pronounce the text accurately to help the user make the correct association between their data entry and the list item.</p>
 			</section>
 			<section>
-				<h2>Software Application Development</h2>
-				<p>Technical standards for software development assist organizations and individuals to provide accessible experiences for users with disabilities. The final user scenarios in this document are considered from the perspective of those who design and develop software. </p>
-				<ul>
-					<li>A.	As a Product Owner for a web content management system (CMS), I want the next software product release to have the capability of pronouncing speech "just like Alexa can".</li>
-					<li>B.	As a client-side user interface developer, I need a way to render text content, so it is spoken accurately with assistive technologies. </li>
-				</ul>
+				<h2>Test Taker</h2>
+				<p>As a test taker (tester) with a visual impairment who may use assistive technology to access the test content with speech software, screen reader or refreshable braille device, I want the content to be presented as intended, with accurate pronunciation and articulation, so that my assessment accurately reflects my knowledge of the content.</p>
+			</section>
+			<section>
+				<h2>Student</h2>
+				<p>As a student/learner with auditory and cognitive processing issues, it is difficult to distinguish sounds, inflections, and variations in pronunciation as rendered through synthetic voice, such as text-to-speech or screen reader technologies. Consistent and accurate pronunciation whether human-provided, external, or embedded is needed to support working executive processing, auditory processing and memory that facilitates comprehension in literacy and numeracy for learning and for assessments.</p>
+			</section>
+			<section>
+				<h2>English learner</h2>
+				<p>As an English Learner (EL) or a visually impaired early learner using speech synthesis for reading comprehension that includes decoding words from letters as part of the learning construct (intent of measurement), pronunciation accuracy is vital to successful comprehension, as it allows the learner to distinguish sounds at the sentence, word, syllable, and phoneme level.</p>
+			</section>
+		</section>
+
+		<section>
+			<h2>Digital Content Management for TTS</h2>
+			<p>The advent of graphical user interfaces (GUIs) for the management and editing of text content has given rise to content creators not requiring technical expertise beyond the ability to operate a text editing application such as Microsoft Word. The following scenario summarizes the general use, accompanied by a hypothetical application.</p>
+			<ul>
+				<li>As a content creator, I want to create content that can readily be delivered through assistive technology, can convey the correct meaning, and ensure that screen readers render the right pronunciation based on the surrounding context.</li>
+				<li>As a content producer for a global commercial site that is inclusive, I need to be able to provide accessible culture-specific content for different geographic regions.</li>
+			</ul>
+
+			<section>
+				<h3>Educational Assessment</h3>
+				<p>In the educational assessment field, providing accurate and concise pronunciation for students with auditory accommodations, such as text-to-speech (TTS) or students with screen readers, is vital for ensuring content validity and alignment with the intended construct, which objectively measures a test takers knowledge and skills. For test administrators/educators, pronunciations must be consistent across instruction and assessment in order to avoid test bias or impact effects for students. Some additional requirements for the test administrators, include, but are not limited to, such scenarios:</p>
+				<section>
+					<h3>Test Administrator&mdash;Read-aloud intonation, expression</h3>
+					<p>As a test administrator, I want to ensure that students with the read-aloud accommodation, who are using assistive technology or speech synthesis as an alternative to a human reader, have the same speech quality (e.g., intonation, expression, pronunciation, and pace, etc.) as a spoken language.</p>
+					<p class=issue>This may be simlar to the other Test Administrator case below?</p>
+				</section>
+				<section>
+					<h3>Math educator</h3>
+					<p>As a math educator, I want to ensure that speech accuracy with mathematical expressions, including numbers, fractions, and operations have accurate pronunciation for those who rely on TTS. Some mathematical expressions require special pronunciations to ensure accurate interpretation while maintaining test validity and construct. Specific examples include:</p>
+					<section>
+						<h4>Formulas</h4>
+						<p>Mathematical formulas written in simple text with special formatting should convey the correct meaning of the expression to identify changes from normal text to super- or to sub-script text. For example, without the proper formatting, the equation:<code>a<sup>3</sup>-b<sup>3</sup>=(a-b)(a<sup>2</sup>+ab+b<sup>2</sup>)</code> may incorrectly render through some technologies and applications as a3-b3=(a-b)(a2+ab+b2).</p>
+					</section>
+					<section>
+						<h4>Distinctions in writing</h4>
+						<p>Distinctions made in writing are often not made explicit in speech; For example, “fx” may be interpreted as fx, f(x), fx, F X, F X. The distinction depends on the context; requiring the author to provide consistent and accurate semantic markup.</p>
+					</section>
+					<section>
+						<h4>Greek letters</h4>
+						<p>For math equations with Greek letters, it is important that the speech synthesizer be able to distinguish the phonetic differences between them, whether in the natural language or phonetic equivalents. For example, ε (epsilon) υ (upsilon) φ (phi) χ (chi) ξ(xi).</p>
+					</section>
+				</section>
+				<section>
+					<h3>Test Administrator&mdash;consistent pronunciation</h3>
+					<p>As a test administrator/educator, pronunciations must be consistent across instruction and assessment, in order to avoid test bias and pronunciation effects on performance for students with disabilities (SWD) in comparison to students without disabilities (SWOD). Examples include:</p>
+					<section>
+						<h4>Spelling out rhyming words</h4>
+						<p>If a test question is measuring rhyming of words or sounds of words, the speech synthesis should not read aloud the words, but rather spell out the words in the answer options.</p>
+					</section>
+					<section>
+						<h4>Questions measuring spelling</h4>
+						<p>If a test question is measuring spelling and the student needs to consider spelling correctness/incorrectness, the speech synthesis should not read aloud the misspelt words, especially for words, such as:</p>
+						<ul>
+							<li><strong>Heteronyms/homographs</strong>: same spelling, different pronunciation, different meanings, such as lead (to go in front of) or lead (a metal); wind (to follow a course that is not straight) or wind (a gust of air); bass (low, deep sound) or bass (a type of fish), etc.</li>
+							<li><strong>Homophone</strong>: words that sound alike, such as, to/two/too; there/their/they're; pray/prey; etc.</li>
+							<li><strong>Homonyms</strong>: multiple meaning words, such as scale (measure) or scale (climb, mount); fair (reasonable) or fair (carnival); suit (outfit) or suit (harmonize); etc.</li>
+						</ul>
+					</section>
+				</section>
+			</section>
+
+			<section>
+				<h3>Academic and Linguistic Practitioners </h3>
+				<p>The extension of content management in TTS is one as a means of encoding and preserving spoken text for academic analyses; irrespective of discipline, subject domain, or research methodology.</p>
+				<section>
+					<h3>Linguist</h3>
+					<p>A.	As a linguist, I want to represent all the pronunciation variations of a given word in any language, for future analyses.</p>
+				</section>
+				<section>
+					<h3>Speech Language Pathologist, Speech Therapist</h3>
+					<p>As a speech language pathologist or speech therapists, I want TTS functionality to include components of speech and language that include dialectal and individual differences in pronunciation; identify differences in intonation, syntax, and semantics, and; allow for enhanced comprehension, language processing and support phonological awareness.</p>
+				</section>
+			</section>
+		</section>
+
+		<section>
+			<h2>Software Application Development</h2>
+			<p>Technical standards for software development assist organizations and individuals to provide accessible experiences for users with disabilities. The final user scenarios in this document are considered from the perspective of those who design and develop software.</p>
+			<p class=issue>Probably shouldn't use "final" here, as we mey re-order.</p>
+			<section>
+				<h3>Product owner</h3>
+				<p>As a Product Owner for a web content management system (CMS), I want the next software product release to have the capability of pronouncing speech "just like Alexa can".</p>
+			</section>
+			<section>
+				<h3>Client-side User Interface Developer</h3>
+				<p>As a client-side user interface developer, I need a way to render text content, so it is spoken accurately with assistive technologies.</p>
 			</section>
 		</section>
 
