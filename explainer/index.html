@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.5.1">
+<meta name="generator" content="ReSpec 35.6.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 dfn{cursor:pointer}
@@ -76,8 +76,7 @@ dd{margin-left:0}
 	
 <meta name="color-scheme" content="light">
 <meta name="description" content="The objective of the Pronunciation Task Force is to develop normative specifications and best practices guidance collaborating with other W3C groups as appropriate, to provide for proper pronunciation in HTML content when using text to speech (TTS) synthesis.  This document defines a standard mechanism to allow 
-				content authors to include spoken presentation guidance in HTML content. Also, it contains
-			two identified approaches and enumerates their advantages and disadvantages.">
+				content authors to include spoken presentation guidance in HTML content.">
 <style>
 var:hover{text-decoration:underline;cursor:pointer}
 var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}
@@ -134,15 +133,15 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   ],
   "group": "apa",
   "github": "https://github.com/w3c/pronunciation/",
-  "publishISODate": "2025-09-22T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 22 September 2025"
+  "publishISODate": "2025-10-27T00:00:00.000Z",
+  "generatedSubtitle": "W3C Editor's Draft 27 October 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
 	<body class="h-entry informative"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Explainer: Improving Spoken Presentation on the Web</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2025-09-22">22 September 2025</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2025-10-27">27 October 2025</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
@@ -200,8 +199,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             
             
 			<p>The objective of the Pronunciation Task Force is to develop normative specifications and best practices guidance collaborating with other <abbr title="World Wide Web Consortium">W3C</abbr> groups as appropriate, to provide for proper pronunciation in HTML content when using text to speech (TTS) synthesis.  This document defines a standard mechanism to allow 
-				content authors to include spoken presentation guidance in HTML content. Also, it contains
-			two identified approaches and enumerates their advantages and disadvantages.</p>
+				content authors to include spoken presentation guidance in HTML content.</p>
 
 		</section>
 
@@ -239,19 +237,19 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </p><p>
                       This document is governed by the
                       <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
-                    </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#what-is-this"><bdi class="secno">2. </bdi>What is this?</a></li><li class="tocline"><a class="tocxref" href="#why-do-we-care"><bdi class="secno">3. </bdi>Why do we care?</a></li><li class="tocline"><a class="tocxref" href="#goals"><bdi class="secno">4. </bdi>Goals</a></li><li class="tocline"><a class="tocxref" href="#non-goals"><bdi class="secno">5. </bdi>Non-Goals</a></li><li class="tocline"><a class="tocxref" href="#approaches-considered"><bdi class="secno">6. </bdi>Approaches considered</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#in-line-ssml"><bdi class="secno">6.1 </bdi>In-line SSML</a></li><li class="tocline"><a class="tocxref" href="#attribute-based-model-of-ssml"><bdi class="secno">6.2 </bdi>Attribute-based Model of SSML</a></li></ol></li><li class="tocline"><a class="tocxref" href="#open-questions"><bdi class="secno">7. </bdi>Open Questions</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgments</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ack_group"><bdi class="secno">A.1 </bdi>Participants active in the Pronunciation TF at the time of publication</a></li></ol></li></ol></nav>
+                    </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#what-is-this"><bdi class="secno">2. </bdi>What is this?</a></li><li class="tocline"><a class="tocxref" href="#why-do-we-care"><bdi class="secno">3. </bdi>Why do we care?</a></li><li class="tocline"><a class="tocxref" href="#goals"><bdi class="secno">4. </bdi>Goals</a></li><li class="tocline"><a class="tocxref" href="#open-questions"><bdi class="secno">5. </bdi>Open Questions</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgments</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ack_group"><bdi class="secno">A.1 </bdi>Participants active in the Pronunciation TF at the time of publication</a></li></ol></li></ol></nav>
 
 		<section class="informative" id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
 
 			
-			<p>Accurate, consistent pronunciation and presentation of content spoken by text to speech synthesis (TTS) is an essential requirement in education, 
+			<p>Accurate, consistent pronunciation and presentation of content spoken by text-to-speech (TTS) synthesis is an essential requirement in education, 
 				communication, entertainment, and other domains. 
 				From helping to teach spelling and pronunciation in different languages, to reading learning materials or new stories,
 				TTS has become a vital technology for providing access to digital content on the web, through mobile devices, and now via voice-based assistants. 
 				Organizations such as educational publishers and assessment vendors are looking for a standards-based solution to 
-				enable authoring of spoken presentation guidance in HTML which can then be consumed by assistive technologies and other 
+				enable authoring of spoken presentation guidance in HTML which can then be consumed by assistive technologies (AT) and other 
 				applications that utilize text to speech synthesis (TTS) for rendering of content. 
-				Historically, efforts at standardization (e.g. SSML or CSS Speech) have not led to broad adoption of any standard by user agents, authors or assistive technologies; 
+				Historically, efforts at standardization (e.g. SSML or CSS Speech) have not led to broad adoption of any standard by user agents, authors, or AT; 
 				what has arisen are a variety of non-interoperable approaches that meet specific needs for some applications. This explainer document presents the case for 
 			improving spoken presentation on the Web and how a standards-based approach can address the requirements.</p>
 	
@@ -259,21 +257,20 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 		</section>
 		<section id="what-is-this"><div class="header-wrapper"><h2 id="x2-what-is-this"><bdi class="secno">2. </bdi>What is this?</h2><a class="self-link" href="#what-is-this" aria-label="Permalink for Section 2."></a></div>
 			
-			<p>This is a proposal for a mechanism to allow content authors to include spoken presentation guidance in HTML content.  Such guidance can be used by assistive technologies (including screen readers and read aloud tools) and voice assistants to control text to speech synthesis. A key requirement is to ensure the spoken presentation content matches the author's intent and user expectations.</p>
-			<p>Currently, the <abbr title="World Wide Web Consortium">W3C</abbr> SSML standard is seen as an important piece of a solution. The challenge is integrating SSML into HTML so that it is easy to author, does not "break" content, and is straightforward for consumption by assistive technologies, voice assistants, and other tools that produce spoken presentation of content.</p>
-			<p>This proposal has emerged from the work of the Accessible Platform Architecture Pronunciation Task Force and represents a decision point arising from two differing approaches for integrating SSML (or SSML-like characteristics) into HTML.  Each of the approaches differs in authoring and consumption models (specifically for assistive technologies).</p>
+			<p>This is a proposal for a mechanism to allow content authors to include spoken presentation guidance in HTML content.  Such guidance can be used by AT (including screen readers and read aloud tools) and voice assistants to control TTS synthesis. A key requirement is to ensure the spoken presentation content matches the author's intent and user expectations.</p>
+			<p>The challenge is integrating pronunciation content into HTML so that it is easy to author, does not "break" content, and is straightforward for consumption by AT, voice assistants, and other tools that produce spoken presentation of content.</p>
 		</section>
 		<section id="why-do-we-care"><div class="header-wrapper"><h2 id="x3-why-do-we-care"><bdi class="secno">3. </bdi>Why do we care?</h2><a class="self-link" href="#why-do-we-care" aria-label="Permalink for Section 3."></a></div>
 			
-			<p>Several classes of assistive technology users depend upon spoken rendering of web content by text to speech synthesis (TTS). In contexts such as education, there are specific expectations for accuracy of spoken presentation in terms of pronunciation, emphasis, prosody, pausing, etc.</p>
+			<p>Several classes of AT users depend upon spoken rendering of web content by TTS synthesis. In contexts such as education, there are specific expectations for accuracy of spoken presentation in terms of pronunciation, emphasis, prosody, pausing, etc.</p>
 			<p>Correct pronunciation is also important in the context of language learning, where incorrect pronunciation can confuse learners.</p>
-			<p>In practice, the ecosystem of devices used in classrooms is broad, and each vendor generally provides their own text to speech engines for their platforms.  Ensuring consistent spoken presentation across devices is a very real problem, and challenge. For many educational assessment vendors, the problem necessitates non-interoperable hacks to tune pronunciation and other presentation features, such as pausing, which itself can introduce new problems through inconsistent representation of text across speech and braille.</p>
+			<p>In practice, the ecosystem of devices used in classrooms is broad, and each vendor generally provides their own TTS engines for their platforms.  Ensuring consistent spoken presentation across devices is a very real problem, and challenge. For many educational assessment vendors, the problem necessitates non-interoperable hacks to tune pronunciation and other presentation features, such as pausing, which itself can introduce new problems through inconsistent representation of text across speech and braille.</p>
 			<p>It could be argued that continual advances in machine learning will improve the quality of synthesized speech, reducing the need for this proposal. Waiting for a robust solution that will likely still not fully address our needs is risky, especially when an authorable, declarative approach may be within reach (and wouldn't preclude or conflict with continual improvement in TTS technology).</p>
 			<p>The current situation:</p>
 			<ul>
 				<li>Is an authoring challenge for content developers that wish to support spoken presentation</li>
 				<li>Limits interoperability and exchange of content between vendors and platforms</li>
-				<li>Is an implementation challenge for developers creating assistive technologies and read aloud capabilities</li>
+				<li>Is an implementation challenge for developers creating AT and read aloud capabilities</li>
 				<li>Presents an inconsistent, potentially confusing user experience for listeners of TTS</li>
 			</ul>
 			<p>With the growing consumer adoption of voice assistants, user expectations for high quality spoken presentation is growing.  Google and Amazon both encourage application developers to utilize SSML to enhance the user experience on their platforms, yet Web content authors do not have the same opportunity to enhance the spoken presentation of their content.</p>
@@ -283,52 +280,23 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 			
 			<ul>
 				<li>Define a standard mechanism that enables spoken presentation guidance to be authored in HTML</li>
-				<li>Leverage SSML, if possible, as it is an existing standard that meets all identified requirements, and is supported by many speech synthesis platforms</li>
-				<li>The mechanism must be consumable by assistive technologies such as screen readers</li>
+				<li>Leverage existing specifications, if possible</li>
+				<li>The mechanism must be consumable by AT such as screen readers</li>
+				<li>Address use cases with features, not a unified specification that attempts to cover all scenarios</li>
 			</ul>
 		</section>
-		<section id="non-goals"><div class="header-wrapper"><h2 id="x5-non-goals"><bdi class="secno">5. </bdi>Non-Goals</h2><a class="self-link" href="#non-goals" aria-label="Permalink for Section 5."></a></div>
-			
-			<ul>
-				<li>Not trying to create a new speech presentation standard</li>
-				<li>Not trying to resurrect CSS Speech (incomplete solution in any case)</li>
-			</ul>
-		</section>
-		<section id="approaches-considered"><div class="header-wrapper"><h2 id="x6-approaches-considered"><bdi class="secno">6. </bdi>Approaches considered</h2><a class="self-link" href="#approaches-considered" aria-label="Permalink for Section 6."></a></div>
-			
-			<p>A variety of approaches have been identified thus far by the Task Force, 
-				but two are considered front runners:</p>
-			<ol>
-				<li>In-line SSML within Web Content</li>
-				<li>Attribute-based Model of SSML</li>
-			</ol>
-			<p>Both approaches have advantages and disadvantages and these are  briefly summarized below.</p>
-			<section id="in-line-ssml"><div class="header-wrapper"><h3 id="x6-1-in-line-ssml"><bdi class="secno">6.1 </bdi>In-line SSML</h3><a class="self-link" href="#in-line-ssml" aria-label="Permalink for Section 6.1"></a></div>
-				
-				<p>Advantages including the existence of SSML standard that is directly consumable by many speech synthesizers, and the precedent for in-lining non-HTML markup such as SVG and MathML. Also, this approach may be more easily consumed by Voice Assistants.</p>
-				<p>A key disadvantage is that inline SSML appears to be more difficult for Assistive Technologies to implement, specifically for screen readers.</p>
-				<p>A simple example of in-line SSML in an HTML fragment is shown below:</p>
-				<div class="example">
-					<p>According the 2010 US Census, the population of &lt;speak&gt;&lt;say-as interpret-as="digits"&gt;90274&lt;/say-as&gt;&lt;/speak&gt; increased to 25209 from 24976 over the past 10 years.</p>
-				</div>
-			</section>
-			<section id="attribute-based-model-of-ssml"><div class="header-wrapper"><h3 id="x6-2-attribute-based-model-of-ssml"><bdi class="secno">6.2 </bdi>Attribute-based Model of SSML</h3><a class="self-link" href="#attribute-based-model-of-ssml" aria-label="Permalink for Section 6.2"></a></div>
-				
-				<p>Advantages include the current uses of variants of the attribute model are currently used by educational assessment vendors, these variants are supported by custom read aloud tools, and it appears that the attribute model may be more easily implementable by screen reader vendors. For example, the EPUB3 standard includes the SSML phoneme element implemented as a pair of namespaced attributes and is used by publishers in Japan.</p>
-				<p>Disadvantages may include challenges resulting from the use of JSON. The introduction of JSON may add a level of complexity to authoring. However, this could be mitigated by authoring tools. This approach requires transforming the attribute content represented in JSON into SSML by the consumer (screen reader, read aloud tool, voice assistant, etc.). Possible security concerns exist with the JSON approach. The EPUB approach would lead to a large number of attributes if all the SSML elements were to be implemented in that manner.</p>
-				<p>Furthermore, no other standard uses string JSON values for attributes in HTML. This may cause problems for implementers who must parse the JSON values before processing. The browser, which normally attempts to address malformed HTML, can make no guarantees about the JSON strings. Implementers must decide how to handle malformed JSON.</p>
-				<p>Finally, the schema for <code>data-ssml</code> values has not been set. Competing standards for this format, like <a href="http://webschemas.org/SpeakableSpecification">SpeakableSpecification</a>, as well as any issues converting SSML to a proper JSON schema could cause confusion for implementors and authors. Often such conversions are "...not exactly 1:1 transformation, but very very close".</p>
-				<p>A simple example of the attribute based model of SSML is shown below:</p>
-				<div class="example">
-					<p>According the 2010 US Census, the population of &lt;span data-ssml='{"say-as" : {"interpret-as":"digits"}}'&gt;90274&lt;/span&gt; increased to 25209 from 24976 over the past 10 years.</p>
-				</div>
-			</section>
-		</section>
-		<section id="open-questions"><div class="header-wrapper"><h2 id="x7-open-questions"><bdi class="secno">7. </bdi>Open Questions</h2><a class="self-link" href="#open-questions" aria-label="Permalink for Section 7."></a></div>
+		<section id="open-questions"><div class="header-wrapper"><h2 id="x5-open-questions"><bdi class="secno">5. </bdi>Open Questions</h2><a class="self-link" href="#open-questions" aria-label="Permalink for Section 5."></a></div>
 			
 			<ol>
-				<li>From the TAG/WHATWG perspective,  what disadvantages/challenges have we missed with either approach?</li>
-				<li>Whichever approach makes sense from the web standards perspective, will/can it be adopted by assistive technologies? Particularly for screen readers, does it fit the accessibility API model?</li>
+				<li>What is the best approach to authoring spoken presentation guidance in HTML?  Possible approaches include:
+					<ul>
+						<li>Using existing elements and attributes in HTML (e.g. <code>&lt;span&gt;</code> with ARIA attributes)</li>
+						<li>Defining new elements and/or attributes in HTML</li>
+						<li>Using an existing specification such as SSML or CSS Speech within HTML</li>
+					</ul>
+				</li>
+				<li>What spoken presentation features should be supported in the initial version of the specification?</li>
+				<li>How to ensure that the mechanism is easy to author, does not "break" content, and is straightforward for consumption by AT and other tools that produce spoken presentation of content?</li>
 			</ol>
 		</section>
 
